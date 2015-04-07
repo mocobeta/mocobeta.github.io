@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to janome’s documentation! &mdash; janome 0.1.0 ドキュメント</title>
+    <title>Welcome to janome’s documentation! &mdash; Janome 0.1.3 ドキュメント</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.1.0',
+        VERSION:     '0.1.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,11 +24,11 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <link rel="top" title="janome 0.1.0 ドキュメント" href="#" /> 
+    <link rel="top" title="Janome 0.1.3 ドキュメント" href="#" /> 
   </head>
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="#">
-          <span>janome 0.1.0 ドキュメント</span></a></h1>
+          <span>Janome 0.1.3 ドキュメント</span></a></h1>
         <h2 class="heading"><span>Welcome to janome’s documentation!</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -59,32 +59,20 @@
 </div>
 <div class="section" id="id3">
 <h2>バージョン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>0.1.0</p>
+<p>0.1.3</p>
 </div>
 <div class="section" id="id4">
 <h2>インストール<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="pypi">
 <h3>PyPI<a class="headerlink" href="#pypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
-</div>
-<div class="section" id="id5">
-<h3>ソースからビルド<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Github のリポジトリを clone してください.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git clone https://github.com/mocobeta/janome.git
-
-(venv)$ python -V
-Python 3.4.2
-
-(venv) $ python setup.py install
-Finished processing dependencies for Janome==0.1.0
-
-(venv) $ pip freeze
-Janome==0.1.0
+<p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
+<div class="highlight-python"><div class="highlight"><pre>$ pip install janome
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>使い方<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id5">
+<h2>使い方<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>janome.tokenizer パッケージの Tokenizer オブジェクトを作り, tokenize() メソッドに解析したい文字列を渡します.</p>
 <p>戻り値は Token オブジェクトのリストです. Token は表層形や品詞といった形態素情報を含みます. 詳しくは help() や <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/janome/tokenizer.py">ソースコード</a> をご参照ください.</p>
 <div class="highlight-python"><div class="highlight"><pre>(venv) $ python
@@ -103,8 +91,8 @@ Janome==0.1.0
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>ユーザー定義辞書を使う<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id7">
+<h2>ユーザー定義辞書を使う<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ユーザー定義辞書のフォーマットは, Mecab 辞書と同じです. たとえば以下のような CSV ファイルを作成し, Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します.</p>
 <p>辞書フォーマットは MeCab の <a class="reference external" href="http://mecab.googlecode.com/svn/trunk/mecab/doc/dic.html">ドキュメント</a> をご参照ください.</p>
 <p>userdic.csv</p>
@@ -137,8 +125,8 @@ Janome==0.1.0
 。     記号,句点,*,*,*,*,。,。,。
 </pre></div>
 </div>
-<div class="section" id="id10">
-<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id9">
+<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユーザー定義辞書は, 巨大になるとバイナリコンパイルに時間がかかるため, あらかじめコンパイルしておき, コンパイル済みの辞書を使うことも可能です.</p>
 <p>現在のところ, コンパイルのためのツールはありませんが, API を使ってコンパイルが行えます.</p>
 <p>辞書のコンパイル</p>
@@ -154,8 +142,8 @@ Janome==0.1.0
 </div>
 </div>
 </div>
-<div class="section" id="id11">
-<h2>よくある（かもしれない）質問<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id10">
+<h2>よくある（かもしれない）質問<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li>Tokenizer の初期化が遅いんだけど.</li>
 </ol>
@@ -180,7 +168,7 @@ Janome==0.1.0
 <ol class="upperalpha simple">
 <li>辞書は, FST (正確には Minimal Acyclic Subsequential Transducer, <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.3698">論文</a>) を使っています. 実装は <a class="reference external" href="https://lucene.apache.org/core/">Apache Lucene</a> (Kuromoji) と <a class="reference external" href="https://github.com/ikawaha/kagome">Kagome</a> を参考にさせていただきました. エンジンはオーソドックスなビタビで, ほぼ <a class="reference external" href="http://www.amazon.co.jp/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%A5%A5%E6%9D%91-%E5%AD%A6/dp/4339024511">自然言語処理の基礎</a> の3章だけ読んで書きました.</li>
 </ol>
-<p>Janome は Lucene の単語辞書やクエリパーサで使われている FST について調べていて生まれました. もし興味があれば, 以下もどうぞ...</p>
+<p>Janome は Lucene の単語辞書やクエリパーサで使われている FST について調べていて生まれました. もしも内部実装にご興味があれば, 以下もどうぞ.</p>
 <ul class="simple">
 <li><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/111076688132/lucene-fst-1">Lucene FST のアルゴリズム (1) ～図解編～</a></li>
 <li><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/113693778372/lucene-fst-2">Lucene FST のアルゴリズム (2) 〜実装編〜</a></li>
@@ -189,7 +177,7 @@ Janome==0.1.0
 <li>Python 2 系への対応は.</li>
 </ol>
 <ol class="upperalpha simple">
-<li>デスヨネー. 3 系で導入されたバイナリシーケンス型 (bytes, bytearray) を多用しているので, 簡単にはいかないかなあ...</li>
+<li>デスヨネー. 3 系で導入されたバイナリシーケンス型 (bytes, bytearray) を多用しているので, 簡単にはいかないかも...</li>
 </ol>
 <ol class="upperalpha simple" start="17">
 <li>学習機ついてないの.</li>
@@ -216,8 +204,8 @@ Janome==0.1.0
 <li>&#64;moco_beta 宛につぶやくか, Github リポジトリに <a class="reference external" href="https://github.com/mocobeta/janome/issues">Issue</a> 立ててください.</li>
 </ol>
 </div>
-<div class="section" id="id14">
-<h2>やりたいことリスト<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id13">
+<h2>やりたいことリスト<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>ラティスの可視化</li>
 <li>neologd 対応</li>
@@ -228,10 +216,18 @@ Janome==0.1.0
 <li>Lucene の Analyzer みたいに, 文字フィルタやトークンフィルタがあったら便利そう</li>
 </ul>
 </div>
-<div class="section" id="changes">
-<h2>Changes<a class="headerlink" href="#changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Apache License 2.0</p>
+</div>
+<div class="section" id="copyright">
+<h2>Copyright<a class="headerlink" href="#copyright" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Copyright(C) &#64;moco_beta All rights reserved.</p>
+</div>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>2015.04.07 バージョン 0.1.0 公開</li>
+<li>2015.04.08 Version 0.1.3 公開</li>
 </ul>
 </div>
 </div>
