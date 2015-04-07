@@ -103,8 +103,7 @@
 </div>
 <div class="highlight-python"><div class="highlight"><pre>(venv) $ python
 &gt;&gt;&gt; from janome.tokenizer import Tokenizer
-&gt;&gt;&gt; t = Tokenizer(&quot;../tests/user_ipadic.csv&quot;)
-&gt;&gt;&gt; t = Tokenizer(udic=&quot;user_ipadic.csv&quot;, udic_enc=&quot;utf8&quot;)
+&gt;&gt;&gt; t = Tokenizer(udic=&quot;userdic.csv&quot;, udic_enc=&quot;utf8&quot;)
 &gt;&gt;&gt; for token in t.tokenize(&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;):
 ...   print(token)
 ...
@@ -132,12 +131,12 @@
 <p>辞書のコンパイル</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">connections</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s">&quot;../tests/user_ipadic.csv&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">,</span> <span class="s">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">,</span> <span class="s">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>これで, /tmp/userdic 以下にコンパイル済みのユーザー辞書が保存されます. 使うときは Tokenizer のコンストラクタにディレクトリのパスを指定します.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s">&quot;/home/moco/tmp/userdic&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
