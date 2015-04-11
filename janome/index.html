@@ -100,6 +100,17 @@
 うち  名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ
 </pre></div>
 </div>
+<div class="section" id="for-janomepy2-windows-users">
+<h3>for janomePy2 Windows users<a class="headerlink" href="#for-janomepy2-windows-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>janomePy2 の Token.__str__() の戻りは utf8 なので, そのまま出力すると文字化けします. encode(&#8216;utf8&#8217;) をかけてください.</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; python
+&gt;&gt;&gt; from janome.tokenizer import Tokenizer
+&gt;&gt;&gt; t = Tokenizer()
+&gt;&gt;&gt; for token in t.tokenize(u&#39;すもももももももものうち&#39;):
+...     print(str(token).decode(&#39;utf8&#39;))
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="id7">
 <h2>ユーザー定義辞書を使う<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
