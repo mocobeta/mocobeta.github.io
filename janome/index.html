@@ -70,7 +70,14 @@
 <h2>インストール<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="pypi">
 <h3>PyPI<a class="headerlink" href="#pypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>注意: バイナリ配布だと、PyPI のサイズ制限に引っかかったため、ソース配布になっています。ビルド時にそれなりのメモリを必要とします(最大3GB程度の様子). 貧弱なマシンや、他の重い処理が走っているときに同時にビルドするとマシンが凍る可能性がありますのでご注意ください.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">バイナリ配布だと PyPI のサイズ制限に引っかかったため, ソース配布になっています. ビルド時に 3~4 GB程度のメモリを必要とします. 貧弱なマシンや, 他の重い処理が走っているときに同時にビルドするとマシンが凍る可能性がありますのでご注意ください.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Windows の 32 bit 版 Python だとビルド時に Meomory Error でこけます. 64 bit 版を使ってください.</p>
+</div>
 <p>for Python 3.4+ users: <a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install janome
 </pre></div>
@@ -102,7 +109,7 @@
 </div>
 <div class="section" id="for-janomepy2-windows-users">
 <h3>for janomePy2 Windows users<a class="headerlink" href="#for-janomepy2-windows-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>janomePy2 の Token.__str__() の戻りは utf8 なので, そのまま出力すると文字化けします. encode(&#8216;utf8&#8217;) をかけてください.</p>
+<p>janomePy2 の Token.__str__() の戻りは utf8 なので, そのまま出力すると文字化けします. decode(&#8216;utf8&#8217;) をかけてください.</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; python
 &gt;&gt;&gt; from janome.tokenizer import Tokenizer
 &gt;&gt;&gt; t = Tokenizer()
@@ -197,7 +204,7 @@
 <li>Python 2 系への対応は.</li>
 </ol>
 <ol class="upperalpha simple">
-<li>デスヨネー. -&gt; 対応しました. janomePy2 をご利用ください.</li>
+<li>デスヨネー. =&gt; 対応しました. janomePy2 をご利用ください.</li>
 </ol>
 <ol class="upperalpha simple" start="17">
 <li>学習器ついてないの.</li>
@@ -242,7 +249,7 @@
 </div>
 <div class="section" id="copyright">
 <h2>Copyright<a class="headerlink" href="#copyright" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Copyright(C) 2015, &#64;moco_beta All rights reserved.</p>
+<p>Copyright(C) 2015, moco_beta All rights reserved.</p>
 </div>
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
