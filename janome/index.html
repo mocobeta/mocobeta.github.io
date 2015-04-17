@@ -72,11 +72,11 @@
 <h3>PyPI<a class="headerlink" href="#pypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">バイナリ配布だと PyPI のサイズ制限に引っかかったため, ソース配布になっています. ビルド時に 3~4 GB程度のメモリを必要とします. 貧弱なマシンや, 他の重い処理が走っているときに同時にビルドするとマシンが凍る可能性がありますのでご注意ください.</p>
+<p class="last">バイナリ配布だと PyPI のサイズ制限に引っかかったため, ソース配布になっています. ビルド時に 3~4 GB程度のメモリを必要とします. 貧弱なマシンや, 他の重い処理が走っているときに同時にビルドするとマシンが凍る可能性がありますのでご注意ください. (改善検討中...)</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Windows の 32 bit 版 Python だとビルド時に Meomory Error でこけます. 64 bit 版を使ってください.</p>
+<p class="last">上記の理由により, 現行バージョンでは 32 bit 版 Python だとビルド時に Meomory Error でこけます. 64 bit 版を使ってください.</p>
 </div>
 <p>for Python 3.4+ users: <a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install janome
