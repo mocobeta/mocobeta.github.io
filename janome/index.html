@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -44,15 +45,14 @@
   <div class="section" id="welcome-to-janome-s-documentation">
 <h1>Welcome to janome&#8217;s documentation!<a class="headerlink" href="#welcome-to-janome-s-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="janome">
-<h2>Janome とは<a class="headerlink" href="#janome" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Janome (蛇の目) は, Pure Python で書かれた, 辞書内包の形態素解析器です.</p>
+<h2>janome とは<a class="headerlink" href="#janome" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>janome (蛇の目) は, Pure Python で書かれた, 辞書内包の形態素解析器です.</p>
 <p>依存ライブラリなしで簡単にインストールでき, アプリケーションに組み込みやすいシンプルな API を備える形態素解析ライブラリを目指しています.</p>
 <p>内包辞書として mecab-ipadic-2.7.0-20070801 を使っています.</p>
 </div>
 <div class="section" id="id1">
 <h2>ソースコードリポジトリ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mocobeta/janome">https://github.com/mocobeta/janome</a></p>
-<p>master リポジトリが janome 用, 2x_support ブランチが janomePy2 用です.</p>
 </div>
 <div class="section" id="id2">
 <h2>動作に必要なソフトウェア<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -60,10 +60,11 @@
 </div>
 <div class="section" id="id3">
 <h2>バージョン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>janome (for Python 3) と janomePy2 (for Python 2.7) があります. minor version が同じなら同等の動作をします.</p>
+<p><span class="strike">janome (for Python 3) と janomePy2 (for Python 2.7) があります. minor version が同じなら同等の動作をします.</span></p>
+<p>janome が Python 2.7, Python 3.4 両方に対応したので, janomePy2 は不要になりました. Python 2.7 系, 3 系のどちらでも janome をご利用ください.</p>
 <ul class="simple">
-<li>janome: 0.1.4</li>
-<li>janomePy2: 0.1.4</li>
+<li>janome: 0.2.0</li>
+<li><span class="strike">janomePy2: 0.1.4</span></li>
 </ul>
 </div>
 <div class="section" id="id4">
@@ -72,26 +73,23 @@
 <h3>PyPI<a class="headerlink" href="#pypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="admonition warning">
 <p class="first admonition-title">警告</p>
-<p class="last">バイナリ配布だと PyPI のサイズ制限に引っかかったため, ソース配布になっています. ビルド時に 3~4 GB程度のメモリを必要とします. 貧弱なマシンや, 他の重い処理が走っているときに同時にビルドするとマシンが凍る可能性がありますのでご注意ください. (改善検討中...)</p>
+<p class="last">pip でのビルド時に 3~4 GB程度のメモリを必要とします. 貧弱なマシンや, 他の重い処理が走っているときに同時にビルドするとマシンが凍る可能性がありますのでご注意ください. (改善検討中...)</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">上記の理由により, 現行バージョンでは 32 bit 版 Python だとビルド時に Meomory Error でこけます. 64 bit 版を使ってください.</p>
 </div>
-<p>for Python 3.4+ users: <a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
+<p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install janome
 </pre></div>
 </div>
-<p>for Python 2.7 users: <a class="reference external" href="https://pypi.python.org/pypi/JanomePy2">https://pypi.python.org/pypi/JanomePy2</a></p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install janomePy2
-</pre></div>
-</div>
+<p><span class="strike">for Python 2.7 users: https://pypi.python.org/pypi/JanomePy2</span></p>
 </div>
 </div>
 <div class="section" id="id5">
 <h2>使い方<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>janome.tokenizer パッケージの Tokenizer オブジェクトを作り, tokenize() メソッドに解析したい文字列を渡します.</p>
-<p>戻り値は Token オブジェクトのリストです. Token は表層形や品詞といった形態素情報を含みます. 詳しくは help() や <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/janome/tokenizer.py">ソースコード</a> をご参照ください.</p>
+<p>戻り値は Token オブジェクトのリストです. Token は表層形や品詞といった形態素情報を含みます. 詳しくは dir() や <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/janome/tokenizer.py">ソースコード</a> をご参照ください.</p>
 <div class="highlight-python"><div class="highlight"><pre>(venv) $ python
 &gt;&gt;&gt; from janome.tokenizer import Tokenizer
 &gt;&gt;&gt; t = Tokenizer()
@@ -107,9 +105,9 @@
 うち  名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ
 </pre></div>
 </div>
-<div class="section" id="for-janomepy2-windows-users">
-<h3>for janomePy2 Windows users<a class="headerlink" href="#for-janomepy2-windows-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>janomePy2 の Token.__str__() の戻りは utf8 なので, そのまま出力すると文字化けします. decode(&#8216;utf8&#8217;) をかけてください.</p>
+<div class="section" id="for-windows-users">
+<h3>for Windows users<a class="headerlink" href="#for-windows-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>文字化けする場合は decode(&#8216;utf8&#8217;) をかけてください.</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; python
 &gt;&gt;&gt; from janome.tokenizer import Tokenizer
 &gt;&gt;&gt; t = Tokenizer()
@@ -121,7 +119,7 @@
 </div>
 <div class="section" id="id7">
 <h2>ユーザー定義辞書を使う<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ユーザー定義辞書のフォーマットは, Mecab 辞書と同じです. たとえば以下のような CSV ファイルを作成し, Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します.</p>
+<p>ユーザー定義辞書のフォーマットは, MeCab 辞書と同じです. たとえば以下のような CSV ファイルを作成し, Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します.</p>
 <p>辞書フォーマットは MeCab の <a class="reference external" href="http://mecab.googlecode.com/svn/trunk/mecab/doc/dic.html">ドキュメント</a> をご参照ください.</p>
 <p>userdic.csv</p>
 <div class="highlight-python"><div class="highlight"><pre>東京スカイツリー,1288,1288,4569,名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー
@@ -193,7 +191,7 @@
 <li>実装（データ構造, アルゴリズム）について.</li>
 </ol>
 <ol class="upperalpha simple">
-<li>辞書は, FST (正確には Minimal Acyclic Subsequential Transducer, <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.3698">論文</a>) を使っています. 実装は <a class="reference external" href="https://lucene.apache.org/core/">Apache Lucene</a> (Kuromoji) と <a class="reference external" href="https://github.com/ikawaha/kagome">Kagome</a> を参考にさせていただきました. エンジンはオーソドックスなビタビで, ほぼ <a class="reference external" href="http://www.amazon.co.jp/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%A5%A5%E6%9D%91-%E5%AD%A6/dp/4339024511">自然言語処理の基礎</a> の3章だけ読んで書きました.</li>
+<li>辞書は, FST (正確には Minimal Acyclic Subsequential Transducer, <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.3698">論文</a>) を使っています. 実装は <a class="reference external" href="https://lucene.apache.org/core/">Apache Lucene</a> (Kuromoji) と <a class="reference external" href="https://github.com/ikawaha/kagome">kagome</a> を参考にさせていただきました. エンジンはオーソドックスなビタビで, ほぼ <a class="reference external" href="http://www.amazon.co.jp/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%A5%A5%E6%9D%91-%E5%AD%A6/dp/4339024511">自然言語処理の基礎</a> の3章だけ読んで書きました.</li>
 </ol>
 <p>Janome は Lucene の単語辞書やクエリパーサで使われている FST について調べていて生まれました. もしも内部実装にご興味があれば, 以下もどうぞ.</p>
 <ul class="simple">
@@ -204,7 +202,7 @@
 <li>Python 2 系への対応は.</li>
 </ol>
 <ol class="upperalpha simple">
-<li>デスヨネー. =&gt; 対応しました. janomePy2 をご利用ください.</li>
+<li>デスヨネー. =&gt; 対応しました. janomePy2 をご利用ください. =&gt; janome 本体が Python2.7 にも対応しました.</li>
 </ol>
 <ol class="upperalpha simple" start="17">
 <li>学習器ついてないの.</li>
@@ -254,6 +252,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2015.04.24 janome Version 0.2.0 リリース / janomePy2 は deprecated (数日中に PyPI から削除します.)</li>
 <li>2015.04.11 janome Version 0.1.4 リリース / janomePy2 0.1.4 公開</li>
 <li>2015.04.08 janome Version 0.1.3 公開</li>
 </ul>
