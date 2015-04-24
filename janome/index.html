@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to janome’s documentation! &mdash; Janome 0.2.0 ドキュメント</title>
+    <title>Welcome to janome’s documentation! &mdash; Janome v0.2 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.2.0',
+        VERSION:     '0.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,11 +25,11 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <link rel="top" title="Janome 0.2.0 ドキュメント" href="#" /> 
+    <link rel="top" title="Janome v0.2 documentation" href="#" /> 
   </head>
   <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="#">
-          <span>Janome 0.2.0 ドキュメント</span></a></h1>
+          <span>Janome v0.2 documentation</span></a></h1>
         <h2 class="heading"><span>Welcome to janome’s documentation!</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -63,7 +63,7 @@
 <p><span class="strike">janome (for Python 3) と janomePy2 (for Python 2.7) があります. minor version が同じなら同等の動作をします.</span></p>
 <p>janome が Python 2.7, Python 3.4 両方に対応したので, janomePy2 は不要になりました. Python 2.7 系, 3 系のどちらでも janome をご利用ください.</p>
 <ul class="simple">
-<li>janome: 0.2.0</li>
+<li>janome: 0.2.1</li>
 <li><span class="strike">janomePy2: 0.1.4</span></li>
 </ul>
 </div>
@@ -156,8 +156,8 @@
 <p>現在のところ, コンパイルのためのツールはありませんが, API を使ってコンパイルが行えます.</p>
 <p>辞書のコンパイル</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">connections</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">,</span> <span class="s">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">SYS_DIC</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">,</span> <span class="s">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connectionsFST</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -251,7 +251,9 @@
 </div>
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>詳細: <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/CHANGES.txt">CHANGES</a></p>
 <ul class="simple">
+<li>2015.04.24 janome Version 0.2.1 リリース</li>
 <li>2015.04.24 janome Version 0.2.0 リリース / janomePy2 は deprecated (数日中に PyPI から削除します.)</li>
 <li>2015.04.11 janome Version 0.1.4 リリース / janomePy2 0.1.4 公開</li>
 <li>2015.04.08 janome Version 0.1.3 公開</li>
