@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.2.1',
+        VERSION:     '0.2.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -63,7 +63,7 @@
 <p><span class="strike">janome (for Python 3) と janomePy2 (for Python 2.7) があります. minor version が同じなら同等の動作をします.</span></p>
 <p>janome が Python 2.7, Python 3.4 両方に対応したので, janomePy2 は不要になりました. Python 2.7 系, 3 系のどちらでも janome をご利用ください.</p>
 <ul class="simple">
-<li>janome: 0.2.2</li>
+<li>janome: 0.2.3</li>
 <li><span class="strike">janomePy2: 0.1.4</span></li>
 </ul>
 </div>
@@ -157,7 +157,7 @@
 <p>辞書のコンパイル</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">SYS_DIC</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">,</span> <span class="s">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connectionsFST</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">,</span> <span class="s">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -247,7 +247,8 @@
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Apache License 2.0</p>
+<p>Licensed under Apache License 2.0 and uses the MeCab-IPADIC dictionary/statistical model.</p>
+<p>See <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/LICENSE.txt">LICENSE.txt</a> and <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/NOTICE.txt">NOTICE.txt</a> for license details.</p>
 </div>
 <div class="section" id="copyright">
 <h2>Copyright<a class="headerlink" href="#copyright" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -256,6 +257,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2015.05.03 janome Version 0.2.3 リリース</li>
 <li>2015.04.24 janome Version 0.2.2 リリース</li>
 <li>2015.04.24 janome Version 0.2.0 リリース / janomePy2 は deprecated (数日中に PyPI から削除します.)</li>
 <li>2015.04.11 janome Version 0.1.4 リリース / janomePy2 0.1.4 公開</li>
