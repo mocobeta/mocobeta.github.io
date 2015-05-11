@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.2.4',
+        VERSION:     '0.2.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -63,7 +63,7 @@
 <p><span class="strike">janome (for Python 3) と janomePy2 (for Python 2.7) があります. minor version が同じなら同等の動作をします.</span></p>
 <p>janome が Python 2.7, Python 3.4 両方に対応したので, janomePy2 は不要になりました. Python 2.7 系, 3 系のどちらでも janome をご利用ください.</p>
 <ul class="simple">
-<li>janome: 0.2.4</li>
+<li>janome: 0.2.5</li>
 <li><span class="strike">janomePy2: 0.1.4</span></li>
 </ul>
 </div>
@@ -172,7 +172,11 @@
 </div>
 </div>
 <div class="section" id="id10">
-<h2>よくある（かもしれない）質問<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>大きな文書を解析する際の注意<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>現行バージョン(0.2系)では, 入力全体を読んでラティスを構築するため, 入力文字列が大きくなると多くのリソースを消費します. 数十キロバイト以上の文書を解析する場合は, なるべく適度に分割して与えてください. 次のバージョン(0.3系)で, 大きな入力が与えられた場合は, 部分的な解析を行う(最適解を求めることを諦め, 近似解を求める)ことでメモリ消費を一定以下に抑える回避策をとる予定です.</p>
+</div>
+<div class="section" id="id11">
+<h2>よくある（かもしれない）質問<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li>Tokenizer の初期化が遅いんだけど.</li>
 </ol>
@@ -233,8 +237,8 @@
 <li><a class="reference external" href="https://twitter.com/moco_beta">&#64;moco_beta</a> 宛につぶやくか, Github リポジトリに <a class="reference external" href="https://github.com/mocobeta/janome/issues">Issue</a> 立ててください.</li>
 </ol>
 </div>
-<div class="section" id="id13">
-<h2>やりたいことリスト<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id14">
+<h2>やりたいことリスト<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>単語グラフ(ラティス)の可視化</li>
 <li>neologd 対応</li>
@@ -257,6 +261,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2015.05.11 janome Version 0.2.5 リリース</li>
 <li>2015.05.03 janome Version 0.2.4 リリース</li>
 <li>2015.05.03 janome Version 0.2.3 リリース</li>
 <li>2015.04.24 janome Version 0.2.2 リリース</li>
