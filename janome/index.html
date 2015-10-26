@@ -63,7 +63,7 @@
 <p><span class="strike">janome (for Python 3) と janomePy2 (for Python 2.7) があります. minor version が同じなら同等の動作をします.</span></p>
 <p>janome が Python 2.7, Python 3.4 両方に対応したので, janomePy2 は不要になりました. Python 2.7 系, 3 系のどちらでも janome をご利用ください.</p>
 <ul class="simple">
-<li>janome: 0.2.5</li>
+<li>janome: 0.2.6</li>
 <li><span class="strike">janomePy2: 0.1.4</span></li>
 </ul>
 </div>
@@ -71,13 +71,11 @@
 <h2>インストール<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="pypi">
 <h3>PyPI<a class="headerlink" href="#pypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="admonition warning">
-<p class="first admonition-title">警告</p>
-<p class="last">pip でのビルド時に 3~4 GB程度のメモリを必要とします. 貧弱なマシンや, 他の重い処理が走っているときに同時にビルドするとマシンが凍る可能性がありますのでご注意ください. (改善検討中...)</p>
-</div>
+<p><span class="strike">pip でのビルド時に 3~4 GB程度のメモリを必要とします. 貧弱なマシンや, 他の重い処理が走っているときに同時にビルドするとマシンが凍る可能性がありますのでご注意ください. (改善検討中...)</span></p>
+<p><span class="strike">上記の理由により, 現行バージョンでは 32 bit 版 Python だとビルド時に Meomory Error でこけます. 64 bit 版を使ってください.</span></p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">上記の理由により, 現行バージョンでは 32 bit 版 Python だとビルド時に Meomory Error でこけます. 64 bit 版を使ってください.</p>
+<p class="last">pip でのビルド時に 500 ~ 600 MB 程度のメモリを必要とします. 利用可能なメモリ容量にご注意ください. (バージョン 0.2.6 より, RAM 2GB 程度のマシンや 32 bit 環境でもインストールできるようになりました.)</p>
 </div>
 <p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install janome
@@ -134,20 +132,20 @@
 ...   print(token)
 ...
 
-東京スカイツリー      名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー
-へ     助詞,格助詞,一般,*,*,*,へ,ヘ,エ
-の         助詞,連体化,*,*,*,*,の,ノ,ノ
-お越し   名詞,一般,*,*,*,*,お越し,オコシ,オコシ
-は         助詞,係助詞,*,*,*,*,は,ハ,ワ
-、         記号,読点,*,*,*,*,、,、,、
-東武スカイツリーライン   名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン
-「         記号,括弧開,*,*,*,*,「,「,「
+東京スカイツリー         名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー
+へ        助詞,格助詞,一般,*,*,*,へ,ヘ,エ
+の        助詞,連体化,*,*,*,*,の,ノ,ノ
+お越し    名詞,一般,*,*,*,*,お越し,オコシ,オコシ
+は        助詞,係助詞,*,*,*,*,は,ハ,ワ
+、        記号,読点,*,*,*,*,、,、,、
+東武スカイツリーライン    名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン
+「        記号,括弧開,*,*,*,*,「,「,「
 とうきょうスカイツリー駅  名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ
-」         記号,括弧閉,*,*,*,*,」,」,」
-が         助詞,格助詞,一般,*,*,*,が,ガ,ガ
-便利    名詞,形容動詞語幹,*,*,*,*,便利,ベンリ,ベンリ
+」        記号,括弧閉,*,*,*,*,」,」,」
+が        助詞,格助詞,一般,*,*,*,が,ガ,ガ
+便利      名詞,形容動詞語幹,*,*,*,*,便利,ベンリ,ベンリ
 です      助動詞,*,*,*,特殊・デス,基本形,です,デス,デス
-。     記号,句点,*,*,*,*,。,。,。
+。        記号,句点,*,*,*,*,。,。,。
 </pre></div>
 </div>
 <div class="section" id="id9">
@@ -169,6 +167,22 @@
 <p class="first admonition-title">注釈</p>
 <p class="last">コンパイル済みユーザー辞書は, コンパイル時と読み取り時で同一のメジャーバージョンの Python を使ってください. 辞書の前方/後方互換性は保証されないため, Python のメジャーバージョンが異なると読めない可能性があります.</p>
 </div>
+</div>
+</div>
+<div class="section" id="experimental">
+<h2>コマンドラインから使う (experimental)<a class="headerlink" href="#experimental" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>v0.2.6 より, コマンドラインから実行可能なスクリプト janome がついています. (Linux/Mac のみ. Windows 版(bat)は少々お待ちください.)</p>
+<p>簡単に動作を確認したいときにお使いください.</p>
+<p>標準入力から文字列を受け取り、形態素解析を実行します. 指定できるオプションを見るには &#8220;janome -h&#8221; とタイプしてください.</p>
+<div class="highlight-python"><div class="highlight"><pre>(env)$ janome
+猫は液体である
+猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
+は    助詞,係助詞,*,*,*,*,は,ハ,ワ
+液体  名詞,一般,*,*,*,*,液体,エキタイ,エキタイ
+で    助動詞,*,*,*,特殊・ダ,連用形,だ,デ,デ
+ある  助動詞,*,*,*,五段・ラ行アル,基本形,ある,アル,アル
+(Ctrl-C で終了)
+</pre></div>
 </div>
 </div>
 <div class="section" id="id10">
@@ -261,6 +275,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2015.10.26 janome Version 0.2.6 リリース</li>
 <li>2015.05.11 janome Version 0.2.5 リリース</li>
 <li>2015.05.03 janome Version 0.2.4 リリース</li>
 <li>2015.05.03 janome Version 0.2.3 リリース</li>
