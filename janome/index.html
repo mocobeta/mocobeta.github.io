@@ -56,14 +56,14 @@
 </div>
 <div class="section" id="id2">
 <h2>動作に必要なソフトウェア<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Python 2.7 または Python 3.4+ インタプリタ</p>
+<p>Python 2.7.x または Python 3.4+ インタプリタ</p>
 </div>
 <div class="section" id="id3">
 <h2>バージョン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><span class="strike">janome (for Python 3) と janomePy2 (for Python 2.7) があります. minor version が同じなら同等の動作をします.</span></p>
 <p>janome が Python 2.7, Python 3.4 両方に対応したので, janomePy2 は不要になりました. Python 2.7 系, 3 系のどちらでも janome をご利用ください.</p>
 <ul class="simple">
-<li>janome: 0.2.6</li>
+<li>janome: 0.2.7</li>
 <li><span class="strike">janomePy2: 0.1.4</span></li>
 </ul>
 </div>
@@ -78,7 +78,7 @@
 <p class="last">pip でのビルド時に 500 ~ 600 MB 程度のメモリを必要とします. 利用可能なメモリ容量にご注意ください. (バージョン 0.2.6 より, RAM 2GB 程度のマシンや 32 bit 環境でもインストールできるようになりました.)</p>
 </div>
 <p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>pip install janome
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install janome
 </pre></div>
 </div>
 <p><span class="strike">for Python 2.7 users: https://pypi.python.org/pypi/JanomePy2</span></p>
@@ -88,79 +88,118 @@
 <h2>使い方<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>janome.tokenizer パッケージの Tokenizer オブジェクトを作り, tokenize() メソッドに解析したい文字列を渡します.</p>
 <p>戻り値は Token オブジェクトのリストです. Token は表層形や品詞といった形態素情報を含みます. 詳しくは dir() や <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/janome/tokenizer.py">ソースコード</a> をご参照ください.</p>
-<div class="highlight-python"><div class="highlight"><pre>(venv) $ python
-&gt;&gt;&gt; from janome.tokenizer import Tokenizer
-&gt;&gt;&gt; t = Tokenizer()
-&gt;&gt;&gt; for token in t.tokenize(u&#39;すもももももももものうち&#39;):
-...     print(token)
-...
-すもも 名詞,一般,*,*,*,*,すもも,スモモ,スモモ
-も    助詞,係助詞,*,*,*,*,も,モ,モ
-もも  名詞,一般,*,*,*,*,もも,モモ,モモ
-も    助詞,係助詞,*,*,*,*,も,モ,モ
-もも  名詞,一般,*,*,*,*,もも,モモ,モモ
-の    助詞,連体化,*,*,*,*,の,ノ,ノ
-うち  名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;すもももももももものうち&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">すもも 名詞,一般,*,*,*,*,すもも,スモモ,スモモ</span>
+<span class="go">も    助詞,係助詞,*,*,*,*,も,モ,モ</span>
+<span class="go">もも  名詞,一般,*,*,*,*,もも,モモ,モモ</span>
+<span class="go">も    助詞,係助詞,*,*,*,*,も,モ,モ</span>
+<span class="go">もも  名詞,一般,*,*,*,*,もも,モモ,モモ</span>
+<span class="go">の    助詞,連体化,*,*,*,*,の,ノ,ノ</span>
+<span class="go">うち  名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ</span>
 </pre></div>
 </div>
 <div class="section" id="for-windows-users">
 <h3>for Windows users<a class="headerlink" href="#for-windows-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>文字化けする場合は decode(&#8216;utf8&#8217;) をかけてください.</p>
-<div class="highlight-python"><div class="highlight"><pre>&gt; python
-&gt;&gt;&gt; from janome.tokenizer import Tokenizer
-&gt;&gt;&gt; t = Tokenizer()
-&gt;&gt;&gt; for token in t.tokenize(u&#39;すもももももももものうち&#39;):
-...     print(str(token).decode(&#39;utf8&#39;))
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;すもももももももものうち&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="id7">
 <h2>ユーザー定義辞書を使う<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ユーザー定義辞書のフォーマットは, MeCab 辞書と同じです. たとえば以下のような CSV ファイルを作成し, Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します.</p>
+<div class="section" id="mecab-ipadic">
+<h3>MeCab IPADIC フォーマット<a class="headerlink" href="#mecab-ipadic" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>デフォルトユーザー定義辞書のフォーマットは, MeCab 辞書と同じです. たとえば以下のような CSV ファイルを作成し, Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します.</p>
 <p>辞書フォーマットは MeCab の <a class="reference external" href="http://mecab.googlecode.com/svn/trunk/mecab/doc/dic.html">ドキュメント</a> をご参照ください.</p>
 <p>userdic.csv</p>
-<div class="highlight-python"><div class="highlight"><pre>東京スカイツリー,1288,1288,4569,名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー
+<div class="highlight-python"><div class="highlight"><pre><span></span>東京スカイツリー,1288,1288,4569,名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー
 東武スカイツリーライン,1288,1288,4700,名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン
 とうきょうスカイツリー駅,1288,1288,4143,名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>(venv) $ python
-&gt;&gt;&gt; from janome.tokenizer import Tokenizer
-&gt;&gt;&gt; t = Tokenizer(udic=&quot;userdic.csv&quot;, udic_enc=&quot;utf8&quot;)
-&gt;&gt;&gt; for token in t.tokenize(u&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;):
-...   print(token)
-...
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
 
-東京スカイツリー         名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー
-へ        助詞,格助詞,一般,*,*,*,へ,ヘ,エ
-の        助詞,連体化,*,*,*,*,の,ノ,ノ
-お越し    名詞,一般,*,*,*,*,お越し,オコシ,オコシ
-は        助詞,係助詞,*,*,*,*,は,ハ,ワ
-、        記号,読点,*,*,*,*,、,、,、
-東武スカイツリーライン    名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン
-「        記号,括弧開,*,*,*,*,「,「,「
-とうきょうスカイツリー駅  名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ
-」        記号,括弧閉,*,*,*,*,」,」,」
-が        助詞,格助詞,一般,*,*,*,が,ガ,ガ
-便利      名詞,形容動詞語幹,*,*,*,*,便利,ベンリ,ベンリ
-です      助動詞,*,*,*,特殊・デス,基本形,です,デス,デス
-。        記号,句点,*,*,*,*,。,。,。
+<span class="go">東京スカイツリー         名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー</span>
+<span class="go">へ        助詞,格助詞,一般,*,*,*,へ,ヘ,エ</span>
+<span class="go">の        助詞,連体化,*,*,*,*,の,ノ,ノ</span>
+<span class="go">お越し    名詞,一般,*,*,*,*,お越し,オコシ,オコシ</span>
+<span class="go">は        助詞,係助詞,*,*,*,*,は,ハ,ワ</span>
+<span class="go">、        記号,読点,*,*,*,*,、,、,、</span>
+<span class="go">東武スカイツリーライン    名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン</span>
+<span class="go">「        記号,括弧開,*,*,*,*,「,「,「</span>
+<span class="go">とうきょうスカイツリー駅  名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ</span>
+<span class="go">」        記号,括弧閉,*,*,*,*,」,」,」</span>
+<span class="go">が        助詞,格助詞,一般,*,*,*,が,ガ,ガ</span>
+<span class="go">便利      名詞,形容動詞語幹,*,*,*,*,便利,ベンリ,ベンリ</span>
+<span class="go">です      助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+<span class="go">。        記号,句点,*,*,*,*,。,。,。</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="v0-2-7">
+<h3>簡略辞書フォーマット (v0.2.7 以上)<a class="headerlink" href="#v0-2-7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Kuromoji のユーザー辞書に似た, 簡略化された辞書フォーマットです(ただし janome には search mode がないため, search mode 用の項目はありません). 表層形, 品詞, 読みのみを記述し, 詳細品詞やスコアは指定できません.</p>
+<p>簡略辞書フォーマットを使うには,以下のような「&lt;表層形&gt;,&lt;品詞&gt;,&lt;読み&gt;」を並べた CSV ファイルを用意し, Tokenizer 初期化時にファイルパスと辞書タイプ(udic_type=&#8217;simpledic&#8217;)を指定してください.</p>
+<p>user_simpledic.csv</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>東京スカイツリー,カスタム名詞,トウキョウスカイツリー
+東武スカイツリーライン,カスタム名詞,トウブスカイツリーライン
+とうきょうスカイツリー駅,カスタム名詞,トウキョウスカイツリーエキ
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便 利です。&#39;</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">東京スカイツリー     カスタム名詞,*,*,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー</span>
+<span class="go">へ    助詞,格助詞,一般,*,*,*,へ,ヘ,エ</span>
+<span class="go">の    助詞,連体化,*,*,*,*,の,ノ,ノ</span>
+<span class="go">お越し    名詞,一般,*,*,*,*,お越し,オコシ,オコシ</span>
+<span class="go">は    助詞,係助詞,*,*,*,*,は,ハ,ワ</span>
+<span class="go">、    記号,読点,*,*,*,*,、,、,、</span>
+<span class="go">東武スカイツリーライン   カスタム名詞,*,*,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン</span>
+<span class="go">「    記号,括弧開,*,*,*,*,「,「,「</span>
+<span class="go">とうきょうスカイツリー駅    カスタム名詞,*,*,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ</span>
+<span class="go"> 」   記号,括弧閉,*,*,*,*,」,」,」</span>
+<span class="go">が    助詞,格助詞,一般,*,*,*,が,ガ,ガ</span>
+<span class="go">便利    名詞,形容動詞語幹,*,*,*,*,便利,ベンリ,ベンリ</span>
+<span class="go">です    助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+<span class="go">。    記号,句点,*,*,*,*,。,。,。</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id9">
 <h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユーザー定義辞書は, 巨大になるとバイナリコンパイルに時間がかかるため, あらかじめコンパイルしておき, コンパイル済みの辞書を使うことも可能です.</p>
 <p>現在のところ, コンパイルのためのツールはありませんが, API を使ってコンパイルが行えます.</p>
-<p>辞書のコンパイル</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
+<p>辞書のコンパイル(MeCab IPADIC)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">SYS_DIC</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s">&quot;utf8&quot;</span><span class="p">,</span> <span class="s">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>辞書のコンパイル(simplified format)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">SYS_DIC</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>これで, /tmp/userdic 以下にコンパイル済みのユーザー辞書が保存されます. 使うときは Tokenizer のコンストラクタにディレクトリのパスを指定します.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -169,12 +208,12 @@
 </div>
 </div>
 </div>
-<div class="section" id="experimental">
-<h2>コマンドラインから使う (experimental)<a class="headerlink" href="#experimental" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>v0.2.6 より, コマンドラインから実行可能なスクリプト janome がついています. (Linux/Mac のみ. Windows 版(bat)は少々お待ちください.)</p>
+<div class="section" id="v0-2-6-lunux-mac-only">
+<h2>コマンドラインから使う (v0.2.6 以上, Lunux/Mac only)<a class="headerlink" href="#v0-2-6-lunux-mac-only" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>コマンドラインから実行可能なスクリプト janome がついています. (Linux/Mac のみ. Windows 版(bat)は少々お待ちください.)</p>
 <p>簡単に動作を確認したいときにお使いください.</p>
 <p>標準入力から文字列を受け取り、形態素解析を実行します. 指定できるオプションを見るには &#8220;janome -h&#8221; とタイプしてください.</p>
-<div class="highlight-python"><div class="highlight"><pre>(env)$ janome
+<div class="highlight-python"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
 猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
 は    助詞,係助詞,*,*,*,*,は,ハ,ワ
@@ -217,7 +256,6 @@
 </ol>
 <p>Janome は Lucene の単語辞書やクエリパーサで使われている FST について調べていて生まれました. もしも内部実装にご興味があれば, 以下もどうぞ.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://www.slideshare.net/tomokouchida505/pyconjp2015-python">Python で作って学ぶ形態素解析 &#64; PyConJP 2015</a></li>
 <li><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/111076688132/lucene-fst-1">Lucene FST のアルゴリズム (1) ～図解編～</a></li>
 <li><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/113693778372/lucene-fst-2">Lucene FST のアルゴリズム (2) 〜実装編〜</a></li>
 </ul>
@@ -260,6 +298,7 @@
 <li>UniDic 対応</li>
 <li>N-Best パス</li>
 <li>API ドキュメント</li>
+<li>SEARCH モード (検索のリコール向上を目的としたモード)</li>
 <li>Lucene の Analyzer みたいに, 文字フィルタやトークンフィルタがあったら便利そう</li>
 </ul>
 </div>
@@ -275,6 +314,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2016.03.05 janome Version 0.2.7 リリース</li>
 <li>2015.10.26 janome Version 0.2.6 リリース</li>
 <li>2015.05.11 janome Version 0.2.5 リリース</li>
 <li>2015.05.03 janome Version 0.2.4 リリース</li>
@@ -300,7 +340,7 @@
 
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Tomoko Uchida.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6 で生成しました。
     </div>
   </body>
 </html>
