@@ -178,7 +178,7 @@
 <div class="section" id="pre-compiled-user-dictionary">
 <h3>Pre-compiled user dictionary<a class="headerlink" href="#pre-compiled-user-dictionary" title="Permalink to this headline">¶</a></h3>
 <p>With large user dictionary, it can take much time to convert CSV file to the binary data structure. You can compile the user dictionary in advance and use that at runtime.</p>
-<p>So there is no tools for compiling user dictionary at current version, use APIs as below.</p>
+<p>Fow now, there is no tools for compiling user dictionary. Use APIs as below.</p>
 <p>How to compile user dictionary (MeCab IPADIC format):</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">SYS_DIC</span>
@@ -199,7 +199,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Use same major python version both at compile time and runtime.  Forward/backward dictionary data compatibility is not guaranteed.</p>
+<p class="last">Use same major python version at both compile time and runtime.  Forward/backward dictionary data compatibility is not guaranteed.</p>
 </div>
 </div>
 </div>
