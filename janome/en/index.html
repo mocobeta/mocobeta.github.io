@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to janome’s documentation! &mdash; Janome v0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Janome v0.2 documentation" href="#" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="#">
+          <span>Janome v0.2 documentation</span></a></h1>
+        <h2 class="heading"><span>Welcome to janome’s documentation!</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        <a class="uplink" href="#">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="welcome-to-janome-s-documentation">
+<h1>Welcome to janome&#8217;s documentation!<a class="headerlink" href="#welcome-to-janome-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://mocobeta.github.io/janome/">Japanese</a></p>
+<div class="section" id="what-s-janome">
+<h2>What&#8217;s Janome?<a class="headerlink" href="#what-s-janome" title="Permalink to this headline">¶</a></h2>
+<p>Janome (蛇の目) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model.</p>
+<p>We aim to build a library which is easy to install and provides simple and consice APIs for various python applications.</p>
+<p>Janome uses mecab-ipadic-2.7.0-20070801 (originally created for <a class="reference external" href="http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html">MeCab</a> ) as the built-in dictionary.</p>
+</div>
+<div class="section" id="source-codes">
+<h2>Source Codes<a class="headerlink" href="#source-codes" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/mocobeta/janome">https://github.com/mocobeta/janome</a></p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Python 2.7.x or Python 3.4+ interpreter</p>
+</div>
+<div class="section" id="current-version">
+<h2>Current version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>janome: 0.2.7</li>
+</ul>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pypi">
+<h3>PyPI<a class="headerlink" href="#pypi" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It requires 500 to 600 MB RAM for install and pre-compile dictionary data.</p>
+</div>
+<p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install janome
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Create janome.tokenizer.Tokenizer object and call tokenize() method with the sentences you want to analyze.</p>
+<p>The return value is a list of Token objects. Token includes morphological information such as surface form, part-of-speech. See dir() or <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/janome/tokenizer.py">source codes</a> for more details.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;すもももももももものうち&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">すもも 名詞,一般,*,*,*,*,すもも,スモモ,スモモ</span>
+<span class="go">も    助詞,係助詞,*,*,*,*,も,モ,モ</span>
+<span class="go">もも  名詞,一般,*,*,*,*,もも,モモ,モモ</span>
+<span class="go">も    助詞,係助詞,*,*,*,*,も,モ,モ</span>
+<span class="go">もも  名詞,一般,*,*,*,*,もも,モモ,モモ</span>
+<span class="go">の    助詞,連体化,*,*,*,*,の,ノ,ノ</span>
+<span class="go">うち  名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ</span>
+</pre></div>
+</div>
+<div class="section" id="for-windows-users">
+<h3>for Windows users<a class="headerlink" href="#for-windows-users" title="Permalink to this headline">¶</a></h3>
+<p>Use decode(&#8216;utf8&#8217;) if output is garbled.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;すもももももももものうち&#39;</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="use-user-defined-dictionary">
+<h2>Use user defined dictionary<a class="headerlink" href="#use-user-defined-dictionary" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mecab-ipadic-format">
+<h3>MeCab IPADIC format<a class="headerlink" href="#mecab-ipadic-format" title="Permalink to this headline">¶</a></h3>
+<p>You can add custom entries to the built-in dictionary at runtime by using user defined dictionary.</p>
+<p>Default dictionary format is equal to MeCab IPADIC format. Create a CSV file as below and pass the file path and the character encoding to Tokenizer&#8217;s constructor.</p>
+<p>See the <a class="reference external" href="http://mecab.googlecode.com/svn/trunk/mecab/doc/dic.html">MeCab document</a> for more details.</p>
+<p>userdic.csv</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>東京スカイツリー,1288,1288,4569,名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー
+東武スカイツリーライン,1288,1288,4700,名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン
+とうきょうスカイツリー駅,1288,1288,4143,名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
+
+<span class="go">東京スカイツリー         名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー</span>
+<span class="go">へ        助詞,格助詞,一般,*,*,*,へ,ヘ,エ</span>
+<span class="go">の        助詞,連体化,*,*,*,*,の,ノ,ノ</span>
+<span class="go">お越し    名詞,一般,*,*,*,*,お越し,オコシ,オコシ</span>
+<span class="go">は        助詞,係助詞,*,*,*,*,は,ハ,ワ</span>
+<span class="go">、        記号,読点,*,*,*,*,、,、,、</span>
+<span class="go">東武スカイツリーライン    名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン</span>
+<span class="go">「        記号,括弧開,*,*,*,*,「,「,「</span>
+<span class="go">とうきょうスカイツリー駅  名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ</span>
+<span class="go">」        記号,括弧閉,*,*,*,*,」,」,」</span>
+<span class="go">が        助詞,格助詞,一般,*,*,*,が,ガ,ガ</span>
+<span class="go">便利      名詞,形容動詞語幹,*,*,*,*,便利,ベンリ,ベンリ</span>
+<span class="go">です      助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+<span class="go">。        記号,句点,*,*,*,*,。,。,。</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simplified-dictionary-format-v0-2-7">
+<h3>Simplified dictionary format (v0.2.7+)<a class="headerlink" href="#simplified-dictionary-format-v0-2-7" title="Permalink to this headline">¶</a></h3>
+<p>Janome provides alternative simplified dictionary format like <a class="reference external" href="https://www.atilika.com/en/products/kuromoji.html">Kuromoji</a> user dictionary. This format supports surface form, part-of-speech and reading only.</p>
+<p>To use simplified dictionary format, create a CSV file that includes &#8220;&lt;surface form&gt;,&lt;part-of-speech&gt;,&lt;reading&gt;&#8221; in each line (see the example below) and pass the file path and the dictionary type (udic_type=&#8217;simpledic&#8217;) to Tokenizer&#8217;s constructor.</p>
+<p>user_simpledic.csv</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>東京スカイツリー,カスタム名詞,トウキョウスカイツリー
+東武スカイツリーライン,カスタム名詞,トウブスカイツリーライン
+とうきょうスカイツリー駅,カスタム名詞,トウキョウスカイツリーエキ
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便 利です。&#39;</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">東京スカイツリー     カスタム名詞,*,*,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー</span>
+<span class="go">へ    助詞,格助詞,一般,*,*,*,へ,ヘ,エ</span>
+<span class="go">の    助詞,連体化,*,*,*,*,の,ノ,ノ</span>
+<span class="go">お越し    名詞,一般,*,*,*,*,お越し,オコシ,オコシ</span>
+<span class="go">は    助詞,係助詞,*,*,*,*,は,ハ,ワ</span>
+<span class="go">、    記号,読点,*,*,*,*,、,、,、</span>
+<span class="go">東武スカイツリーライン   カスタム名詞,*,*,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン</span>
+<span class="go">「    記号,括弧開,*,*,*,*,「,「,「</span>
+<span class="go">とうきょうスカイツリー駅    カスタム名詞,*,*,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ</span>
+<span class="go"> 」   記号,括弧閉,*,*,*,*,」,」,」</span>
+<span class="go">が    助詞,格助詞,一般,*,*,*,が,ガ,ガ</span>
+<span class="go">便利    名詞,形容動詞語幹,*,*,*,*,便利,ベンリ,ベンリ</span>
+<span class="go">です    助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+<span class="go">。    記号,句点,*,*,*,*,。,。,。</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pre-compiled-user-dictionary">
+<h3>Pre-compiled user dictionary<a class="headerlink" href="#pre-compiled-user-dictionary" title="Permalink to this headline">¶</a></h3>
+<p>With large user dictionary, it can take much time to convert CSV file to the binary data structure. You can compile the user dictionary in advance and use that at runtime.</p>
+<p>So there is no tools for compiling user dictionary at current version, use APIs as below.</p>
+<p>How to compile user dictionary (MeCab IPADIC format):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">SYS_DIC</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>How to compile user dictionary (simplified format):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">SYS_DIC</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once compiling has been successfully completed, the data is saved in &#8216;/tmp/userdic&#8217; directory. Pass the directory path to Tokenizer&#8217;s constructor to use it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use same major python version both at compile time and runtime.  Forward/backward dictionary data compatibility is not guaranteed.</p>
+</div>
+</div>
+</div>
+<div class="section" id="use-janome-from-the-comman-line-v0-2-6-lunux-mac-only">
+<h2>Use janome from the comman-line (v0.2.6+, Lunux/Mac only)<a class="headerlink" href="#use-janome-from-the-comman-line-v0-2-6-lunux-mac-only" title="Permalink to this headline">¶</a></h2>
+<p>Janome has executable built-in script &#8216;janome&#8217; for command-line usage. (currently for Lunux/Mac only... patches are welcome!)</p>
+<p>It reads a sentence at a time from standard input and outputs the analysis result. To see supported options, type &#8220;janome -h&#8221;.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>(env)$ janome
+猫は液体である
+猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
+は    助詞,係助詞,*,*,*,*,は,ハ,ワ
+液体  名詞,一般,*,*,*,*,液体,エキタイ,エキタイ
+で    助動詞,*,*,*,特殊・ダ,連用形,だ,デ,デ
+ある  助動詞,*,*,*,五段・ラ行アル,基本形,ある,アル,アル
+(Type Ctrl-C to quit.)
+</pre></div>
+</div>
+</div>
+<div class="section" id="note-for-analyzing-large-document-set">
+<h2>Note for analyzing large document set<a class="headerlink" href="#note-for-analyzing-large-document-set" title="Permalink to this headline">¶</a></h2>
+<p>At current version (0.2.x), Janome can consume large memory when a very large document is passed all at onece. Please split large documents into small chunks or sentences.</p>
+<p>It is a known issue, we&#8217;ll make efforts to control memory consumption for large documents at future releases.</p>
+</div>
+<div class="section" id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<ol class="upperalpha simple" start="17">
+<li>How is the accuracy of analysis?</li>
+</ol>
+<ol class="upperalpha simple">
+<li>Janome uses MeCab IPADIC dictionary, so the accuracy is roughly same to MeCab.</li>
+</ol>
+<ol class="upperalpha simple" start="17">
+<li>How is the speed of analysis?</li>
+</ol>
+<ol class="upperalpha simple">
+<li>Basically depends on the input length. But according to my benchmark script, one sentence would take a few milliseconds to a few tens of milliseconds on desktop computers.</li>
+</ol>
+<ol class="upperalpha simple" start="17">
+<li>What data structures and algorithms are used?</li>
+</ol>
+<ol class="upperalpha simple">
+<li>Janome uses FST (<a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.3698">Minimal Acyclic Subsequential Transducer</a>) for internal dictionary data structure. I implemented the automaton by referring to <a class="reference external" href="https://lucene.apache.org/core/">Apache Lucene</a> (written in Java) and <a class="reference external" href="https://github.com/ikawaha/kagome">kagome</a> (written in Go). And for analysis engine, I implemented basic viterbi algorithm by referring the book <a class="reference external" href="http://www.amazon.co.jp/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%A5%A5%E6%9D%91-%E5%AD%A6/dp/4339024511">自然言語処理の基礎</a> .</li>
+</ol>
+<ol class="upperalpha simple" start="17">
+<li>I found bugs. Or have requests for enhancement.</li>
+</ol>
+<ol class="upperalpha simple">
+<li>Bug reports and requests (and of course, patches) are welcome. Raise issues at <a class="reference external" href="https://github.com/mocobeta/janome/issues">Github repository</a> or contact to <a class="reference external" href="https://twitter.com/moco_beta">&#64;moco_beta</a>.</li>
+</ol>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>Licensed under Apache License 2.0 and uses the MeCab-IPADIC dictionary/statistical model.</p>
+<p>See <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/LICENSE.txt">LICENSE.txt</a> and <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/NOTICE.txt">NOTICE.txt</a> for license details.</p>
+</div>
+<div class="section" id="copyright">
+<h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h2>
+<p>Copyright(C) 2015-2016, moco_beta. All rights reserved.</p>
+</div>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>2016.03.05 janome Version 0.2.7 release</li>
+<li>2015.10.26 janome Version 0.2.6 release</li>
+<li>2015.05.11 janome Version 0.2.5 release</li>
+<li>2015.05.03 janome Version 0.2.4 release</li>
+<li>2015.05.03 janome Version 0.2.3 release</li>
+<li>2015.04.24 janome Version 0.2.2 release</li>
+<li>2015.04.24 janome Version 0.2.0 release</li>
+<li>2015.04.11 janome Version 0.1.4 release</li>
+<li>2015.04.08 janome Version 0.1.3 公開</li>
+</ul>
+<p>Change details: <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/CHANGES.txt">CHANGES</a></p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        <a class="uplink" href="#">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Tomoko Uchida.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>
