@@ -44,6 +44,7 @@
         
   <div class="section" id="welcome-to-janome-s-documentation">
 <h1>Welcome to janome&#8217;s documentation!<a class="headerlink" href="#welcome-to-janome-s-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="http://mocobeta.github.io/janome/en/">English</a></p>
 <div class="section" id="janome">
 <h2>janome とは<a class="headerlink" href="#janome" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>janome (蛇の目) は, Pure Python で書かれた, 辞書内包の形態素解析器です.</p>
@@ -184,7 +185,7 @@
 <h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユーザー定義辞書は, 巨大になるとバイナリコンパイルに時間がかかるため, あらかじめコンパイルしておき, コンパイル済みの辞書を使うことも可能です.</p>
 <p>現在のところ, コンパイルのためのツールはありませんが, API を使ってコンパイルが行えます.</p>
-<p>辞書のコンパイル(MeCab IPADIC)</p>
+<p>辞書のコンパイル(MeCab IPADIC format)</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">SYS_DIC</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
@@ -309,7 +310,7 @@
 </div>
 <div class="section" id="copyright">
 <h2>Copyright<a class="headerlink" href="#copyright" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Copyright(C) 2015, moco_beta. All rights reserved.</p>
+<p>Copyright(C) 2015-2016, moco_beta. All rights reserved.</p>
 </div>
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
