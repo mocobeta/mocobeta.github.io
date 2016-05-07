@@ -98,6 +98,8 @@
 <span class="go">うち  名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ</span>
 </pre></div>
 </div>
+<p>まだAPIドキュメントなどは手付かずですが, Tokenクラスのプロパティ(形態素情報)について詳しく書いてくださっているブログを紹介します(ありがとうございます!). 追記されていますが, v0.2.8 から infl_form と infl_type で取得できる情報が逆になっているので注意してください. (issue <a class="reference external" href="https://github.com/mocobeta/janome/issues/24">#24</a>)</p>
+<p><a class="reference external" href="http://fizzyroom.org/2016/04/30/day25/">Pythonの形態素解析ライブラリ「Janome」の使い方を少し詳しく。</a></p>
 <div class="section" id="for-windows-users">
 <h3>for Windows users<a class="headerlink" href="#for-windows-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>文字化けする場合は decode(&#8216;utf8&#8217;) をかけてください.</p>
@@ -109,8 +111,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>ユーザー定義辞書を使う<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id8">
+<h2>ユーザー定義辞書を使う<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="mecab-ipadic">
 <h3>MeCab IPADIC フォーマット<a class="headerlink" href="#mecab-ipadic" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>デフォルトユーザー定義辞書のフォーマットは, MeCab 辞書と同じです. たとえば以下のような CSV ファイルを作成し, Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します.</p>
@@ -176,8 +178,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id10">
+<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユーザー定義辞書は, 巨大になるとバイナリコンパイルに時間がかかるため, あらかじめコンパイルしておき, コンパイル済みの辞書を使うことも可能です.</p>
 <p>現在のところ, コンパイルのためのツールはありませんが, API を使ってコンパイルが行えます.</p>
 <p>辞書のコンパイル(MeCab IPADIC format)</p>
@@ -220,12 +222,12 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h2>大きな文書を解析する際の注意<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id11">
+<h2>大きな文書を解析する際の注意<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>現行バージョン(0.2系)では, 入力全体を読んでラティスを構築するため, 入力文字列が大きくなると多くのリソースを消費します. 数十キロバイト以上の文書を解析する場合は, なるべく適度に分割して与えてください. 次のバージョン(0.3系)で, 大きな入力が与えられた場合は, 部分的な解析を行う(最適解を求めることを諦め, 近似解を求める)ことでメモリ消費を一定以下に抑える回避策をとる予定です.</p>
 </div>
-<div class="section" id="id11">
-<h2>よくある（かもしれない）質問<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id12">
+<h2>よくある（かもしれない）質問<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li>Tokenizer の初期化が遅いんだけど.</li>
 </ol>
@@ -291,8 +293,8 @@
 <h2>For Contributors<a class="headerlink" href="#for-contributors" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/wiki">https://github.com/mocobeta/janome/wiki</a></p>
 </div>
-<div class="section" id="id14">
-<h2>やりたいことリスト<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id15">
+<h2>やりたいことリスト<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>単語グラフ(ラティス)の可視化</li>
 <li>neologd 対応</li>
