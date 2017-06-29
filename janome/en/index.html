@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to janome’s documentation! &#8212; Janome v0.2 documentation</title>
+    <title>Welcome to janome’s documentation! &#8212; Janome v0.3 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,22 +15,22 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.2.5',
+        VERSION:     '0.3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Janome v0.2 documentation" href="#" /> 
+    <link rel="search" title="Search" href="search.html" /> 
   </head>
-  <body role="document">
+  <body>
       <div class="header" role="banner"><h1 class="heading"><a href="#">
-          <span>Janome v0.2 documentation</span></a></h1>
+          <span>Janome v0.3 documentation</span></a></h1>
         <h2 class="heading"><span>Welcome to janome’s documentation!</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
@@ -44,10 +44,10 @@
         
         
   <a href="https://github.com/mocobeta/janome"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><div class="section" id="welcome-to-janome-s-documentation">
-<h1>Welcome to janome&#8217;s documentation!<a class="headerlink" href="#welcome-to-janome-s-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to janome’s documentation!<a class="headerlink" href="#welcome-to-janome-s-documentation" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/">日本語</a></p>
 <div class="section" id="what-s-janome">
-<h2>What&#8217;s Janome?<a class="headerlink" href="#what-s-janome" title="Permalink to this headline">¶</a></h2>
+<h2>What’s Janome?<a class="headerlink" href="#what-s-janome" title="Permalink to this headline">¶</a></h2>
 <p>Janome (蛇の目) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model.</p>
 <p>We aim to build a library which is easy to install and provides simple and consice APIs for various python applications.</p>
 <p>Janome uses mecab-ipadic-2.7.0-20070801 as the built-in dictionary.</p>
@@ -56,6 +56,10 @@
 <h2>Source Codes<a class="headerlink" href="#source-codes" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mocobeta/janome">https://github.com/mocobeta/janome</a></p>
 </div>
+<div class="section" id="api-reference">
+<h2>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://mocobeta.github.io/janome/api/">http://mocobeta.github.io/janome/api/</a></p>
+</div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>Python 2.7.x or Python 3.3+ interpreter</p>
@@ -63,7 +67,7 @@
 <div class="section" id="current-version">
 <h2>Current version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.2.8</li>
+<li>janome: 0.3.0</li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -83,10 +87,10 @@
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>Create janome.tokenizer.Tokenizer object and call tokenize() method with the sentences you want to analyze.</p>
-<p>The return value is a list of Token objects. Token includes morphological information such as surface form, part-of-speech. See dir() or <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/janome/tokenizer.py">source codes</a> for more details.</p>
+<p>The return value is a list of Token objects. Token includes morphological information such as surface form, part-of-speech. See <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenizer.Token">reference</a> for more details.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;すもももももももものうち&#39;</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">すもも 名詞,一般,*,*,*,*,すもも,スモモ,スモモ</span>
@@ -100,10 +104,10 @@
 </div>
 <div class="section" id="for-windows-users">
 <h3>for Windows users<a class="headerlink" href="#for-windows-users" title="Permalink to this headline">¶</a></h3>
-<p>Use decode(&#8216;utf8&#8217;) if output is garbled.</p>
+<p>Use decode(‘utf8’) if output is garbled.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;すもももももももものうち&#39;</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -114,7 +118,7 @@
 <div class="section" id="mecab-ipadic-format">
 <h3>MeCab IPADIC format<a class="headerlink" href="#mecab-ipadic-format" title="Permalink to this headline">¶</a></h3>
 <p>You can add custom entries to the built-in dictionary at runtime by using user defined dictionary.</p>
-<p>Default dictionary format is equal to MeCab IPADIC format. Create a CSV file as below and pass the file path and the character encoding to Tokenizer&#8217;s constructor.</p>
+<p>Default dictionary format is equal to MeCab IPADIC format. Create a CSV file as below and pass the file path and the character encoding to Tokenizer’s constructor.</p>
 <p>See the <a class="reference external" href="http://taku910.github.io/mecab/dic.html">MeCab document</a> for more details.</p>
 <p>userdic.csv</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">4569</span><span class="p">,</span><span class="n">名詞</span><span class="p">,</span><span class="n">固有名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span>
@@ -124,7 +128,7 @@
 </div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="gp">...</span>
 
@@ -148,7 +152,7 @@
 <div class="section" id="simplified-dictionary-format-v0-2-7">
 <h3>Simplified dictionary format (v0.2.7+)<a class="headerlink" href="#simplified-dictionary-format-v0-2-7" title="Permalink to this headline">¶</a></h3>
 <p>Janome provides alternative simplified dictionary format like <a class="reference external" href="https://www.atilika.com/en/products/kuromoji.html">Kuromoji</a> user dictionary. This format supports surface form, part-of-speech and reading only.</p>
-<p>To use simplified dictionary format, create a CSV file that includes &#8220;&lt;surface form&gt;,&lt;part-of-speech&gt;,&lt;reading&gt;&#8221; in each line (see the example below) and pass the file path and the dictionary type (udic_type=&#8217;simpledic&#8217;) to Tokenizer&#8217;s constructor.</p>
+<p>To use simplified dictionary format, create a CSV file that includes “&lt;surface form&gt;,&lt;part-of-speech&gt;,&lt;reading&gt;” in each line (see the example below) and pass the file path and the dictionary type (udic_type=’simpledic’) to Tokenizer’s constructor.</p>
 <p>user_simpledic.csv</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="n">カスタム名詞</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span>
 <span class="n">東武スカイツリーライン</span><span class="p">,</span><span class="n">カスタム名詞</span><span class="p">,</span><span class="n">トウブスカイツリーライン</span>
@@ -157,7 +161,7 @@
 </div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">u&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便 利です。&#39;</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便 利です。&#39;</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">東京スカイツリー     カスタム名詞,*,*,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー</span>
@@ -180,7 +184,7 @@
 <div class="section" id="pre-compiled-user-dictionary">
 <h3>Pre-compiled user dictionary<a class="headerlink" href="#pre-compiled-user-dictionary" title="Permalink to this headline">¶</a></h3>
 <p>With large user dictionary, it can take much time to convert CSV file to the binary data structure. You can compile the user dictionary in advance and use that at runtime.</p>
-<p>For now, there is no tools for compiling user dictionary. Use APIs as below.</p>
+<p>For now, there is no tools for compiling user dictionary. Use <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">APIs</a> as below.</p>
 <p>How to compile user dictionary (MeCab IPADIC format):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">SYS_DIC</span>
@@ -195,7 +199,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Once compiling has been successfully completed, the data is saved in &#8216;/tmp/userdic&#8217; directory. Pass the directory path to Tokenizer&#8217;s constructor to use it.</p>
+<p>Once compiling has been successfully completed, the data is saved in ‘/tmp/userdic’ directory. Pass the directory path to Tokenizer’s constructor to use it.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -207,8 +211,8 @@
 </div>
 <div class="section" id="use-janome-from-the-command-line-v0-2-6-lunux-mac-only">
 <h2>Use janome from the command-line (v0.2.6+, Lunux/Mac only)<a class="headerlink" href="#use-janome-from-the-command-line-v0-2-6-lunux-mac-only" title="Permalink to this headline">¶</a></h2>
-<p>Janome has executable built-in script &#8216;janome&#8217; for command-line usage. (currently for Lunux/Mac only... patches are welcome!)</p>
-<p>It reads a sentence at a time from standard input and outputs the analysis result. To see supported options, type &#8220;janome -h&#8221;.</p>
+<p>Janome has executable built-in script ‘janome’ for command-line usage. (currently for Lunux/Mac only… patches are welcome!)</p>
+<p>It reads a sentence at a time from standard input and outputs the analysis result. To see supported options, type “janome -h”.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
 猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
@@ -222,8 +226,11 @@
 </div>
 <div class="section" id="note-for-analyzing-large-document-set">
 <h2>Note for analyzing large document set<a class="headerlink" href="#note-for-analyzing-large-document-set" title="Permalink to this headline">¶</a></h2>
-<p>At current version (0.2.x), Janome can consume large memory when a very large document is passed all at once. Please split large documents (larger than tens of killobytes) into small chunks or sentences.</p>
-<p>It is a known issue, we&#8217;ll make efforts to control memory consumption for large documents at future releases.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This memory leak problem is solved at v0.3. The analysed results with janome version 0.3 or over can be a bit different from ones with version 0.2.</p>
+</div>
+<p>In older version (&lt; 0.3), Janome can consume large memory when a very large document is passed all at once. Please split large documents (larger than tens of killobytes) into small chunks or sentences.</p>
 </div>
 <div class="section" id="faq">
 <h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
@@ -263,11 +270,12 @@
 </div>
 <div class="section" id="copyright">
 <h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h2>
-<p>Copyright(C) 2015-2016, moco_beta. All rights reserved.</p>
+<p>Copyright(C) 2015, moco_beta. All rights reserved.</p>
 </div>
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>2016.06.30 janome Version 0.3.0 was released</li>
 <li>2016.05.07 janome Version 0.2.8 was released</li>
 <li>2016.03.05 janome Version 0.2.7 was released</li>
 <li>2015.10.26 janome Version 0.2.6 was released</li>
@@ -296,8 +304,8 @@
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2016, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9.
+        &#169; Copyright 2015, Tomoko Uchida.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
     </div>
   </body>
 </html>
