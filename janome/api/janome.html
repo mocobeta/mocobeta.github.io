@@ -1,0 +1,766 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>janome package &#8212; Janome API reference v0.3</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Janome API reference v0.3" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Janome API reference v0.3"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Janome API reference v0.3</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="janome-package">
+<h1>janome package<a class="headerlink" href="#janome-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-janome.dic">
+<span id="janome-dic-module"></span><h2>janome.dic module<a class="headerlink" href="#module-janome.dic" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janome.dic.CompiledUserDictionary">
+<em class="property">class </em><code class="descclassname">janome.dic.</code><code class="descname">CompiledUserDictionary</code><span class="sig-paren">(</span><em>dic_dir</em>, <em>connections</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.dic.Dictionary" title="janome.dic.Dictionary"><code class="xref py py-class docutils literal"><span class="pre">janome.dic.Dictionary</span></code></a></p>
+<p>User dictionary class (compiled)</p>
+<dl class="method">
+<dt id="janome.dic.CompiledUserDictionary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>dic_dir</em>, <em>connections</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.CompiledUserDictionary.load_dict">
+<code class="descname">load_dict</code><span class="sig-paren">(</span><em>dic_dir</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary.load_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary.load_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.dic.Dictionary">
+<em class="property">class </em><code class="descclassname">janome.dic.</code><code class="descname">Dictionary</code><span class="sig-paren">(</span><em>compiledFST</em>, <em>entries</em>, <em>connections</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Base dictionary class</p>
+<dl class="method">
+<dt id="janome.dic.Dictionary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>compiledFST</em>, <em>entries</em>, <em>connections</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.Dictionary.get_trans_cost">
+<code class="descname">get_trans_cost</code><span class="sig-paren">(</span><em>id1</em>, <em>id2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.get_trans_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary.get_trans_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.Dictionary.lookup">
+<code class="descname">lookup</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.dic.SystemDictionary">
+<em class="property">class </em><code class="descclassname">janome.dic.</code><code class="descname">SystemDictionary</code><span class="sig-paren">(</span><em>entries</em>, <em>connections</em>, <em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.dic.Dictionary" title="janome.dic.Dictionary"><code class="xref py py-class docutils literal"><span class="pre">janome.dic.Dictionary</span></code></a></p>
+<p>System dictionary class</p>
+<dl class="method">
+<dt id="janome.dic.SystemDictionary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>entries</em>, <em>connections</em>, <em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.SystemDictionary.get_char_categories">
+<code class="descname">get_char_categories</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.get_char_categories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.get_char_categories" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.SystemDictionary.unknown_grouping">
+<code class="descname">unknown_grouping</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.unknown_grouping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.unknown_grouping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.SystemDictionary.unknown_invoked_always">
+<code class="descname">unknown_invoked_always</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.unknown_invoked_always"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.unknown_invoked_always" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.SystemDictionary.unknown_length">
+<code class="descname">unknown_length</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.unknown_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.unknown_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.dic.UserDictionary">
+<em class="property">class </em><code class="descclassname">janome.dic.</code><code class="descname">UserDictionary</code><span class="sig-paren">(</span><em>user_dict</em>, <em>enc</em>, <em>type</em>, <em>connections</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.dic.Dictionary" title="janome.dic.Dictionary"><code class="xref py py-class docutils literal"><span class="pre">janome.dic.Dictionary</span></code></a></p>
+<p>User dictionary class (uncompiled)</p>
+<dl class="method">
+<dt id="janome.dic.UserDictionary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>user_dict</em>, <em>enc</em>, <em>type</em>, <em>connections</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize user defined dictionary object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>user_dict</strong> – user dictionary file (CSV format)</li>
+<li><strong>enc</strong> – character encoding</li>
+<li><strong>type</strong> – user dictionary type. supported types are ‘ipadic’ and ‘simpledic’</li>
+<li><strong>connections</strong> – connection cost matrix. expected value is SYS_DIC.connections</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">See <a class="reference external" href="http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary">http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary</a> for details for user dictionary.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.UserDictionary.buildipadic">
+<code class="descname">buildipadic</code><span class="sig-paren">(</span><em>user_dict</em>, <em>enc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.buildipadic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.buildipadic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.UserDictionary.buildsimpledic">
+<code class="descname">buildsimpledic</code><span class="sig-paren">(</span><em>user_dict</em>, <em>enc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.buildsimpledic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.buildsimpledic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.UserDictionary.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>to_dir</em>, <em>compressionlevel=9</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save compressed compiled dictionary data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>to_dir</strong> – directory to save dictionary data</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Compressionlevel:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">(Optional) gzip compression level. default is 9</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="janome.dic.save_chardefs">
+<code class="descclassname">janome.dic.</code><code class="descname">save_chardefs</code><span class="sig-paren">(</span><em>chardefs</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_chardefs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_chardefs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janome.dic.save_connections">
+<code class="descclassname">janome.dic.</code><code class="descname">save_connections</code><span class="sig-paren">(</span><em>connections</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_connections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_connections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janome.dic.save_entries">
+<code class="descclassname">janome.dic.</code><code class="descname">save_entries</code><span class="sig-paren">(</span><em>entries</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janome.dic.save_fstdata">
+<code class="descclassname">janome.dic.</code><code class="descname">save_fstdata</code><span class="sig-paren">(</span><em>data</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_fstdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_fstdata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janome.dic.save_unknowns">
+<code class="descclassname">janome.dic.</code><code class="descname">save_unknowns</code><span class="sig-paren">(</span><em>unknowns</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_unknowns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_unknowns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-janome.fst">
+<span id="janome-fst-module"></span><h2>janome.fst module<a class="headerlink" href="#module-janome.fst" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janome.fst.FST">
+<em class="property">class </em><code class="descclassname">janome.fst.</code><code class="descname">FST</code><a class="reference internal" href="_modules/janome/fst.html#FST"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>FST (final dictionary) class</p>
+<dl class="method">
+<dt id="janome.fst.FST.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.FST.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.FST.member">
+<code class="descname">member</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.member"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.member" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.FST.print_dictionary">
+<code class="descname">print_dictionary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.print_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.print_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.FST.size">
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.fst.Matcher">
+<em class="property">class </em><code class="descclassname">janome.fst.</code><code class="descname">Matcher</code><span class="sig-paren">(</span><em>dict_data</em>, <em>max_cache_size=5000</em>, <em>max_cached_word_len=15</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#Matcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.Matcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="janome.fst.Matcher.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>dict_data</em>, <em>max_cache_size=5000</em>, <em>max_cached_word_len=15</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#Matcher.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.Matcher.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.Matcher.next_arc">
+<code class="descname">next_arc</code><span class="sig-paren">(</span><em>addr=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#Matcher.next_arc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.Matcher.next_arc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.Matcher.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>word</em>, <em>common_prefix_match=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#Matcher.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.Matcher.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.fst.State">
+<em class="property">class </em><code class="descclassname">janome.fst.</code><code class="descname">State</code><span class="sig-paren">(</span><em>id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>State Class</p>
+<dl class="method">
+<dt id="janome.fst.State.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.clear_state_output">
+<code class="descname">clear_state_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.clear_state_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.clear_state_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.fst.State.final">
+<code class="descname">final</code><a class="headerlink" href="#janome.fst.State.final" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.fst.State.final_output">
+<code class="descname">final_output</code><a class="headerlink" href="#janome.fst.State.final_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.fst.State.id">
+<code class="descname">id</code><a class="headerlink" href="#janome.fst.State.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.is_final">
+<code class="descname">is_final</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.is_final"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.is_final" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.output">
+<code class="descname">output</code><span class="sig-paren">(</span><em>char</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.set_final">
+<code class="descname">set_final</code><span class="sig-paren">(</span><em>final</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.set_final"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.set_final" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.set_output">
+<code class="descname">set_output</code><span class="sig-paren">(</span><em>char</em>, <em>out</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.set_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.set_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.set_state_output">
+<code class="descname">set_state_output</code><span class="sig-paren">(</span><em>output</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.set_state_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.set_state_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.set_transition">
+<code class="descname">set_transition</code><span class="sig-paren">(</span><em>char</em>, <em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.set_transition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.set_transition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.state_output">
+<code class="descname">state_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.state_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.state_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.fst.State.trans_map">
+<code class="descname">trans_map</code><a class="headerlink" href="#janome.fst.State.trans_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.State.transition">
+<code class="descname">transition</code><span class="sig-paren">(</span><em>char</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#State.transition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.State.transition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="janome.fst.compileFST">
+<code class="descclassname">janome.fst.</code><code class="descname">compileFST</code><span class="sig-paren">(</span><em>fst</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#compileFST"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.compileFST" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert FST to byte array representing arcs</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="janome.fst.copy_state">
+<code class="descclassname">janome.fst.</code><code class="descname">copy_state</code><span class="sig-paren">(</span><em>src</em>, <em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#copy_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.copy_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janome.fst.create_minimum_transducer">
+<code class="descclassname">janome.fst.</code><code class="descname">create_minimum_transducer</code><span class="sig-paren">(</span><em>inputs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#create_minimum_transducer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.create_minimum_transducer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-janome.lattice">
+<span id="janome-lattice-module"></span><h2>janome.lattice module<a class="headerlink" href="#module-janome.lattice" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="janome.lattice.BOS">
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">BOS</code><a class="reference internal" href="_modules/janome/lattice.html#BOS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.BOS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.lattice.BaseNode" title="janome.lattice.BaseNode"><code class="xref py py-class docutils literal"><span class="pre">janome.lattice.BaseNode</span></code></a></p>
+<p>BOS node</p>
+<dl class="method">
+<dt id="janome.lattice.BOS.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#BOS.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.BOS.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.lattice.BaseNode">
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">BaseNode</code><a class="reference internal" href="_modules/janome/lattice.html#BaseNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.BaseNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Base node class</p>
+<dl class="method">
+<dt id="janome.lattice.BaseNode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#BaseNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.BaseNode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.lattice.EOS">
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">EOS</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#EOS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.EOS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.lattice.BaseNode" title="janome.lattice.BaseNode"><code class="xref py py-class docutils literal"><span class="pre">janome.lattice.BaseNode</span></code></a></p>
+<p>EOS node</p>
+<dl class="method">
+<dt id="janome.lattice.EOS.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#EOS.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.EOS.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.lattice.Lattice">
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">Lattice</code><span class="sig-paren">(</span><em>size</em>, <em>dic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Lattice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Lattice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="janome.lattice.Lattice.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>size</em>, <em>dic</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Lattice.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Lattice.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.lattice.Lattice.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Lattice.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Lattice.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.lattice.Lattice.backward">
+<code class="descname">backward</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Lattice.backward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Lattice.backward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.lattice.Lattice.end">
+<code class="descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Lattice.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Lattice.end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.lattice.Lattice.forward">
+<code class="descname">forward</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Lattice.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Lattice.forward" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.lattice.Node">
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">Node</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type=’SYS_DICT’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.lattice.BaseNode" title="janome.lattice.BaseNode"><code class="xref py py-class docutils literal"><span class="pre">janome.lattice.BaseNode</span></code></a></p>
+<p>Node class</p>
+<dl class="method">
+<dt id="janome.lattice.Node.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type=’SYS_DICT’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Node.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Node.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.base_form">
+<code class="descname">base_form</code><a class="headerlink" href="#janome.lattice.Node.base_form" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.cost">
+<code class="descname">cost</code><a class="headerlink" href="#janome.lattice.Node.cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.infl_form">
+<code class="descname">infl_form</code><a class="headerlink" href="#janome.lattice.Node.infl_form" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.infl_type">
+<code class="descname">infl_type</code><a class="headerlink" href="#janome.lattice.Node.infl_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.left_id">
+<code class="descname">left_id</code><a class="headerlink" href="#janome.lattice.Node.left_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.node_type">
+<code class="descname">node_type</code><a class="headerlink" href="#janome.lattice.Node.node_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.part_of_speech">
+<code class="descname">part_of_speech</code><a class="headerlink" href="#janome.lattice.Node.part_of_speech" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.phonetic">
+<code class="descname">phonetic</code><a class="headerlink" href="#janome.lattice.Node.phonetic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.reading">
+<code class="descname">reading</code><a class="headerlink" href="#janome.lattice.Node.reading" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.right_id">
+<code class="descname">right_id</code><a class="headerlink" href="#janome.lattice.Node.right_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.Node.surface">
+<code class="descname">surface</code><a class="headerlink" href="#janome.lattice.Node.surface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.lattice.NodeType">
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">NodeType</code><a class="reference internal" href="_modules/janome/lattice.html#NodeType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.NodeType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="janome.lattice.NodeType.SYS_DICT">
+<code class="descname">SYS_DICT</code><em class="property"> = ‘SYS_DICT’</em><a class="headerlink" href="#janome.lattice.NodeType.SYS_DICT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.NodeType.UNKNOWN">
+<code class="descname">UNKNOWN</code><em class="property"> = ‘UNKNOWN’</em><a class="headerlink" href="#janome.lattice.NodeType.UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.NodeType.USER_DICT">
+<code class="descname">USER_DICT</code><em class="property"> = ‘USER_DICT’</em><a class="headerlink" href="#janome.lattice.NodeType.USER_DICT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-janome.tokenizer">
+<span id="janome-tokenizer-module"></span><h2>janome.tokenizer module<a class="headerlink" href="#module-janome.tokenizer" title="Permalink to this headline">¶</a></h2>
+<p>The tokenizer module supplies Token and Tokenizer classes.</p>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">... </span>
+<span class="go">すもも     名詞,一般,*,*,*,*,すもも,スモモ,スモモ</span>
+<span class="go">も       助詞,係助詞,*,*,*,*,も,モ,モ</span>
+<span class="go">もも      名詞,一般,*,*,*,*,もも,モモ,モモ</span>
+<span class="go">も       助詞,係助詞,*,*,*,*,も,モ,モ</span>
+<span class="go">もも      名詞,一般,*,*,*,*,もも,モモ,モモ</span>
+<span class="go">の       助詞,連体化,*,*,*,*,の,ノ,ノ</span>
+<span class="go">うち      名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ</span>
+</pre></div>
+</div>
+<p>with user dictionary (IPAdic format):</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>$ cat examples/user_ipadic.csv 
+東京スカイツリー,1288,1288,4569,名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー
+東武スカイツリーライン,1288,1288,4700,名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン
+とうきょうスカイツリー駅,1288,1288,4143,名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;user_ipadic.csv&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;</span><span class="p">):</span>
+<span class="gp">... </span> <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="o">...</span> 
+<span class="gp">... </span>
+<span class="go">東京スカイツリー        名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー</span>
+<span class="go">へ       助詞,格助詞,一般,*,*,*,へ,ヘ,エ</span>
+<span class="go">の       助詞,連体化,*,*,*,*,の,ノ,ノ</span>
+<span class="go">お越し     名詞,一般,*,*,*,*,お越し,オコシ,オコシ</span>
+<span class="go">は       助詞,係助詞,*,*,*,*,は,ハ,ワ</span>
+<span class="go">、       記号,読点,*,*,*,*,、,、,、</span>
+<span class="go">東武スカイツリーライン     名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン</span>
+<span class="go">「       記号,括弧開,*,*,*,*,「,「,「</span>
+<span class="go">とうきょうスカイツリー駅    名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ</span>
+<span class="go">」       記号,括弧閉,*,*,*,*,」,」,」</span>
+<span class="go">が       助詞,格助詞,一般,*,*,*,が,ガ,ガ</span>
+<span class="go">便利      名詞,形容動詞語幹,*,*,*,*,便利,ベンリ,ベンリ</span>
+<span class="go">です      助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+<span class="go">。       記号,句点,*,*,*,*,。,。,。</span>
+</pre></div>
+</div>
+<p>with user dictionary (simplified format):</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>$ cat examples/user_simpledic.csv 
+東京スカイツリー,カスタム名詞,トウキョウスカイツリー
+東武スカイツリーライン,カスタム名詞,トウブスカイツリーライン
+とうきょうスカイツリー駅,カスタム名詞,トウキョウスカイツリーエキ
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="janome.tokenizer.Token">
+<em class="property">class </em><code class="descclassname">janome.tokenizer.</code><code class="descname">Token</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A Token object contains all information for a token.</p>
+<dl class="method">
+<dt id="janome.tokenizer.Token.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Token.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.tokenizer.Token.base_form">
+<code class="descname">base_form</code><em class="property"> = None</em><a class="headerlink" href="#janome.tokenizer.Token.base_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>base form (基本形)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="janome.tokenizer.Token.infl_form">
+<code class="descname">infl_form</code><em class="property"> = None</em><a class="headerlink" href="#janome.tokenizer.Token.infl_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>stem form (活用形)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="janome.tokenizer.Token.infl_type">
+<code class="descname">infl_type</code><em class="property"> = None</em><a class="headerlink" href="#janome.tokenizer.Token.infl_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>terminal form (活用型)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="janome.tokenizer.Token.part_of_speech">
+<code class="descname">part_of_speech</code><em class="property"> = None</em><a class="headerlink" href="#janome.tokenizer.Token.part_of_speech" title="Permalink to this definition">¶</a></dt>
+<dd><p>part of speech (品詞)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="janome.tokenizer.Token.phonetic">
+<code class="descname">phonetic</code><em class="property"> = None</em><a class="headerlink" href="#janome.tokenizer.Token.phonetic" title="Permalink to this definition">¶</a></dt>
+<dd><p>pronounce (発音)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="janome.tokenizer.Token.reading">
+<code class="descname">reading</code><em class="property"> = None</em><a class="headerlink" href="#janome.tokenizer.Token.reading" title="Permalink to this definition">¶</a></dt>
+<dd><p>“reading (読み)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="janome.tokenizer.Token.surface">
+<code class="descname">surface</code><em class="property"> = None</em><a class="headerlink" href="#janome.tokenizer.Token.surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>surface form (表層形)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.tokenizer.Tokenizer">
+<em class="property">class </em><code class="descclassname">janome.tokenizer.</code><code class="descname">Tokenizer</code><span class="sig-paren">(</span><em>udic=”</em>, <em>udic_enc=’utf8’</em>, <em>udic_type=’ipadic’</em>, <em>max_unknown_length=1024</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A Tokenizer tokenize Japanese texts with system and user defined dictionary.
+It is strongly recommended to re-use a Tokenizer object because object initialization cost is high.</p>
+<dl class="attribute">
+<dt id="janome.tokenizer.Tokenizer.CHUNK_SIZE">
+<code class="descname">CHUNK_SIZE</code><em class="property"> = 500</em><a class="headerlink" href="#janome.tokenizer.Tokenizer.CHUNK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE">
+<code class="descname">MAX_CHUNK_SIZE</code><em class="property"> = 1000</em><a class="headerlink" href="#janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.tokenizer.Tokenizer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>udic=”</em>, <em>udic_enc=’utf8’</em>, <em>udic_type=’ipadic’</em>, <em>max_unknown_length=1024</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize Tokenizer object with (optional) arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>udic</strong> – (Optional) user dictionary file (CSV format) or directory path to compiled dictionary data</li>
+<li><strong>udic_enc</strong> – (Optional) character encoding for user dictionary. default is ‘utf-8’</li>
+<li><strong>udic_type</strong> – (Optional) user dictionray type. supported types are ‘ipadic’ and ‘simpledic’. default is ‘ipadic’</li>
+<li><strong>max_unknows_length</strong> – (Optional) max unknown word length. default is 1024.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">See <a class="reference external" href="http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary">http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary</a> for details for user dictionary.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="janome.tokenizer.Tokenizer.tokenize">
+<code class="descname">tokenize</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tokenize the text string. Support unicode string only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> – text string to be tokenized</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of tokens</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-janome">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-janome" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">janome package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-janome.dic">janome.dic module</a></li>
+<li><a class="reference internal" href="#module-janome.fst">janome.fst module</a></li>
+<li><a class="reference internal" href="#module-janome.lattice">janome.lattice module</a></li>
+<li><a class="reference internal" href="#module-janome.tokenizer">janome.tokenizer module</a></li>
+<li><a class="reference internal" href="#module-janome">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Janome API reference v0.3</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/janome.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Janome API reference v0.3"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Janome API reference v0.3</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Tomoko Uchida.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+    </div>
+  </body>
+</html>

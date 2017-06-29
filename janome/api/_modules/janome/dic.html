@@ -1,0 +1,360 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>janome.dic &#8212; Janome API reference v0.3</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.3</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for janome.dic</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># Copyright 2015 moco_beta</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">with_statement</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="k">import</span> <span class="n">pack</span><span class="p">,</span> <span class="n">unpack</span>
+<span class="kn">from</span> <span class="nn">.fst</span> <span class="k">import</span> <span class="n">Matcher</span><span class="p">,</span> <span class="n">create_minimum_transducer</span><span class="p">,</span> <span class="n">compileFST</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+
+<span class="n">SYSDIC_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))),</span> <span class="s2">&quot;sysdic&quot;</span><span class="p">)</span>
+
+<span class="n">FILE_FST_DATA</span> <span class="o">=</span> <span class="s1">&#39;fst.data&#39;</span>
+<span class="c1"># FILE_ENTRIES = &#39;entries.data&#39;</span>
+<span class="c1"># FILE_CONNECTIONS = &#39;connections.data&#39;</span>
+
+<span class="n">MODULE_FST_DATA</span> <span class="o">=</span> <span class="s1">&#39;fstdata.py&#39;</span>
+<span class="n">MODULE_ENTRIES</span> <span class="o">=</span> <span class="s1">&#39;entries</span><span class="si">%d</span><span class="s1">.py&#39;</span>
+<span class="n">MODULE_CONNECTIONS</span> <span class="o">=</span> <span class="s1">&#39;connections</span><span class="si">%d</span><span class="s1">.py&#39;</span>
+<span class="n">MODULE_CHARDEFS</span> <span class="o">=</span> <span class="s1">&#39;chardef.py&#39;</span>
+<span class="n">MODULE_UNKNOWNS</span> <span class="o">=</span> <span class="s1">&#39;unknowns.py&#39;</span>
+
+<span class="n">FILE_USER_FST_DATA</span> <span class="o">=</span> <span class="s1">&#39;user_fst.data&#39;</span>
+<span class="n">FILE_USER_ENTRIES_DATA</span> <span class="o">=</span> <span class="s1">&#39;user_entries.data&#39;</span>
+
+<div class="viewcode-block" id="save_fstdata"><a class="viewcode-back" href="../../janome.html#janome.dic.save_fstdata">[docs]</a><span class="k">def</span> <span class="nf">save_fstdata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="n">_save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">FILE_FST_DATA</span><span class="p">),</span> <span class="n">data</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span></div>
+    <span class="c1"># _save_as_module(os.path.join(dir, MODULE_FST_DATA), data)</span>
+
+
+<div class="viewcode-block" id="save_entries"><a class="viewcode-back" href="../../janome.html#janome.dic.save_entries">[docs]</a><span class="k">def</span> <span class="nf">save_entries</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="c1">#_save(os.path.join(dir, FILE_ENTRIES), pickle.dumps(entries), compresslevel)</span>
+    <span class="c1"># split whole entries to 10 buckets to reduce memory usage while installing.</span>
+    <span class="c1"># TODO: find better ways...</span>
+    <span class="n">bucket_size</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">//</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+        <span class="n">_save_entries_as_module</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">MODULE_ENTRIES</span> <span class="o">%</span> <span class="n">i</span><span class="p">),</span>
+            <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">entries</span><span class="o">.</span><span class="n">items</span><span class="p">()[</span><span class="n">offset</span><span class="p">:</span><span class="n">offset</span><span class="o">+</span><span class="n">bucket_size</span><span class="p">]})</span>
+        <span class="n">offset</span> <span class="o">+=</span> <span class="n">bucket_size</span></div>
+
+
+<div class="viewcode-block" id="save_connections"><a class="viewcode-back" href="../../janome.html#janome.dic.save_connections">[docs]</a><span class="k">def</span> <span class="nf">save_connections</span><span class="p">(</span><span class="n">connections</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="c1">#_save(os.path.join(dir, FILE_CONNECTIONS), pickle.dumps(connections), compresslevel)</span>
+    <span class="c1"># split whole connections to 2 buckets to reduce memory usage while installing.</span>
+    <span class="c1"># TODO: find better ways...</span>
+    <span class="n">bucket_size</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">connections</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="n">_save_as_module</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">MODULE_CONNECTIONS</span> <span class="o">%</span> <span class="n">i</span><span class="p">),</span>
+                        <span class="n">connections</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span><span class="n">offset</span><span class="o">+</span><span class="n">bucket_size</span><span class="p">])</span>
+        <span class="n">offset</span> <span class="o">+=</span> <span class="n">bucket_size</span></div>
+
+
+<div class="viewcode-block" id="save_chardefs"><a class="viewcode-back" href="../../janome.html#janome.dic.save_chardefs">[docs]</a><span class="k">def</span> <span class="nf">save_chardefs</span><span class="p">(</span><span class="n">chardefs</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="n">_save_as_module</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">MODULE_CHARDEFS</span><span class="p">),</span> <span class="n">chardefs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="save_unknowns"><a class="viewcode-back" href="../../janome.html#janome.dic.save_unknowns">[docs]</a><span class="k">def</span> <span class="nf">save_unknowns</span><span class="p">(</span><span class="n">unknowns</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="n">_save_as_module</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">MODULE_UNKNOWNS</span><span class="p">),</span> <span class="n">unknowns</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_save</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">compresslevel</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">,</span> <span class="n">compresslevel</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span> <span class="nf">_save_as_module</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;DATA=&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">if</span> <span class="n">PY3</span> <span class="k">else</span> <span class="n">unicode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_save_entries_as_module</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">entries</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;# -*- coding: utf-8 -*-</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;DATA={&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">entries</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">:(u&#39;</span><span class="si">%s</span><span class="s2">&#39;,</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">,</span><span class="si">%d</span><span class="s2">,u&#39;</span><span class="si">%s</span><span class="s2">&#39;,u&#39;</span><span class="si">%s</span><span class="s2">&#39;,u&#39;</span><span class="si">%s</span><span class="s2">&#39;,u&#39;</span><span class="si">%s</span><span class="s2">&#39;,u&#39;</span><span class="si">%s</span><span class="s2">&#39;,u&#39;</span><span class="si">%s</span><span class="s2">&#39;),&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span> <span class="k">if</span> <span class="n">PY3</span> <span class="k">else</span> <span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="Dictionary"><a class="viewcode-back" href="../../janome.html#janome.dic.Dictionary">[docs]</a><span class="k">class</span> <span class="nc">Dictionary</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base dictionary class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Dictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.Dictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compiledFST</span> <span class="o">=</span> <span class="n">compiledFST</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">compiledFST</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entries</span> <span class="o">=</span> <span class="n">entries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connections</span> <span class="o">=</span> <span class="n">connections</span></div>
+
+<div class="viewcode-block" id="Dictionary.lookup"><a class="viewcode-back" href="../../janome.html#janome.dic.Dictionary.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">matched</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">matched</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Cannot load dictionary data. The dictionary may be corrupted?&#39;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;input=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">s</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;outputs=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span> <span class="k">if</span> <span class="n">PY3</span> <span class="k">else</span> <span class="n">unicode</span><span class="p">(</span><span class="n">outputs</span><span class="p">))</span>
+            <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dictionary.get_trans_cost"><a class="viewcode-back" href="../../janome.html#janome.dic.Dictionary.get_trans_cost">[docs]</a>    <span class="k">def</span> <span class="nf">get_trans_cost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id1</span><span class="p">,</span> <span class="n">id2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connections</span><span class="p">[</span><span class="n">id1</span><span class="p">][</span><span class="n">id2</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="SystemDictionary"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary">[docs]</a><span class="k">class</span> <span class="nc">SystemDictionary</span><span class="p">(</span><span class="n">Dictionary</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    System dictionary class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="SystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
+        <span class="n">Dictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SYSDIC_DIR</span><span class="p">,</span> <span class="n">FILE_FST_DATA</span><span class="p">)),</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">char_categories</span> <span class="o">=</span> <span class="n">chardefs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">char_ranges</span> <span class="o">=</span> <span class="n">chardefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unknowns</span> <span class="o">=</span> <span class="n">unknowns</span></div>
+
+<div class="viewcode-block" id="SystemDictionary.get_char_categories"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary.get_char_categories">[docs]</a>    <span class="k">def</span> <span class="nf">get_char_categories</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">chr_range</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_ranges</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">chr_range</span><span class="p">[</span><span class="s1">&#39;from&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">chr_range</span><span class="p">[</span><span class="s1">&#39;to&#39;</span><span class="p">]:</span>
+                <span class="n">cate</span> <span class="o">=</span> <span class="n">chr_range</span><span class="p">[</span><span class="s1">&#39;cate&#39;</span><span class="p">]</span>
+                <span class="n">compate_cates</span> <span class="o">=</span> <span class="n">chr_range</span><span class="p">[</span><span class="s1">&#39;compat_cates&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;compat_cates&#39;</span> <span class="ow">in</span> <span class="n">chr_range</span> <span class="k">else</span> <span class="p">[]</span>
+                <span class="n">res</span><span class="p">[</span><span class="n">cate</span><span class="p">]</span> <span class="o">=</span> <span class="n">compate_cates</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="sa">u</span><span class="s1">&#39;DEFAULT&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="SystemDictionary.unknown_invoked_always"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary.unknown_invoked_always">[docs]</a>    <span class="k">def</span> <span class="nf">unknown_invoked_always</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cate</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cate</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_categories</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_categories</span><span class="p">[</span><span class="n">cate</span><span class="p">][</span><span class="s1">&#39;INVOKE&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="SystemDictionary.unknown_grouping"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary.unknown_grouping">[docs]</a>    <span class="k">def</span> <span class="nf">unknown_grouping</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cate</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cate</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_categories</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_categories</span><span class="p">[</span><span class="n">cate</span><span class="p">][</span><span class="s1">&#39;GROUP&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="SystemDictionary.unknown_length"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary.unknown_length">[docs]</a>    <span class="k">def</span> <span class="nf">unknown_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cate</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">cate</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_categories</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_categories</span><span class="p">[</span><span class="n">cate</span><span class="p">][</span><span class="s1">&#39;LENGTH&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div></div>
+
+
+<div class="viewcode-block" id="UserDictionary"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary">[docs]</a><span class="k">class</span> <span class="nc">UserDictionary</span><span class="p">(</span><span class="n">Dictionary</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    User dictionary class (uncompiled)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="UserDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_dict</span><span class="p">,</span> <span class="n">enc</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize user defined dictionary object.</span>
+
+<span class="sd">        :param user_dict: user dictionary file (CSV format)</span>
+<span class="sd">        :param enc: character encoding</span>
+<span class="sd">        :param type: user dictionary type. supported types are &#39;ipadic&#39; and &#39;simpledic&#39;</span>
+<span class="sd">        :param connections: connection cost matrix. expected value is SYS_DIC.connections</span>
+
+<span class="sd">        .. seealso:: See http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary for details for user dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">build_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;build&#39;</span> <span class="o">+</span> <span class="nb">type</span><span class="p">)</span>
+        <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span> <span class="o">=</span> <span class="n">build_method</span><span class="p">(</span><span class="n">user_dict</span><span class="p">,</span> <span class="n">enc</span><span class="p">)</span>
+        <span class="n">Dictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UserDictionary.buildipadic"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary.buildipadic">[docs]</a>    <span class="k">def</span> <span class="nf">buildipadic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_dict</span><span class="p">,</span> <span class="n">enc</span><span class="p">):</span>
+        <span class="n">surfaces</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">user_dict</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">enc</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+                <span class="n">surface</span><span class="p">,</span> <span class="n">left_id</span><span class="p">,</span> <span class="n">right_id</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> \
+                <span class="n">pos_major</span><span class="p">,</span> <span class="n">pos_minor1</span><span class="p">,</span> <span class="n">pos_minor2</span><span class="p">,</span> <span class="n">pos_minor3</span><span class="p">,</span> \
+                <span class="n">infl_type</span><span class="p">,</span> <span class="n">infl_form</span><span class="p">,</span> <span class="n">base_form</span><span class="p">,</span> <span class="n">reading</span><span class="p">,</span> <span class="n">phonetic</span> <span class="o">=</span> \
+                    <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                <span class="n">part_of_speech</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">pos_major</span><span class="p">,</span> <span class="n">pos_minor1</span><span class="p">,</span> <span class="n">pos_minor2</span><span class="p">,</span> <span class="n">pos_minor3</span><span class="p">])</span>
+                <span class="n">morph_id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">surfaces</span><span class="p">)</span>
+                <span class="n">surfaces</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">surface</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span> <span class="n">pack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">morph_id</span><span class="p">)))</span>
+                <span class="n">entries</span><span class="p">[</span><span class="n">morph_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">left_id</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">right_id</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">cost</span><span class="p">),</span> <span class="n">part_of_speech</span><span class="p">,</span> <span class="n">infl_type</span><span class="p">,</span> <span class="n">infl_form</span><span class="p">,</span> <span class="n">base_form</span><span class="p">,</span> <span class="n">reading</span><span class="p">,</span> <span class="n">phonetic</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">surfaces</span><span class="p">)</span>  <span class="c1"># inputs must be sorted.</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">surfaces</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+        <span class="n">fst</span> <span class="o">=</span> <span class="n">create_minimum_transducer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">compiledFST</span> <span class="o">=</span> <span class="n">compileFST</span><span class="p">(</span><span class="n">fst</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span></div>
+
+<div class="viewcode-block" id="UserDictionary.buildsimpledic"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary.buildsimpledic">[docs]</a>    <span class="k">def</span> <span class="nf">buildsimpledic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_dict</span><span class="p">,</span> <span class="n">enc</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">sys</span>
+        <span class="n">surfaces</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">user_dict</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">enc</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+                <span class="n">surface</span><span class="p">,</span> <span class="n">pos_major</span><span class="p">,</span> <span class="n">reading</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                <span class="n">part_of_speech</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">pos_major</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;*&#39;</span><span class="p">])</span>
+                <span class="n">morph_id</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">surfaces</span><span class="p">)</span>
+                <span class="n">surfaces</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">surface</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">),</span> <span class="n">pack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">morph_id</span><span class="p">)))</span>
+                <span class="n">entries</span><span class="p">[</span><span class="n">morph_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100000</span><span class="p">,</span> <span class="n">part_of_speech</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">reading</span><span class="p">,</span> <span class="n">reading</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">surfaces</span><span class="p">)</span>  <span class="c1"># inputs must be sorted.</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">surfaces</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+        <span class="n">fst</span> <span class="o">=</span> <span class="n">create_minimum_transducer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">compiledFST</span> <span class="o">=</span> <span class="n">compileFST</span><span class="p">(</span><span class="n">fst</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span></div>
+
+<div class="viewcode-block" id="UserDictionary.save"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to_dir</span><span class="p">,</span> <span class="n">compressionlevel</span><span class="o">=</span><span class="mi">9</span><span class="p">):</span>
+        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save compressed compiled dictionary data.</span>
+
+<span class="sd">        :param to_dir: directory to save dictionary data</span>
+<span class="sd">        :compressionlevel: (Optional) gzip compression level. default is 9</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">to_dir</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">to_dir</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Not a directory : </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">to_dir</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">to_dir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">to_dir</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;0755&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+        <span class="n">_save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">to_dir</span><span class="p">,</span> <span class="n">FILE_USER_FST_DATA</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">compiledFST</span><span class="p">,</span> <span class="n">compressionlevel</span><span class="p">)</span>
+        <span class="n">_save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">to_dir</span><span class="p">,</span> <span class="n">FILE_USER_ENTRIES_DATA</span><span class="p">),</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entries</span><span class="p">),</span> <span class="n">compressionlevel</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CompiledUserDictionary"><a class="viewcode-back" href="../../janome.html#janome.dic.CompiledUserDictionary">[docs]</a><span class="k">class</span> <span class="nc">CompiledUserDictionary</span><span class="p">(</span><span class="n">Dictionary</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    User dictionary class (compiled)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CompiledUserDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.CompiledUserDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic_dir</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
+        <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">)</span>
+        <span class="n">Dictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CompiledUserDictionary.load_dict"><a class="viewcode-back" href="../../janome.html#janome.dic.CompiledUserDictionary.load_dict">[docs]</a>    <span class="k">def</span> <span class="nf">load_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic_dir</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;No such directory : &#39;</span> <span class="o">%</span> <span class="n">dic_dir</span><span class="p">)</span>
+        <span class="n">compiledFST</span> <span class="o">=</span> <span class="n">_load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">,</span> <span class="n">FILE_USER_FST_DATA</span><span class="p">))</span>
+        <span class="n">entries</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">_load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">,</span> <span class="n">FILE_USER_ENTRIES_DATA</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.3</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Tomoko Uchida.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+    </div>
+  </body>
+</html>
