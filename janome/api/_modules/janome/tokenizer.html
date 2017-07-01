@@ -84,6 +84,21 @@
 <span class="sd">の	助詞,連体化,*,*,*,*,の,ノ,ノ</span>
 <span class="sd">うち	名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ</span>
 
+<span class="sd">with splitting only (&#39;分かち書き&#39;) mode:</span>
+
+<span class="sd">&gt;&gt;&gt; from janome.tokenizer import Tokenizer</span>
+<span class="sd">&gt;&gt;&gt; t = Tokenizer()</span>
+<span class="sd">&gt;&gt;&gt; for token in t.tokenize(u&#39;すもももももももものうち&#39;, wakati=True):</span>
+<span class="sd">...   print(token)</span>
+<span class="sd">...</span>
+<span class="sd">すもも</span>
+<span class="sd">も</span>
+<span class="sd">もも</span>
+<span class="sd">も</span>
+<span class="sd">もも</span>
+<span class="sd">の</span>
+<span class="sd">うち</span>
+
 <span class="sd">with user dictionary (IPAdic format):</span>
 
 <span class="sd">.. code-block:: shell</span>
@@ -129,8 +144,9 @@
 
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">.lattice</span> <span class="k">import</span> <span class="n">Lattice</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">BOS</span><span class="p">,</span> <span class="n">EOS</span><span class="p">,</span> <span class="n">NodeType</span>
-<span class="kn">from</span> <span class="nn">.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span><span class="p">,</span> <span class="n">CompiledUserDictionary</span>
+<span class="kn">from</span> <span class="nn">.lattice</span> <span class="k">import</span> <span class="n">Lattice</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">SurfaceNode</span><span class="p">,</span> <span class="n">BOS</span><span class="p">,</span> <span class="n">EOS</span><span class="p">,</span> <span class="n">NodeType</span>
+<span class="kn">from</span> <span class="nn">.dic</span> <span class="k">import</span> <span class="n">SystemDictionary</span><span class="p">,</span> <span class="n">UserDictionary</span><span class="p">,</span> <span class="n">CompiledUserDictionary</span>
+<span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>
 
 <span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
 
@@ -173,58 +189,69 @@
 
 <div class="viewcode-block" id="Tokenizer"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer">[docs]</a><span class="k">class</span> <span class="nc">Tokenizer</span><span class="p">:</span>
     <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A Tokenizer tokenize Japanese texts with system and user defined dictionary.</span>
+<span class="sd">    A Tokenizer tokenizes Japanese texts with system and optional user defined dictionary.</span>
 <span class="sd">    It is strongly recommended to re-use a Tokenizer object because object initialization cost is high. </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">MAX_CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">1000</span>
     <span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">500</span>
 
-<div class="viewcode-block" id="Tokenizer.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">udic</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s1">&#39;ipadic&#39;</span><span class="p">,</span> <span class="n">max_unknown_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
+<div class="viewcode-block" id="Tokenizer.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">udic</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s1">&#39;ipadic&#39;</span><span class="p">,</span> <span class="n">max_unknown_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">wakati</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize Tokenizer object with (optional) arguments.</span>
+<span class="sd">        Initialize Tokenizer object with optional arguments.</span>
 
 <span class="sd">        :param udic: (Optional) user dictionary file (CSV format) or directory path to compiled dictionary data</span>
 <span class="sd">        :param udic_enc: (Optional) character encoding for user dictionary. default is &#39;utf-8&#39;</span>
 <span class="sd">        :param udic_type: (Optional) user dictionray type. supported types are &#39;ipadic&#39; and &#39;simpledic&#39;. default is &#39;ipadic&#39;</span>
 <span class="sd">        :param max_unknows_length: (Optional) max unknown word length. default is 1024.</span>
+<span class="sd">        :param wakati: (Optional) if given True load minimum sysdic data for &#39;wakati&#39; mode.</span>
 
 <span class="sd">        .. seealso:: See http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary for details for user dictionary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        
-        <span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">SYS_DIC</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">SYS_DIC</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wakati</span> <span class="o">=</span> <span class="n">wakati</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">SystemDictionary</span><span class="p">(</span><span class="n">entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">udic</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">udic</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
                 <span class="c1"># build user dictionary from CSV</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="n">udic</span><span class="p">,</span> <span class="n">udic_enc</span><span class="p">,</span> <span class="n">udic_type</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="n">udic</span><span class="p">,</span> <span class="n">udic_enc</span><span class="p">,</span> <span class="n">udic_type</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">udic</span><span class="p">):</span>
                 <span class="c1"># load compiled user dictionary</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span> <span class="o">=</span> <span class="n">CompiledUserDictionary</span><span class="p">(</span><span class="n">udic</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span> <span class="o">=</span> <span class="n">CompiledUserDictionary</span><span class="p">(</span><span class="n">udic</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_unknown_length</span> <span class="o">=</span> <span class="n">max_unknown_length</span></div>
 
-<div class="viewcode-block" id="Tokenizer.tokenize"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Tokenize the text string. Support unicode string only.</span>
+<div class="viewcode-block" id="Tokenizer.tokenize"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stream</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wakati</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Tokenize the text string.</span>
 
-<span class="sd">        :param text: text string to be tokenized</span>
+<span class="sd">        :param text: unicode string to be tokenized</span>
+<span class="sd">        :param stream: (Optional) if given True use stream mode. default is False.</span>
+<span class="sd">        :param wakati: (Optinal) if given True returns surface forms only. default is False.</span>
 
-<span class="sd">        :return: list of tokens</span>
+<span class="sd">        :return: list of tokens (stream = False) or token generator (stream = True)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">stream</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">))</span></div>
+
+    <span class="k">def</span> <span class="nf">__tokenize_stream</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">wakati</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="n">text_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-        <span class="n">all_tokens</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">processed</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">while</span> <span class="n">processed</span> <span class="o">&lt;</span> <span class="n">text_length</span><span class="p">:</span>
-            <span class="n">tokens</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_partial</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">processed</span><span class="p">:])</span>
-            <span class="n">all_tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+            <span class="n">tokens</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_partial</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">processed</span><span class="p">:],</span> <span class="n">wakati</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">token</span>
             <span class="n">processed</span> <span class="o">+=</span> <span class="n">pos</span>
-        <span class="k">return</span> <span class="n">all_tokens</span></div>
 
-    <span class="k">def</span> <span class="nf">__tokenize_partial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__tokenize_partial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">wakati</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">wakati</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">wakati</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">WakatiModeOnlyException</span>
+
         <span class="n">chunk_size</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">Tokenizer</span><span class="o">.</span><span class="n">MAX_CHUNK_SIZE</span><span class="p">)</span>
         <span class="n">lattice</span> <span class="o">=</span> <span class="n">Lattice</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span><span class="p">)</span>
         <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
@@ -233,13 +260,15 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span><span class="p">:</span>
                 <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">:])</span>
                 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
-                    <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">USER_DICT</span><span class="p">))</span>
+                    <span class="n">node</span> <span class="o">=</span> <span class="n">SurfaceNode</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">USER_DICT</span><span class="p">)</span> <span class="k">if</span> <span class="n">wakati</span> <span class="k">else</span> <span class="n">Node</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">USER_DICT</span><span class="p">)</span>
+                    <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
                 <span class="n">matched</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
             <span class="c1"># system dictionary</span>
             <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">:])</span>
             <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
-                <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">))</span>
+                <span class="n">node</span> <span class="o">=</span> <span class="n">SurfaceNode</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">)</span> <span class="k">if</span> <span class="n">wakati</span> <span class="k">else</span> <span class="n">Node</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">)</span>
+                <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
             <span class="n">matched</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
             <span class="c1"># unknown</span>
@@ -272,7 +301,10 @@
         <span class="n">min_cost_path</span> <span class="o">=</span> <span class="n">lattice</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">min_cost_path</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">BOS</span><span class="p">)</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">min_cost_path</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">EOS</span><span class="p">)</span>
-        <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">Token</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">min_cost_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">wakati</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">surface</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">min_cost_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">Token</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">min_cost_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__should_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
@@ -289,6 +321,10 @@
 
     <span class="k">def</span> <span class="nf">__is_newline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r\n\r\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WakatiModeOnlyException"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.WakatiModeOnlyException">[docs]</a><span class="k">class</span> <span class="nc">WakatiModeOnlyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span></div>
 </pre></div>
 
           </div>

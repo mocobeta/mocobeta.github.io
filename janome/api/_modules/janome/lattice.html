@@ -128,6 +128,20 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">back_pos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">back_index</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="SurfaceNode"><a class="viewcode-back" href="../../janome.html#janome.lattice.SurfaceNode">[docs]</a><span class="k">class</span> <span class="nc">SurfaceNode</span><span class="p">(</span><span class="n">BaseNode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Node class with surface form only.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;surface&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="SurfaceNode.__init__"><a class="viewcode-back" href="../../janome.html#janome.lattice.SurfaceNode.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_entry</span><span class="p">,</span> <span class="n">node_type</span><span class="o">=</span><span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SurfaceNode</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_id</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_id</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></div></div>
+
+
 <div class="viewcode-block" id="BOS"><a class="viewcode-back" href="../../janome.html#janome.lattice.BOS">[docs]</a><span class="k">class</span> <span class="nc">BOS</span><span class="p">(</span><span class="n">BaseNode</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    BOS node</span>
@@ -203,25 +217,6 @@
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">)</span> <span class="k">for</span> <span class="n">nodes</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">snodes</span><span class="p">)</span></div>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">SYS_DIC</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;４日夜、満月が地球の影に完全に入る「皆既月食」が起きた。&#39;</span>
-    <span class="n">lattice</span> <span class="o">=</span> <span class="n">Lattice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">SYS_DIC</span><span class="p">)</span>
-    <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-        <span class="n">entries</span> <span class="o">=</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">pos</span><span class="p">:])</span>
-        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
-            <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-        <span class="n">pos</span> <span class="o">+=</span> <span class="n">lattice</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
-    <span class="n">lattice</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
-    <span class="c1">#print(str(lattice))</span>
-
-    <span class="n">min_cost_path</span> <span class="o">=</span> <span class="n">lattice</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">min_cost_path</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">surface</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">node</span><span class="o">.</span><span class="n">part_of_speech</span><span class="p">)</span>
 </pre></div>
 
           </div>

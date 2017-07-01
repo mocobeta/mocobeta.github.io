@@ -524,6 +524,23 @@
 
 </dd></dl>
 
+<dl class="class">
+<dt id="janome.lattice.SurfaceNode">
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">SurfaceNode</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type=’SYS_DICT’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#SurfaceNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.SurfaceNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.lattice.BaseNode" title="janome.lattice.BaseNode"><code class="xref py py-class docutils literal"><span class="pre">janome.lattice.BaseNode</span></code></a></p>
+<p>Node class with surface form only.</p>
+<dl class="method">
+<dt id="janome.lattice.SurfaceNode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type=’SYS_DICT’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#SurfaceNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.SurfaceNode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="janome.lattice.SurfaceNode.surface">
+<code class="descname">surface</code><a class="headerlink" href="#janome.lattice.SurfaceNode.surface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-janome.tokenizer">
 <span id="janome-tokenizer-module"></span><h2>janome.tokenizer module<a class="headerlink" href="#module-janome.tokenizer" title="Permalink to this headline">¶</a></h2>
@@ -541,6 +558,21 @@
 <span class="go">もも      名詞,一般,*,*,*,*,もも,モモ,モモ</span>
 <span class="go">の       助詞,連体化,*,*,*,*,の,ノ,ノ</span>
 <span class="go">うち      名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ</span>
+</pre></div>
+</div>
+<p>with splitting only (‘分かち書き’) mode:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">すもも</span>
+<span class="go">も</span>
+<span class="go">もも</span>
+<span class="go">も</span>
+<span class="go">もも</span>
+<span class="go">の</span>
+<span class="go">うち</span>
 </pre></div>
 </div>
 <p>with user dictionary (IPAdic format):</p>
@@ -638,9 +670,9 @@
 
 <dl class="class">
 <dt id="janome.tokenizer.Tokenizer">
-<em class="property">class </em><code class="descclassname">janome.tokenizer.</code><code class="descname">Tokenizer</code><span class="sig-paren">(</span><em>udic=”</em>, <em>udic_enc=’utf8’</em>, <em>udic_type=’ipadic’</em>, <em>max_unknown_length=1024</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">janome.tokenizer.</code><code class="descname">Tokenizer</code><span class="sig-paren">(</span><em>udic=”</em>, <em>udic_enc=’utf8’</em>, <em>udic_type=’ipadic’</em>, <em>max_unknown_length=1024</em>, <em>wakati=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>A Tokenizer tokenize Japanese texts with system and user defined dictionary.
+<p>A Tokenizer tokenizes Japanese texts with system and optional user defined dictionary.
 It is strongly recommended to re-use a Tokenizer object because object initialization cost is high.</p>
 <dl class="attribute">
 <dt id="janome.tokenizer.Tokenizer.CHUNK_SIZE">
@@ -654,8 +686,8 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 
 <dl class="method">
 <dt id="janome.tokenizer.Tokenizer.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>udic=”</em>, <em>udic_enc=’utf8’</em>, <em>udic_type=’ipadic’</em>, <em>max_unknown_length=1024</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize Tokenizer object with (optional) arguments.</p>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>udic=”</em>, <em>udic_enc=’utf8’</em>, <em>udic_type=’ipadic’</em>, <em>max_unknown_length=1024</em>, <em>wakati=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize Tokenizer object with optional arguments.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -665,6 +697,7 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 <li><strong>udic_enc</strong> – (Optional) character encoding for user dictionary. default is ‘utf-8’</li>
 <li><strong>udic_type</strong> – (Optional) user dictionray type. supported types are ‘ipadic’ and ‘simpledic’. default is ‘ipadic’</li>
 <li><strong>max_unknows_length</strong> – (Optional) max unknown word length. default is 1024.</li>
+<li><strong>wakati</strong> – (Optional) if given True load minimum sysdic data for ‘wakati’ mode.</li>
 </ul>
 </td>
 </tr>
@@ -678,20 +711,32 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 
 <dl class="method">
 <dt id="janome.tokenizer.Tokenizer.tokenize">
-<code class="descname">tokenize</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Tokenize the text string. Support unicode string only.</p>
+<code class="descname">tokenize</code><span class="sig-paren">(</span><em>text</em>, <em>stream=False</em>, <em>wakati=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tokenize the text string.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> – text string to be tokenized</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>text</strong> – unicode string to be tokenized</li>
+<li><strong>stream</strong> – (Optional) if given True use stream mode. default is False.</li>
+<li><strong>wakati</strong> – (Optinal) if given True returns surface forms only. default is False.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of tokens</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">list of tokens (stream = False) or token generator (stream = True)</p>
+</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="exception">
+<dt id="janome.tokenizer.WakatiModeOnlyException">
+<em class="property">exception </em><code class="descclassname">janome.tokenizer.</code><code class="descname">WakatiModeOnlyException</code><a class="reference internal" href="_modules/janome/tokenizer.html#WakatiModeOnlyException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.WakatiModeOnlyException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
 </div>

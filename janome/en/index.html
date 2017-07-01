@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to janome’s documentation! &#8212; Janome v0.3 documentation</title>
+    <title>Welcome to janome’s documentation! (English) &#8212; Janome v0.3 documentation (en)</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.0',
+        VERSION:     '0.3.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -25,13 +25,14 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
   </head>
   <body>
       <div class="header" role="banner"><h1 class="heading"><a href="#">
-          <span>Janome v0.3 documentation</span></a></h1>
-        <h2 class="heading"><span>Welcome to janome’s documentation!</span></h2>
+          <span>Janome v0.3 documentation (en)</span></a></h1>
+        <h2 class="heading"><span>Welcome to janome’s documentation! (English)</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -43,8 +44,8 @@
       <div class="content">
         
         
-  <a href="https://github.com/mocobeta/janome"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><div class="section" id="welcome-to-janome-s-documentation">
-<h1>Welcome to janome’s documentation!<a class="headerlink" href="#welcome-to-janome-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <a href="https://github.com/mocobeta/janome"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><div class="section" id="welcome-to-janome-s-documentation-english">
+<h1>Welcome to janome’s documentation! (English)<a class="headerlink" href="#welcome-to-janome-s-documentation-english" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/">日本語</a></p>
 <div class="section" id="what-s-janome">
 <h2>What’s Janome?<a class="headerlink" href="#what-s-janome" title="Permalink to this headline">¶</a></h2>
@@ -67,7 +68,7 @@
 <div class="section" id="current-version">
 <h2>Current version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.0</li>
+<li>janome: 0.3.1</li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -187,15 +188,15 @@
 <p>For now, there is no tools for compiling user dictionary. Use <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">APIs</a> as below.</p>
 <p>How to compile user dictionary (MeCab IPADIC format):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">SYS_DIC</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysdic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>How to compile user dictionary (simplified format):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">SYS_DIC</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">SYS_DIC</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysdic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -207,6 +208,39 @@
 <p class="first admonition-title">Note</p>
 <p class="last">Use same major python version at both compile time and runtime.  Forward/backward dictionary data compatibility is not guaranteed.</p>
 </div>
+</div>
+</div>
+<div class="section" id="streaming-mode-v0-3-1">
+<h2>Streaming mode (v0.3.1+)<a class="headerlink" href="#streaming-mode-v0-3-1" title="Permalink to this headline">¶</a></h2>
+<p>When ‘stream = True’ option is given to tokenize() method, it runs in streaming mode. In streaming mode, partial analyzed results are returned through <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> interface.</p>
+<p>Use this option when you analyze very large text data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;very_large_text.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wakati-gaki-mode-v0-3-1">
+<h2>‘wakati-gaki’ mode (v0.3.1+)<a class="headerlink" href="#wakati-gaki-mode-v0-3-1" title="Permalink to this headline">¶</a></h2>
+<p>When ‘wakati = True’ option is given to tokenize() method, it runs in ‘wakati-gaki’ (‘分かち書き’) mode. In wakati-gaki mode, tokenize() method returns sufrace forms only. Return type is list of string, not list of Token.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span>
+<span class="go">[&#39;分かち書き&#39;, &#39;モード&#39;, &#39;が&#39;, &#39;つき&#39;, &#39;まし&#39;, &#39;た&#39;, &#39;！&#39;]</span>
+</pre></div>
+</div>
+<p>If you use ‘wakati-gaki’ mode only, it is recommended to give ‘wakati = True’ option to Tokenizer.__init__(). When Tokenizer object is initialized as below, extra information (detailed part of speech, reading, etc.) for tokens are not loaded from dictionary so the memory usage is reduced.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When this option is set to Tokenizer object, tokenize() method always runs in wakati-gaki mode (‘wakati = False’ option to tokenize() method is ignored.)</p>
+<p>wakati-gaki mode can be used with streaming mode.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="use-janome-from-the-command-line-v0-2-6-lunux-mac-only">
@@ -228,7 +262,7 @@
 <h2>Note for analyzing large document set<a class="headerlink" href="#note-for-analyzing-large-document-set" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This memory leak problem is solved at v0.3. The analysed results with janome version 0.3 or over can be a bit different from ones with version 0.2.</p>
+<p class="last">This memory leak problem is solved at v0.3. The analysed results with janome version 0.3 or over can be a bit different from ones with version 0.2. You may want to examine streaming and/or wakati-gaki mode to reduce memory usage more.</p>
 </div>
 <p>In older version (&lt; 0.3), Janome can consume large memory when a very large document is passed all at once. Please split large documents (larger than tens of killobytes) into small chunks or sentences.</p>
 </div>
@@ -275,7 +309,8 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>2016.06.30 janome Version 0.3.0 was released</li>
+<li>2017.07.02 janove Version 0.3.1 was released</li>
+<li>2017.06.30 janome Version 0.3.0 was released</li>
 <li>2016.05.07 janome Version 0.2.8 was released</li>
 <li>2016.03.05 janome Version 0.2.7 was released</li>
 <li>2015.10.26 janome Version 0.2.6 was released</li>
