@@ -215,9 +215,9 @@
 </div>
 </div>
 <div class="section" id="v0-3-1">
-<h2>ストリームモード (v0.3.1 以上)<a class="headerlink" href="#v0-3-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>tokenize() メソッドに 『stream = True』 オプションを与えると, ストリームモードで動作します．ストリームモードでは, 部分的な解析が完了する都度, 解析結果を返します. 戻り値はリストではなく <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> になります．</p>
-<p>内部的にすべての Token のリストを保持しなくなるため, 巨大な文書を解析する場合に使うと, メモリ消費量が一定以下に抑制されます.</p>
+<h2>ストリーミングモード (v0.3.1 以上)<a class="headerlink" href="#v0-3-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>tokenize() メソッドに 『stream = True』 オプションを与えると, ストリーミングモードで動作します．ストリーミングモードでは, 部分的な解析が完了する都度, 解析結果を返します. 戻り値はリストではなく <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> になります．</p>
+<p>内部的にすべての Token のリストを保持しなくなるため, 巨大な文書を解析する場合でも, メモリ消費量が一定以下に抑制されます.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;very_large_text.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -267,9 +267,9 @@
 <h2>大きな文書を解析する際の注意 (v0.2.8 以下)<a class="headerlink" href="#v0-2-8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p>バージョン 0.3 では，大きな文書を解析したときにメモリを大量に消費（リーク）してしまう問題が解決されました. 内部バッファに収まらないサイズの文書が与えられた場合, 部分的に解析することでメモリ使用量を抑制しています.</p>
-<p>この修正の影響で, 0.2 系と 0.3 系以上 では, 大きなドキュメントを解析したときの解析結果が若干異なる可能性があります. よりメモリ使用量を抑制したい場合は「ストリームモード」を使ってください.</p>
-<p class="last">詳しくはこちら： <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-release-0-3-1-3e7afd9d1de3">[janome開発日誌] 省メモリ対応をした janome 0.3.1 をリリースしました</a></p>
+<p>バージョン 0.3 では，大きな文書を解析したときにメモリを大量に消費（リーク）してしまう問題が解決されました. 内部バッファに収まらないサイズの文書が与えられた場合, 部分的に解析することでメモリ使用量を抑制しています. よりメモリ使用量を抑制したい場合は「ストリーミングモード」を使ってください.</p>
+<p>詳しくはこちら： <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-release-0-3-1-3e7afd9d1de3">[janome開発日誌] 省メモリ対応をした janome 0.3.1 をリリースしました</a></p>
+<p class="last">この修正の影響で, 0.2 系と 0.3 系以上 では, 大きなドキュメントを解析したときの解析結果が若干異なる可能性があります.</p>
 </div>
 <p>古いバージョン(&lt; 0.3)では, 入力全体を読んでラティスを構築するため, 入力文字列が大きくなると多くのリソースを消費します. 数十キロバイト以上の文書を解析する場合は, なるべく適度に分割して与えてください.</p>
 </div>
