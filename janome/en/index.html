@@ -236,7 +236,7 @@
 </pre></div>
 </div>
 <p>When this option is set to Tokenizer object, tokenize() method always runs in wakati-gaki mode (‘wakati = False’ option to tokenize() method is ignored.)</p>
-<p>wakati-gaki mode can be used with streaming mode.</p>
+<p>‘wakati-gaki’ mode works well with streaming mode. tokenize() method returns generator of string when it is given ‘stream=True’ and ‘wakati=True’ options.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>

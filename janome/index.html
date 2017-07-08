@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.1',
+        VERSION:     '0.3.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -228,7 +228,7 @@
 </div>
 <div class="section" id="id11">
 <h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>tokenize() メソッドに 『wakati = True』 オプションを与えると, 分かち書きモード（表層形のみを返すモード）で動作します. 分かち書きモードで解析した場合の戻り値は, Token オブジェクトのリストではなく文字列のリストになります.</p>
+<p>tokenize() メソッドに 『wakati = True』 オプションを与えると, 分かち書きモード（表層形のみを返すモード）で動作します. 分かち書きモードで解析した場合の戻り値は, Token オブジェクトのリストではなく文字列 (str) のリストになります.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span>
@@ -240,7 +240,7 @@
 </pre></div>
 </div>
 <p>なお, このオプションを与えて Tokenizer を初期化した場合, tokenize() メソッドは常に分かち書きモードで動作します（tokenize 時に 『wakati = False』 と指定しても無視されます）.</p>
-<p>分かち書きモードはストリームモードと併用することができます.</p>
+<p>分かち書きモードはストリームモードと併用することができます. その場合の戻り値は文字列 (str) の generator となります。</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
