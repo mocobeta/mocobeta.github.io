@@ -5,17 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Welcome to janome’s documentation! (Japanese) &#8212; Janome v0.3 documentation (ja)</title>
-    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -69,7 +66,7 @@
 <div class="section" id="id3">
 <h2>バージョン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.2</li>
+<li>janome: 0.3.3</li>
 </ul>
 </div>
 <div class="section" id="id4">
@@ -247,6 +244,11 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="memory-mapped-file-v0-3-3">
+<h2>Memory-mapped file サポート (v0.3.3 以上)<a class="headerlink" href="#memory-mapped-file-v0-3-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Tokenizer オブジェクトの初期化時に 『mmap=True』 オプションを与えると，辞書エントリは Memory-mapped file としてアクセスされるようになります。</p>
+<p>Tokenizer の初期化時，プロセス空間に辞書エントリをロードしないため，初期化が高速になります。</p>
+</div>
 <div class="section" id="v0-2-6-lunux-mac-only">
 <h2>コマンドラインから使う (v0.2.6 以上, Lunux/Mac only)<a class="headerlink" href="#v0-2-6-lunux-mac-only" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>コマンドラインから実行可能なスクリプト janome がついています. (Linux/Mac のみ. Windows 版(bat)は少々お待ちください.)</p>
@@ -279,7 +281,7 @@
 <li>Tokenizer の初期化が遅いんだけど.</li>
 </ol>
 <ol class="upperalpha simple">
-<li>インタプリタ起動直後の, 初回の Tokenizer インスタンス生成時に, システム辞書を読み込むのですが, 現在のバージョンでは1~2秒かかる仕様です. 2回目以降はシステム辞書がすでに読み込まれているため速くなります. 今後改善していきたいのですが, 現行ではご勘弁ください. (そのため, インタプリタをしょっちゅう再起動するようなユースケースだと厳しいです.)</li>
+<li>インタプリタ起動直後の, 初回の Tokenizer インスタンス生成時に, システム辞書を読み込むのですが, 現在のバージョンでは1~2秒かかる仕様です. 2回目以降はシステム辞書がすでに読み込まれているため速くなります. 今後改善していきたいのですが, 現行ではご勘弁ください. (そのため, インタプリタをしょっちゅう再起動するようなユースケースだと厳しいです.) =&gt; v0.3.3 以上の mmap サポートを使うと初期化が高速になるため，必要に応じて検討ください。</li>
 </ol>
 <ol class="upperalpha simple" start="17">
 <li>解析結果の精度は.</li>
@@ -364,6 +366,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2017.07.23 janome Version 0.3.3 リリース</li>
 <li>2017.07.05 janome Version 0.3.2 リリース</li>
 <li>2017.07.02 janome Version 0.3.1 リリース</li>
 <li>2017.06.30 janome Version 0.3.0 リリース</li>
@@ -396,7 +399,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Tomoko Uchida.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3 で生成しました。
     </div>
   </body>
 </html>

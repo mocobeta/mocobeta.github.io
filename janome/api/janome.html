@@ -5,16 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>janome package &#8212; Janome API reference v0.3</title>
-    
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.2',
+        VERSION:     '0.3.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -95,36 +92,102 @@
 <code class="descname">lookup</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary.lookup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="janome.dic.Dictionary.lookup_extra">
+<code class="descname">lookup_extra</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.lookup_extra"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary.lookup_extra" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="janome.dic.LoadingDictionaryError">
+<em class="property">exception </em><code class="descclassname">janome.dic.</code><code class="descname">LoadingDictionaryError</code><a class="reference internal" href="_modules/janome/dic.html#LoadingDictionaryError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.LoadingDictionaryError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+<dl class="method">
+<dt id="janome.dic.LoadingDictionaryError.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#LoadingDictionaryError.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.LoadingDictionaryError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.dic.MMapDictionary">
+<em class="property">class </em><code class="descclassname">janome.dic.</code><code class="descname">MMapDictionary</code><span class="sig-paren">(</span><em>compiledFST</em>, <em>entries_compact</em>, <em>entries_extra</em>, <em>open_files</em>, <em>connections</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Base MMap dictionar class</p>
+<dl class="method">
+<dt id="janome.dic.MMapDictionary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>compiledFST</em>, <em>entries_compact</em>, <em>entries_extra</em>, <em>open_files</em>, <em>connections</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.MMapDictionary.get_trans_cost">
+<code class="descname">get_trans_cost</code><span class="sig-paren">(</span><em>id1</em>, <em>id2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.get_trans_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary.get_trans_cost" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.MMapDictionary.lookup">
+<code class="descname">lookup</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.MMapDictionary.lookup_extra">
+<code class="descname">lookup_extra</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.lookup_extra"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary.lookup_extra" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.dic.MMapSystemDictionary">
+<em class="property">class </em><code class="descclassname">janome.dic.</code><code class="descname">MMapSystemDictionary</code><span class="sig-paren">(</span><em>mmap_entries</em>, <em>connections</em>, <em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapSystemDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapSystemDictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.dic.MMapDictionary" title="janome.dic.MMapDictionary"><code class="xref py py-class docutils literal"><span class="pre">janome.dic.MMapDictionary</span></code></a>, <a class="reference internal" href="#janome.dic.UnknownsDictionary" title="janome.dic.UnknownsDictionary"><code class="xref py py-class docutils literal"><span class="pre">janome.dic.UnknownsDictionary</span></code></a></p>
+<p>MMap System dictionary class</p>
+<dl class="method">
+<dt id="janome.dic.MMapSystemDictionary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>mmap_entries</em>, <em>connections</em>, <em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapSystemDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapSystemDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="janome.dic.SystemDictionary">
 <em class="property">class </em><code class="descclassname">janome.dic.</code><code class="descname">SystemDictionary</code><span class="sig-paren">(</span><em>entries</em>, <em>connections</em>, <em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#janome.dic.Dictionary" title="janome.dic.Dictionary"><code class="xref py py-class docutils literal"><span class="pre">janome.dic.Dictionary</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#janome.dic.Dictionary" title="janome.dic.Dictionary"><code class="xref py py-class docutils literal"><span class="pre">janome.dic.Dictionary</span></code></a>, <a class="reference internal" href="#janome.dic.UnknownsDictionary" title="janome.dic.UnknownsDictionary"><code class="xref py py-class docutils literal"><span class="pre">janome.dic.UnknownsDictionary</span></code></a></p>
 <p>System dictionary class</p>
 <dl class="method">
 <dt id="janome.dic.SystemDictionary.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>entries</em>, <em>connections</em>, <em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.dic.UnknownsDictionary">
+<em class="property">class </em><code class="descclassname">janome.dic.</code><code class="descname">UnknownsDictionary</code><span class="sig-paren">(</span><em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
-<dt id="janome.dic.SystemDictionary.get_char_categories">
-<code class="descname">get_char_categories</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.get_char_categories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.get_char_categories" title="Permalink to this definition">¶</a></dt>
+<dt id="janome.dic.UnknownsDictionary.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="janome.dic.SystemDictionary.unknown_grouping">
-<code class="descname">unknown_grouping</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.unknown_grouping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.unknown_grouping" title="Permalink to this definition">¶</a></dt>
+<dt id="janome.dic.UnknownsDictionary.get_char_categories">
+<code class="descname">get_char_categories</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.get_char_categories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.get_char_categories" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="janome.dic.SystemDictionary.unknown_invoked_always">
-<code class="descname">unknown_invoked_always</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.unknown_invoked_always"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.unknown_invoked_always" title="Permalink to this definition">¶</a></dt>
+<dt id="janome.dic.UnknownsDictionary.unknown_grouping">
+<code class="descname">unknown_grouping</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_grouping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_grouping" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="janome.dic.SystemDictionary.unknown_length">
-<code class="descname">unknown_length</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#SystemDictionary.unknown_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.SystemDictionary.unknown_length" title="Permalink to this definition">¶</a></dt>
+<dt id="janome.dic.UnknownsDictionary.unknown_invoked_always">
+<code class="descname">unknown_invoked_always</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_invoked_always"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_invoked_always" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.dic.UnknownsDictionary.unknown_length">
+<code class="descname">unknown_length</code><span class="sig-paren">(</span><em>cate</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -188,28 +251,48 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="janome.dic.end_save_entries">
+<code class="descclassname">janome.dic.</code><code class="descname">end_save_entries</code><span class="sig-paren">(</span><em>dir</em>, <em>bucket_num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#end_save_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.end_save_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janome.dic.load_all_fstdata">
+<code class="descclassname">janome.dic.</code><code class="descname">load_all_fstdata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#load_all_fstdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.load_all_fstdata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="janome.dic.save_chardefs">
-<code class="descclassname">janome.dic.</code><code class="descname">save_chardefs</code><span class="sig-paren">(</span><em>chardefs</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_chardefs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_chardefs" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">janome.dic.</code><code class="descname">save_chardefs</code><span class="sig-paren">(</span><em>chardefs</em>, <em>dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_chardefs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_chardefs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="janome.dic.save_connections">
-<code class="descclassname">janome.dic.</code><code class="descname">save_connections</code><span class="sig-paren">(</span><em>connections</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_connections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_connections" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">janome.dic.</code><code class="descname">save_connections</code><span class="sig-paren">(</span><em>connections</em>, <em>dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_connections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_connections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="janome.dic.save_entries">
-<code class="descclassname">janome.dic.</code><code class="descname">save_entries</code><span class="sig-paren">(</span><em>entries</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_entries" title="Permalink to this definition">¶</a></dt>
+<dt id="janome.dic.save_entry">
+<code class="descclassname">janome.dic.</code><code class="descname">save_entry</code><span class="sig-paren">(</span><em>dir</em>, <em>bucket_idx</em>, <em>morph_id</em>, <em>entry</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janome.dic.save_entry_buckets">
+<code class="descclassname">janome.dic.</code><code class="descname">save_entry_buckets</code><span class="sig-paren">(</span><em>dir</em>, <em>buckets</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_entry_buckets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_entry_buckets" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="janome.dic.save_fstdata">
-<code class="descclassname">janome.dic.</code><code class="descname">save_fstdata</code><span class="sig-paren">(</span><em>data</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_fstdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_fstdata" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">janome.dic.</code><code class="descname">save_fstdata</code><span class="sig-paren">(</span><em>data</em>, <em>dir</em>, <em>suffix=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_fstdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_fstdata" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="janome.dic.save_unknowns">
-<code class="descclassname">janome.dic.</code><code class="descname">save_unknowns</code><span class="sig-paren">(</span><em>unknowns</em>, <em>dir=’.’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_unknowns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_unknowns" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">janome.dic.</code><code class="descname">save_unknowns</code><span class="sig-paren">(</span><em>unknowns</em>, <em>dir='.'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_unknowns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_unknowns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="janome.dic.start_save_entries">
+<code class="descclassname">janome.dic.</code><code class="descname">start_save_entries</code><span class="sig-paren">(</span><em>dir</em>, <em>bucket_num</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#start_save_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.start_save_entries" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -220,9 +303,19 @@
 <em class="property">class </em><code class="descclassname">janome.fst.</code><code class="descname">FST</code><a class="reference internal" href="_modules/janome/fst.html#FST"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>FST (final dictionary) class</p>
+<dl class="attribute">
+<dt id="janome.fst.FST.MAX_SIZE">
+<code class="descname">MAX_SIZE</code><em class="property"> = 300000</em><a class="headerlink" href="#janome.fst.FST.MAX_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="janome.fst.FST.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.FST.exceed_max_size">
+<code class="descname">exceed_max_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.exceed_max_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.exceed_max_size" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -238,6 +331,11 @@
 <dl class="method">
 <dt id="janome.fst.FST.print_dictionary">
 <code class="descname">print_dictionary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.print_dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.print_dictionary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="janome.fst.FST.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#FST.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.FST.remove" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -258,7 +356,7 @@
 
 <dl class="method">
 <dt id="janome.fst.Matcher.next_arc">
-<code class="descname">next_arc</code><span class="sig-paren">(</span><em>addr=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#Matcher.next_arc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.Matcher.next_arc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">next_arc</code><span class="sig-paren">(</span><em>data</em>, <em>addr=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/fst.html#Matcher.next_arc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.fst.Matcher.next_arc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -438,12 +536,12 @@
 
 <dl class="class">
 <dt id="janome.lattice.Node">
-<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">Node</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type=’SYS_DICT’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Node" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">Node</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type='SYS_DICT'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.lattice.BaseNode" title="janome.lattice.BaseNode"><code class="xref py py-class docutils literal"><span class="pre">janome.lattice.BaseNode</span></code></a></p>
 <p>Node class</p>
 <dl class="method">
 <dt id="janome.lattice.Node.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type=’SYS_DICT’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Node.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Node.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type='SYS_DICT'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#Node.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.Node.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -452,8 +550,8 @@
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="janome.lattice.Node.cost">
-<code class="descname">cost</code><a class="headerlink" href="#janome.lattice.Node.cost" title="Permalink to this definition">¶</a></dt>
+<dt id="janome.lattice.Node.costpart_of_speech">
+<code class="descname">costpart_of_speech</code><a class="headerlink" href="#janome.lattice.Node.costpart_of_speech" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -474,11 +572,6 @@
 <dl class="attribute">
 <dt id="janome.lattice.Node.node_type">
 <code class="descname">node_type</code><a class="headerlink" href="#janome.lattice.Node.node_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="janome.lattice.Node.part_of_speech">
-<code class="descname">part_of_speech</code><a class="headerlink" href="#janome.lattice.Node.part_of_speech" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -509,29 +602,29 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="attribute">
 <dt id="janome.lattice.NodeType.SYS_DICT">
-<code class="descname">SYS_DICT</code><em class="property"> = ‘SYS_DICT’</em><a class="headerlink" href="#janome.lattice.NodeType.SYS_DICT" title="Permalink to this definition">¶</a></dt>
+<code class="descname">SYS_DICT</code><em class="property"> = 'SYS_DICT'</em><a class="headerlink" href="#janome.lattice.NodeType.SYS_DICT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="janome.lattice.NodeType.UNKNOWN">
-<code class="descname">UNKNOWN</code><em class="property"> = ‘UNKNOWN’</em><a class="headerlink" href="#janome.lattice.NodeType.UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<code class="descname">UNKNOWN</code><em class="property"> = 'UNKNOWN'</em><a class="headerlink" href="#janome.lattice.NodeType.UNKNOWN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="janome.lattice.NodeType.USER_DICT">
-<code class="descname">USER_DICT</code><em class="property"> = ‘USER_DICT’</em><a class="headerlink" href="#janome.lattice.NodeType.USER_DICT" title="Permalink to this definition">¶</a></dt>
+<code class="descname">USER_DICT</code><em class="property"> = 'USER_DICT'</em><a class="headerlink" href="#janome.lattice.NodeType.USER_DICT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="janome.lattice.SurfaceNode">
-<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">SurfaceNode</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type=’SYS_DICT’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#SurfaceNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.SurfaceNode" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">janome.lattice.</code><code class="descname">SurfaceNode</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type='SYS_DICT'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#SurfaceNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.SurfaceNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.lattice.BaseNode" title="janome.lattice.BaseNode"><code class="xref py py-class docutils literal"><span class="pre">janome.lattice.BaseNode</span></code></a></p>
 <p>Node class with surface form only.</p>
 <dl class="method">
 <dt id="janome.lattice.SurfaceNode.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type=’SYS_DICT’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#SurfaceNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.SurfaceNode.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>dict_entry</em>, <em>node_type='SYS_DICT'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/lattice.html#SurfaceNode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.lattice.SurfaceNode.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -616,12 +709,12 @@
 </div>
 <dl class="class">
 <dt id="janome.tokenizer.Token">
-<em class="property">class </em><code class="descclassname">janome.tokenizer.</code><code class="descname">Token</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Token" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">janome.tokenizer.</code><code class="descname">Token</code><span class="sig-paren">(</span><em>node</em>, <em>extra=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>A Token object contains all information for a token.</p>
 <dl class="method">
 <dt id="janome.tokenizer.Token.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Token.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>node</em>, <em>extra=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Token.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -670,7 +763,7 @@
 
 <dl class="class">
 <dt id="janome.tokenizer.Tokenizer">
-<em class="property">class </em><code class="descclassname">janome.tokenizer.</code><code class="descname">Tokenizer</code><span class="sig-paren">(</span><em>udic=”</em>, <em>udic_enc=’utf8’</em>, <em>udic_type=’ipadic’</em>, <em>max_unknown_length=1024</em>, <em>wakati=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">janome.tokenizer.</code><code class="descname">Tokenizer</code><span class="sig-paren">(</span><em>udic=''</em>, <em>udic_enc='utf8'</em>, <em>udic_type='ipadic'</em>, <em>max_unknown_length=1024</em>, <em>wakati=False</em>, <em>mmap=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>A Tokenizer tokenizes Japanese texts with system and optional user defined dictionary.
 It is strongly recommended to re-use a Tokenizer object because object initialization cost is high.</p>
@@ -686,7 +779,7 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 
 <dl class="method">
 <dt id="janome.tokenizer.Tokenizer.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>udic=”</em>, <em>udic_enc=’utf8’</em>, <em>udic_type=’ipadic’</em>, <em>max_unknown_length=1024</em>, <em>wakati=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>udic=''</em>, <em>udic_enc='utf8'</em>, <em>udic_type='ipadic'</em>, <em>max_unknown_length=1024</em>, <em>wakati=False</em>, <em>mmap=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize Tokenizer object with optional arguments.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -698,6 +791,7 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 <li><strong>udic_type</strong> – (Optional) user dictionray type. supported types are ‘ipadic’ and ‘simpledic’. default is ‘ipadic’</li>
 <li><strong>max_unknows_length</strong> – (Optional) max unknown word length. default is 1024.</li>
 <li><strong>wakati</strong> – (Optional) if given True load minimum sysdic data for ‘wakati’ mode.</li>
+<li><strong>mmap</strong> – (Optional) if given True use memory-mapped file for dictionary data.</li>
 </ul>
 </td>
 </tr>
@@ -805,7 +899,7 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

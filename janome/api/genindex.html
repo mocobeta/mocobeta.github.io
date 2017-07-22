@@ -6,16 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Index &#8212; Janome API reference v0.3</title>
-    
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.2',
+        VERSION:     '0.3.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -82,7 +79,15 @@
       <ul>
         <li><a href="janome.html#janome.dic.Dictionary.__init__">(janome.dic.Dictionary method)</a>
 </li>
+        <li><a href="janome.html#janome.dic.LoadingDictionaryError.__init__">(janome.dic.LoadingDictionaryError method)</a>
+</li>
+        <li><a href="janome.html#janome.dic.MMapDictionary.__init__">(janome.dic.MMapDictionary method)</a>
+</li>
+        <li><a href="janome.html#janome.dic.MMapSystemDictionary.__init__">(janome.dic.MMapSystemDictionary method)</a>
+</li>
         <li><a href="janome.html#janome.dic.SystemDictionary.__init__">(janome.dic.SystemDictionary method)</a>
+</li>
+        <li><a href="janome.html#janome.dic.UnknownsDictionary.__init__">(janome.dic.UnknownsDictionary method)</a>
 </li>
         <li><a href="janome.html#janome.dic.UserDictionary.__init__">(janome.dic.UserDictionary method)</a>
 </li>
@@ -161,7 +166,7 @@
 </li>
       <li><a href="janome.html#janome.fst.copy_state">copy_state() (in module janome.fst)</a>
 </li>
-      <li><a href="janome.html#janome.lattice.Node.cost">cost (janome.lattice.Node attribute)</a>
+      <li><a href="janome.html#janome.lattice.Node.costpart_of_speech">costpart_of_speech (janome.lattice.Node attribute)</a>
 </li>
       <li><a href="janome.html#janome.fst.create_minimum_transducer">create_minimum_transducer() (in module janome.fst)</a>
 </li>
@@ -181,9 +186,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.lattice.Lattice.end">end() (janome.lattice.Lattice method)</a>
 </li>
+      <li><a href="janome.html#janome.dic.end_save_entries">end_save_entries() (in module janome.dic)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.lattice.EOS">EOS (class in janome.lattice)</a>
+</li>
+      <li><a href="janome.html#janome.fst.FST.exceed_max_size">exceed_max_size() (janome.fst.FST method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -207,12 +216,16 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.dic.SystemDictionary.get_char_categories">get_char_categories() (janome.dic.SystemDictionary method)</a>
+      <li><a href="janome.html#janome.dic.UnknownsDictionary.get_char_categories">get_char_categories() (janome.dic.UnknownsDictionary method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.dic.Dictionary.get_trans_cost">get_trans_cost() (janome.dic.Dictionary method)</a>
+
+      <ul>
+        <li><a href="janome.html#janome.dic.MMapDictionary.get_trans_cost">(janome.dic.MMapDictionary method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -267,12 +280,26 @@
 </li>
       <li><a href="janome.html#janome.lattice.Node.left_id">left_id (janome.lattice.Node attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="janome.html#janome.dic.load_all_fstdata">load_all_fstdata() (in module janome.dic)</a>
+</li>
       <li><a href="janome.html#janome.dic.CompiledUserDictionary.load_dict">load_dict() (janome.dic.CompiledUserDictionary method)</a>
 </li>
-      <li><a href="janome.html#janome.dic.Dictionary.lookup">lookup() (janome.dic.Dictionary method)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="janome.html#janome.dic.LoadingDictionaryError">LoadingDictionaryError</a>
 </li>
+      <li><a href="janome.html#janome.dic.Dictionary.lookup">lookup() (janome.dic.Dictionary method)</a>
+
+      <ul>
+        <li><a href="janome.html#janome.dic.MMapDictionary.lookup">(janome.dic.MMapDictionary method)</a>
+</li>
+      </ul></li>
+      <li><a href="janome.html#janome.dic.Dictionary.lookup_extra">lookup_extra() (janome.dic.Dictionary method)</a>
+
+      <ul>
+        <li><a href="janome.html#janome.dic.MMapDictionary.lookup_extra">(janome.dic.MMapDictionary method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -281,11 +308,17 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.fst.Matcher">Matcher (class in janome.fst)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE">MAX_CHUNK_SIZE (janome.tokenizer.Tokenizer attribute)</a>
 </li>
+      <li><a href="janome.html#janome.fst.FST.MAX_SIZE">MAX_SIZE (janome.fst.FST attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.fst.FST.member">member() (janome.fst.FST method)</a>
+</li>
+      <li><a href="janome.html#janome.dic.MMapDictionary">MMapDictionary (class in janome.dic)</a>
+</li>
+      <li><a href="janome.html#janome.dic.MMapSystemDictionary">MMapSystemDictionary (class in janome.dic)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -317,20 +350,16 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Node.part_of_speech">part_of_speech (janome.lattice.Node attribute)</a>
-
-      <ul>
-        <li><a href="janome.html#janome.tokenizer.Token.part_of_speech">(janome.tokenizer.Token attribute)</a>
+      <li><a href="janome.html#janome.tokenizer.Token.part_of_speech">part_of_speech (janome.tokenizer.Token attribute)</a>
 </li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.lattice.Node.phonetic">phonetic (janome.lattice.Node attribute)</a>
 
       <ul>
         <li><a href="janome.html#janome.tokenizer.Token.phonetic">(janome.tokenizer.Token attribute)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.fst.FST.print_dictionary">print_dictionary() (janome.fst.FST method)</a>
 </li>
   </ul></td>
@@ -347,6 +376,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="janome.html#janome.fst.FST.remove">remove() (janome.fst.FST method)</a>
+</li>
       <li><a href="janome.html#janome.lattice.Node.right_id">right_id (janome.lattice.Node attribute)</a>
 </li>
       <li><a href="janome.html#janome.fst.Matcher.run">run() (janome.fst.Matcher method)</a>
@@ -363,7 +394,9 @@
 </li>
       <li><a href="janome.html#janome.dic.save_connections">save_connections() (in module janome.dic)</a>
 </li>
-      <li><a href="janome.html#janome.dic.save_entries">save_entries() (in module janome.dic)</a>
+      <li><a href="janome.html#janome.dic.save_entry">save_entry() (in module janome.dic)</a>
+</li>
+      <li><a href="janome.html#janome.dic.save_entry_buckets">save_entry_buckets() (in module janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.dic.save_fstdata">save_fstdata() (in module janome.dic)</a>
 </li>
@@ -380,6 +413,8 @@
       <li><a href="janome.html#janome.fst.State.set_transition">set_transition() (janome.fst.State method)</a>
 </li>
       <li><a href="janome.html#janome.fst.FST.size">size() (janome.fst.FST method)</a>
+</li>
+      <li><a href="janome.html#janome.dic.start_save_entries">start_save_entries() (in module janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.fst.State">State (class in janome.fst)</a>
 </li>
@@ -425,13 +460,15 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.lattice.NodeType.UNKNOWN">UNKNOWN (janome.lattice.NodeType attribute)</a>
 </li>
-      <li><a href="janome.html#janome.dic.SystemDictionary.unknown_grouping">unknown_grouping() (janome.dic.SystemDictionary method)</a>
+      <li><a href="janome.html#janome.dic.UnknownsDictionary.unknown_grouping">unknown_grouping() (janome.dic.UnknownsDictionary method)</a>
 </li>
-      <li><a href="janome.html#janome.dic.SystemDictionary.unknown_invoked_always">unknown_invoked_always() (janome.dic.SystemDictionary method)</a>
+      <li><a href="janome.html#janome.dic.UnknownsDictionary.unknown_invoked_always">unknown_invoked_always() (janome.dic.UnknownsDictionary method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.dic.SystemDictionary.unknown_length">unknown_length() (janome.dic.SystemDictionary method)</a>
+      <li><a href="janome.html#janome.dic.UnknownsDictionary.unknown_length">unknown_length() (janome.dic.UnknownsDictionary method)</a>
+</li>
+      <li><a href="janome.html#janome.dic.UnknownsDictionary">UnknownsDictionary (class in janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.lattice.NodeType.USER_DICT">USER_DICT (janome.lattice.NodeType attribute)</a>
 </li>
@@ -486,7 +523,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

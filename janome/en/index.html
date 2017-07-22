@@ -5,17 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Welcome to janome’s documentation! (English) &#8212; Janome v0.3 documentation (en)</title>
-    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -68,7 +65,7 @@
 <div class="section" id="current-version">
 <h2>Current version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.2</li>
+<li>janome: 0.3.3</li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -243,6 +240,10 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="memory-mapped-file-support-v0-3-3">
+<h2>Memory-mapped file support (v0.3.3+)<a class="headerlink" href="#memory-mapped-file-support-v0-3-3" title="Permalink to this headline">¶</a></h2>
+<p>If ‘mmap=True’ option is given to Tokenizer.__init__(), dictionary entries are not loaded to process space but searched through memory-mapped file.</p>
+</div>
 <div class="section" id="use-janome-from-the-command-line-v0-2-6-lunux-mac-only">
 <h2>Use janome from the command-line (v0.2.6+, Lunux/Mac only)<a class="headerlink" href="#use-janome-from-the-command-line-v0-2-6-lunux-mac-only" title="Permalink to this headline">¶</a></h2>
 <p>Janome has executable built-in script ‘janome’ for command-line usage. (currently for Lunux/Mac only… patches are welcome!)</p>
@@ -309,6 +310,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>2017.07.23 janome Version 0.3.3 was released</li>
 <li>2017.07.05 janome Version 0.3.2 was released</li>
 <li>2017.07.02 janome Version 0.3.1 was released</li>
 <li>2017.06.30 janome Version 0.3.0 was released</li>
@@ -341,7 +343,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

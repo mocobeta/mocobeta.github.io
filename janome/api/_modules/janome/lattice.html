@@ -5,16 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>janome.lattice &#8212; Janome API reference v0.3</title>
-    
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.3.2',
+        VERSION:     '0.3.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -101,7 +98,7 @@
 <span class="sd">    Node class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;surface&#39;</span><span class="p">,</span> <span class="s1">&#39;left_id&#39;</span><span class="p">,</span> <span class="s1">&#39;right_id&#39;</span><span class="p">,</span> <span class="s1">&#39;cost&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;surface&#39;</span><span class="p">,</span> <span class="s1">&#39;left_id&#39;</span><span class="p">,</span> <span class="s1">&#39;right_id&#39;</span><span class="p">,</span> <span class="s1">&#39;cost&#39;</span>
         <span class="s1">&#39;part_of_speech&#39;</span><span class="p">,</span> <span class="s1">&#39;infl_type&#39;</span><span class="p">,</span> <span class="s1">&#39;infl_form&#39;</span><span class="p">,</span>
         <span class="s1">&#39;base_form&#39;</span><span class="p">,</span> <span class="s1">&#39;reading&#39;</span><span class="p">,</span> <span class="s1">&#39;phonetic&#39;</span><span class="p">,</span> <span class="s1">&#39;node_type&#39;</span>
     <span class="p">]</span>
@@ -136,10 +133,12 @@
 
 <div class="viewcode-block" id="SurfaceNode.__init__"><a class="viewcode-back" href="../../janome.html#janome.lattice.SurfaceNode.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_entry</span><span class="p">,</span> <span class="n">node_type</span><span class="o">=</span><span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SurfaceNode</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">left_id</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">right_id</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left_id</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right_id</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="n">dict_entry</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node_type</span> <span class="o">=</span> <span class="n">node_type</span></div></div>
 
 
 <div class="viewcode-block" id="BOS"><a class="viewcode-back" href="../../janome.html#janome.lattice.BOS">[docs]</a><span class="k">class</span> <span class="nc">BOS</span><span class="p">(</span><span class="n">BaseNode</span><span class="p">):</span>
@@ -171,7 +170,7 @@
 <div class="viewcode-block" id="Lattice"><a class="viewcode-back" href="../../janome.html#janome.lattice.Lattice">[docs]</a><span class="k">class</span> <span class="nc">Lattice</span><span class="p">:</span>
 <div class="viewcode-block" id="Lattice.__init__"><a class="viewcode-back" href="../../janome.html#janome.lattice.Lattice.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">dic</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">snodes</span> <span class="o">=</span> <span class="p">[[</span><span class="n">BOS</span><span class="p">()]]</span> <span class="o">+</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">enodes</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[</span><span class="n">BOS</span><span class="p">()]]</span> <span class="o">+</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enodes</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[</span><span class="n">BOS</span><span class="p">()]]</span> <span class="o">+</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">conn_costs</span> <span class="o">=</span> <span class="p">[[]]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dic</span> <span class="o">=</span> <span class="n">dic</span></div>
@@ -253,7 +252,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>

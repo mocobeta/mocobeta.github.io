@@ -5,16 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>janome.tokenizer &#8212; Janome API reference v0.3</title>
-    
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.3.2',
+        VERSION:     '0.3.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -145,8 +142,8 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">.lattice</span> <span class="k">import</span> <span class="n">Lattice</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">SurfaceNode</span><span class="p">,</span> <span class="n">BOS</span><span class="p">,</span> <span class="n">EOS</span><span class="p">,</span> <span class="n">NodeType</span>
-<span class="kn">from</span> <span class="nn">.dic</span> <span class="k">import</span> <span class="n">SystemDictionary</span><span class="p">,</span> <span class="n">UserDictionary</span><span class="p">,</span> <span class="n">CompiledUserDictionary</span>
-<span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>
+<span class="kn">from</span> <span class="nn">.dic</span> <span class="k">import</span> <span class="n">SystemDictionary</span><span class="p">,</span> <span class="n">MMapSystemDictionary</span><span class="p">,</span> <span class="n">UserDictionary</span><span class="p">,</span> <span class="n">CompiledUserDictionary</span>
+<span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>
 
 <span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
 
@@ -155,20 +152,20 @@
 <span class="sd">    A Token object contains all information for a token.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Token.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+<div class="viewcode-block" id="Token.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">surface</span>
         <span class="sd">&quot;&quot;&quot;surface form (表層形)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">part_of_speech</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">part_of_speech</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">part_of_speech</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">part_of_speech</span>
         <span class="sd">&quot;&quot;&quot;part of speech (品詞)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">infl_type</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">infl_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infl_type</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">infl_type</span>
         <span class="sd">&quot;&quot;&quot;terminal form (活用型)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">infl_form</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">infl_form</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infl_form</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">infl_form</span>
         <span class="sd">&quot;&quot;&quot;stem form (活用形)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">base_form</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">base_form</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_form</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">base_form</span>
         <span class="sd">&quot;&quot;&quot;base form (基本形)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reading</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">reading</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reading</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">reading</span>
         <span class="sd">&quot;&quot;&quot;&quot;reading (読み)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">phonetic</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">phonetic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phonetic</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">phonetic</span>
         <span class="sd">&quot;&quot;&quot;pronounce (発音)&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node_type</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">node_type</span></div>
 
@@ -195,7 +192,7 @@
     <span class="n">MAX_CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">1000</span>
     <span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">500</span>
 
-<div class="viewcode-block" id="Tokenizer.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">udic</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s1">&#39;ipadic&#39;</span><span class="p">,</span> <span class="n">max_unknown_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">wakati</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Tokenizer.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">udic</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s1">&#39;ipadic&#39;</span><span class="p">,</span> <span class="n">max_unknown_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mmap</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize Tokenizer object with optional arguments.</span>
 
@@ -204,11 +201,15 @@
 <span class="sd">        :param udic_type: (Optional) user dictionray type. supported types are &#39;ipadic&#39; and &#39;simpledic&#39;. default is &#39;ipadic&#39;</span>
 <span class="sd">        :param max_unknows_length: (Optional) max unknown word length. default is 1024.</span>
 <span class="sd">        :param wakati: (Optional) if given True load minimum sysdic data for &#39;wakati&#39; mode.</span>
+<span class="sd">        :param mmap: (Optional) if given True use memory-mapped file for dictionary data.</span>
 
 <span class="sd">        .. seealso:: See http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary for details for user dictionary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wakati</span> <span class="o">=</span> <span class="n">wakati</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">SystemDictionary</span><span class="p">(</span><span class="n">entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mmap</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">MMapSystemDictionary</span><span class="p">(</span><span class="n">mmap_entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">SystemDictionary</span><span class="p">(</span><span class="n">entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">udic</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">udic</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
                 <span class="c1"># build user dictionary from CSV</span>
@@ -230,7 +231,7 @@
 <span class="sd">        :param stream: (Optional) if given True use stream mode. default is False.</span>
 <span class="sd">        :param wakati: (Optinal) if given True returns surface forms only. default is False.</span>
 
-<span class="sd">        :return: list of tokens (stream = False) or token generator (stream = True)</span>
+<span class="sd">        :return: list of tokens (stream=False, wakati=False) or token generator (stream=True, wakati=False) or list of string (stream=False, wakati=True) or string generator (stream=True, wakati=True)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">wakati</span><span class="p">:</span>
             <span class="n">wakati</span> <span class="o">=</span> <span class="kc">True</span>
@@ -238,7 +239,6 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">))</span></div>
-
 
     <span class="k">def</span> <span class="nf">__tokenize_stream</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">wakati</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -263,15 +263,13 @@
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span><span class="p">:</span>
                 <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">:])</span>
                 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
-                    <span class="n">node</span> <span class="o">=</span> <span class="n">SurfaceNode</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">USER_DICT</span><span class="p">)</span> <span class="k">if</span> <span class="n">wakati</span> <span class="k">else</span> <span class="n">Node</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">USER_DICT</span><span class="p">)</span>
-                    <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                    <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">SurfaceNode</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">USER_DICT</span><span class="p">))</span>
                 <span class="n">matched</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
             <span class="c1"># system dictionary</span>
             <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">:])</span>
             <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">entries</span><span class="p">:</span>
-                <span class="n">node</span> <span class="o">=</span> <span class="n">SurfaceNode</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">)</span> <span class="k">if</span> <span class="n">wakati</span> <span class="k">else</span> <span class="n">Node</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">)</span>
-                <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                <span class="n">lattice</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">SurfaceNode</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">))</span>
             <span class="n">matched</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
             <span class="c1"># unknown</span>
@@ -307,7 +305,14 @@
         <span class="k">if</span> <span class="n">wakati</span><span class="p">:</span>
             <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">surface</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">min_cost_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">Token</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">min_cost_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">min_cost_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">==</span> <span class="n">SurfaceNode</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">node_type</span> <span class="o">==</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">SYS_DICT</span><span class="p">:</span>
+                    <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Token</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span><span class="o">.</span><span class="n">lookup_extra</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">num</span><span class="p">)))</span>
+                <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="o">==</span> <span class="n">SurfaceNode</span> <span class="ow">and</span> <span class="n">node</span><span class="o">.</span><span class="n">node_type</span> <span class="o">==</span> <span class="n">NodeType</span><span class="o">.</span><span class="n">USER_DICT</span><span class="p">:</span>
+                    <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Token</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span><span class="o">.</span><span class="n">lookup_extra</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">num</span><span class="p">)))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Token</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__should_split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
@@ -364,7 +369,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
 </html>
