@@ -12,7 +12,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.3',
+        VERSION:     '0.3.4',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -61,8 +61,6 @@
  | <a href="#J"><strong>J</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
- | <a href="#N"><strong>N</strong></a>
- | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
@@ -74,9 +72,15 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.dic.CompiledUserDictionary.__init__">__init__() (janome.dic.CompiledUserDictionary method)</a>
+      <li><a href="janome.html#janome.analyzer.Analyzer.__init__">__init__() (janome.analyzer.Analyzer method)</a>
 
       <ul>
+        <li><a href="janome.html#janome.charfilter.RegexReplaceCharFilter.__init__">(janome.charfilter.RegexReplaceCharFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.charfilter.UnicodeNormalizeCharFilter.__init__">(janome.charfilter.UnicodeNormalizeCharFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.dic.CompiledUserDictionary.__init__">(janome.dic.CompiledUserDictionary method)</a>
+</li>
         <li><a href="janome.html#janome.dic.Dictionary.__init__">(janome.dic.Dictionary method)</a>
 </li>
         <li><a href="janome.html#janome.dic.LoadingDictionaryError.__init__">(janome.dic.LoadingDictionaryError method)</a>
@@ -91,23 +95,11 @@
 </li>
         <li><a href="janome.html#janome.dic.UserDictionary.__init__">(janome.dic.UserDictionary method)</a>
 </li>
-        <li><a href="janome.html#janome.fst.FST.__init__">(janome.fst.FST method)</a>
+        <li><a href="janome.html#janome.tokenfilter.ExtractAttributeFilter.__init__">(janome.tokenfilter.ExtractAttributeFilter method)</a>
 </li>
-        <li><a href="janome.html#janome.fst.Matcher.__init__">(janome.fst.Matcher method)</a>
+        <li><a href="janome.html#janome.tokenfilter.POSKeepFilter.__init__">(janome.tokenfilter.POSKeepFilter method)</a>
 </li>
-        <li><a href="janome.html#janome.fst.State.__init__">(janome.fst.State method)</a>
-</li>
-        <li><a href="janome.html#janome.lattice.BOS.__init__">(janome.lattice.BOS method)</a>
-</li>
-        <li><a href="janome.html#janome.lattice.BaseNode.__init__">(janome.lattice.BaseNode method)</a>
-</li>
-        <li><a href="janome.html#janome.lattice.EOS.__init__">(janome.lattice.EOS method)</a>
-</li>
-        <li><a href="janome.html#janome.lattice.Lattice.__init__">(janome.lattice.Lattice method)</a>
-</li>
-        <li><a href="janome.html#janome.lattice.Node.__init__">(janome.lattice.Node method)</a>
-</li>
-        <li><a href="janome.html#janome.lattice.SurfaceNode.__init__">(janome.lattice.SurfaceNode method)</a>
+        <li><a href="janome.html#janome.tokenfilter.POSStopFilter.__init__">(janome.tokenfilter.POSStopFilter method)</a>
 </li>
         <li><a href="janome.html#janome.tokenizer.Token.__init__">(janome.tokenizer.Token method)</a>
 </li>
@@ -120,28 +112,42 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Lattice.add">add() (janome.lattice.Lattice method)</a>
+      <li><a href="janome.html#janome.analyzer.Analyzer.analyze">analyze() (janome.analyzer.Analyzer method)</a>
 </li>
+      <li><a href="janome.html#janome.analyzer.Analyzer">Analyzer (class in janome.analyzer)</a>
+</li>
+      <li><a href="janome.html#janome.charfilter.CharFilter.apply">apply() (janome.charfilter.CharFilter method)</a>
+
+      <ul>
+        <li><a href="janome.html#janome.charfilter.RegexReplaceCharFilter.apply">(janome.charfilter.RegexReplaceCharFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.charfilter.UnicodeNormalizeCharFilter.apply">(janome.charfilter.UnicodeNormalizeCharFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.tokenfilter.CompoundNounFilter.apply">(janome.tokenfilter.CompoundNounFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.tokenfilter.ExtractAttributeFilter.apply">(janome.tokenfilter.ExtractAttributeFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.tokenfilter.LowerCaseFilter.apply">(janome.tokenfilter.LowerCaseFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.tokenfilter.POSKeepFilter.apply">(janome.tokenfilter.POSKeepFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.tokenfilter.POSStopFilter.apply">(janome.tokenfilter.POSStopFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.tokenfilter.TokenFilter.apply">(janome.tokenfilter.TokenFilter method)</a>
+</li>
+        <li><a href="janome.html#janome.tokenfilter.UpperCaseFilter.apply">(janome.tokenfilter.UpperCaseFilter method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Lattice.backward">backward() (janome.lattice.Lattice method)</a>
+      <li><a href="janome.html#janome.tokenizer.Token.base_form">base_form (janome.tokenizer.Token attribute)</a>
 </li>
-      <li><a href="janome.html#janome.lattice.Node.base_form">base_form (janome.lattice.Node attribute)</a>
-
-      <ul>
-        <li><a href="janome.html#janome.tokenizer.Token.base_form">(janome.tokenizer.Token attribute)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.BaseNode">BaseNode (class in janome.lattice)</a>
-</li>
-      <li><a href="janome.html#janome.lattice.BOS">BOS (class in janome.lattice)</a>
-</li>
       <li><a href="janome.html#janome.dic.UserDictionary.buildipadic">buildipadic() (janome.dic.UserDictionary method)</a>
 </li>
       <li><a href="janome.html#janome.dic.UserDictionary.buildsimpledic">buildsimpledic() (janome.dic.UserDictionary method)</a>
@@ -152,23 +158,15 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="janome.html#janome.charfilter.CharFilter">CharFilter (class in janome.charfilter)</a>
+</li>
       <li><a href="janome.html#janome.tokenizer.Tokenizer.CHUNK_SIZE">CHUNK_SIZE (janome.tokenizer.Tokenizer attribute)</a>
-</li>
-      <li><a href="janome.html#janome.fst.State.clear">clear() (janome.fst.State method)</a>
-</li>
-      <li><a href="janome.html#janome.fst.State.clear_state_output">clear_state_output() (janome.fst.State method)</a>
-</li>
-      <li><a href="janome.html#janome.dic.CompiledUserDictionary">CompiledUserDictionary (class in janome.dic)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.compileFST">compileFST() (in module janome.fst)</a>
+      <li><a href="janome.html#janome.dic.CompiledUserDictionary">CompiledUserDictionary (class in janome.dic)</a>
 </li>
-      <li><a href="janome.html#janome.fst.copy_state">copy_state() (in module janome.fst)</a>
-</li>
-      <li><a href="janome.html#janome.lattice.Node.costpart_of_speech">costpart_of_speech (janome.lattice.Node attribute)</a>
-</li>
-      <li><a href="janome.html#janome.fst.create_minimum_transducer">create_minimum_transducer() (in module janome.fst)</a>
+      <li><a href="janome.html#janome.tokenfilter.CompoundNounFilter">CompoundNounFilter (class in janome.tokenfilter)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -184,15 +182,11 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Lattice.end">end() (janome.lattice.Lattice method)</a>
-</li>
       <li><a href="janome.html#janome.dic.end_save_entries">end_save_entries() (in module janome.dic)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.EOS">EOS (class in janome.lattice)</a>
-</li>
-      <li><a href="janome.html#janome.fst.FST.exceed_max_size">exceed_max_size() (janome.fst.FST method)</a>
+      <li><a href="janome.html#janome.tokenfilter.ExtractAttributeFilter">ExtractAttributeFilter (class in janome.tokenfilter)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -200,16 +194,12 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.State.final">final (janome.fst.State attribute)</a>
+      <li><a href="janome.html#janome.charfilter.CharFilter.filter">filter() (janome.charfilter.CharFilter method)</a>
+
+      <ul>
+        <li><a href="janome.html#janome.tokenfilter.TokenFilter.filter">(janome.tokenfilter.TokenFilter method)</a>
 </li>
-      <li><a href="janome.html#janome.fst.State.final_output">final_output (janome.fst.State attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Lattice.forward">forward() (janome.lattice.Lattice method)</a>
-</li>
-      <li><a href="janome.html#janome.fst.FST">FST (class in janome.fst)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -232,25 +222,11 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.State.id">id (janome.fst.State attribute)</a>
+      <li><a href="janome.html#janome.tokenizer.Token.infl_form">infl_form (janome.tokenizer.Token attribute)</a>
 </li>
-      <li><a href="janome.html#janome.lattice.Node.infl_form">infl_form (janome.lattice.Node attribute)</a>
-
-      <ul>
-        <li><a href="janome.html#janome.tokenizer.Token.infl_form">(janome.tokenizer.Token attribute)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Node.infl_type">infl_type (janome.lattice.Node attribute)</a>
-
-      <ul>
-        <li><a href="janome.html#janome.tokenizer.Token.infl_type">(janome.tokenizer.Token attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="janome.html#janome.fst.FST.insert">insert() (janome.fst.FST method)</a>
-</li>
-      <li><a href="janome.html#janome.fst.State.is_final">is_final() (janome.fst.State method)</a>
+      <li><a href="janome.html#janome.tokenizer.Token.infl_type">infl_type (janome.tokenizer.Token attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -258,15 +234,15 @@
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#module-janome">janome (module)</a>
+      <li><a href="janome.html#module-janome.analyzer">janome.analyzer (module)</a>
 </li>
-      <li><a href="janome.html#module-janome.dic">janome.dic (module)</a>
+      <li><a href="janome.html#module-janome.charfilter">janome.charfilter (module)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#module-janome.fst">janome.fst (module)</a>
+      <li><a href="janome.html#module-janome.dic">janome.dic (module)</a>
 </li>
-      <li><a href="janome.html#module-janome.lattice">janome.lattice (module)</a>
+      <li><a href="janome.html#module-janome.tokenfilter">janome.tokenfilter (module)</a>
 </li>
       <li><a href="janome.html#module-janome.tokenizer">janome.tokenizer (module)</a>
 </li>
@@ -276,16 +252,10 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Lattice">Lattice (class in janome.lattice)</a>
-</li>
-      <li><a href="janome.html#janome.lattice.Node.left_id">left_id (janome.lattice.Node attribute)</a>
-</li>
       <li><a href="janome.html#janome.dic.load_all_fstdata">load_all_fstdata() (in module janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.dic.CompiledUserDictionary.load_dict">load_dict() (janome.dic.CompiledUserDictionary method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.dic.LoadingDictionaryError">LoadingDictionaryError</a>
 </li>
       <li><a href="janome.html#janome.dic.Dictionary.lookup">lookup() (janome.dic.Dictionary method)</a>
@@ -294,55 +264,29 @@
         <li><a href="janome.html#janome.dic.MMapDictionary.lookup">(janome.dic.MMapDictionary method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.dic.Dictionary.lookup_extra">lookup_extra() (janome.dic.Dictionary method)</a>
 
       <ul>
         <li><a href="janome.html#janome.dic.MMapDictionary.lookup_extra">(janome.dic.MMapDictionary method)</a>
 </li>
       </ul></li>
+      <li><a href="janome.html#janome.tokenfilter.LowerCaseFilter">LowerCaseFilter (class in janome.tokenfilter)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.Matcher">Matcher (class in janome.fst)</a>
-</li>
       <li><a href="janome.html#janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE">MAX_CHUNK_SIZE (janome.tokenizer.Tokenizer attribute)</a>
-</li>
-      <li><a href="janome.html#janome.fst.FST.MAX_SIZE">MAX_SIZE (janome.fst.FST attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.FST.member">member() (janome.fst.FST method)</a>
-</li>
       <li><a href="janome.html#janome.dic.MMapDictionary">MMapDictionary (class in janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.dic.MMapSystemDictionary">MMapSystemDictionary (class in janome.dic)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="N">N</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.Matcher.next_arc">next_arc() (janome.fst.Matcher method)</a>
-</li>
-      <li><a href="janome.html#janome.lattice.Node">Node (class in janome.lattice)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Node.node_type">node_type (janome.lattice.Node attribute)</a>
-</li>
-      <li><a href="janome.html#janome.lattice.NodeType">NodeType (class in janome.lattice)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="O">O</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.State.output">output() (janome.fst.State method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -352,15 +296,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.tokenizer.Token.part_of_speech">part_of_speech (janome.tokenizer.Token attribute)</a>
 </li>
-      <li><a href="janome.html#janome.lattice.Node.phonetic">phonetic (janome.lattice.Node attribute)</a>
-
-      <ul>
-        <li><a href="janome.html#janome.tokenizer.Token.phonetic">(janome.tokenizer.Token attribute)</a>
+      <li><a href="janome.html#janome.tokenizer.Token.phonetic">phonetic (janome.tokenizer.Token attribute)</a>
 </li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.FST.print_dictionary">print_dictionary() (janome.fst.FST method)</a>
+      <li><a href="janome.html#janome.tokenfilter.POSKeepFilter">POSKeepFilter (class in janome.tokenfilter)</a>
+</li>
+      <li><a href="janome.html#janome.tokenfilter.POSStopFilter">POSStopFilter (class in janome.tokenfilter)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -368,19 +310,11 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.Node.reading">reading (janome.lattice.Node attribute)</a>
-
-      <ul>
-        <li><a href="janome.html#janome.tokenizer.Token.reading">(janome.tokenizer.Token attribute)</a>
+      <li><a href="janome.html#janome.tokenizer.Token.reading">reading (janome.tokenizer.Token attribute)</a>
 </li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.FST.remove">remove() (janome.fst.FST method)</a>
-</li>
-      <li><a href="janome.html#janome.lattice.Node.right_id">right_id (janome.lattice.Node attribute)</a>
-</li>
-      <li><a href="janome.html#janome.fst.Matcher.run">run() (janome.fst.Matcher method)</a>
+      <li><a href="janome.html#janome.charfilter.RegexReplaceCharFilter">RegexReplaceCharFilter (class in janome.charfilter)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -398,39 +332,15 @@
 </li>
       <li><a href="janome.html#janome.dic.save_entry_buckets">save_entry_buckets() (in module janome.dic)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.dic.save_fstdata">save_fstdata() (in module janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.dic.save_unknowns">save_unknowns() (in module janome.dic)</a>
 </li>
-      <li><a href="janome.html#janome.fst.State.set_final">set_final() (janome.fst.State method)</a>
-</li>
-      <li><a href="janome.html#janome.fst.State.set_output">set_output() (janome.fst.State method)</a>
-</li>
-      <li><a href="janome.html#janome.fst.State.set_state_output">set_state_output() (janome.fst.State method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.fst.State.set_transition">set_transition() (janome.fst.State method)</a>
-</li>
-      <li><a href="janome.html#janome.fst.FST.size">size() (janome.fst.FST method)</a>
-</li>
       <li><a href="janome.html#janome.dic.start_save_entries">start_save_entries() (in module janome.dic)</a>
 </li>
-      <li><a href="janome.html#janome.fst.State">State (class in janome.fst)</a>
-</li>
-      <li><a href="janome.html#janome.fst.State.state_output">state_output() (janome.fst.State method)</a>
-</li>
-      <li><a href="janome.html#janome.lattice.Node.surface">surface (janome.lattice.Node attribute)</a>
-
-      <ul>
-        <li><a href="janome.html#janome.lattice.SurfaceNode.surface">(janome.lattice.SurfaceNode attribute)</a>
-</li>
-        <li><a href="janome.html#janome.tokenizer.Token.surface">(janome.tokenizer.Token attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="janome.html#janome.lattice.SurfaceNode">SurfaceNode (class in janome.lattice)</a>
-</li>
-      <li><a href="janome.html#janome.lattice.NodeType.SYS_DICT">SYS_DICT (janome.lattice.NodeType attribute)</a>
+      <li><a href="janome.html#janome.tokenizer.Token.surface">surface (janome.tokenizer.Token attribute)</a>
 </li>
       <li><a href="janome.html#janome.dic.SystemDictionary">SystemDictionary (class in janome.dic)</a>
 </li>
@@ -442,15 +352,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.tokenizer.Token">Token (class in janome.tokenizer)</a>
 </li>
-      <li><a href="janome.html#janome.tokenizer.Tokenizer.tokenize">tokenize() (janome.tokenizer.Tokenizer method)</a>
+      <li><a href="janome.html#janome.tokenfilter.TokenFilter">TokenFilter (class in janome.tokenfilter)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="janome.html#janome.tokenizer.Tokenizer.tokenize">tokenize() (janome.tokenizer.Tokenizer method)</a>
+</li>
       <li><a href="janome.html#janome.tokenizer.Tokenizer">Tokenizer (class in janome.tokenizer)</a>
-</li>
-      <li><a href="janome.html#janome.fst.State.trans_map">trans_map (janome.fst.State attribute)</a>
-</li>
-      <li><a href="janome.html#janome.fst.State.transition">transition() (janome.fst.State method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -458,7 +366,7 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.lattice.NodeType.UNKNOWN">UNKNOWN (janome.lattice.NodeType attribute)</a>
+      <li><a href="janome.html#janome.charfilter.UnicodeNormalizeCharFilter">UnicodeNormalizeCharFilter (class in janome.charfilter)</a>
 </li>
       <li><a href="janome.html#janome.dic.UnknownsDictionary.unknown_grouping">unknown_grouping() (janome.dic.UnknownsDictionary method)</a>
 </li>
@@ -470,7 +378,7 @@
 </li>
       <li><a href="janome.html#janome.dic.UnknownsDictionary">UnknownsDictionary (class in janome.dic)</a>
 </li>
-      <li><a href="janome.html#janome.lattice.NodeType.USER_DICT">USER_DICT (janome.lattice.NodeType attribute)</a>
+      <li><a href="janome.html#janome.tokenfilter.UpperCaseFilter">UpperCaseFilter (class in janome.tokenfilter)</a>
 </li>
       <li><a href="janome.html#janome.dic.UserDictionary">UserDictionary (class in janome.dic)</a>
 </li>

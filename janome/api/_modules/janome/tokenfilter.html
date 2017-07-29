@@ -1,0 +1,241 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>janome.tokenfilter &#8212; Janome API reference v0.3</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.3.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.3</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for janome.tokenfilter</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># Copyright 2015 moco_beta</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+
+<div class="viewcode-block" id="TokenFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenFilter">[docs]</a><span class="k">class</span> <span class="nc">TokenFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base TokenFilter class.</span>
+
+<span class="sd">    A TokenFilter modifies or transforms the input token sequence according to the rule described in apply() method.</span>
+<span class="sd">    Subclasses must implement apply() method.</span>
+
+<span class="sd">    Added in *version 0.3.4*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TokenFilter.filter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TokenFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+
+
+<div class="viewcode-block" id="LowerCaseFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.LowerCaseFilter">[docs]</a><span class="k">class</span> <span class="nc">LowerCaseFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A LowerCaseFilter converts the surface of token to lowercase.</span>
+
+<span class="sd">    Added in *version 0.3.4*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="LowerCaseFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.LowerCaseFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="n">token</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">yield</span> <span class="n">token</span></div></div>
+
+
+<div class="viewcode-block" id="UpperCaseFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.UpperCaseFilter">[docs]</a><span class="k">class</span> <span class="nc">UpperCaseFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An UpperCaseFilter converts the surface of token to uppercase.</span>
+
+<span class="sd">    Added in *version 0.3.4*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="UpperCaseFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.UpperCaseFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="n">token</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="k">yield</span> <span class="n">token</span></div></div>
+    
+
+<div class="viewcode-block" id="POSStopFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.POSStopFilter">[docs]</a><span class="k">class</span> <span class="nc">POSStopFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A POSStopFilter removes tokens associated with part-of-speech tags listed in the stop tags list and keeps other tokens.</span>
+
+<span class="sd">    Tag matching rule is prefix-matching. e.g., if &#39;動詞&#39; is given as a stop tag, &#39;動詞,自立,*,*&#39; and &#39;動詞,非自立,*,*&#39; (or so) are removed.</span>
+
+<span class="sd">    Added in *version 0.3.4*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="POSStopFilter.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.POSStopFilter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos_list</span><span class="p">):</span>
+        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize POSStopFilter object.</span>
+
+<span class="sd">        :param pos_list: stop part-of-speech tags list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos_list</span> <span class="o">=</span> <span class="n">pos_list</span></div>
+
+<div class="viewcode-block" id="POSStopFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.POSStopFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">part_of_speech</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos_list</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">yield</span> <span class="n">token</span></div></div>
+
+
+<div class="viewcode-block" id="POSKeepFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.POSKeepFilter">[docs]</a><span class="k">class</span> <span class="nc">POSKeepFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A POSKeepFilter keeps tokens associated with part-of-speech tags listed in the keep tags list and removes other tokens.</span>
+
+<span class="sd">    Tag matching rule is prefix-matching. e.g., if &#39;動詞&#39; is given as a keep tag, &#39;動詞,自立,*,*&#39; and &#39;動詞,非自立,*,*&#39; (or so) are kept.</span>
+
+<span class="sd">    Added in *version 0.3.4*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="POSKeepFilter.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.POSKeepFilter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos_list</span><span class="p">):</span>
+        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize POSKeepFilter object.</span>
+
+<span class="sd">        :param pos_list: keep part-of-speech tags list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos_list</span> <span class="o">=</span> <span class="n">pos_list</span></div>
+
+<div class="viewcode-block" id="POSKeepFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.POSKeepFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">part_of_speech</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos_list</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">token</span></div></div>
+
+
+<div class="viewcode-block" id="CompoundNounFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.CompoundNounFilter">[docs]</a><span class="k">class</span> <span class="nc">CompoundNounFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CompoundNounFilter generates compound nouns.</span>
+
+<span class="sd">    This Filter joins contiguous nouns.</span>
+<span class="sd">    For example, &#39;形態素解析器&#39; is splitted three noun tokens &#39;形態素/解析/器&#39; by Tokenizer and then re-joined by this filter.</span>
+<span class="sd">    Generated tokens are associated with the special part-of-speech tag &#39;名詞,複合,*,*&#39;</span>
+
+<span class="sd">    Added in *version 0.3.4*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CompoundNounFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.CompoundNounFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="n">_ret</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">_ret</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">part_of_speech</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;名詞&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">_ret</span><span class="o">.</span><span class="n">part_of_speech</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;名詞&#39;</span><span class="p">):</span>
+                    <span class="n">_ret</span><span class="o">.</span><span class="n">surface</span> <span class="o">+=</span> <span class="n">token</span><span class="o">.</span><span class="n">surface</span>
+                    <span class="n">_ret</span><span class="o">.</span><span class="n">part_of_speech</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;名詞,複合,*,*&#39;</span>
+                    <span class="n">_ret</span><span class="o">.</span><span class="n">base_form</span> <span class="o">+=</span> <span class="n">token</span><span class="o">.</span><span class="n">base_form</span>
+                    <span class="n">_ret</span><span class="o">.</span><span class="n">reading</span> <span class="o">+=</span> <span class="n">token</span><span class="o">.</span><span class="n">reading</span>
+                    <span class="n">_ret</span><span class="o">.</span><span class="n">phonetic</span> <span class="o">+=</span> <span class="n">token</span><span class="o">.</span><span class="n">phonetic</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">ret</span> <span class="o">=</span> <span class="n">_ret</span>
+                    <span class="n">_ret</span> <span class="o">=</span> <span class="n">token</span>
+                    <span class="k">yield</span> <span class="n">ret</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_ret</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="k">if</span> <span class="n">_ret</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">_ret</span></div></div>
+
+
+<div class="viewcode-block" id="ExtractAttributeFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.ExtractAttributeFilter">[docs]</a><span class="k">class</span> <span class="nc">ExtractAttributeFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An ExtractAttributeFilter extracts a specified attribute of Token.</span>
+
+<span class="sd">    **NOTES** This filter must placed the last of token filter chain because return values are strings but not tokens.</span>
+
+<span class="sd">    Added in *version 0.3.4*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ExtractAttributeFilter.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.ExtractAttributeFilter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">att</span><span class="p">):</span>
+        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize ExtractAttributeTokenFilter object.</span>
+
+<span class="sd">        :param att: attribute name should be extraced from a token. valid values for *att* are &#39;surface&#39;, &#39;part_of_speech&#39;, &#39;infl_type&#39;, &#39;infl_form&#39;, &#39;base_form&#39;, &#39;reading&#39; and &#39;phonetic&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">att</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;surface&#39;</span><span class="p">,</span> <span class="s1">&#39;part_of_speech&#39;</span><span class="p">,</span> <span class="s1">&#39;infl_type&#39;</span><span class="p">,</span> <span class="s1">&#39;infl_form&#39;</span><span class="p">,</span> <span class="s1">&#39;base_form&#39;</span><span class="p">,</span> <span class="s1">&#39;reading&#39;</span><span class="p">,</span> <span class="s1">&#39;phonetic&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unknown attribute name: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">att</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">att</span> <span class="o">=</span> <span class="n">att</span></div>
+
+<div class="viewcode-block" id="ExtractAttributeFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.ExtractAttributeFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">att</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.3</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Tomoko Uchida.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+    </div>
+  </body>
+</html>

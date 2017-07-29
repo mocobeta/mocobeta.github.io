@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>janome.analyzer &#8212; Janome API reference v0.3</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.3.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.3</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for janome.analyzer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># Copyright 2015 moco_beta</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+
+<span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The analyzer module supplies Analyzer framework for pre-processing and post-processing for morphological analysis.</span>
+
+<span class="sd">Added in *version 0.3.4*</span>
+
+<span class="sd">*NOTE* This is experimental. The class/method interfaces can be modified in the future releases.</span>
+
+<span class="sd">Usage:</span>
+
+<span class="sd">&gt;&gt;&gt; from janome.tokenizer import Tokenizer</span>
+<span class="sd">&gt;&gt;&gt; from janome.analyzer import Analyzer</span>
+<span class="sd">&gt;&gt;&gt; from janome.charfilter import *</span>
+<span class="sd">&gt;&gt;&gt; from janome.tokenfilter import *</span>
+<span class="sd">&gt;&gt;&gt; text = u&#39;蛇の目はPure Ｐｙｔｈｏｎな形態素解析器です。&#39;</span>
+<span class="sd">&gt;&gt;&gt; char_filters = [UnicodeNormalizeCharFilter(), RegexReplaceCharFilter(u&#39;蛇の目&#39;, u&#39;janome&#39;)]</span>
+<span class="sd">&gt;&gt;&gt; tokenizer = Tokenizer()</span>
+<span class="sd">&gt;&gt;&gt; token_filters = [CompoundNounFilter(), POSStopFilter([&#39;記号&#39;,&#39;助詞&#39;]), LowerCaseFilter()]</span>
+<span class="sd">&gt;&gt;&gt; a = Analyzer(char_filters, tokenizer, token_filters)</span>
+<span class="sd">&gt;&gt;&gt; for token in a.analyze(text):</span>
+<span class="sd">...     print(token)</span>
+<span class="sd">... </span>
+<span class="sd">janome	名詞,固有名詞,組織,*,*,*,*,*,*</span>
+<span class="sd">pure	名詞,固有名詞,組織,*,*,*,*,*,*</span>
+<span class="sd">python	名詞,一般,*,*,*,*,*,*,*</span>
+<span class="sd">な	助動詞,*,*,*,特殊・ダ,体言接続,だ,ナ,ナ</span>
+<span class="sd">形態素解析器	名詞,複合,*,*,*,*,形態素解析器,ケイタイソカイセキキ,ケイタイソカイセキキ</span>
+<span class="sd">です	助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<span class="kn">from</span> <span class="nn">.charfilter</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+
+<div class="viewcode-block" id="Analyzer"><a class="viewcode-back" href="../../janome.html#janome.analyzer.Analyzer">[docs]</a><span class="k">class</span> <span class="nc">Analyzer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An Analyzer analyzes Japanese texts with customized :class:`.CharFilter` chain, :class:`.Tokenizer` and :class:`.TokenFilter` chain.</span>
+
+<span class="sd">    Added in *version 0.3.4*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Analyzer.__init__"><a class="viewcode-back" href="../../janome.html#janome.analyzer.Analyzer.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">char_filters</span><span class="o">=</span><span class="p">[],</span> <span class="n">tokenizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">token_filters</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize Analyzer object with CharFilters, a Tokenizer and TokenFilters.</span>
+
+<span class="sd">        :param char_filters: (Optional) CharFilters list. CharFilters are applied to the input text in the list order. default is the empty list.</span>
+<span class="sd">        :param tokenizer: (Optional) A Tokenizer object. Tokenizer tokenizes the text modified by *char_filters*. default is Tokenizer initialized with no extra options. **WARNING:** A Tokenizer initialized with *wakati=True* option is not accepted.</span>
+<span class="sd">        :param token_filters: (Optional) TokenFilters list. TokenFilters are applied to the Tokenizer&#39;s output in the list order. default is the empty list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tokenizer</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">wakati</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid argument: A Tokenizer with wakati=True option is not accepted.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">char_filters</span> <span class="o">=</span> <span class="n">char_filters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_filters</span> <span class="o">=</span> <span class="n">token_filters</span></div>
+
+<div class="viewcode-block" id="Analyzer.analyze"><a class="viewcode-back" href="../../janome.html#janome.analyzer.Analyzer.analyze">[docs]</a>    <span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyze the input text with custom CharFilters, Tokenizer and TokenFilters.</span>
+
+<span class="sd">        :param text: unicode string to be tokenized</span>
+
+<span class="sd">        :return: token generator. emitted element type depends on the output of the last TokenFilter. (e.g., ExtractAttributeFilter emits strings.)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">cfilter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_filters</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">cfilter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">tfilter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_filters</span><span class="p">:</span>
+            <span class="n">tokens</span> <span class="o">=</span> <span class="n">tfilter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tokens</span></div></div>
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.3</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Tomoko Uchida.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+    </div>
+  </body>
+</html>
