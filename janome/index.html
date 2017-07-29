@@ -54,6 +54,7 @@
 <div class="section" id="id1">
 <h2>ソースコードリポジトリ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mocobeta/janome">https://github.com/mocobeta/janome</a></p>
+<p>気に入ったらリポジトリにも★つけていってください！ :)</p>
 </div>
 <div class="section" id="api">
 <h2>API リファレンス<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -66,20 +67,20 @@
 <div class="section" id="id3">
 <h2>バージョン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.3</li>
+<li>janome: 0.3.4</li>
 </ul>
 </div>
 <div class="section" id="id4">
 <h2>インストール<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="pypi">
 <h3>PyPI<a class="headerlink" href="#pypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">pip でのビルド時に 500 ~ 600 MB 程度のメモリを必要とします. 利用可能なメモリ容量にご注意ください. (バージョン 0.2.6 より, RAM 2GB 程度のマシンや 32 bit 環境でもインストールできるようになりました.)</p>
-</div>
 <p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install janome
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">pip でのビルド時に 500 ~ 600 MB 程度のメモリを必要とします. 利用可能なメモリ容量にご注意ください. (バージョン 0.2.6 より, RAM 2GB 程度のマシンや 32 bit 環境でもインストールできるようになりました.)</p>
 </div>
 </div>
 </div>
@@ -211,6 +212,46 @@
 </div>
 </div>
 </div>
+<div class="section" id="experimental-analyzer-v0-3-4">
+<h2>(experimental) Analyzer フレームワーク (v0.3.4 以上)<a class="headerlink" href="#experimental-analyzer-v0-3-4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>v0.3.4 から，形態素解析の前処理・後処理を行うための Analyzer フレームワークが追加されました．Analyzer フレームワークは下記のクラスを含みます．</p>
+<ul class="simple">
+<li>文字の正規化などの前処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> クラス</li>
+<li>小文字化，品詞によるトークンのフィルタリングなど，形態素解析後の後処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> クラス</li>
+<li>CharFilter, Tokenizer, TokenFilter を組み合わせてカスタム解析フローを組み立てる <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> クラス</li>
+</ul>
+<div class="section" id="id11">
+<h3>Analyzer の使い方<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Analyzer 初期化時に，CharFilter のリスト，初期化済み Tokenizer オブジェクト，TokenFilter のリストを指定します．0 個以上，任意の数の CharFilter や TokenFilter を指定できます．
+Analyzer を初期化したら，analyze() メソッドに解析したい文字列を渡します．戻り値はトークンの generator です（最後に指定した TokenFilter の出力により，generator の返す要素の型が決まります）．</p>
+<p>以下の実行例では，前処理としてユニコード正規化と正規表現による文字列置換を行い，形態素解析を実行後に，名詞の連続のまとめあげ（複合名詞化），品詞によるフィルタリング，表層形の小文字化という後処理を行っています．</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">CharFilter や TokenFilter は，リストに指定した順で適用されるため，順番には注意してください．</p>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.charfilter</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;蛇の目はPure Ｐｙｔｈｏｎな形態素解析器です。&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">char_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">UnicodeNormalizeCharFilter</span><span class="p">(),</span> <span class="n">RegexReplaceCharFilter</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;蛇の目&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;janome&#39;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">CompoundNounFilter</span><span class="p">(),</span> <span class="n">POSStopFilter</span><span class="p">([</span><span class="s1">&#39;記号&#39;</span><span class="p">,</span><span class="s1">&#39;助詞&#39;</span><span class="p">]),</span> <span class="n">LowerCaseFilter</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">char_filters</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">token_filters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">janome  名詞,固有名詞,組織,*,*,*,*,*,*</span>
+<span class="go">pure    名詞,固有名詞,組織,*,*,*,*,*,*</span>
+<span class="go">python  名詞,一般,*,*,*,*,*,*,*</span>
+<span class="go">な       助動詞,*,*,*,特殊・ダ,体言接続,だ,ナ,ナ</span>
+<span class="go">形態素解析器  名詞,複合,*,*,*,*,形態素解析器,ケイタイソカイセキキ,ケイタイソカイセキキ</span>
+<span class="go">です     助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+</pre></div>
+</div>
+<p>組み込みの CharFilter や TokenFilter の種類や使い方についてはリファレンスを参照してください．また，CharFilter や TokenFilter を拡張すれば，任意のフィルター処理を実装することもできます．</p>
+</div>
+</div>
 <div class="section" id="v0-3-1">
 <h2>ストリーミングモード (v0.3.1 以上)<a class="headerlink" href="#v0-3-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>tokenize() メソッドに 『stream = True』 オプションを与えると, ストリーミングモードで動作します．ストリーミングモードでは, 部分的な解析が完了する都度, 解析結果を返します. 戻り値はリストではなく <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> になります．</p>
@@ -223,8 +264,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id11">
-<h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id12">
+<h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>tokenize() メソッドに 『wakati = True』 オプションを与えると, 分かち書きモード（表層形のみを返すモード）で動作します. 分かち書きモードで解析した場合の戻り値は, Token オブジェクトのリストではなく文字列 (str) のリストになります.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -280,8 +321,8 @@
 </div>
 <p>古いバージョン(&lt; 0.3)では, 入力全体を読んでラティスを構築するため, 入力文字列が大きくなると多くのリソースを消費します. 数十キロバイト以上の文書を解析する場合は, なるべく適度に分割して与えてください.</p>
 </div>
-<div class="section" id="id12">
-<h2>よくある（かもしれない）質問<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id13">
+<h2>よくある（かもしれない）質問<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li>Tokenizer の初期化が遅いんだけど.</li>
 </ol>
@@ -340,7 +381,7 @@
 <li>バグ見つけた or なんか変 or 改善要望</li>
 </ol>
 <ol class="upperalpha simple">
-<li><a class="reference external" href="https://twitter.com/moco_beta">&#64;moco_beta</a> 宛につぶやくか, Github リポジトリに <a class="reference external" href="https://github.com/mocobeta/janome/issues">Issue</a> 立ててください.</li>
+<li><a class="reference external" href="https://gitter.im/janome-python/ja">Gitter room</a> でつぶやくか，Github リポジトリに <a class="reference external" href="https://github.com/mocobeta/janome/issues">Issue</a> 立ててください.</li>
 </ol>
 </div>
 <div class="section" id="for-contributors">
@@ -359,6 +400,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2017.07.29 janome Version 0.3.4 リリース</li>
 <li>2017.07.23 janome Version 0.3.3 リリース</li>
 <li>2017.07.05 janome Version 0.3.2 リリース</li>
 <li>2017.07.02 janome Version 0.3.1 リリース</li>

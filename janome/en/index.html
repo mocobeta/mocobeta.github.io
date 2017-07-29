@@ -53,6 +53,7 @@
 <div class="section" id="source-codes">
 <h2>Source Codes<a class="headerlink" href="#source-codes" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mocobeta/janome">https://github.com/mocobeta/janome</a></p>
+<p>If you like janome, please star the repository! :)</p>
 </div>
 <div class="section" id="api-reference">
 <h2>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
@@ -65,20 +66,20 @@
 <div class="section" id="current-version">
 <h2>Current version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.3</li>
+<li>janome: 0.3.4</li>
 </ul>
 </div>
 <div class="section" id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="pypi">
 <h3>PyPI<a class="headerlink" href="#pypi" title="Permalink to this headline">¶</a></h3>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">It requires 500 to 600 MB RAM for install and pre-compile dictionary data.</p>
-</div>
 <p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install janome
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It requires 500 to 600 MB RAM for install and pre-compile dictionary data.</p>
 </div>
 </div>
 </div>
@@ -207,6 +208,39 @@
 </div>
 </div>
 </div>
+<div class="section" id="experimental-analyzer-framework-v0-3-4">
+<h2>(experimental) Analyzer framework (v0.3.4+)<a class="headerlink" href="#experimental-analyzer-framework-v0-3-4" title="Permalink to this headline">¶</a></h2>
+<p>Analyzer framework is for pre- and post- processing. Analyzer framework includes following classes.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> class for pre-processing like character normalization.</li>
+<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> class for post-processing like lowercase/uppercase conversion, token filtering by POS tags.</li>
+<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> class for combining CharFilters, a Tokenizer and TokenFilters to assemble custom analysis chain.</li>
+</ul>
+<div class="section" id="analyzser-usage">
+<h3>Analyzser usage<a class="headerlink" href="#analyzser-usage" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.charfilter</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;蛇の目はPure Ｐｙｔｈｏｎな形態素解析器です。&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">char_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">UnicodeNormalizeCharFilter</span><span class="p">(),</span> <span class="n">RegexReplaceCharFilter</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;蛇の目&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;janome&#39;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">CompoundNounFilter</span><span class="p">(),</span> <span class="n">POSStopFilter</span><span class="p">([</span><span class="s1">&#39;記号&#39;</span><span class="p">,</span><span class="s1">&#39;助詞&#39;</span><span class="p">]),</span> <span class="n">LowerCaseFilter</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">char_filters</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">token_filters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">janome  名詞,固有名詞,組織,*,*,*,*,*,*</span>
+<span class="go">pure    名詞,固有名詞,組織,*,*,*,*,*,*</span>
+<span class="go">python  名詞,一般,*,*,*,*,*,*,*</span>
+<span class="go">な       助動詞,*,*,*,特殊・ダ,体言接続,だ,ナ,ナ</span>
+<span class="go">形態素解析器  名詞,複合,*,*,*,*,形態素解析器,ケイタイソカイセキキ,ケイタイソカイセキキ</span>
+<span class="go">です     助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+</pre></div>
+</div>
+<p>See reference for built-in CharFilters and TokenFilters. You can implement custom filters by extending CharFilter or TokenFilter.</p>
+</div>
+</div>
 <div class="section" id="streaming-mode-v0-3-1">
 <h2>Streaming mode (v0.3.1+)<a class="headerlink" href="#streaming-mode-v0-3-1" title="Permalink to this headline">¶</a></h2>
 <p>When ‘stream = True’ option is given to tokenize() method, it runs in streaming mode. In streaming mode, partial analyzed results are returned through <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> interface.</p>
@@ -310,6 +344,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>2017.07.29 janome Version 0.3.4 was released</li>
 <li>2017.07.23 janome Version 0.3.3 was released</li>
 <li>2017.07.05 janome Version 0.3.2 was released</li>
 <li>2017.07.02 janome Version 0.3.1 was released</li>
