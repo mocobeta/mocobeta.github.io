@@ -103,7 +103,7 @@
 </div>
 <div class="section" id="for-windows-users">
 <h3>for Windows users<a class="headerlink" href="#for-windows-users" title="Permalink to this headline">¶</a></h3>
-<p>Use decode(‘utf8’) if output is garbled.</p>
+<p>Use <code class="docutils literal"><span class="pre">decode('utf8')</span></code> if output is garbled.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">):</span>
@@ -151,7 +151,7 @@
 <div class="section" id="simplified-dictionary-format-v0-2-7">
 <h3>Simplified dictionary format (v0.2.7+)<a class="headerlink" href="#simplified-dictionary-format-v0-2-7" title="Permalink to this headline">¶</a></h3>
 <p>Janome provides alternative simplified dictionary format like <a class="reference external" href="https://www.atilika.com/en/products/kuromoji.html">Kuromoji</a> user dictionary. This format supports surface form, part-of-speech and reading only.</p>
-<p>To use simplified dictionary format, create a CSV file that includes “&lt;surface form&gt;,&lt;part-of-speech&gt;,&lt;reading&gt;” in each line (see the example below) and pass the file path and the dictionary type (udic_type=’simpledic’) to Tokenizer’s constructor.</p>
+<p>To use simplified dictionary format, create a CSV file that includes “&lt;surface form&gt;,&lt;part-of-speech&gt;,&lt;reading&gt;” in each line (see the example below) and pass the file path and the dictionary type <code class="docutils literal"><span class="pre">(udic_type='simpledic')</span></code> to Tokenizer’s constructor.</p>
 <p>user_simpledic.csv</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="n">カスタム名詞</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span>
 <span class="n">東武スカイツリーライン</span><span class="p">,</span><span class="n">カスタム名詞</span><span class="p">,</span><span class="n">トウブスカイツリーライン</span>
@@ -198,13 +198,13 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Once compiling has been successfully completed, the data is saved in ‘/tmp/userdic’ directory. Pass the directory path to Tokenizer’s constructor to use it.</p>
+<p>Once compiling has been successfully completed, the data is saved in <code class="docutils literal"><span class="pre">/tmp/userdic</span></code> directory. Pass the directory path to Tokenizer’s constructor to use it.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Use same major python version at both compile time and runtime.  Forward/backward dictionary data compatibility is not guaranteed.</p>
+<p class="last">Use same major python version at both compile time and runtime. Forward/backward dictionary data compatibility is not guaranteed.</p>
 </div>
 </div>
 </div>
@@ -262,12 +262,12 @@
 <span class="go">[&#39;分かち書き&#39;, &#39;モード&#39;, &#39;が&#39;, &#39;つき&#39;, &#39;まし&#39;, &#39;た&#39;, &#39;！&#39;]</span>
 </pre></div>
 </div>
-<p>If you use ‘wakati-gaki’ mode only, it is recommended to give ‘wakati = True’ option to Tokenizer.__init__(). When Tokenizer object is initialized as below, extra information (detailed part of speech, reading, etc.) for tokens are not loaded from dictionary so the memory usage is reduced.</p>
+<p>If you use ‘wakati-gaki’ mode only, it is recommended to give <code class="docutils literal"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">True</span></code> option to Tokenizer.__init__(). When Tokenizer object is initialized as below, extra information (detailed part of speech, reading, etc.) for tokens are not loaded from dictionary so the memory usage is reduced.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When this option is set to Tokenizer object, tokenize() method always runs in wakati-gaki mode (‘wakati = False’ option to tokenize() method is ignored.)</p>
-<p>‘wakati-gaki’ mode works well with streaming mode. tokenize() method returns generator of string when it is given ‘stream=True’ and ‘wakati=True’ options.</p>
+<p>When this option is set to Tokenizer object, tokenize() method always runs in wakati-gaki mode (<code class="docutils literal"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">False</span></code> option to tokenize() method is ignored.)</p>
+<p>‘wakati-gaki’ mode works well with streaming mode. tokenize() method returns generator of string when it is given <code class="docutils literal"><span class="pre">stream=True</span></code> and <code class="docutils literal"><span class="pre">wakati=True</span></code> options.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
@@ -276,11 +276,11 @@
 </div>
 <div class="section" id="memory-mapped-file-support-v0-3-3">
 <h2>Memory-mapped file support (v0.3.3+)<a class="headerlink" href="#memory-mapped-file-support-v0-3-3" title="Permalink to this headline">¶</a></h2>
-<p>If ‘mmap=True’ option is given to Tokenizer.__init__(), dictionary entries are not loaded to process space but searched through memory-mapped file.</p>
+<p>If <code class="docutils literal"><span class="pre">mmap=True</span></code> option is given to Tokenizer.__init__(), dictionary entries are not loaded to process space but searched through memory-mapped file.</p>
 </div>
 <div class="section" id="use-janome-from-the-command-line-v0-2-6-lunux-mac-only">
 <h2>Use janome from the command-line (v0.2.6+, Lunux/Mac only)<a class="headerlink" href="#use-janome-from-the-command-line-v0-2-6-lunux-mac-only" title="Permalink to this headline">¶</a></h2>
-<p>Janome has executable built-in script ‘janome’ for command-line usage. (currently for Lunux/Mac only… patches are welcome!)</p>
+<p>Janome has executable built-in script “janome” for command-line usage. (currently for Lunux/Mac only… patches are welcome!)</p>
 <p>It reads a sentence at a time from standard input and outputs the analysis result. To see supported options, type “janome -h”.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
@@ -325,12 +325,16 @@
 <li>I found bugs. Or have requests for enhancement.</li>
 </ol>
 <ol class="upperalpha simple">
-<li>Bug reports and requests (and of course, patches) are welcome. Create issues in <a class="reference external" href="https://github.com/mocobeta/janome/issues">Github repository</a> or contact to <a class="reference external" href="https://twitter.com/moco_beta">&#64;moco_beta</a>.</li>
+<li>Bug reports and requests (and of course, patches) are welcome. Create issues in <a class="reference external" href="https://github.com/mocobeta/janome/issues">Github repository</a> or leave your comment to <a class="reference external" href="https://gitter.im/janome-python/en">Gitter room</a>.</li>
 </ol>
 </div>
 <div class="section" id="for-contributors">
 <h2>For Contributors<a class="headerlink" href="#for-contributors" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/wiki">https://github.com/mocobeta/janome/wiki</a></p>
+</div>
+<div class="section" id="author">
+<h2>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://medium.com/&#64;mocobeta">Profile</a></p>
 </div>
 <div class="section" id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
