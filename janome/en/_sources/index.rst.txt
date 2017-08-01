@@ -235,7 +235,7 @@ See reference for built-in CharFilters and TokenFilters. You can implement custo
 Streaming mode (v0.3.1+)
 -------------------------
 
-When 'stream = True' option is given to tokenize() method, it runs in streaming mode. In streaming mode, partial analyzed results are returned through `generator <https://wiki.python.org/moin/Generators>`_ interface.
+When ``stream = True`` option is given to tokenize() method, it runs in streaming mode. In streaming mode, partial analyzed results are returned through `generator <https://wiki.python.org/moin/Generators>`_ interface.
 
 Use this option when you analyze very large text data.
 
@@ -325,7 +325,7 @@ A. Janome uses FST (`Minimal Acyclic Subsequential Transducer <http://citeseerx.
 
 Q. I found bugs. Or have requests for enhancement.
 
-A. Bug reports and requests (and of course, patches) are welcome. Create issues in `Github repository <https://github.com/mocobeta/janome/issues>`_ or leave your comment to `Gitter room <https://gitter.im/janome-python/en>`_.
+A. Bug reports or requests (and of course, patches) are welcome. Create issues in `Github repository <https://github.com/mocobeta/janome/issues>`_ or leave your comment to `Gitter room <https://gitter.im/janome-python/en>`_.
 
 For Contributors
 ----------------
@@ -335,7 +335,7 @@ See `https://github.com/mocobeta/janome/wiki <https://github.com/mocobeta/janome
 Author
 ---------
 
-`Profile <https://medium.com/@mocobeta>`_
+`Profile <https://medium.com/@mocobeta/about-me-b28838ba631f>`_
 
 License
 ------------
