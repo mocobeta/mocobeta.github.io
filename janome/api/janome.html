@@ -11,7 +11,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.3.4',
+        VERSION:     '0.3.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -170,9 +170,9 @@
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>chardefs</em>, <em>unknowns</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="janome.dic.UnknownsDictionary.get_char_categories">
-<code class="descname">get_char_categories</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.get_char_categories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.get_char_categories" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_char_categories</code><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.get_char_categories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.get_char_categories" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -466,7 +466,7 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 
 <dl class="method">
 <dt id="janome.tokenizer.Tokenizer.tokenize">
-<code class="descname">tokenize</code><span class="sig-paren">(</span><em>text</em>, <em>stream=False</em>, <em>wakati=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tokenize</code><span class="sig-paren">(</span><em>text</em>, <em>stream=False</em>, <em>wakati=False</em>, <em>baseform_unk=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tokenize the input text.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -476,6 +476,7 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 <li><strong>text</strong> – unicode string to be tokenized</li>
 <li><strong>stream</strong> – (Optional) if given True use stream mode. default is False.</li>
 <li><strong>wakati</strong> – (Optinal) if given True returns surface forms only. default is False.</li>
+<li><strong>baseform_unk</strong> – (Optional) if given True sets base_form attribute for unknown tokens. default is True.</li>
 </ul>
 </td>
 </tr>
@@ -499,7 +500,7 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 <span id="janome-analyzer-module"></span><h2>janome.analyzer module<a class="headerlink" href="#module-janome.analyzer" title="Permalink to this headline">¶</a></h2>
 <p>The analyzer module supplies Analyzer framework for pre-processing and post-processing for morphological analysis.</p>
 <p>Added in <em>version 0.3.4</em></p>
-<p><em>NOTE</em> This is experimental. The class/method interfaces can be modified in the future releases.</p>
+<p><strong>NOTE</strong> This is experimental. The class/method interfaces can be modified in the future releases.</p>
 <p>Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
@@ -519,6 +520,21 @@ It is strongly recommended to re-use a Tokenizer object because object initializ
 <span class="go">な       助動詞,*,*,*,特殊・ダ,体言接続,だ,ナ,ナ</span>
 <span class="go">形態素解析器  名詞,複合,*,*,*,*,形態素解析器,ケイタイソカイセキキ,ケイタイソカイセキキ</span>
 <span class="go">です      助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
+</pre></div>
+</div>
+<p>Usage (word count with TokenCountFilter):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">POSKeepFilter</span><span class="p">(</span><span class="s1">&#39;名詞&#39;</span><span class="p">),</span> <span class="n">TokenCountFilter</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">token_filters</span><span class="o">=</span><span class="n">token_filters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">もも: 2</span>
+<span class="go">すもも: 1</span>
+<span class="go">うち: 1</span>
 </pre></div>
 </div>
 <dl class="class">
@@ -670,12 +686,12 @@ Generated tokens are associated with the special part-of-speech tag ‘名詞,�
 <em class="property">class </em><code class="descclassname">janome.tokenfilter.</code><code class="descname">ExtractAttributeFilter</code><span class="sig-paren">(</span><em>att</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#ExtractAttributeFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.ExtractAttributeFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
 <p>An ExtractAttributeFilter extracts a specified attribute of Token.</p>
-<p><strong>NOTES</strong> This filter must placed the last of token filter chain because return values are strings but not tokens.</p>
+<p><strong>NOTES</strong> This filter must placed the last of token filter chain because return values are not tokens but strings.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="method">
 <dt id="janome.tokenfilter.ExtractAttributeFilter.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>att</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#ExtractAttributeFilter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.ExtractAttributeFilter.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize ExtractAttributeTokenFilter object.</p>
+<dd><p>Initialize ExtractAttributeFilter object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -758,6 +774,35 @@ Generated tokens are associated with the special part-of-speech tag ‘名詞,�
 <dl class="method">
 <dt id="janome.tokenfilter.POSStopFilter.apply">
 <code class="descname">apply</code><span class="sig-paren">(</span><em>tokens</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSStopFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.POSStopFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="janome.tokenfilter.TokenCountFilter">
+<em class="property">class </em><code class="descclassname">janome.tokenfilter.</code><code class="descname">TokenCountFilter</code><span class="sig-paren">(</span><em>att='surface'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
+<p>An TokenCountFilter counts word frequencies in the input text. Here, ‘word’ means an attribute of Token.</p>
+<p>This filter generates word-frequency pairs sorted in descending order of frequency.</p>
+<p><strong>NOTES</strong> This filter must placed the last of token filter chain because return values are not tokens but string-integer tuples.</p>
+<p>Added in <em>version 0.3.5</em></p>
+<dl class="method">
+<dt id="janome.tokenfilter.TokenCountFilter.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>att='surface'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize TokenCountFilter object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>att</strong> – attribute name should be extraced from a token. valid values for <em>att</em> are ‘surface’, ‘part_of_speech’, ‘infl_type’, ‘infl_form’, ‘base_form’, ‘reading’ and ‘phonetic’.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="janome.tokenfilter.TokenCountFilter.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>tokens</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -66,7 +66,7 @@
 <div class="section" id="current-version">
 <h2>Current version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.4</li>
+<li>janome: 0.3.5</li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -238,7 +238,25 @@
 <span class="go">です     助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
 </pre></div>
 </div>
-<p>See reference for built-in CharFilters and TokenFilters. You can implement custom filters by extending CharFilter or TokenFilter.</p>
+</div>
+<div class="section" id="analyzer-usage-for-word-count-v0-3-5">
+<h3>Analyzer usage for word count (v0.3.5+)<a class="headerlink" href="#analyzer-usage-for-word-count-v0-3-5" title="Permalink to this headline">¶</a></h3>
+<p>You can count word frequencies in the input text by using TokenCountFilter.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">POSKeepFilter</span><span class="p">(</span><span class="s1">&#39;名詞&#39;</span><span class="p">),</span> <span class="n">TokenCountFilter</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">token_filters</span><span class="o">=</span><span class="n">token_filters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">もも: 2</span>
+<span class="go">すもも: 1</span>
+<span class="go">うち: 1</span>
+</pre></div>
+</div>
+<p>See API reference for other built-in CharFilters and TokenFilters. You can implement custom filters by extending CharFilter or TokenFilter.</p>
 </div>
 </div>
 <div class="section" id="streaming-mode-v0-3-1">
@@ -348,6 +366,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>2017.08.06 janome Version 0.3.5 was released</li>
 <li>2017.07.29 janome Version 0.3.4 was released</li>
 <li>2017.07.23 janome Version 0.3.3 was released</li>
 <li>2017.07.05 janome Version 0.3.2 was released</li>

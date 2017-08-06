@@ -67,7 +67,7 @@
 <div class="section" id="id3">
 <h2>バージョン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.4</li>
+<li>janome: 0.3.5</li>
 </ul>
 </div>
 <div class="section" id="id4">
@@ -249,7 +249,29 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <span class="go">です     助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
 </pre></div>
 </div>
-<p>組み込みの CharFilter や TokenFilter の種類や使い方についてはリファレンスを参照してください。また，CharFilter や TokenFilter を拡張すれば，任意のフィルター処理を実装することもできます。</p>
+</div>
+<div class="section" id="analyzer-usage-for-word-count-v0-3-5">
+<h3>Analyzer usage for word count (v0.3.5以上)<a class="headerlink" href="#analyzer-usage-for-word-count-v0-3-5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>TokenCountFilter を使うと，入力文字列中の単語出現頻度を数えることができます。以下は，文字列中の名詞の出現回数を数える例です（POSKeepFilterで名詞のみフィルタしています）。出現回数の多い順に，単語（表層形）とその出現回数のタプルが返されます。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">POSKeepFilter</span><span class="p">(</span><span class="s1">&#39;名詞&#39;</span><span class="p">),</span> <span class="n">TokenCountFilter</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">token_filters</span><span class="o">=</span><span class="n">token_filters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">もも: 2</span>
+<span class="go">すもも: 1</span>
+<span class="go">うち: 1</span>
+</pre></div>
+</div>
+<p>なお TokenCountFilter の初期化時に <code class="docutils literal"><span class="pre">att='base_form'</span></code> と指定すると，基本形の数を数えます。動詞や形容動詞の数を数えたい場合は，このオプションを指定すると良いでしょう。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">TokenCountFilter</span><span class="p">(</span><span class="n">att</span><span class="o">=</span><span class="s1">&#39;base_form&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>その他，組み込みの CharFilter や TokenFilter についてはリファレンスを参照してください。また，CharFilter や TokenFilter を拡張すれば，任意のフィルター処理を実装することもできます。</p>
 </div>
 </div>
 <div class="section" id="v0-3-1">
@@ -404,6 +426,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2017.08.06 janome Version 0.3.5 リリース</li>
 <li>2017.07.29 janome Version 0.3.4 リリース</li>
 <li>2017.07.23 janome Version 0.3.3 リリース</li>
 <li>2017.07.05 janome Version 0.3.2 リリース</li>

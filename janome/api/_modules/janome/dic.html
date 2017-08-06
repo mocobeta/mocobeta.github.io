@@ -11,7 +11,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.3.4',
+        VERSION:     '0.3.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -67,12 +67,24 @@
 <span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">import</span> <span class="nn">gzip</span>
-<span class="kn">from</span> <span class="nn">struct</span> <span class="k">import</span> <span class="n">pack</span><span class="p">,</span> <span class="n">unpack</span>
-<span class="kn">from</span> <span class="nn">.fst</span> <span class="k">import</span> <span class="n">Matcher</span><span class="p">,</span> <span class="n">create_minimum_transducer</span><span class="p">,</span> <span class="n">compileFST</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="k">import</span> <span class="n">pack</span>
+<span class="kn">from</span> <span class="nn">.fst</span> <span class="k">import</span> <span class="n">Matcher</span><span class="p">,</span> <span class="n">create_minimum_transducer</span><span class="p">,</span> <span class="n">compileFST</span><span class="p">,</span> <span class="n">unpack_uint</span>
 <span class="kn">import</span> <span class="nn">traceback</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">re</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">lru_cache</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">wraps</span>
+    <span class="k">def</span> <span class="nf">lru_cache</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_dummy</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+            <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+            <span class="k">def</span> <span class="nf">__dummy</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">__dummy</span>
+        <span class="k">return</span> <span class="n">_dummy</span>
+
 
 <span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
 
@@ -234,7 +246,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
-                <span class="n">num</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">unpack_uint</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
                 <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">num</span><span class="p">,)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">num</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
             <span class="k">return</span> <span class="n">res</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -277,7 +289,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">matched_entries</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
-                <span class="n">idx</span> <span class="o">=</span> <span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">unpack_uint</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
                 <span class="n">bucket</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">entries_compact</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span> <span class="k">if</span> <span class="n">PY3</span> \
                     <span class="k">else</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">entries_compact</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">mm</span><span class="p">,</span> <span class="n">mm_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">entries_compact</span><span class="p">[</span><span class="n">bucket</span><span class="p">]</span>
@@ -345,7 +357,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">char_ranges</span> <span class="o">=</span> <span class="n">chardefs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">unknowns</span> <span class="o">=</span> <span class="n">unknowns</span></div>
 
-<div class="viewcode-block" id="UnknownsDictionary.get_char_categories"><a class="viewcode-back" href="../../janome.html#janome.dic.UnknownsDictionary.get_char_categories">[docs]</a>    <span class="k">def</span> <span class="nf">get_char_categories</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<div class="viewcode-block" id="UnknownsDictionary.get_char_categories"><a class="viewcode-back" href="../../janome.html#janome.dic.UnknownsDictionary.get_char_categories">[docs]</a>    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_char_categories</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">chr_range</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_ranges</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">chr_range</span><span class="p">[</span><span class="s1">&#39;from&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="n">chr_range</span><span class="p">[</span><span class="s1">&#39;to&#39;</span><span class="p">]:</span>

@@ -11,7 +11,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.3.4',
+        VERSION:     '0.3.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -62,6 +62,7 @@
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">defaultdict</span>
 
 <div class="viewcode-block" id="TokenFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenFilter">[docs]</a><span class="k">class</span> <span class="nc">TokenFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
@@ -182,13 +183,13 @@
     <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An ExtractAttributeFilter extracts a specified attribute of Token.</span>
 
-<span class="sd">    **NOTES** This filter must placed the last of token filter chain because return values are strings but not tokens.</span>
+<span class="sd">    **NOTES** This filter must placed the last of token filter chain because return values are not tokens but strings.</span>
 
 <span class="sd">    Added in *version 0.3.4*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="ExtractAttributeFilter.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.ExtractAttributeFilter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">att</span><span class="p">):</span>
         <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize ExtractAttributeTokenFilter object.</span>
+<span class="sd">        Initialize ExtractAttributeFilter object.</span>
 
 <span class="sd">        :param att: attribute name should be extraced from a token. valid values for *att* are &#39;surface&#39;, &#39;part_of_speech&#39;, &#39;infl_type&#39;, &#39;infl_form&#39;, &#39;base_form&#39;, &#39;reading&#39; and &#39;phonetic&#39;.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -199,6 +200,33 @@
 <div class="viewcode-block" id="ExtractAttributeFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.ExtractAttributeFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
             <span class="k">yield</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">att</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TokenCountFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenCountFilter">[docs]</a><span class="k">class</span> <span class="nc">TokenCountFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An TokenCountFilter counts word frequencies in the input text. Here, &#39;word&#39; means an attribute of Token.</span>
+
+<span class="sd">    This filter generates word-frequency pairs sorted in descending order of frequency.</span>
+
+<span class="sd">    **NOTES** This filter must placed the last of token filter chain because return values are not tokens but string-integer tuples.</span>
+
+<span class="sd">    Added in *version 0.3.5*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TokenCountFilter.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenCountFilter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="s1">&#39;surface&#39;</span><span class="p">):</span>
+        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize TokenCountFilter object.</span>
+
+<span class="sd">        :param att: attribute name should be extraced from a token. valid values for *att* are &#39;surface&#39;, &#39;part_of_speech&#39;, &#39;infl_type&#39;, &#39;infl_form&#39;, &#39;base_form&#39;, &#39;reading&#39; and &#39;phonetic&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">att</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;surface&#39;</span><span class="p">,</span> <span class="s1">&#39;part_of_speech&#39;</span><span class="p">,</span> <span class="s1">&#39;infl_type&#39;</span><span class="p">,</span> <span class="s1">&#39;infl_form&#39;</span><span class="p">,</span> <span class="s1">&#39;base_form&#39;</span><span class="p">,</span> <span class="s1">&#39;reading&#39;</span><span class="p">,</span> <span class="s1">&#39;phonetic&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unknown attribute name: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">att</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">att</span> <span class="o">=</span> <span class="n">att</span></div>
+
+<div class="viewcode-block" id="TokenCountFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenCountFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+        <span class="n">token_counts</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+            <span class="n">token_counts</span><span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">att</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">token_counts</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span></div></div>
 </pre></div>
 
           </div>

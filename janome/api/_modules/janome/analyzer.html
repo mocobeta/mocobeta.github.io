@@ -11,7 +11,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.3.4',
+        VERSION:     '0.3.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -68,7 +68,7 @@
 
 <span class="sd">Added in *version 0.3.4*</span>
 
-<span class="sd">*NOTE* This is experimental. The class/method interfaces can be modified in the future releases.</span>
+<span class="sd">**NOTE** This is experimental. The class/method interfaces can be modified in the future releases.</span>
 
 <span class="sd">Usage:</span>
 
@@ -91,6 +91,20 @@
 <span class="sd">形態素解析器	名詞,複合,*,*,*,*,形態素解析器,ケイタイソカイセキキ,ケイタイソカイセキキ</span>
 <span class="sd">です	助動詞,*,*,*,特殊・デス,基本形,です,デス,デス</span>
 
+<span class="sd">Usage (word count with TokenCountFilter):</span>
+
+<span class="sd">&gt;&gt;&gt; from janome.tokenizer import Tokenizer</span>
+<span class="sd">&gt;&gt;&gt; from janome.analyzer import Analyzer</span>
+<span class="sd">&gt;&gt;&gt; from janome.tokenfilter import *</span>
+<span class="sd">&gt;&gt;&gt; text = u&#39;すもももももももものうち&#39;</span>
+<span class="sd">&gt;&gt;&gt; token_filters = [POSKeepFilter(&#39;名詞&#39;), TokenCountFilter()]</span>
+<span class="sd">&gt;&gt;&gt; a = Analyzer(token_filters=token_filters)</span>
+<span class="sd">&gt;&gt;&gt; for k, v in a.analyze(text):</span>
+<span class="sd">...   print(&#39;%s: %d&#39; % (k, v))</span>
+<span class="sd">...</span>
+<span class="sd">もも: 2</span>
+<span class="sd">すもも: 1</span>
+<span class="sd">うち: 1</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
