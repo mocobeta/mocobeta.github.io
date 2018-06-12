@@ -4,21 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Welcome to janome’s documentation! (Japanese) &#8212; Janome v0.3 documentation (ja)</title>
+    <title>Welcome to janome&#39;s documentation! (Japanese) &#8212; Janome v0.3 documentation (ja)</title>
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -26,11 +18,10 @@
     <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" /> 
-  </head>
-  <body>
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="#">
           <span>Janome v0.3 documentation (ja)</span></a></h1>
-        <h2 class="heading"><span>Welcome to janome’s documentation! (Japanese)</span></h2>
+        <h2 class="heading"><span>Welcome to janome&#39;s documentation! (Japanese)</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
@@ -43,7 +34,7 @@
         
         
   <a href="https://github.com/mocobeta/janome"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><div class="section" id="welcome-to-janome-s-documentation-japanese">
-<h1>Welcome to janome’s documentation! (Japanese)<a class="headerlink" href="#welcome-to-janome-s-documentation-japanese" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>Welcome to janome's documentation! (Japanese)<a class="headerlink" href="#welcome-to-janome-s-documentation-japanese" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/en/">English</a></p>
 <div class="section" id="janome">
 <h2>Janome とは<a class="headerlink" href="#janome" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -75,7 +66,7 @@
 <div class="section" id="pypi">
 <h3>PyPI<a class="headerlink" href="#pypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>$ pip install janome
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install janome
 </pre></div>
 </div>
 <div class="admonition note">
@@ -88,7 +79,7 @@
 <h2>使い方<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>janome.tokenizer パッケージの Tokenizer オブジェクトを作り，tokenize() メソッドに解析したい文字列を渡します。</p>
 <p>戻り値は Token オブジェクトのリストです。Token は表層形や品詞といった形態素情報を含みます。詳しくは <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenizer.Token">リファレンス</a> を参照してください。</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
@@ -102,10 +93,27 @@
 <span class="go">うち  名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ</span>
 </pre></div>
 </div>
+<div class="section" id="tokenizer">
+<h3>[重要] Tokenizer 初期化に関する注意事項<a class="headerlink" href="#tokenizer" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Tokenizer オブジェクトの初期化はコストが高いため，インスタンスを使いまわしてください。 以下のようなサンプルコードを掲載しているブログ記事等がありますが，これは非常に遅くなる書き方で，誤っています。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>正しくは以下のように，<strong>ループの外で</strong> Tokenizer を初期化します。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="for-windows-users">
 <h3>for Windows users<a class="headerlink" href="#for-windows-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>文字化けする場合は <code class="docutils literal"><span class="pre">decode('utf8')</span></code> をかけてください。</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<p>文字化けする場合は <code class="docutils literal notranslate"><span class="pre">decode('utf8')</span></code> をかけてください。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
@@ -120,12 +128,12 @@
 <p>デフォルトユーザー定義辞書のフォーマットは，MeCab 辞書と同じです。たとえば以下のような CSV ファイルを作成し，Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します。</p>
 <p>辞書フォーマットは MeCab の <a class="reference external" href="http://taku910.github.io/mecab/dic.html">ドキュメント</a> をご参照ください。</p>
 <p>userdic.csv</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">4569</span><span class="p">,</span><span class="n">名詞</span><span class="p">,</span><span class="n">固有名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">4569</span><span class="p">,</span><span class="n">名詞</span><span class="p">,</span><span class="n">固有名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span>
 <span class="n">東武スカイツリーライン</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">4700</span><span class="p">,</span><span class="n">名詞</span><span class="p">,</span><span class="n">固有名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">東武スカイツリーライン</span><span class="p">,</span><span class="n">トウブスカイツリーライン</span><span class="p">,</span><span class="n">トウブスカイツリーライン</span>
 <span class="n">とうきょうスカイツリー駅</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">1288</span><span class="p">,</span><span class="mi">4143</span><span class="p">,</span><span class="n">名詞</span><span class="p">,</span><span class="n">固有名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">とうきょうスカイツリー駅</span><span class="p">,</span><span class="n">トウキョウスカイツリーエキ</span><span class="p">,</span><span class="n">トウキョウスカイツリーエキ</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
@@ -151,14 +159,14 @@
 <div class="section" id="v0-2-7">
 <h3>簡略辞書フォーマット (v0.2.7 以上)<a class="headerlink" href="#v0-2-7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Kuromoji のユーザー辞書に似た，簡略化された辞書フォーマットです（ただし Janome には search mode がないため，search mode 用の項目はありません）。表層形，品詞，読みのみを記述し，詳細品詞やスコアは指定できません。</p>
-<p>簡略辞書フォーマットを使うには，以下のような「<em>&lt;表層形&gt;,&lt;品詞&gt;,&lt;読み&gt;</em>」を並べた CSV ファイルを用意し，Tokenizer 初期化時にファイルパスと辞書タイプ（<code class="docutils literal"><span class="pre">udic_type='simpledic'</span></code>）を指定してください。</p>
+<p>簡略辞書フォーマットを使うには，以下のような「<em>&lt;表層形&gt;,&lt;品詞&gt;,&lt;読み&gt;</em>」を並べた CSV ファイルを用意し，Tokenizer 初期化時にファイルパスと辞書タイプ（<code class="docutils literal notranslate"><span class="pre">udic_type='simpledic'</span></code>）を指定してください。</p>
 <p>user_simpledic.csv</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="n">カスタム名詞</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">東京スカイツリー</span><span class="p">,</span><span class="n">カスタム名詞</span><span class="p">,</span><span class="n">トウキョウスカイツリー</span>
 <span class="n">東武スカイツリーライン</span><span class="p">,</span><span class="n">カスタム名詞</span><span class="p">,</span><span class="n">トウブスカイツリーライン</span>
 <span class="n">とうきょうスカイツリー駅</span><span class="p">,</span><span class="n">カスタム名詞</span><span class="p">,</span><span class="n">トウキョウスカイツリーエキ</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便 利です。&#39;</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
@@ -189,21 +197,21 @@
 <p class="last">v0.3.1 から，ユーザー辞書コンパイル時の API が少し変わっているため注意してください。</p>
 </div>
 <p>辞書のコンパイル(MeCab IPADIC format)</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysdic</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>辞書のコンパイル(simplified format)</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysdic</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>これで， <em>/tmp/userdic</em> 以下にコンパイル済みのユーザー辞書が保存されます。使うときは Tokenizer のコンストラクタにディレクトリのパスを指定します。</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -229,7 +237,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <p class="first admonition-title">注釈</p>
 <p class="last">CharFilter や TokenFilter は，リストに指定した順で適用されるため，順番には注意してください。</p>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.charfilter</span> <span class="k">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
@@ -253,7 +261,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <div class="section" id="analyzer-v0-3-5">
 <h3>Analyzer の利用例: ワードカウント (v0.3.5 以上)<a class="headerlink" href="#analyzer-v0-3-5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>TokenCountFilter を使うと，入力文字列中の単語出現頻度を数えることができます。以下は，文字列中の名詞の出現回数を数える例です（POSKeepFilterで名詞のみフィルタしています）。出現回数の多い順に，単語（表層形）とその出現回数のタプルが返されます。</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span>
@@ -267,8 +275,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <span class="go">うち: 1</span>
 </pre></div>
 </div>
-<p>なお TokenCountFilter の初期化時に <code class="docutils literal"><span class="pre">att='base_form'</span></code> と指定すると，基本形の数を数えます。動詞や形容動詞の数を数えたい場合は，このオプションを指定すると良いでしょう。</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">TokenCountFilter</span><span class="p">(</span><span class="n">att</span><span class="o">=</span><span class="s1">&#39;base_form&#39;</span><span class="p">)]</span>
+<p>なお TokenCountFilter の初期化時に <code class="docutils literal notranslate"><span class="pre">att='base_form'</span></code> と指定すると，基本形の数を数えます。動詞や形容動詞の数を数えたい場合は，このオプションを指定すると良いでしょう。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">TokenCountFilter</span><span class="p">(</span><span class="n">att</span><span class="o">=</span><span class="s1">&#39;base_form&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 <p>その他，組み込みの CharFilter や TokenFilter についてはリファレンスを参照してください。また，CharFilter や TokenFilter を拡張すれば，任意のフィルター処理を実装することもできます。</p>
@@ -280,9 +288,9 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 <div class="section" id="v0-3-1">
 <h2>ストリーミングモード (v0.3.1 以上)<a class="headerlink" href="#v0-3-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>tokenize() メソッドに <code class="docutils literal"><span class="pre">stream</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，ストリーミングモードで動作します。ストリーミングモードでは，部分的な解析が完了する都度，解析結果を返します。戻り値はリストではなく <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> になります。</p>
+<p>tokenize() メソッドに <code class="docutils literal notranslate"><span class="pre">stream</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，ストリーミングモードで動作します。ストリーミングモードでは，部分的な解析が完了する都度，解析結果を返します。戻り値はリストではなく <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> になります。</p>
 <p>内部的にすべての Token のリストを保持しなくなるため，巨大な文書を解析する場合でも，メモリ消費量が一定以下に抑制されます。</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;very_large_text.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
@@ -292,20 +300,20 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 <div class="section" id="id12">
 <h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>tokenize() メソッドに <code class="docutils literal"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，分かち書きモード（表層形のみを返すモード）で動作します。分かち書きモードで解析した場合の戻り値は，Token オブジェクトのリストではなく文字列 (str) のリストになります。</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<p>tokenize() メソッドに <code class="docutils literal notranslate"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，分かち書きモード（表層形のみを返すモード）で動作します。分かち書きモードで解析した場合の戻り値は，Token オブジェクトのリストではなく文字列 (str) のリストになります。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span>
 <span class="go">[&#39;分かち書き&#39;, &#39;モード&#39;, &#39;が&#39;, &#39;つき&#39;, &#39;まし&#39;, &#39;た&#39;, &#39;！&#39;]</span>
 </pre></div>
 </div>
-<p>分かち書きモードしか使わない場合，Tokenizer オブジェクト初期化時に <code class="docutils literal"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，詳細品詞・読みなど，不要なデータを辞書からロードしなくなります。普通にすべての辞書データをロードして初期化した場合より，少し（50MB程度）メモリ使用量が抑制されます。</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<p>分かち書きモードしか使わない場合，Tokenizer オブジェクト初期化時に <code class="docutils literal notranslate"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，詳細品詞・読みなど，不要なデータを辞書からロードしなくなります。普通にすべての辞書データをロードして初期化した場合より，少し（50MB程度）メモリ使用量が抑制されます。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>なお, このオプションを与えて Tokenizer を初期化した場合，tokenize() メソッドは常に分かち書きモードで動作します（tokenize 時に <code class="docutils literal"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">False</span></code> と指定しても無視されます）。</p>
+<p>なお, このオプションを与えて Tokenizer を初期化した場合，tokenize() メソッドは常に分かち書きモードで動作します（tokenize 時に <code class="docutils literal notranslate"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">False</span></code> と指定しても無視されます）。</p>
 <p>分かち書きモードはストリームモードと併用することができます。その場合の戻り値は文字列 (str) の generator となります。</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 </pre></div>
@@ -318,15 +326,15 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 <div class="section" id="memory-mapped-file-v0-3-3">
 <h2>Memory-mapped file サポート (v0.3.3 以上)<a class="headerlink" href="#memory-mapped-file-v0-3-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Tokenizer オブジェクトの初期化時に <code class="docutils literal"><span class="pre">mmap=True</span></code> オプションを与えると，辞書エントリは Memory-mapped file としてアクセスされるようになります。</p>
+<p>Tokenizer オブジェクトの初期化時に <code class="docutils literal notranslate"><span class="pre">mmap=True</span></code> オプションを与えると，辞書エントリは Memory-mapped file としてアクセスされるようになります。</p>
 <p>Tokenizer の初期化時，プロセス空間に辞書エントリをロードしないため，初期化が高速になります。</p>
 </div>
 <div class="section" id="v0-2-6-lunux-mac-only">
 <h2>コマンドラインから使う (v0.2.6 以上，Lunux/Mac only)<a class="headerlink" href="#v0-2-6-lunux-mac-only" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>コマンドラインから実行可能なスクリプト janome がついています。(Linux/Mac のみ。Windows 版 (bat) はもう少しお待ちください。PR 歓迎！)</p>
 <p>簡単に動作を確認したいときにお使いください。</p>
-<p>標準入力から文字列を受け取り，形態素解析を実行します。指定できるオプションを見るには 「janome -h」 とタイプしてください。</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>(env)$ janome
+<p>標準入力から文字列を受け取り，形態素解析を実行します。指定できるオプションを見るには &quot;janome -h&quot; とタイプしてください。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
 猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
 は    助詞,係助詞,*,*,*,*,は,ハ,ワ
@@ -466,7 +474,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Tomoko Uchida.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5 で生成しました。
     </div>
   </body>
 </html>
