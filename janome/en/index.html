@@ -9,11 +9,12 @@
     <title>Welcome to janome’s documentation! (English) &#8212; Janome v0.3 documentation (en)</title>
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -38,7 +39,7 @@
 <div class="section" id="what-s-janome">
 <h2>What’s Janome?<a class="headerlink" href="#what-s-janome" title="Permalink to this headline">¶</a></h2>
 <p>Janome (蛇の目) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model.</p>
-<p>We aim to build a library which is easy to install and provides concise, well-designed APIs for various python applications.</p>
+<p>We aim to build a library which is easy to install, provides well-designed APIs for various python applications.</p>
 <p>Janome uses mecab-ipadic-2.7.0-20070801 as the built-in dictionary.</p>
 </div>
 <div class="section" id="source-codes">
@@ -70,14 +71,14 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It requires 500 to 600 MB RAM for install and pre-compile dictionary data.</p>
+<p class="last">It requires 500 to 600 MB RAM for installing and pre-compiling dictionary data.</p>
 </div>
 </div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>Create janome.tokenizer.Tokenizer object and call tokenize() method with the sentences you want to analyze.</p>
-<p>The return value is a list of Token objects. Token includes morphological information such as surface form, part-of-speech. See <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenizer.Token">reference</a> for more details.</p>
+<p>The return value is a list of Token objects. Token includes morphologic information such as surface form, part-of-speech. See <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenizer.Token">reference</a> for more details.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">):</span>
@@ -107,7 +108,7 @@
 <h2>How to use with user defined dictionary<a class="headerlink" href="#how-to-use-with-user-defined-dictionary" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mecab-ipadic-format">
 <h3>MeCab IPADIC format<a class="headerlink" href="#mecab-ipadic-format" title="Permalink to this headline">¶</a></h3>
-<p>You can add custom entries to the built-in dictionary at runtime by using user defined dictionary.</p>
+<p>You can add custom entries besides the built-in dictionary at runtime by using user defined dictionary.</p>
 <p>Default dictionary format is equal to MeCab IPADIC format. Create a CSV file as below and pass the file path and the character encoding to Tokenizer’s constructor.</p>
 <p>See the <a class="reference external" href="http://taku910.github.io/mecab/dic.html">MeCab document</a> for more details.</p>
 <p>userdic.csv</p>
@@ -203,9 +204,9 @@
 <h2>(experimental) Analyzer framework (v0.3.4+)<a class="headerlink" href="#experimental-analyzer-framework-v0-3-4" title="Permalink to this headline">¶</a></h2>
 <p>Analyzer framework is for pre- and post- processing. Analyzer framework includes following classes.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> class for pre-processing like character normalization.</li>
-<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> class for post-processing like lowercase/uppercase conversion, token filtering by POS tags.</li>
-<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> class for combining CharFilters, a Tokenizer and TokenFilters to assemble custom analysis chain.</li>
+<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> class performs pre-processing such as character normalization.</li>
+<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> class performs post-processing such as lowercase/uppercase conversion, token filtering by POS tags.</li>
+<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> class combines CharFilters, a Tokenizer and TokenFilters to assemble custom analysis chain.</li>
 </ul>
 <div class="section" id="analyzser-usage">
 <h3>Analyzser usage<a class="headerlink" href="#analyzser-usage" title="Permalink to this headline">¶</a></h3>
@@ -252,7 +253,7 @@
 </div>
 <div class="section" id="streaming-mode-v0-3-1">
 <h2>Streaming mode (v0.3.1+)<a class="headerlink" href="#streaming-mode-v0-3-1" title="Permalink to this headline">¶</a></h2>
-<p>When <code class="docutils literal notranslate"><span class="pre">stream</span> <span class="pre">=</span> <span class="pre">True</span></code> option is given to tokenize() method, it runs in streaming mode. In streaming mode, partial analyzed results are returned through <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> interface.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">stream</span> <span class="pre">=</span> <span class="pre">True</span></code> option is given to tokenize() method, it runs on streaming mode. On streaming mode, partial analyzed results are returned through <a class="reference external" href="https://wiki.python.org/moin/Generators">generator</a> interface.</p>
 <p>Use this option when you analyze very large text data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;very_large_text.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -264,7 +265,7 @@
 </div>
 <div class="section" id="wakati-gaki-mode-v0-3-1">
 <h2>‘wakati-gaki’ mode (v0.3.1+)<a class="headerlink" href="#wakati-gaki-mode-v0-3-1" title="Permalink to this headline">¶</a></h2>
-<p>When ‘wakati = True’ option is given to tokenize() method, it runs in ‘wakati-gaki’ (‘分かち書き’) mode. In wakati-gaki mode, tokenize() method returns sufrace forms only. Return type is list of string, not list of Token.</p>
+<p>When ‘wakati = True’ option is given to tokenize() method, it runs on ‘wakati-gaki’ (‘分かち書き’) mode. On wakati-gaki mode, tokenize() method returns sufrace forms only. Return type is a list of string, not list of Token.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span>
@@ -275,7 +276,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When this option is set to Tokenizer object, tokenize() method always runs in wakati-gaki mode (<code class="docutils literal notranslate"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">False</span></code> option to tokenize() method is ignored.)</p>
+<p>When this option is passed to Tokenizer object, tokenize() method always runs in wakati-gaki mode (<code class="docutils literal notranslate"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">False</span></code> option is ignored.)</p>
 <p>‘wakati-gaki’ mode works well with streaming mode. tokenize() method returns generator of string when it is given <code class="docutils literal notranslate"><span class="pre">stream=True</span></code> and <code class="docutils literal notranslate"><span class="pre">wakati=True</span></code> options.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
@@ -290,7 +291,7 @@
 <div class="section" id="command-line-interface-v0-2-6-lunux-mac-only">
 <h2>Command-line interface (v0.2.6+, Lunux/Mac only)<a class="headerlink" href="#command-line-interface-v0-2-6-lunux-mac-only" title="Permalink to this headline">¶</a></h2>
 <p>Janome has executable built-in script “janome” for command-line usage. (currently for Lunux/Mac only… patches are welcome!)</p>
-<p>It reads a sentence at a time from standard input and outputs the analysis result. To see supported options, type “janome -h”.</p>
+<p>It reads a sentence at a time from standard input and outputs the analyzed results. To see supported options, type “janome -h”.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
 猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
@@ -306,7 +307,7 @@
 <h2>Note for analyzing large document set<a class="headerlink" href="#note-for-analyzing-large-document-set" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This memory leak problem was solved at v0.3. The analysed results with janome version 0.3 or over can be a bit different from ones with version 0.2. You may want to examine streaming and/or wakati-gaki mode to reduce memory usage more.</p>
+<p class="last">This memory leak problem was solved at v0.3. The analyzed results with version 0.3 or over can be a bit different from ones with version 0.2. You may want to examine streaming and/or wakati-gaki mode to reduce memory usage more.</p>
 </div>
 <p>In older version (&lt; 0.3), Janome can consume large memory when a very large document is passed all at once. Please split large documents (larger than tens of killobytes) into small chunks or sentences.</p>
 </div>
@@ -393,7 +394,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0.
     </div>
   </body>
 </html>
