@@ -4,28 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>janome.tokenfilter &#8212; Janome API reference v0.3</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '0.3.5',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -82,25 +74,27 @@
 
 <div class="viewcode-block" id="LowerCaseFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.LowerCaseFilter">[docs]</a><span class="k">class</span> <span class="nc">LowerCaseFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
     <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A LowerCaseFilter converts the surface of token to lowercase.</span>
+<span class="sd">    A LowerCaseFilter converts the surface and base_form of tokens to lowercase.</span>
 
 <span class="sd">    Added in *version 0.3.4*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="LowerCaseFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.LowerCaseFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
             <span class="n">token</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">token</span><span class="o">.</span><span class="n">base_form</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">base_form</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
             <span class="k">yield</span> <span class="n">token</span></div></div>
 
 
 <div class="viewcode-block" id="UpperCaseFilter"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.UpperCaseFilter">[docs]</a><span class="k">class</span> <span class="nc">UpperCaseFilter</span><span class="p">(</span><span class="n">TokenFilter</span><span class="p">):</span>
     <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    An UpperCaseFilter converts the surface of token to uppercase.</span>
+<span class="sd">    An UpperCaseFilter converts the surface and base_form of tokens to uppercase.</span>
 
 <span class="sd">    Added in *version 0.3.4*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="UpperCaseFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.UpperCaseFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
             <span class="n">token</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="n">token</span><span class="o">.</span><span class="n">base_form</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">base_form</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
             <span class="k">yield</span> <span class="n">token</span></div></div>
     
 
@@ -212,21 +206,26 @@
 
 <span class="sd">    Added in *version 0.3.5*</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="TokenCountFilter.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenCountFilter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="s1">&#39;surface&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="TokenCountFilter.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenCountFilter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">att</span><span class="o">=</span><span class="s1">&#39;surface&#39;</span><span class="p">,</span> <span class="nb">sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize TokenCountFilter object.</span>
 
 <span class="sd">        :param att: attribute name should be extraced from a token. valid values for *att* are &#39;surface&#39;, &#39;part_of_speech&#39;, &#39;infl_type&#39;, &#39;infl_form&#39;, &#39;base_form&#39;, &#39;reading&#39; and &#39;phonetic&#39;.</span>
+<span class="sd">        :param sorted: sort items by term frequency</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">att</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;surface&#39;</span><span class="p">,</span> <span class="s1">&#39;part_of_speech&#39;</span><span class="p">,</span> <span class="s1">&#39;infl_type&#39;</span><span class="p">,</span> <span class="s1">&#39;infl_form&#39;</span><span class="p">,</span> <span class="s1">&#39;base_form&#39;</span><span class="p">,</span> <span class="s1">&#39;reading&#39;</span><span class="p">,</span> <span class="s1">&#39;phonetic&#39;</span><span class="p">]:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Unknown attribute name: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">att</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">att</span> <span class="o">=</span> <span class="n">att</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">att</span> <span class="o">=</span> <span class="n">att</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sorted</span> <span class="o">=</span> <span class="nb">sorted</span></div>
 
 <div class="viewcode-block" id="TokenCountFilter.apply"><a class="viewcode-back" href="../../janome.html#janome.tokenfilter.TokenCountFilter.apply">[docs]</a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
         <span class="n">token_counts</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
             <span class="n">token_counts</span><span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">att</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">token_counts</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span></div></div>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sorted</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">token_counts</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">token_counts</span><span class="o">.</span><span class="n">items</span><span class="p">())</span></div></div>
 </pre></div>
 
           </div>
@@ -236,12 +235,14 @@
         <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -263,7 +264,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0.
     </div>
   </body>
 </html>
