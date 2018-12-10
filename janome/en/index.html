@@ -58,7 +58,7 @@
 <div class="section" id="current-version">
 <h2>Current version<a class="headerlink" href="#current-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.6</li>
+<li>janome: 0.3.7</li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -95,7 +95,7 @@
 </div>
 <div class="section" id="for-windows-users">
 <h3>for Windows users<a class="headerlink" href="#for-windows-users" title="Permalink to this headline">¶</a></h3>
-<p>Use <code class="docutils literal notranslate"><span class="pre">decode('utf8')</span></code> if output is garbled.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">decode('utf8')</span></code> if the output is garbled.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;すもももももももものうち&#39;</span><span class="p">):</span>
@@ -288,10 +288,17 @@
 <h2>Memory-mapped file support (v0.3.3+)<a class="headerlink" href="#memory-mapped-file-support-v0-3-3" title="Permalink to this headline">¶</a></h2>
 <p>If <code class="docutils literal notranslate"><span class="pre">mmap=True</span></code> option is given to Tokenizer.__init__(), dictionary entries are not loaded to process space but searched through memory-mapped file.</p>
 </div>
-<div class="section" id="command-line-interface-v0-2-6-lunux-mac-only">
-<h2>Command-line interface (v0.2.6+, Lunux/Mac only)<a class="headerlink" href="#command-line-interface-v0-2-6-lunux-mac-only" title="Permalink to this headline">¶</a></h2>
-<p>Janome has executable built-in script “janome” for command-line usage. (currently for Lunux/Mac only… patches are welcome!)</p>
+<div class="section" id="graphviz-file-dot-file-support-v0-3-7">
+<h2>Graphviz file (DOT file) support (v0.3.7+)<a class="headerlink" href="#graphviz-file-dot-file-support-v0-3-7" title="Permalink to this headline">¶</a></h2>
+<p>When <code class="docutils literal notranslate"><span class="pre">dotfile=&lt;dotfile</span> <span class="pre">output</span> <span class="pre">path&gt;</span></code> option is given, Tokenizer.tokenize() method converts the lattice graph to <a class="reference external" href="https://graphviz.gitlab.io/">Graphviz</a> DOT file. For performance reasons, this option is ignored when running on streaming mode or analyzing very long text.</p>
+<p><code class="docutils literal notranslate"><span class="pre">janome</span></code> command (the details are mentioned later) has options to visualize the lattice graph easily.</p>
+</div>
+<div class="section" id="command-line-interface-linux-mac-v0-2-6-windows-v0-3-7">
+<h2>Command-line interface (Linux/Mac v0.2.6+, Windows v0.3.7+)<a class="headerlink" href="#command-line-interface-linux-mac-v0-2-6-windows-v0-3-7" title="Permalink to this headline">¶</a></h2>
+<p>Janome has executable built-in script “janome” for command-line usage.</p>
 <p>It reads a sentence at a time from standard input and outputs the analyzed results. To see supported options, type “janome -h”.</p>
+<div class="section" id="linux-mac">
+<h3>Linux/Mac<a class="headerlink" href="#linux-mac" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
 猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
@@ -301,6 +308,44 @@
 ある  助動詞,*,*,*,五段・ラ行アル,基本形,ある,アル,アル
 (Type Ctrl-C to quit.)
 </pre></div>
+</div>
+</div>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">sjis</span></code> option if the output is garbled.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">janome</span> <span class="o">-</span><span class="n">e</span> <span class="n">sjis</span>
+<span class="n">ウィンドウズでも簡単インストール</span>
+<span class="n">ウィンドウズ</span>    <span class="n">名詞</span><span class="p">,</span><span class="n">固有名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">ウィンドウズ</span><span class="p">,</span><span class="n">ウィンドウズ</span><span class="p">,</span><span class="n">ウィンドウズ</span>
+<span class="n">で</span>      <span class="n">助詞</span><span class="p">,</span><span class="n">格助詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">で</span><span class="p">,</span><span class="n">デ</span><span class="p">,</span><span class="n">デ</span>
+<span class="n">も</span>      <span class="n">助詞</span><span class="p">,</span><span class="n">係助詞</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">も</span><span class="p">,</span><span class="n">モ</span><span class="p">,</span><span class="n">モ</span>
+<span class="n">簡単</span>    <span class="n">名詞</span><span class="p">,</span><span class="n">形容動詞語幹</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">簡単</span><span class="p">,</span><span class="n">カンタン</span><span class="p">,</span><span class="n">カンタン</span>
+<span class="n">インストール</span>    <span class="n">名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">インストール</span><span class="p">,</span><span class="n">インストール</span><span class="p">,</span><span class="n">インストール</span>
+<span class="p">(</span><span class="n">Type</span> <span class="n">Ctrl</span><span class="o">-</span><span class="n">Z</span> <span class="n">to</span> <span class="n">quit</span><span class="o">.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="visualize-lattice-graph">
+<h3>Visualize lattice graph<a class="headerlink" href="#visualize-lattice-graph" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You need Graphviz to use this functionality. Please install Graphviz from <a class="reference external" href="https://graphviz.gitlab.io/download/">here</a>.</p>
+</div>
+<p>If given <code class="docutils literal notranslate"><span class="pre">-g</span></code> option, janome command outputs the visualized lattice image to the current directory after analyzing the text. Default output format is PNG.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;カレーは飲み物&quot; | janome -g
+カレー 名詞,一般,*,*,*,*,カレー,カレー,カレー
+は   助詞,係助詞,*,*,*,*,は,ハ,ワ
+飲み物 名詞,一般,*,*,*,*,飲み物,ノミモノ,ノミモノ
+Graph was successfully output to lattice.gv.png
+</pre></div>
+</div>
+<p>lattice.gv.png (Click to show the full size image.)</p>
+<a class="reference internal image-reference" href="_images/lattice.gv.png"><img alt="_images/lattice.gv.png" src="_images/lattice.gv.png" style="width: 384.6px; height: 346.6px;" /></a>
+<p>You can change the output file location by using <code class="docutils literal notranslate"><span class="pre">--gv-out</span></code> option. Also you can specify the output file format by <code class="docutils literal notranslate"><span class="pre">--gv-format</span></code> option. See <a class="reference external" href="https://graphviz.gitlab.io/_pages/doc/info/output.html">Graphviz documentation</a> for all supported output formats.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;カレーは飲み物&quot; | janome -g --gv-out /tmp/a.gv --gv-format svg
+...
+Graph was successfully output to /tmp/a.gv.svg
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="note-for-analyzing-large-document-set">
@@ -358,6 +403,7 @@
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>2018.12.11 janome Version 0.3.7 was released</li>
 <li>2017.12.07 janome Version 0.3.6 was released</li>
 <li>2017.08.06 janome Version 0.3.5 was released</li>
 <li>2017.07.29 janome Version 0.3.4 was released</li>

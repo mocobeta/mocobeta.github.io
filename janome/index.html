@@ -9,12 +9,13 @@
     <title>Welcome to janome&#39;s documentation! (Japanese) &#8212; Janome v0.3 documentation (ja)</title>
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" /> 
@@ -58,7 +59,7 @@
 <div class="section" id="id3">
 <h2>バージョン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.6</li>
+<li>janome: 0.3.7</li>
 </ul>
 </div>
 <div class="section" id="id4">
@@ -323,17 +324,28 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <h2>(experimental) NEologd 辞書を使う (v0.3.3 以上)<a class="headerlink" href="#experimental-neologd-v0-3-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>NEologd 辞書を内包した janome パッケージを作成する手順を以下で公開しています。実験的なものなので，諸々了解のうえお試しください :)</p>
 <p><a class="reference external" href="https://github.com/mocobeta/janome/wiki/(very-experimental)-NEologd-%E8%BE%9E%E6%9B%B8%E3%82%92%E5%86%85%E5%8C%85%E3%81%97%E3%81%9F-janome-%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">NEologd 辞書を内包した janome をビルドする方法</a></p>
+<p>v0.3.7 より，janome コマンド (後述) が NEologd 辞書内包版にも対応しました。NEologd 内包版は mmap モード (後述) のみで動作するため， <code class="docutils literal notranslate"><span class="pre">-m</span></code> オプションをつけて実行してください。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;渋谷ヒカリエで待ち合わせ&quot; | janome -m
+</pre></div>
+</div>
 </div>
 <div class="section" id="memory-mapped-file-v0-3-3">
 <h2>Memory-mapped file サポート (v0.3.3 以上)<a class="headerlink" href="#memory-mapped-file-v0-3-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Tokenizer オブジェクトの初期化時に <code class="docutils literal notranslate"><span class="pre">mmap=True</span></code> オプションを与えると，辞書エントリは Memory-mapped file としてアクセスされるようになります。</p>
 <p>Tokenizer の初期化時，プロセス空間に辞書エントリをロードしないため，初期化が高速になります。</p>
 </div>
-<div class="section" id="v0-2-6-lunux-mac-only">
-<h2>コマンドラインから使う (v0.2.6 以上，Lunux/Mac only)<a class="headerlink" href="#v0-2-6-lunux-mac-only" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>コマンドラインから実行可能なスクリプト janome がついています。(Linux/Mac のみ。Windows 版 (bat) はもう少しお待ちください。PR 歓迎！)</p>
+<div class="section" id="graphviz-dot-v0-3-7">
+<h2>Graphviz ファイル (DOT ファイル) 出力 (v0.3.7 以上)<a class="headerlink" href="#graphviz-dot-v0-3-7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Tokenizer.tokenize() メソッドに <code class="docutils literal notranslate"><span class="pre">dotfile=&lt;dotfile</span> <span class="pre">output</span> <span class="pre">path&gt;</span></code> オプションを与えると，解析時のラティスグラフを <a class="reference external" href="https://graphviz.gitlab.io/">Graphviz</a> の DOT ファイルに変換して指定のパスに出力します。パフォーマンス上の理由により，ストリーミングモードで実行時，またはとても長いテキストを与えた場合は，このオプションは無視されます。</p>
+<p>この機能は，janome コマンド（後述）から利用するのが便利です。</p>
+</div>
+<div class="section" id="linux-mac-v0-2-6-windows-v0-3-7">
+<h2>コマンドラインから使う (Linux/Mac v0.2.6 以上，Windows v0.3.7 以上)<a class="headerlink" href="#linux-mac-v0-2-6-windows-v0-3-7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>コマンドラインから実行可能なスクリプト <code class="docutils literal notranslate"><span class="pre">janome</span></code> がついています。</p>
 <p>簡単に動作を確認したいときにお使いください。</p>
-<p>標準入力から文字列を受け取り，形態素解析を実行します。指定できるオプションを見るには &quot;janome -h&quot; とタイプしてください。</p>
+<p>標準入力から文字列を受け取り，形態素解析を実行します。指定できるオプションを見るには &quot;janome -h&quot; とタイプしてください。また，&quot;janome --version&quot; でインストールされているバージョンが確認できます(v0.3.7 以上)。</p>
+<div class="section" id="linux-mac">
+<h3>Linux/Mac<a class="headerlink" href="#linux-mac" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
 猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
@@ -343,6 +355,44 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 ある  助動詞,*,*,*,五段・ラ行アル,基本形,ある,アル,アル
 (Ctrl-C で終了)
 </pre></div>
+</div>
+</div>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>文字化けする場合， <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">sjis</span></code> オプションをつけるといいでしょう。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">janome</span> <span class="o">-</span><span class="n">e</span> <span class="n">sjis</span>
+<span class="n">ウィンドウズでも簡単インストール</span>
+<span class="n">ウィンドウズ</span>    <span class="n">名詞</span><span class="p">,</span><span class="n">固有名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">ウィンドウズ</span><span class="p">,</span><span class="n">ウィンドウズ</span><span class="p">,</span><span class="n">ウィンドウズ</span>
+<span class="n">で</span>      <span class="n">助詞</span><span class="p">,</span><span class="n">格助詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">で</span><span class="p">,</span><span class="n">デ</span><span class="p">,</span><span class="n">デ</span>
+<span class="n">も</span>      <span class="n">助詞</span><span class="p">,</span><span class="n">係助詞</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">も</span><span class="p">,</span><span class="n">モ</span><span class="p">,</span><span class="n">モ</span>
+<span class="n">簡単</span>    <span class="n">名詞</span><span class="p">,</span><span class="n">形容動詞語幹</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">簡単</span><span class="p">,</span><span class="n">カンタン</span><span class="p">,</span><span class="n">カンタン</span>
+<span class="n">インストール</span>    <span class="n">名詞</span><span class="p">,</span><span class="n">一般</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">インストール</span><span class="p">,</span><span class="n">インストール</span><span class="p">,</span><span class="n">インストール</span>
+<span class="p">(</span><span class="n">Type</span> <span class="n">Ctrl</span><span class="o">-</span><span class="n">Z</span> <span class="n">to</span> <span class="n">quit</span><span class="o">.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>ラティス可視化<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">この機能を実行するには，Graphviz が必要です。 <a class="reference external" href="https://graphviz.gitlab.io/download/">こちら</a> の手順で事前にインストールしてください。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">-g</span></code> オプションをつけると，解析後にラティスグラフがファイルに出力されます。デフォルトの出力先はカレントディレクトリ，フォーマットは PNG です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;カレーは飲み物&quot; | janome -g
+カレー 名詞,一般,*,*,*,*,カレー,カレー,カレー
+は   助詞,係助詞,*,*,*,*,は,ハ,ワ
+飲み物 名詞,一般,*,*,*,*,飲み物,ノミモノ,ノミモノ
+Graph was successfully output to lattice.gv.png
+</pre></div>
+</div>
+<p>lattice.gv.png (クリックで拡大)</p>
+<a class="reference internal image-reference" href="_images/lattice.gv.png"><img alt="_images/lattice.gv.png" src="_images/lattice.gv.png" style="width: 384.6px; height: 346.6px;" /></a>
+<p>ファイルの出力先を指定したい場合は <code class="docutils literal notranslate"><span class="pre">--gv-out</span></code> オプションを，Graphviz のフォーマットを指定する場合は <code class="docutils literal notranslate"><span class="pre">--gv-format</span></code> オプションをつけてください。サポートされるフォーマットは <a class="reference external" href="https://graphviz.gitlab.io/_pages/doc/info/output.html">Graphviz のドキュメント</a> を参照してください。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;カレーは飲み物&quot; | janome -g --gv-out /tmp/a.gv --gv-format svg
+...
+Graph was successfully output to /tmp/a.gv.svg
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="v0-2-8">
@@ -355,8 +405,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 <p>古いバージョン(&lt; 0.3)では，入力全体を読んでラティスを構築するため，入力文字列が大きくなると多くのリソースを消費します。数十キロバイト以上の文書を解析する場合は，なるべく適度に分割して与えてください。</p>
 </div>
-<div class="section" id="id13">
-<h2>よくある（かもしれない）質問<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id16">
+<h2>よくある（かもしれない）質問<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li>Tokenizer の初期化が遅いんだけど。</li>
 </ol>
@@ -422,8 +472,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <h2>For Contributors<a class="headerlink" href="#for-contributors" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/wiki">https://github.com/mocobeta/janome/wiki</a></p>
 </div>
-<div class="section" id="id17">
-<h2>作者について<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id20">
+<h2>作者について<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://medium.com/&#64;mocobeta/about-me-b28838ba631f">プロフィール</a></p>
 </div>
 <div class="section" id="license">
@@ -438,6 +488,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>2018.12.11 janome Version 0.3.7 リリース</li>
 <li>2017.12.07 janome Version 0.3.6 リリース</li>
 <li>2017.08.06 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-0-3-5-release-ee5de2196330">janome Version 0.3.5 リリース</a></li>
 <li>2017.07.29 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-0-3-4-release-63ed21f4fda9">janome Version 0.3.4 リリース</a></li>
@@ -474,7 +525,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Tomoko Uchida.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0 で生成しました。
     </div>
   </body>
 </html>
