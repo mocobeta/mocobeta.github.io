@@ -15,7 +15,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" /> 
@@ -156,6 +155,14 @@
 <span class="go">。        記号,句点,*,*,*,*,。,。,。</span>
 </pre></div>
 </div>
+<p><strong>[参考リンク]</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="http://eneprog.blogspot.com/2018/08/janomepython.html">データ解析、プログラミング学習中: Janomeのユーザー辞書を作る</a> (ユーザー辞書ファイルの作成方法)<ul>
+<li>補足: こちらの記事では左/右文脈ID に -1 を指定していますが，<a class="reference external" href="http://taku910.github.io/mecab/dic.html">MeCab: 単語の追加方法</a> に記載のように，MeCab IPADIC に含まれる <code class="docutils literal notranslate"><span class="pre">left-id.def</span></code> (または <code class="docutils literal notranslate"><span class="pre">right-id.def</span></code>) から該当する品詞IDを選ぶ (例：「名詞,固有名詞,一般」なら 1288) とコスト計算がより適切になるでしょう。</li>
+</ul>
+</li>
+<li><a class="reference external" href="http://eneprog.blogspot.com/2018/09/4-wordcloudpythonjanome.html">データ解析、プログラミング学習中: エネルギー基本計画の特徴を見てみる。その4 複合語を考慮してwordcloud</a> (ユーザー辞書の活用例)</li>
+</ul>
 </div>
 <div class="section" id="v0-2-7">
 <h3>簡略辞書フォーマット (v0.2.7 以上)<a class="headerlink" href="#v0-2-7" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -189,8 +196,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id10">
+<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユーザー定義辞書は，巨大になるとバイナリコンパイルに時間がかかるため，あらかじめコンパイルしておき，コンパイル済みの辞書を使うことも可能です。</p>
 <p>現在のところ，コンパイルのためのツールはありませんが， <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">API</a> を使ってコンパイルが行えます。</p>
 <div class="admonition note">
@@ -229,8 +236,8 @@
 <li>小文字化，品詞によるトークンのフィルタリングなど，形態素解析後の後処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> クラス</li>
 <li>CharFilter, Tokenizer, TokenFilter を組み合わせてカスタム解析フローを組み立てる <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> クラス</li>
 </ul>
-<div class="section" id="id11">
-<h3>Analyzer の使い方<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id12">
+<h3>Analyzer の使い方<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Analyzer 初期化時に，CharFilter のリスト，初期化済み Tokenizer オブジェクト，TokenFilter のリストを指定します。0 個以上，任意の数の CharFilter や TokenFilter を指定できます。
 Analyzer を初期化したら，analyze() メソッドに解析したい文字列を渡します。戻り値はトークンの generator です（最後に指定した TokenFilter の出力により，generator の返す要素の型が決まります）。</p>
 <p>以下の実行例では，前処理としてユニコード正規化と正規表現による文字列置換を行い，形態素解析を実行後に，名詞の連続のまとめあげ（複合名詞化），品詞によるフィルタリング，表層形の小文字化という後処理を行っています。</p>
@@ -284,6 +291,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <p><strong>[参考リンク]</strong></p>
 <ul class="simple">
 <li><a class="reference external" href="http://ohke.hateblo.jp/entry/2017/11/02/230000">け日記：Python janomeのanalyzerが便利</a> (Analyzer 活用，独自フィルターの作成について詳しく解説されています。)</li>
+<li><a class="reference external" href="http://eneprog.blogspot.com/2018/07/janome-analayzerpython.html">データ解析、プログラミング学習中: janome Analayzerで複合語（複合名詞）を考慮して形態素解析を行う。</a> (CompoundNounFilter の活用例があります。)</li>
 </ul>
 </div>
 </div>
@@ -299,8 +307,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id12">
-<h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id13">
+<h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>tokenize() メソッドに <code class="docutils literal notranslate"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，分かち書きモード（表層形のみを返すモード）で動作します。分かち書きモードで解析した場合の戻り値は，Token オブジェクトのリストではなく文字列 (str) のリストになります。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -371,8 +379,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id13">
-<h3>ラティス可視化<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id14">
+<h3>ラティス可視化<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">この機能を実行するには，Graphviz が必要です。 <a class="reference external" href="https://graphviz.gitlab.io/download/">こちら</a> の手順で事前にインストールしてください。</p>
@@ -405,8 +413,8 @@ Graph was successfully output to /tmp/a.gv.svg
 </div>
 <p>古いバージョン(&lt; 0.3)では，入力全体を読んでラティスを構築するため，入力文字列が大きくなると多くのリソースを消費します。数十キロバイト以上の文書を解析する場合は，なるべく適度に分割して与えてください。</p>
 </div>
-<div class="section" id="id16">
-<h2>よくある（かもしれない）質問<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id17">
+<h2>よくある（かもしれない）質問<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li>Tokenizer の初期化が遅いんだけど。</li>
 </ol>
@@ -472,8 +480,8 @@ Graph was successfully output to /tmp/a.gv.svg
 <h2>For Contributors<a class="headerlink" href="#for-contributors" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/wiki">https://github.com/mocobeta/janome/wiki</a></p>
 </div>
-<div class="section" id="id20">
-<h2>作者について<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id21">
+<h2>作者について<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://medium.com/&#64;mocobeta/about-me-b28838ba631f">プロフィール</a></p>
 </div>
 <div class="section" id="license">
@@ -488,7 +496,7 @@ Graph was successfully output to /tmp/a.gv.svg
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>2018.12.11 janome Version 0.3.7 リリース</li>
+<li>2018.12.11 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-%E9%96%8B%E7%99%BA%E6%97%A5%E8%AA%8C-%E3%83%A9%E3%83%86%E3%82%A3%E3%82%B9%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%AA%E3%81%A9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%97%E3%81%9F-janome-0-3-7-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-bbce681f7612">janome Version 0.3.7 リリース</a></li>
 <li>2017.12.07 janome Version 0.3.6 リリース</li>
 <li>2017.08.06 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-0-3-5-release-ee5de2196330">janome Version 0.3.5 リリース</a></li>
 <li>2017.07.29 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-0-3-4-release-63ed21f4fda9">janome Version 0.3.4 リリース</a></li>
@@ -525,7 +533,7 @@ Graph was successfully output to /tmp/a.gv.svg
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Tomoko Uchida.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2 で生成しました。
     </div>
   </body>
 </html>
