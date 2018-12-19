@@ -268,7 +268,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 <div class="section" id="analyzer-v0-3-5">
 <h3>Analyzer の利用例: ワードカウント (v0.3.5 以上)<a class="headerlink" href="#analyzer-v0-3-5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>TokenCountFilter を使うと，入力文字列中の単語出現頻度を数えることができます。以下は，文字列中の名詞の出現回数を数える例です（POSKeepFilterで名詞のみフィルタしています）。出現回数の多い順に，単語（表層形）とその出現回数のタプルが返されます。</p>
+<p>TokenCountFilter を使うと，入力文字列中の単語出現頻度を数えることができます。以下は，文字列中の名詞の出現回数を数える例です（POSKeepFilterで名詞のみフィルタしています）。戻り値の各要素は，単語（表層形）とその出現回数のタプルになります。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenfilter</span> <span class="k">import</span> <span class="o">*</span>
@@ -278,12 +278,16 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 <span class="gp">... </span>  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
 <span class="gp">...</span>
-<span class="go">もも: 2</span>
 <span class="go">すもも: 1</span>
+<span class="go">もも: 2</span>
 <span class="go">うち: 1</span>
 </pre></div>
 </div>
-<p>なお TokenCountFilter の初期化時に <code class="docutils literal notranslate"><span class="pre">att='base_form'</span></code> と指定すると，基本形の数を数えます。動詞や形容動詞の数を数えたい場合は，このオプションを指定すると良いでしょう。</p>
+<p>TokenCountFilter の初期化時に <code class="docutils literal notranslate"><span class="pre">sorted=True</span></code> を指定すると，出現回数の多い順に返されます。ソートの計算コストがかかるため，出現回数でのソートが不要の場合は False としてください。指定がない場合のデフォルト値は False です。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">TokenCountFilter</span><span class="p">(</span><span class="nb">sorted</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>また， TokenCountFilter 初期化時に <code class="docutils literal notranslate"><span class="pre">att='base_form'</span></code> を指定すると，基本形の数を数えます。動詞や形容動詞の数を数えたい場合は，このオプションを指定すると良いでしょう。指定がない場合のデフォルト値は <code class="docutils literal notranslate"><span class="pre">surface</span></code> (表層形) です。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">TokenCountFilter</span><span class="p">(</span><span class="n">att</span><span class="o">=</span><span class="s1">&#39;base_form&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
