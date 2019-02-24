@@ -23,7 +23,7 @@ Lucene/Solr 8.0 and Elasticsearch 7.0 coming...
 * Top-k query processing / scoring will be much faster!
 * Especially effective in disjunction (OR) query
 * Also works for complex queries such as PhraseQuery, WildcardQuery and their combinations
-* Correct total hits count will not be returned (in default)
+* Exact total hits count will not be returned (in default)
 
 ## And there is a long version...
 
