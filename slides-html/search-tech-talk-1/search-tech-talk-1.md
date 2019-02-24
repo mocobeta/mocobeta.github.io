@@ -16,7 +16,7 @@
 
 ----
 
-Lucene/Solr 8.0 and Elasticsearch 7.0 is comming...
+Lucene/Solr 8.0 and Elasticsearch 7.0 coming...
 
 ## Summary of this talk
 
