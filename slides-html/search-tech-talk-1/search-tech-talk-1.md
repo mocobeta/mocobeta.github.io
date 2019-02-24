@@ -1,6 +1,6 @@
 % Efficient top-k query processing in Lucene 8
 % Tomoko Uchida 
-% 2019/03/26 @ Roppongi Hills
+% 2019/02/26 @ Roppongi Hills
 
 ## Who am I 
 
