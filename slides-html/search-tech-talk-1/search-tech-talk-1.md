@@ -33,6 +33,21 @@ Please see this post (in Japanese) for more details :)
 
 [Lucene 8 の Top-k クエリプロセッシング最適化](https://medium.com/@mocobeta/lucene-8-%E3%81%AE-top-k-%E3%82%AF%E3%82%A8%E3%83%AA%E3%83%97%E3%83%AD%E3%82%BB%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0%E6%9C%80%E9%81%A9%E5%8C%96-1-%E5%B0%8E%E5%85%A5%E7%B7%A8-5a6387076e8e)
 
+## References
+
+* [Magic WAND: Faster Retrieval of Top Hits in Elasticsearch](https://www.elastic.co/jp/blog/faster-retrieval-of-top-hits-in-elasticsearch-with-block-max-wand)
+* [(FOSDEM 2019) Super-speedy scoring in Lucene 8](https://fosdem.org/2019/schedule/event/super_speedy_scoring_lucene/)
+* [(FOSDEM 2019) Apache Lucene and Apache Solr 8](https://fosdem.org/2019/schedule/event/apache_lucene_solr_8/)
+* [(Berlin Buzzwords 2012) Efficient Scoring in Lucene](https://vimeo.com/44300228)
+* [転置インデックスと Top k-query](https://www.slideshare.net/tsubosaka/top-kquery)
+
+## Papers
+
+* [1] T. Strohman, H. Turtle, and B. Croft.  Optimization strategies for complex queries. In Proceedings of ACM SIGIR conference, 2005.
+* [2] K. Chakrabarti, S. Chaudhuri, V. Ganti. Interval-Based Pruning for Top-k Processing over Compressed Lists, in Proc. of ICDE, 2011.
+* [3] A. Z. Broder, D. Carmel, M. Herscovici, A. Soffer, J. Y. Zien. Efficient Query Evaluation using a Two-Level Retrieval Process, in Proc. of CIKM, 2003.
+* [4] S. Ding and T. Suel. Faster top-k document retrieval using block-max indexes. SIGIR, 2011.
+
 ## How much faster? - AND query
 
 ![http://people.apache.org/~mikemccand/lucenebench/AndHighHigh.html](image/bench_and.png)
@@ -48,21 +63,6 @@ Please see this post (in Japanese) for more details :)
 ## How much faster? - Term query
 
 ![http://people.apache.org/~mikemccand/lucenebench/Term.html](image/bench_term.png)
-
-## References
-
-* [Magic WAND: Faster Retrieval of Top Hits in Elasticsearch](https://www.elastic.co/jp/blog/faster-retrieval-of-top-hits-in-elasticsearch-with-block-max-wand)
-* [(FOSDEM 2019) Super-speedy scoring in Lucene 8](https://fosdem.org/2019/schedule/event/super_speedy_scoring_lucene/)
-* [(FOSDEM 2019) Apache Lucene and Apache Solr 8](https://fosdem.org/2019/schedule/event/apache_lucene_solr_8/)
-* [(Berlin Buzzwords 2012) Efficient Scoring in Lucene](https://vimeo.com/44300228)
-* [転置インデックスと Top k-query](https://www.slideshare.net/tsubosaka/top-kquery)
-
-## Papers
-
-* [1] T. Strohman, H. Turtle, and B. Croft.  Optimization strategies for complex queries. In Proceedings of ACM SIGIR conference, 2005.
-* [2] K. Chakrabarti, S. Chaudhuri, V. Ganti. Interval-Based Pruning for Top-k Processing over Compressed Lists, in Proc. of ICDE, 2011.
-* [3] A. Z. Broder, D. Carmel, M. Herscovici, A. Soffer, J. Y. Zien. Efficient Query Evaluation using a Two-Level Retrieval Process, in Proc. of CIKM, 2003.
-* [4] S. Ding and T. Suel. Faster top-k document retrieval using block-max indexes. SIGIR, 2011.
 
 ## Algorithms
 
