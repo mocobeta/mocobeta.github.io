@@ -39,7 +39,7 @@
 <p><a class="reference external" href="http://mocobeta.github.io/janome/en/">English</a></p>
 <div class="section" id="janome">
 <h2>Janome とは<a class="headerlink" href="#janome" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="figure align-right" id="id25">
+<div class="figure align-right" id="id27">
 <a class="reference internal image-reference" href="_images/janome_small.jpg"><img alt="_images/janome_small.jpg" src="_images/janome_small.jpg" style="width: 289.40000000000003px; height: 407.8px;" /></a>
 <p class="caption"><span class="caption-text">Illustration by <a class="reference external" href="https://janomeekaki.wixsite.com/janome">janome</a>. All rights reserved.</span></p>
 </div>
@@ -54,7 +54,7 @@
 </div>
 <div class="section" id="api">
 <h2>API リファレンス<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference external" href="http://mocobeta.github.io/janome/api/">http://mocobeta.github.io/janome/api/</a></p>
+<p><a class="reference external" href="http://mocobeta.github.io/janome/api/">https://mocobeta.github.io/janome/api/</a></p>
 </div>
 <div class="section" id="id3">
 <h2>動作に必要なソフトウェア<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -125,9 +125,17 @@
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="id8">
-<h2>ユーザー定義辞書を使う<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>チュートリアル<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ハンズオン教材つきの，初心者向けチュートリアル「Janome ではじめるテキストマイニング」を公開しました。(<a class="reference external" href="https://medium.com/&#64;mocobeta/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB-janome-%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%9E%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0-%E3%82%92-github-google-colab-%E3%81%A7%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-28c1bf0008b9">ブログ</a>)</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/mocobeta/janome-tutorial">GitHub リポジトリ</a></li>
+<li><a class="reference external" href="http://mocobeta.github.io/slides-html/janome-tutorial/tutorial-slides.html">チュートリアル資料(HTML)</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>ユーザー定義辞書を使う<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="mecab-ipadic">
 <h3>MeCab IPADIC フォーマット<a class="headerlink" href="#mecab-ipadic" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>デフォルトユーザー定義辞書のフォーマットは，MeCab 辞書と同じです。たとえば以下のような CSV ファイルを作成し，Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します。</p>
@@ -201,8 +209,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="id11">
-<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id13">
+<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユーザー定義辞書は，巨大になるとバイナリコンパイルに時間がかかるため，あらかじめコンパイルしておき，コンパイル済みの辞書を使うことも可能です。</p>
 <p>現在のところ，コンパイルのためのツールはありませんが， <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">API</a> を使ってコンパイルが行えます。</p>
 <div class="admonition note">
@@ -241,8 +249,8 @@
 <li>小文字化，品詞によるトークンのフィルタリングなど，形態素解析後の後処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> クラス</li>
 <li>CharFilter, Tokenizer, TokenFilter を組み合わせてカスタム解析フローを組み立てる <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> クラス</li>
 </ul>
-<div class="section" id="id13">
-<h3>Analyzer の使い方<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id15">
+<h3>Analyzer の使い方<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Analyzer 初期化時に，CharFilter のリスト，初期化済み Tokenizer オブジェクト，TokenFilter のリストを指定します。0 個以上，任意の数の CharFilter や TokenFilter を指定できます。
 Analyzer を初期化したら，analyze() メソッドに解析したい文字列を渡します。戻り値はトークンの generator です（最後に指定した TokenFilter の出力により，generator の返す要素の型が決まります）。</p>
 <p>以下の実行例では，前処理としてユニコード正規化と正規表現による文字列置換を行い，形態素解析を実行後に，名詞の連続のまとめあげ（複合名詞化），品詞によるフィルタリング，表層形の小文字化という後処理を行っています。</p>
@@ -316,8 +324,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id14">
-<h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id16">
+<h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>tokenize() メソッドに <code class="docutils literal notranslate"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，分かち書きモード（表層形のみを返すモード）で動作します。分かち書きモードで解析した場合の戻り値は，Token オブジェクトのリストではなく文字列 (str) のリストになります。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -388,8 +396,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </pre></div>
 </div>
 </div>
-<div class="section" id="id15">
-<h3>ラティス可視化<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id17">
+<h3>ラティス可視化<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">この機能を実行するには，Graphviz が必要です。 <a class="reference external" href="https://graphviz.gitlab.io/download/">こちら</a> の手順で事前にインストールしてください。</p>
@@ -422,8 +430,8 @@ Graph was successfully output to /tmp/a.gv.svg
 </div>
 <p>古いバージョン(&lt; 0.3)では，入力全体を読んでラティスを構築するため，入力文字列が大きくなると多くのリソースを消費します。数十キロバイト以上の文書を解析する場合は，なるべく適度に分割して与えてください。</p>
 </div>
-<div class="section" id="id18">
-<h2>よくある（かもしれない）質問<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id20">
+<h2>よくある（かもしれない）質問<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li>Tokenizer の初期化が遅いんだけど。</li>
 </ol>
@@ -489,8 +497,8 @@ Graph was successfully output to /tmp/a.gv.svg
 <h2>For Contributors<a class="headerlink" href="#for-contributors" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/wiki">https://github.com/mocobeta/janome/wiki</a></p>
 </div>
-<div class="section" id="id22">
-<h2>作者について<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id24">
+<h2>作者について<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://medium.com/&#64;mocobeta/about-me-b28838ba631f">プロフィール</a></p>
 </div>
 <div class="section" id="license">
