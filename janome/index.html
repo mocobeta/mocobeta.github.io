@@ -81,7 +81,16 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h2>使い方<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>チュートリアル<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>初心者向けチュートリアル＆ハンズオン教材「Janome ではじめるテキストマイニング」を公開しました。(<a class="reference external" href="https://medium.com/&#64;mocobeta/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB-janome-%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%9E%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0-%E3%82%92-github-google-colab-%E3%81%A7%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-28c1bf0008b9">ブログ</a>)</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/mocobeta/janome-tutorial">GitHub リポジトリ</a></li>
+<li><a class="reference external" href="http://mocobeta.github.io/slides-html/janome-tutorial/tutorial-slides.html">チュートリアル資料(HTML)</a></li>
+</ul>
+<p>ハンズオンには Google Colab を使っており Web ブラウザがあれば実行できます。janome CLI / API の基本的な使い方，ユーザー辞書・ワードカウント・Analyzer など janome の少しだけ高度な使い方，日本語 WordCloud といった内容について，手を動かしながら身につけられます。</p>
+</div>
+<div class="section" id="id8">
+<h2>使い方<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>janome.tokenizer パッケージの Tokenizer オブジェクトを作り，tokenize() メソッドに解析したい文字列を渡します。</p>
 <p>戻り値は Token オブジェクトのリストです。Token は表層形や品詞といった形態素情報を含みます。詳しくは <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenizer.Token">リファレンス</a> を参照してください。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
@@ -124,14 +133,6 @@
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id8">
-<h3>チュートリアル<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>ハンズオン教材つきの，初心者向けチュートリアル「Janome ではじめるテキストマイニング」を公開しました。(<a class="reference external" href="https://medium.com/&#64;mocobeta/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB-janome-%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%9E%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0-%E3%82%92-github-google-colab-%E3%81%A7%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-28c1bf0008b9">ブログ</a>)</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/mocobeta/janome-tutorial">GitHub リポジトリ</a></li>
-<li><a class="reference external" href="http://mocobeta.github.io/slides-html/janome-tutorial/tutorial-slides.html">チュートリアル資料(HTML)</a></li>
-</ul>
 </div>
 </div>
 <div class="section" id="id10">
