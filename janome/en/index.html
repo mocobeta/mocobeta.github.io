@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta content="Janome (蛇の目) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model. We aim to build a library which is easy to install and provides concise, well-designed APIs for various python applications." name="description" />
+    <meta charset="utf-8" /><meta content="Janome (蛇の目; ◉) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model. We aim to build a library which is easy to install and provides concise, well-designed APIs for various python applications." name="description" />
 <meta content="python, janome, pos tagger, tokenizer, morphological analysis, japanese" name="keywords" />
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
@@ -43,9 +41,9 @@
 <h2>What’s Janome?<a class="headerlink" href="#what-s-janome" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-right" id="id3">
 <a class="reference internal image-reference" href="_images/janome_small.jpg"><img alt="_images/janome_small.jpg" src="_images/janome_small.jpg" style="width: 289.40000000000003px; height: 407.8px;" /></a>
-<p class="caption"><span class="caption-text">Illustration by <a class="reference external" href="https://janomeekaki.wixsite.com/janome">janome</a>. All rights reserved.</span></p>
+<p class="caption"><span class="caption-text">Illustration by <a class="reference external" href="https://janomeekaki.wixsite.com/janome">janome</a>. All rights reserved.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
-<p>Janome (蛇の目) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model.</p>
+<p>Janome (蛇の目; ◉) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model.</p>
 <p>We aim to build a library which is easy to install and provides concise, well-designed APIs for various python applications.</p>
 <p>Janome uses mecab-ipadic-2.7.0-20070801 as the built-in dictionary. Also Japanese new era “令和” (Reiwa) has been added to the dictionary since v0.3.8.</p>
 </div>
@@ -65,7 +63,7 @@
 <div class="section" id="latest-version">
 <h2>Latest version<a class="headerlink" href="#latest-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.8</li>
+<li><p>janome: 0.3.8</p></li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -77,8 +75,8 @@
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This requires 500 to 600 MB RAM for pre-compiling the dictionary data.</p>
+<p class="admonition-title">Note</p>
+<p>This requires 500 to 600 MB RAM for pre-compiling the dictionary data.</p>
 </div>
 </div>
 </div>
@@ -202,8 +200,8 @@
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Use same major python version at both compile time and runtime. Forward/backward dictionary data compatibility is not guaranteed.</p>
+<p class="admonition-title">Note</p>
+<p>Use same major python version at both compile time and runtime. Forward/backward dictionary data compatibility is not guaranteed.</p>
 </div>
 </div>
 </div>
@@ -211,9 +209,9 @@
 <h2>(experimental) Analyzer framework (v0.3.4+)<a class="headerlink" href="#experimental-analyzer-framework-v0-3-4" title="Permalink to this headline">¶</a></h2>
 <p>Analyzer framework is for pre- and post- processing. Analyzer framework includes following classes.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> class performs pre-processing such as character normalization.</li>
-<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> class performs post-processing such as lowercase/uppercase conversion, token filtering by POS tags.</li>
-<li><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> class combines CharFilters, a Tokenizer and TokenFilters to assemble custom analysis chain.</li>
+<li><p><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> class performs pre-processing such as character normalization.</p></li>
+<li><p><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> class performs post-processing such as lowercase/uppercase conversion, token filtering by POS tags.</p></li>
+<li><p><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> class combines CharFilters, a Tokenizer and TokenFilters to assemble custom analysis chain.</p></li>
 </ul>
 <div class="section" id="analyzser-usage">
 <h3>Analyzser usage<a class="headerlink" href="#analyzser-usage" title="Permalink to this headline">¶</a></h3>
@@ -334,8 +332,8 @@
 <div class="section" id="visualizing-lattice-graph">
 <h3>Visualizing lattice graph<a class="headerlink" href="#visualizing-lattice-graph" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You need Graphviz to use this functionality. Please install Graphviz from <a class="reference external" href="https://graphviz.gitlab.io/download/">here</a>.</p>
+<p class="admonition-title">Note</p>
+<p>You need Graphviz to use this functionality. Please install Graphviz from <a class="reference external" href="https://graphviz.gitlab.io/download/">here</a>.</p>
 </div>
 <p>If given <code class="docutils literal notranslate"><span class="pre">-g</span></code> option, janome command outputs the visualized lattice image to the current directory after analyzing the text. Default output format is PNG.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;カレーは飲み物&quot; | janome -g
@@ -358,36 +356,36 @@ Graph was successfully output to /tmp/a.gv.svg
 <div class="section" id="note-for-analyzing-large-document-set">
 <h2>Note for analyzing large document set<a class="headerlink" href="#note-for-analyzing-large-document-set" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This memory leak problem was solved at v0.3. The analyzed results with version 0.3 or over can be a bit different from ones with version 0.2. You may want to examine streaming and/or wakati-gaki mode to reduce memory usage more.</p>
+<p class="admonition-title">Note</p>
+<p>This memory leak problem was solved at v0.3. The analyzed results with version 0.3 or over can be a bit different from ones with version 0.2. You may want to examine streaming and/or wakati-gaki mode to reduce memory usage more.</p>
 </div>
 <p>In older version (&lt; 0.3), Janome can consume large memory when a very large document is passed all at once. Please split large documents (larger than tens of killobytes) into small chunks or sentences.</p>
 </div>
 <div class="section" id="faq">
 <h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
 <ol class="upperalpha simple" start="17">
-<li>How is the accuracy of analysis?</li>
+<li><p>How is the accuracy of analysis?</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>Janome uses MeCab IPADIC dictionary, so the accuracy is roughly same to MeCab.</li>
+<li><p>Janome uses MeCab IPADIC dictionary, so the accuracy is roughly same to MeCab.</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>How is the speed of analysis?</li>
+<li><p>How is the speed of analysis?</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>Basically depends on the input length. According to my benchmark script, one sentence would take a few milliseconds to a few tens of milliseconds on commodity PCs.</li>
+<li><p>Basically depends on the input length. According to my benchmark script, one sentence would take a few milliseconds to a few tens of milliseconds on commodity PCs.</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>What data structures and algorithms are used?</li>
+<li><p>What data structures and algorithms are used?</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>Janome uses FST (<a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.3698">Minimal Acyclic Subsequential Transducer</a>) for internal dictionary data structure. I implemented the automaton by referring to <a class="reference external" href="https://lucene.apache.org/core/">Apache Lucene</a> (written in Java) and <a class="reference external" href="https://github.com/ikawaha/kagome">kagome</a> (written in Go). And for analysis engine, I implemented basic viterbi algorithm by referring the book <a class="reference external" href="http://www.amazon.co.jp/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%A5%A5%E6%9D%91-%E5%AD%A6/dp/4339024511">自然言語処理の基礎</a> .</li>
+<li><p>Janome uses FST (<a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.3698">Minimal Acyclic Subsequential Transducer</a>) for internal dictionary data structure. I implemented the automaton by referring to <a class="reference external" href="https://lucene.apache.org/core/">Apache Lucene</a> (written in Java) and <a class="reference external" href="https://github.com/ikawaha/kagome">kagome</a> (written in Go). And for analysis engine, I implemented basic viterbi algorithm by referring the book <a class="reference external" href="http://www.amazon.co.jp/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%A5%A5%E6%9D%91-%E5%AD%A6/dp/4339024511">自然言語処理の基礎</a> .</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>I found bugs. Or have requests for enhancement.</li>
+<li><p>I found bugs. Or have requests for enhancement.</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>Bug reports or requests (and of course, patches) are welcome. Create issues in <a class="reference external" href="https://github.com/mocobeta/janome/issues">Github repository</a> or leave your comment to <a class="reference external" href="https://gitter.im/janome-python/en">Gitter room</a>.</li>
+<li><p>Bug reports or requests (and of course, patches) are welcome. Create issues in <a class="reference external" href="https://github.com/mocobeta/janome/issues">Github repository</a> or leave your comment to <a class="reference external" href="https://gitter.im/janome-python/en">Gitter room</a>.</p></li>
 </ol>
 </div>
 <div class="section" id="for-contributors">
@@ -410,25 +408,25 @@ Graph was successfully output to /tmp/a.gv.svg
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>2019.04.03 janome Version 0.3.8 was released</li>
-<li>2018.12.11 janome Version 0.3.7 was released</li>
-<li>2017.12.07 janome Version 0.3.6 was released</li>
-<li>2017.08.06 janome Version 0.3.5 was released</li>
-<li>2017.07.29 janome Version 0.3.4 was released</li>
-<li>2017.07.23 janome Version 0.3.3 was released</li>
-<li>2017.07.05 janome Version 0.3.2 was released</li>
-<li>2017.07.02 janome Version 0.3.1 was released</li>
-<li>2017.06.30 janome Version 0.3.0 was released</li>
-<li>2016.05.07 janome Version 0.2.8 was released</li>
-<li>2016.03.05 janome Version 0.2.7 was released</li>
-<li>2015.10.26 janome Version 0.2.6 was released</li>
-<li>2015.05.11 janome Version 0.2.5 was released</li>
-<li>2015.05.03 janome Version 0.2.4 was released</li>
-<li>2015.05.03 janome Version 0.2.3 was released</li>
-<li>2015.04.24 janome Version 0.2.2 was released</li>
-<li>2015.04.24 janome Version 0.2.0 was released</li>
-<li>2015.04.11 janome Version 0.1.4 was released</li>
-<li>2015.04.08 janome Version 0.1.3 was released</li>
+<li><p>2019.04.03 janome Version 0.3.8 was released</p></li>
+<li><p>2018.12.11 janome Version 0.3.7 was released</p></li>
+<li><p>2017.12.07 janome Version 0.3.6 was released</p></li>
+<li><p>2017.08.06 janome Version 0.3.5 was released</p></li>
+<li><p>2017.07.29 janome Version 0.3.4 was released</p></li>
+<li><p>2017.07.23 janome Version 0.3.3 was released</p></li>
+<li><p>2017.07.05 janome Version 0.3.2 was released</p></li>
+<li><p>2017.07.02 janome Version 0.3.1 was released</p></li>
+<li><p>2017.06.30 janome Version 0.3.0 was released</p></li>
+<li><p>2016.05.07 janome Version 0.2.8 was released</p></li>
+<li><p>2016.03.05 janome Version 0.2.7 was released</p></li>
+<li><p>2015.10.26 janome Version 0.2.6 was released</p></li>
+<li><p>2015.05.11 janome Version 0.2.5 was released</p></li>
+<li><p>2015.05.03 janome Version 0.2.4 was released</p></li>
+<li><p>2015.05.03 janome Version 0.2.3 was released</p></li>
+<li><p>2015.04.24 janome Version 0.2.2 was released</p></li>
+<li><p>2015.04.24 janome Version 0.2.0 was released</p></li>
+<li><p>2015.04.11 janome Version 0.1.4 was released</p></li>
+<li><p>2015.04.08 janome Version 0.1.3 was released</p></li>
 </ul>
 <p>Change details: <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/CHANGES.txt">CHANGES</a></p>
 <a class="reference external image-reference" href="http://www.unicode.org/consortium/adopt-a-character.html"><img alt="Badge(FISHEYE)" src="_images/bronze-25C9.png" /></a>
@@ -448,7 +446,7 @@ Graph was successfully output to /tmp/a.gv.svg
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
     </div>
   </body>
 </html>

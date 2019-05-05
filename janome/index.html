@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta content="Janome (蛇の目) は，Pure Python で書かれた，辞書内包の形態素解析器です。依存ライブラリなしで簡単にインストールでき，アプリケーションに組み込みやすいシンプルな API を備える形態素解析ライブラリを目指しています。" name="description" />
+    <meta charset="utf-8" /><meta content="Janome (蛇の目; ◉) は，Pure Python で書かれた，辞書内包の形態素解析器です。依存ライブラリなしで簡単にインストールでき，アプリケーションに組み込みやすいシンプルな API を備える形態素解析ライブラリを目指しています。" name="description" />
 <meta content="python, janome, 形態素解析" name="keywords" />
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
@@ -22,6 +20,24 @@
     <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" /> 
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "TechArticle",
+  "image": [
+    "https://mocobeta.github.io/janome/_images/janome_small.jpg"
+   ],
+  "headline": "Welcome to janome's documentation! (Japanese)",
+  "datePublished": "2015-04-08T00:00:00+09:00",
+  "dateModified": "2019-05-05T19:00:00+09:00",
+  "author": {
+    "@type": "Person",
+    "name": "Tomoko Uchida"
+  },
+  "description": "Janome (蛇の目; ◉) は，Pure Python で書かれた，辞書内包の形態素解析器です。依存ライブラリなしで簡単にインストールでき，アプリケーションに組み込みやすいシンプルな API を備える形態素解析ライブラリを目指しています。"
+}
+</script>    
   </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="#">
           <span>Janome v0.3 documentation (ja)</span></a></h1>
@@ -44,9 +60,9 @@
 <h2>Janome とは<a class="headerlink" href="#janome" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="figure align-right" id="id27">
 <a class="reference internal image-reference" href="_images/janome_small.jpg"><img alt="_images/janome_small.jpg" src="_images/janome_small.jpg" style="width: 289.40000000000003px; height: 407.8px;" /></a>
-<p class="caption"><span class="caption-text">Illustration by <a class="reference external" href="https://janomeekaki.wixsite.com/janome">janome</a>. All rights reserved.</span></p>
+<p class="caption"><span class="caption-text">Illustration by <a class="reference external" href="https://janomeekaki.wixsite.com/janome">janome</a>. All rights reserved.</span><a class="headerlink" href="#id27" title="この画像へのパーマリンク">¶</a></p>
 </div>
-<p>Janome (蛇の目) は，Pure Python で書かれた，辞書内包の形態素解析器です。</p>
+<p>Janome (蛇の目; ◉) は，Pure Python で書かれた，辞書内包の形態素解析器です。</p>
 <p>依存ライブラリなしで簡単にインストールでき，アプリケーションに組み込みやすいシンプルな API を備える形態素解析ライブラリを目指しています。</p>
 <p>内包辞書として mecab-ipadic-2.7.0-20070801 を使っています。なお，v0.3.8+ では新元号「令和」がシステム辞書に追加されています。</p>
 </div>
@@ -66,7 +82,7 @@
 <div class="section" id="id4">
 <h2>バージョン<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>janome: 0.3.8</li>
+<li><p>janome: 0.3.8</p></li>
 </ul>
 </div>
 <div class="section" id="id5">
@@ -78,8 +94,8 @@
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">pip でのビルド時に 500 ~ 600 MB 程度のメモリを必要とします。利用可能なメモリ容量にご注意ください。（バージョン 0.2.6 より，RAM 2GB 程度のマシンや 32 bit 環境でもインストールできるようになりました。）</p>
+<p class="admonition-title">注釈</p>
+<p>pip でのビルド時に 500 ~ 600 MB 程度のメモリを必要とします。利用可能なメモリ容量にご注意ください。（バージョン 0.2.6 より，RAM 2GB 程度のマシンや 32 bit 環境でもインストールできるようになりました。）</p>
 </div>
 </div>
 </div>
@@ -87,8 +103,8 @@
 <h2>チュートリアル<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>初心者向けチュートリアル＆ハンズオン教材「Janome ではじめるテキストマイニング」を公開しました。(<a class="reference external" href="https://medium.com/&#64;mocobeta/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB-janome-%E3%81%A7%E3%81%AF%E3%81%98%E3%82%81%E3%82%8B%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%83%9E%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0-%E3%82%92-github-google-colab-%E3%81%A7%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-28c1bf0008b9">ブログ</a>)</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/mocobeta/janome-tutorial">GitHub リポジトリ</a></li>
-<li><a class="reference external" href="http://mocobeta.github.io/slides-html/janome-tutorial/tutorial-slides.html">チュートリアル資料(HTML)</a></li>
+<li><p><a class="reference external" href="https://github.com/mocobeta/janome-tutorial">GitHub リポジトリ</a></p></li>
+<li><p><a class="reference external" href="http://mocobeta.github.io/slides-html/janome-tutorial/tutorial-slides.html">チュートリアル資料(HTML)</a></p></li>
 </ul>
 <p>ハンズオンには Google Colab を使っており Web ブラウザがあれば実行できます。janome CLI / API の基本的な使い方，ユーザー辞書・ワードカウント・Analyzer など janome の少しだけ高度な使い方，日本語 WordCloud といった内容について，手を動かしながら身につけられます。</p>
 </div>
@@ -174,11 +190,12 @@
 </div>
 <p><strong>[参考リンク]</strong></p>
 <ul class="simple">
-<li><a class="reference external" href="http://eneprog.blogspot.com/2018/08/janomepython.html">データ解析、プログラミング学習中: Janomeのユーザー辞書を作る</a> (ユーザー辞書ファイルの作成方法)<ul>
-<li>補足: こちらの記事では左/右文脈ID に -1 を指定していますが，<a class="reference external" href="http://taku910.github.io/mecab/dic.html">MeCab: 単語の追加方法</a> に記載のように，MeCab IPADIC に含まれる <code class="docutils literal notranslate"><span class="pre">left-id.def</span></code> (または <code class="docutils literal notranslate"><span class="pre">right-id.def</span></code>) から該当する品詞IDを選ぶ (例：「名詞,固有名詞,一般」なら 1288) とコスト計算がより適切になるでしょう。</li>
+<li><p><a class="reference external" href="http://eneprog.blogspot.com/2018/08/janomepython.html">データ解析、プログラミング学習中: Janomeのユーザー辞書を作る</a> (ユーザー辞書ファイルの作成方法)</p>
+<ul>
+<li><p>補足: こちらの記事では左/右文脈ID に -1 を指定していますが，<a class="reference external" href="http://taku910.github.io/mecab/dic.html">MeCab: 単語の追加方法</a> に記載のように，MeCab IPADIC に含まれる <code class="docutils literal notranslate"><span class="pre">left-id.def</span></code> (または <code class="docutils literal notranslate"><span class="pre">right-id.def</span></code>) から該当する品詞IDを選ぶ (例：「名詞,固有名詞,一般」なら 1288) とコスト計算がより適切になるでしょう。</p></li>
 </ul>
 </li>
-<li><a class="reference external" href="http://eneprog.blogspot.com/2018/09/4-wordcloudpythonjanome.html">データ解析、プログラミング学習中: エネルギー基本計画の特徴を見てみる。その4 複合語を考慮してwordcloud</a> (ユーザー辞書の活用例)</li>
+<li><p><a class="reference external" href="http://eneprog.blogspot.com/2018/09/4-wordcloudpythonjanome.html">データ解析、プログラミング学習中: エネルギー基本計画の特徴を見てみる。その4 複合語を考慮してwordcloud</a> (ユーザー辞書の活用例)</p></li>
 </ul>
 </div>
 <div class="section" id="v0-2-7">
@@ -218,8 +235,8 @@
 <p>ユーザー定義辞書は，巨大になるとバイナリコンパイルに時間がかかるため，あらかじめコンパイルしておき，コンパイル済みの辞書を使うことも可能です。</p>
 <p>現在のところ，コンパイルのためのツールはありませんが， <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">API</a> を使ってコンパイルが行えます。</p>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">v0.3.1 から，ユーザー辞書コンパイル時の API が少し変わっているため注意してください。</p>
+<p class="admonition-title">注釈</p>
+<p>v0.3.1 から，ユーザー辞書コンパイル時の API が少し変わっているため注意してください。</p>
 </div>
 <p>辞書のコンパイル(MeCab IPADIC format)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="k">import</span> <span class="n">UserDictionary</span>
@@ -240,8 +257,8 @@
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">コンパイル済みユーザー辞書は，コンパイル時と読み取り時で同一のメジャーバージョンの Python を使ってください。辞書の前方/後方互換性は保証されないため，Python のメジャーバージョンが異なると読めない可能性があります。</p>
+<p class="admonition-title">注釈</p>
+<p>コンパイル済みユーザー辞書は，コンパイル時と読み取り時で同一のメジャーバージョンの Python を使ってください。辞書の前方/後方互換性は保証されないため，Python のメジャーバージョンが異なると読めない可能性があります。</p>
 </div>
 </div>
 </div>
@@ -249,9 +266,9 @@
 <h2>(experimental) Analyzer フレームワーク (v0.3.4 以上)<a class="headerlink" href="#experimental-analyzer-v0-3-4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Analyzer は，形態素解析の前処理・後処理をテンプレ化するためのフレームワークです。Analyzer フレームワークは下記のクラスを含みます。</p>
 <ul class="simple">
-<li>文字の正規化などの前処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> クラス</li>
-<li>小文字化，品詞によるトークンのフィルタリングなど，形態素解析後の後処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> クラス</li>
-<li>CharFilter, Tokenizer, TokenFilter を組み合わせてカスタム解析フローを組み立てる <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> クラス</li>
+<li><p>文字の正規化などの前処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> クラス</p></li>
+<li><p>小文字化，品詞によるトークンのフィルタリングなど，形態素解析後の後処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter">TokenFilter</a> クラス</p></li>
+<li><p>CharFilter, Tokenizer, TokenFilter を組み合わせてカスタム解析フローを組み立てる <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> クラス</p></li>
 </ul>
 <div class="section" id="id15">
 <h3>Analyzer の使い方<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -259,8 +276,8 @@
 Analyzer を初期化したら，analyze() メソッドに解析したい文字列を渡します。戻り値はトークンの generator です（最後に指定した TokenFilter の出力により，generator の返す要素の型が決まります）。</p>
 <p>以下の実行例では，前処理としてユニコード正規化と正規表現による文字列置換を行い，形態素解析を実行後に，名詞の連続のまとめあげ（複合名詞化），品詞によるフィルタリング，表層形の小文字化という後処理を行っています。</p>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">CharFilter や TokenFilter は，リストに指定した順で適用されるため，順番には注意してください。</p>
+<p class="admonition-title">注釈</p>
+<p>CharFilter や TokenFilter は，リストに指定した順で適用されるため，順番には注意してください。</p>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="k">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="k">import</span> <span class="n">Analyzer</span>
@@ -311,8 +328,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <p>その他，組み込みの CharFilter や TokenFilter についてはリファレンスを参照してください。また，CharFilter や TokenFilter を拡張すれば，任意のフィルター処理を実装することもできます。</p>
 <p><strong>[参考リンク]</strong></p>
 <ul class="simple">
-<li><a class="reference external" href="http://ohke.hateblo.jp/entry/2017/11/02/230000">け日記：Python janomeのanalyzerが便利</a> (Analyzer 活用，独自フィルターの作成について詳しく解説されています。)</li>
-<li><a class="reference external" href="http://eneprog.blogspot.com/2018/07/janome-analayzerpython.html">データ解析、プログラミング学習中: janome Analayzerで複合語（複合名詞）を考慮して形態素解析を行う。</a> (CompoundNounFilter の活用例があります。)</li>
+<li><p><a class="reference external" href="http://ohke.hateblo.jp/entry/2017/11/02/230000">け日記：Python janomeのanalyzerが便利</a> (Analyzer 活用，独自フィルターの作成について詳しく解説されています。)</p></li>
+<li><p><a class="reference external" href="http://eneprog.blogspot.com/2018/07/janome-analayzerpython.html">データ解析、プログラミング学習中: janome Analayzerで複合語（複合名詞）を考慮して形態素解析を行う。</a> (CompoundNounFilter の活用例があります。)</p></li>
 </ul>
 </div>
 </div>
@@ -403,8 +420,8 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <div class="section" id="id17">
 <h3>ラティス可視化<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
-<p class="last">この機能を実行するには，Graphviz が必要です。 <a class="reference external" href="https://graphviz.gitlab.io/download/">こちら</a> の手順で事前にインストールしてください。</p>
+<p class="admonition-title">注釈</p>
+<p>この機能を実行するには，Graphviz が必要です。 <a class="reference external" href="https://graphviz.gitlab.io/download/">こちら</a> の手順で事前にインストールしてください。</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">-g</span></code> オプションをつけると，解析後にラティスグラフがファイルに出力されます。デフォルトの出力先はカレントディレクトリ，フォーマットは PNG です。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo &quot;カレーは飲み物&quot; | janome -g
@@ -427,74 +444,74 @@ Graph was successfully output to /tmp/a.gv.svg
 <div class="section" id="v0-2-8">
 <h2>大きな文書を解析する際の注意 (v0.2.8 以下)<a class="headerlink" href="#v0-2-8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="admonition note">
-<p class="first admonition-title">注釈</p>
+<p class="admonition-title">注釈</p>
 <p>バージョン 0.3 では，大きな文書を解析したときにメモリを大量に消費（リーク）してしまう問題が解決されました。内部バッファに収まらないサイズの文書が与えられた場合，部分的に解析することでメモリ使用量を抑制しています。よりメモリ使用量を抑制したい場合は「ストリーミングモード」を使ってください。</p>
 <p>詳しくはこちら： <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-release-0-3-1-3e7afd9d1de3">[janome開発日誌] 省メモリ対応をした janome 0.3.1 をリリースしました</a></p>
-<p class="last">この修正の影響で，0.2 系と 0.3 系以上 では，大きなドキュメントを解析したときの解析結果が若干異なる可能性があります。</p>
+<p>この修正の影響で，0.2 系と 0.3 系以上 では，大きなドキュメントを解析したときの解析結果が若干異なる可能性があります。</p>
 </div>
 <p>古いバージョン(&lt; 0.3)では，入力全体を読んでラティスを構築するため，入力文字列が大きくなると多くのリソースを消費します。数十キロバイト以上の文書を解析する場合は，なるべく適度に分割して与えてください。</p>
 </div>
 <div class="section" id="id20">
 <h2>よくある（かもしれない）質問<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
-<li>Tokenizer の初期化が遅いんだけど。</li>
+<li><p>Tokenizer の初期化が遅いんだけど。</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>インタプリタ起動直後の，初回の Tokenizer インスタンス生成時に，システム辞書を読み込むのですが，現在のバージョンでは1~2秒かかる仕様です。2回目以降はシステム辞書がすでに読み込まれているため速くなります。今後改善していきたいのですが，現行ではご勘弁ください. (そのため, インタプリタをしょっちゅう再起動するようなユースケースだと厳しいです。) =&gt; v0.3.3 以上の mmap サポートを使うと初期化が高速になるため，必要に応じて検討ください。</li>
+<li><p>インタプリタ起動直後の，初回の Tokenizer インスタンス生成時に，システム辞書を読み込むのですが，現在のバージョンでは1~2秒かかる仕様です。2回目以降はシステム辞書がすでに読み込まれているため速くなります。今後改善していきたいのですが，現行ではご勘弁ください. (そのため, インタプリタをしょっちゅう再起動するようなユースケースだと厳しいです。) =&gt; v0.3.3 以上の mmap サポートを使うと初期化が高速になるため，必要に応じて検討ください。</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>解析結果の精度は。</li>
+<li><p>解析結果の精度は。</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>辞書，言語モデルともに MeCab のデフォルトシステム辞書をそのまま使わせていただいているため，バグがなければ，MeCab と同等の解析結果になると思います。</li>
+<li><p>辞書，言語モデルともに MeCab のデフォルトシステム辞書をそのまま使わせていただいているため，バグがなければ，MeCab と同等の解析結果になると思います。</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>形態素解析の速度は。</li>
+<li><p>形態素解析の速度は。</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>文章の長さによりますが，手元の PC では 1 センテンスあたり数ミリ〜数十ミリ秒でした。mecab-python の10倍程度（長い文章だとそれ以上）遅い，というくらいでしょうか。今のところは，大量の文書を高速にバッチ処理する用途には向いていません。MeCab をお使いください。</li>
+<li><p>文章の長さによりますが，手元の PC では 1 センテンスあたり数ミリ〜数十ミリ秒でした。mecab-python の10倍程度（長い文章だとそれ以上）遅い，というくらいでしょうか。今のところは，大量の文書を高速にバッチ処理する用途には向いていません。MeCab をお使いください。</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>実装（データ構造，アルゴリズム）について。</li>
+<li><p>実装（データ構造，アルゴリズム）について。</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>辞書は，FST (正確には Minimal Acyclic Subsequential Transducer, <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.3698">論文</a>) を使っています。実装は <a class="reference external" href="https://lucene.apache.org/core/">Apache Lucene</a> (Kuromoji) と <a class="reference external" href="https://github.com/ikawaha/kagome">kagome</a> を参考にさせていただきました。エンジンはオーソドックスなビタビで，ほぼ <a class="reference external" href="http://www.amazon.co.jp/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%A5%A5%E6%9D%91-%E5%AD%A6/dp/4339024511">自然言語処理の基礎</a> の3章だけ読んで書きました。</li>
+<li><p>辞書は，FST (正確には Minimal Acyclic Subsequential Transducer, <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.3698">論文</a>) を使っています。実装は <a class="reference external" href="https://lucene.apache.org/core/">Apache Lucene</a> (Kuromoji) と <a class="reference external" href="https://github.com/ikawaha/kagome">kagome</a> を参考にさせていただきました。エンジンはオーソドックスなビタビで，ほぼ <a class="reference external" href="http://www.amazon.co.jp/%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%E3%81%AE%E5%9F%BA%E7%A4%8E-%E5%A5%A5%E6%9D%91-%E5%AD%A6/dp/4339024511">自然言語処理の基礎</a> の3章だけ読んで書きました。</p></li>
 </ol>
 <p>Janome は Lucene の単語辞書やクエリパーサで使われている FST について調べていて生まれました。もしも内部実装にご興味があれば，以下もどうぞ。</p>
 <ul class="simple">
-<li><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/111076688132/lucene-fst-1">Lucene FST のアルゴリズム (1) ～図解編～</a></li>
-<li><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/113693778372/lucene-fst-2">Lucene FST のアルゴリズム (2) 〜実装編〜</a></li>
-<li><a class="reference external" href="http://www.slideshare.net/tomokouchida505/pyconjp2015-python">Pyconjp2015 - Python で作って学ぶ形態素解析</a></li>
+<li><p><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/111076688132/lucene-fst-1">Lucene FST のアルゴリズム (1) ～図解編～</a></p></li>
+<li><p><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/113693778372/lucene-fst-2">Lucene FST のアルゴリズム (2) 〜実装編〜</a></p></li>
+<li><p><a class="reference external" href="http://www.slideshare.net/tomokouchida505/pyconjp2015-python">Pyconjp2015 - Python で作って学ぶ形態素解析</a></p></li>
 </ul>
 <ol class="upperalpha simple" start="17">
-<li>Python 2 系への対応は。</li>
+<li><p>Python 2 系への対応は。</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>デスヨネー。 =&gt; 対応しました。janomePy2 をご利用ください。=&gt; janome 本体が Python2.7 にも対応しました。</li>
+<li><p>デスヨネー。 =&gt; 対応しました。janomePy2 をご利用ください。=&gt; janome 本体が Python2.7 にも対応しました。</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>学習器ついてないの。</li>
+<li><p>学習器ついてないの。</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>今のところありません。</li>
+<li><p>今のところありません。</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>Janome ってどういう意味。</li>
+<li><p>Janome ってどういう意味。</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>ikawaha さんの，Go で書かれた形態素解析器 kagome にあやかりつつ，蛇（Python）をかけて命名しました。日本語の Ja ともかかっているのは takuya-a さんに言われて気づきました :)</li>
+<li><p>ikawaha さんの，Go で書かれた形態素解析器 kagome にあやかりつつ，蛇（Python）をかけて命名しました。日本語の Ja ともかかっているのは takuya-a さんに言われて気づきました :)</p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li><a class="reference external" href="https://github.com/neologd/mecab-ipadic-neologd">neologd</a> 内包版はないの。</li>
+<li><p><a class="reference external" href="https://github.com/neologd/mecab-ipadic-neologd">neologd</a> 内包版はないの。</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li>やりたいです! =&gt; <a class="reference external" href="https://github.com/mocobeta/janome/wiki/(very-experimental)-NEologd-%E8%BE%9E%E6%9B%B8%E3%82%92%E5%86%85%E5%8C%85%E3%81%97%E3%81%9F-janome-%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">NEologd 辞書を内包した janome をビルドする方法</a></li>
+<li><p>やりたいです! =&gt; <a class="reference external" href="https://github.com/mocobeta/janome/wiki/(very-experimental)-NEologd-%E8%BE%9E%E6%9B%B8%E3%82%92%E5%86%85%E5%8C%85%E3%81%97%E3%81%9F-janome-%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">NEologd 辞書を内包した janome をビルドする方法</a></p></li>
 </ol>
 <ol class="upperalpha simple" start="17">
-<li>バグ見つけた or なんか変 or 改善要望</li>
+<li><p>バグ見つけた or なんか変 or 改善要望</p></li>
 </ol>
 <ol class="upperalpha simple">
-<li><a class="reference external" href="https://gitter.im/janome-python/ja">Gitter room</a> でつぶやくか，Github リポジトリに <a class="reference external" href="https://github.com/mocobeta/janome/issues">Issue</a> 立ててください。</li>
+<li><p><a class="reference external" href="https://gitter.im/janome-python/ja">Gitter room</a> でつぶやくか，Github リポジトリに <a class="reference external" href="https://github.com/mocobeta/janome/issues">Issue</a> 立ててください。</p></li>
 </ol>
 </div>
 <div class="section" id="for-contributors">
@@ -517,25 +534,25 @@ Graph was successfully output to /tmp/a.gv.svg
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>2019.04.03 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome%E9%96%8B%E7%99%BA%E6%97%A5%E8%AA%8C-%E6%96%B0%E5%85%83%E5%8F%B7-%E4%BB%A4%E5%92%8C-%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%9F-janome-0-3-8-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-fd55b611e86">janome Version 0.3.8 リリース</a></li>
-<li>2018.12.11 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-%E9%96%8B%E7%99%BA%E6%97%A5%E8%AA%8C-%E3%83%A9%E3%83%86%E3%82%A3%E3%82%B9%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%AA%E3%81%A9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%97%E3%81%9F-janome-0-3-7-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-bbce681f7612">janome Version 0.3.7 リリース</a></li>
-<li>2017.12.07 janome Version 0.3.6 リリース</li>
-<li>2017.08.06 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-0-3-5-release-ee5de2196330">janome Version 0.3.5 リリース</a></li>
-<li>2017.07.29 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-0-3-4-release-63ed21f4fda9">janome Version 0.3.4 リリース</a></li>
-<li>2017.07.23 <a class="reference external" href="https://medium.com/&#64;mocobeta/janoe-0-3-3-release-eddd139eec9e">janome Version 0.3.3 リリース</a></li>
-<li>2017.07.05 janome Version 0.3.2 リリース</li>
-<li>2017.07.02 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-release-0-3-1-3e7afd9d1de3">janome Version 0.3.1 リリース</a></li>
-<li>2017.06.30 janome Version 0.3.0 リリース</li>
-<li>2016.05.07 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/143988723452/janome-028">janome Vesrion 0.2.8 リリース</a></li>
-<li>2016.03.05 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/140503222592/janome-027">janome Version 0.2.7 リリース</a></li>
-<li>2015.10.26 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/131952293527/janome-026">janome Version 0.2.6 リリース</a></li>
-<li>2015.05.11 janome Version 0.2.5 リリース</li>
-<li>2015.05.03 janome Version 0.2.4 リリース</li>
-<li>2015.05.03 janome Version 0.2.3 リリース</li>
-<li>2015.04.24 janome Version 0.2.2 リリース</li>
-<li>2015.04.24 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/117180400907/python27-34-janome-020">janome Version 0.2.0 リリース</a> / janomePy2 は deprecated （数日中に PyPI から削除します。）</li>
-<li>2015.04.11 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/116108998822/janomepy2-janome-014">janome Version 0.1.4 リリース / janomePy2 0.1.4 公開</a></li>
-<li>2015.04.08 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/115843098157/pure-python-janome">janome Version 0.1.3 公開</a></li>
+<li><p>2019.04.03 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome%E9%96%8B%E7%99%BA%E6%97%A5%E8%AA%8C-%E6%96%B0%E5%85%83%E5%8F%B7-%E4%BB%A4%E5%92%8C-%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%9F-janome-0-3-8-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-fd55b611e86">janome Version 0.3.8 リリース</a></p></li>
+<li><p>2018.12.11 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-%E9%96%8B%E7%99%BA%E6%97%A5%E8%AA%8C-%E3%83%A9%E3%83%86%E3%82%A3%E3%82%B9%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%AA%E3%81%A9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%97%E3%81%9F-janome-0-3-7-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-bbce681f7612">janome Version 0.3.7 リリース</a></p></li>
+<li><p>2017.12.07 janome Version 0.3.6 リリース</p></li>
+<li><p>2017.08.06 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-0-3-5-release-ee5de2196330">janome Version 0.3.5 リリース</a></p></li>
+<li><p>2017.07.29 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-0-3-4-release-63ed21f4fda9">janome Version 0.3.4 リリース</a></p></li>
+<li><p>2017.07.23 <a class="reference external" href="https://medium.com/&#64;mocobeta/janoe-0-3-3-release-eddd139eec9e">janome Version 0.3.3 リリース</a></p></li>
+<li><p>2017.07.05 janome Version 0.3.2 リリース</p></li>
+<li><p>2017.07.02 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-release-0-3-1-3e7afd9d1de3">janome Version 0.3.1 リリース</a></p></li>
+<li><p>2017.06.30 janome Version 0.3.0 リリース</p></li>
+<li><p>2016.05.07 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/143988723452/janome-028">janome Vesrion 0.2.8 リリース</a></p></li>
+<li><p>2016.03.05 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/140503222592/janome-027">janome Version 0.2.7 リリース</a></p></li>
+<li><p>2015.10.26 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/131952293527/janome-026">janome Version 0.2.6 リリース</a></p></li>
+<li><p>2015.05.11 janome Version 0.2.5 リリース</p></li>
+<li><p>2015.05.03 janome Version 0.2.4 リリース</p></li>
+<li><p>2015.05.03 janome Version 0.2.3 リリース</p></li>
+<li><p>2015.04.24 janome Version 0.2.2 リリース</p></li>
+<li><p>2015.04.24 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/117180400907/python27-34-janome-020">janome Version 0.2.0 リリース</a> / janomePy2 は deprecated （数日中に PyPI から削除します。）</p></li>
+<li><p>2015.04.11 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/116108998822/janomepy2-janome-014">janome Version 0.1.4 リリース / janomePy2 0.1.4 公開</a></p></li>
+<li><p>2015.04.08 <a class="reference external" href="http://mocobeta-backup.tumblr.com/post/115843098157/pure-python-janome">janome Version 0.1.3 公開</a></p></li>
 </ul>
 <p>詳細: <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/CHANGES.txt">CHANGES</a></p>
 <a class="reference external image-reference" href="http://www.unicode.org/consortium/adopt-a-character.html"><img alt="Badge(FISHEYE)" src="_images/bronze-25C9.png" /></a>
@@ -555,7 +572,7 @@ Graph was successfully output to /tmp/a.gv.svg
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Tomoko Uchida.
-      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4 で生成しました。
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1 で生成しました。
     </div>
   </body>
 </html>
