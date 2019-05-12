@@ -63,7 +63,7 @@
 <div class="section" id="latest-version">
 <h2>Latest version<a class="headerlink" href="#latest-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>janome: 0.3.8</p></li>
+<li><p>janome: 0.3.9</p></li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -353,6 +353,34 @@ Graph was successfully output to /tmp/a.gv.svg
 </div>
 </div>
 </div>
+<div class="section" id="how-to-bundle-janome-with-an-application-by-pyinstaller-v0-3-9">
+<h2>How to bundle janome with an application by PyInstaller (v0.3.9+)<a class="headerlink" href="#how-to-bundle-janome-with-an-application-by-pyinstaller-v0-3-9" title="Permalink to this headline">¶</a></h2>
+<p>You can create (and distribute) stand-alone executables which bundle janome by <a class="reference external" href="https://www.pyinstaller.org/">PyInstaller</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ janome --version
+janome 0.3.9
+(venv) $ pyinstaller -v
+3.4
+
+(venv) $ cat test.py
+# -*- utf-8
+from janome.tokenizer import Tokenizer
+t = Tokenizer()
+    for token in t.tokenize(&#39;令和元年&#39;):
+    print(token)
+
+(venv) $ pyinstaller --onefile test.py
+44 INFO: PyInstaller: 3.4
+44 INFO: Python: 3.6.6
+...
+
+(venv) $ ls dist/
+test
+(venv) $ ./dist/test
+令和  名詞,固有名詞,一般,*,*,*,令和,レイワ,レイワ
+元年  名詞,一般,*,*,*,*,元年,ガンネン,ガンネン
+</pre></div>
+</div>
+</div>
 <div class="section" id="note-for-analyzing-large-document-set">
 <h2>Note for analyzing large document set<a class="headerlink" href="#note-for-analyzing-large-document-set" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
@@ -408,25 +436,26 @@ Graph was successfully output to /tmp/a.gv.svg
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>2019.04.03 janome Version 0.3.8 was released</p></li>
-<li><p>2018.12.11 janome Version 0.3.7 was released</p></li>
-<li><p>2017.12.07 janome Version 0.3.6 was released</p></li>
-<li><p>2017.08.06 janome Version 0.3.5 was released</p></li>
-<li><p>2017.07.29 janome Version 0.3.4 was released</p></li>
-<li><p>2017.07.23 janome Version 0.3.3 was released</p></li>
-<li><p>2017.07.05 janome Version 0.3.2 was released</p></li>
-<li><p>2017.07.02 janome Version 0.3.1 was released</p></li>
-<li><p>2017.06.30 janome Version 0.3.0 was released</p></li>
-<li><p>2016.05.07 janome Version 0.2.8 was released</p></li>
-<li><p>2016.03.05 janome Version 0.2.7 was released</p></li>
-<li><p>2015.10.26 janome Version 0.2.6 was released</p></li>
-<li><p>2015.05.11 janome Version 0.2.5 was released</p></li>
-<li><p>2015.05.03 janome Version 0.2.4 was released</p></li>
-<li><p>2015.05.03 janome Version 0.2.3 was released</p></li>
-<li><p>2015.04.24 janome Version 0.2.2 was released</p></li>
-<li><p>2015.04.24 janome Version 0.2.0 was released</p></li>
-<li><p>2015.04.11 janome Version 0.1.4 was released</p></li>
-<li><p>2015.04.08 janome Version 0.1.3 was released</p></li>
+<li><p>2019.05.12 janome Version 0.3.9 released</p></li>
+<li><p>2019.04.03 janome Version 0.3.8 released</p></li>
+<li><p>2018.12.11 janome Version 0.3.7 released</p></li>
+<li><p>2017.12.07 janome Version 0.3.6 released</p></li>
+<li><p>2017.08.06 janome Version 0.3.5 released</p></li>
+<li><p>2017.07.29 janome Version 0.3.4 released</p></li>
+<li><p>2017.07.23 janome Version 0.3.3 released</p></li>
+<li><p>2017.07.05 janome Version 0.3.2 released</p></li>
+<li><p>2017.07.02 janome Version 0.3.1 released</p></li>
+<li><p>2017.06.30 janome Version 0.3.0 released</p></li>
+<li><p>2016.05.07 janome Version 0.2.8 released</p></li>
+<li><p>2016.03.05 janome Version 0.2.7 released</p></li>
+<li><p>2015.10.26 janome Version 0.2.6 released</p></li>
+<li><p>2015.05.11 janome Version 0.2.5 released</p></li>
+<li><p>2015.05.03 janome Version 0.2.4 released</p></li>
+<li><p>2015.05.03 janome Version 0.2.3 released</p></li>
+<li><p>2015.04.24 janome Version 0.2.2 released</p></li>
+<li><p>2015.04.24 janome Version 0.2.0 released</p></li>
+<li><p>2015.04.11 janome Version 0.1.4 released</p></li>
+<li><p>2015.04.08 janome Version 0.1.3 released</p></li>
 </ul>
 <p>Change details: <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/CHANGES.txt">CHANGES</a></p>
 <a class="reference external image-reference" href="http://www.unicode.org/consortium/adopt-a-character.html"><img alt="Badge(FISHEYE)" src="_images/bronze-25C9.png" /></a>
