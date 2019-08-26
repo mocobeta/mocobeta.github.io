@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>janome.tokenizer &#8212; Janome API reference v0.3</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -13,7 +11,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -135,7 +133,14 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">.lattice</span> <span class="k">import</span> <span class="n">Lattice</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">SurfaceNode</span><span class="p">,</span> <span class="n">BOS</span><span class="p">,</span> <span class="n">EOS</span><span class="p">,</span> <span class="n">NodeType</span>
 <span class="kn">from</span> <span class="nn">.dic</span> <span class="k">import</span> <span class="n">SystemDictionary</span><span class="p">,</span> <span class="n">MMapSystemDictionary</span><span class="p">,</span> <span class="n">UserDictionary</span><span class="p">,</span> <span class="n">CompiledUserDictionary</span>
-<span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">janome.sysdic</span> <span class="k">import</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="c1"># hack for unit testing...</span>
+    <span class="n">parent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">parent_dir</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>
 
 <span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
 
@@ -199,9 +204,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wakati</span> <span class="o">=</span> <span class="n">wakati</span>
         <span class="k">if</span> <span class="n">mmap</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">MMapSystemDictionary</span><span class="p">(</span><span class="n">mmap_entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">MMapSystemDictionary</span><span class="p">(</span><span class="n">all_fstdata</span><span class="p">(),</span> <span class="n">mmap_entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">SystemDictionary</span><span class="p">(</span><span class="n">entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">SystemDictionary</span><span class="p">(</span><span class="n">all_fstdata</span><span class="p">(),</span> <span class="n">entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">udic</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">udic</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
                 <span class="c1"># build user dictionary from CSV</span>
@@ -341,13 +346,11 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -371,7 +374,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
   </body>
 </html>

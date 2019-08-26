@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>janome.dic &#8212; Janome API reference v0.3</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -13,7 +11,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -68,6 +66,7 @@
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">pkgutil</span>
 <span class="kn">import</span> <span class="nn">zlib</span>
+<span class="kn">import</span> <span class="nn">base64</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARN</span><span class="p">)</span>
@@ -92,10 +91,9 @@
 
 <span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
 
-<span class="n">SYSDIC_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))),</span> <span class="s2">&quot;sysdic&quot;</span><span class="p">)</span>
+<span class="n">SYSDIC_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;sysdic&#39;</span><span class="p">)</span>
 
-<span class="n">FILE_FST_DATA</span> <span class="o">=</span> <span class="s1">&#39;fst.data&#39;</span>
-
+<span class="n">MODULE_FST_DATA</span> <span class="o">=</span> <span class="s1">&#39;fst_data</span><span class="si">%d</span><span class="s1">.py&#39;</span>
 <span class="n">MODULE_ENTRIES_EXTRA</span> <span class="o">=</span> <span class="s1">&#39;entries_extra</span><span class="si">%d</span><span class="s1">.py&#39;</span>
 <span class="n">MODULE_ENTRIES_COMPACT</span> <span class="o">=</span> <span class="s1">&#39;entries_compact</span><span class="si">%d</span><span class="s1">.py&#39;</span>
 <span class="n">MODULE_ENTRIES_BUCKETS</span> <span class="o">=</span> <span class="s1">&#39;entries_buckets.py&#39;</span>
@@ -106,26 +104,8 @@
 <span class="n">FILE_USER_FST_DATA</span> <span class="o">=</span> <span class="s1">&#39;user_fst.data&#39;</span>
 <span class="n">FILE_USER_ENTRIES_DATA</span> <span class="o">=</span> <span class="s1">&#39;user_entries.data&#39;</span>
 
-<div class="viewcode-block" id="save_fstdata"><a class="viewcode-back" href="../../janome.html#janome.dic.save_fstdata">[docs]</a><span class="k">def</span> <span class="nf">save_fstdata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dir</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-    <span class="n">_save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">FILE_FST_DATA</span> <span class="o">+</span> <span class="n">suffix</span><span class="p">),</span> <span class="n">data</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="load_all_fstdata"><a class="viewcode-back" href="../../janome.html#janome.dic.load_all_fstdata">[docs]</a><span class="k">def</span> <span class="nf">load_all_fstdata</span><span class="p">():</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">_load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SYSDIC_DIR</span><span class="p">,</span> <span class="n">data_file</span><span class="p">))</span>
-                <span class="k">for</span> <span class="n">data_file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">SYSDIC_DIR</span><span class="p">)</span> <span class="k">if</span> <span class="n">data_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">FILE_FST_DATA</span><span class="p">)]</span>
-    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">load_all_fstdata_from_package</span><span class="p">()</span></div>
-
-
-<div class="viewcode-block" id="load_all_fstdata_from_package"><a class="viewcode-back" href="../../janome.html#janome.dic.load_all_fstdata_from_package">[docs]</a><span class="k">def</span> <span class="nf">load_all_fstdata_from_package</span><span class="p">():</span>
-    <span class="n">fstdata</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">count</span><span class="p">():</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">_load_package_data</span><span class="p">(</span><span class="s1">&#39;sysdic&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">.</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">FILE_FST_DATA</span><span class="p">,</span> <span class="n">suffix</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">break</span>
-        <span class="n">fstdata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fstdata</span></div>
+<div class="viewcode-block" id="save_fstdata"><a class="viewcode-back" href="../../janome.html#janome.dic.save_fstdata">[docs]</a><span class="k">def</span> <span class="nf">save_fstdata</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dir</span><span class="p">,</span> <span class="n">part</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">_save_as_module</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">MODULE_FST_DATA</span> <span class="o">%</span> <span class="n">part</span><span class="p">),</span> <span class="n">data</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="start_save_entries"><a class="viewcode-back" href="../../janome.html#janome.dic.start_save_entries">[docs]</a><span class="k">def</span> <span class="nf">start_save_entries</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">bucket_num</span><span class="p">):</span>
@@ -191,12 +171,17 @@
         <span class="k">return</span> <span class="kc">None</span>
     <span class="k">return</span> <span class="n">zlib</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">rawdata</span><span class="p">,</span> <span class="n">zlib</span><span class="o">.</span><span class="n">MAX_WBITS</span> <span class="o">|</span> <span class="mi">16</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">_save_as_module</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_save_as_module</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;DATA=&#39;</span><span class="p">)</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">PY3</span> <span class="k">else</span> <span class="n">unicode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">binary</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">PY3</span> <span class="k">else</span> <span class="n">unicode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
         <span class="n">f</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
 
 
@@ -413,8 +398,8 @@
     <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    System dictionary class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
-        <span class="n">Dictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_all_fstdata</span><span class="p">(),</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
+<div class="viewcode-block" id="SystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
+        <span class="n">Dictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
         <span class="n">UnknownsDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">)</span></div></div>
 
 
@@ -422,8 +407,8 @@
     <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    MMap System dictionary class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="MMapSystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.MMapSystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
-        <span class="n">MMapDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_all_fstdata</span><span class="p">(),</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">connections</span><span class="p">)</span>
+<div class="viewcode-block" id="MMapSystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.MMapSystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
+        <span class="n">MMapDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">connections</span><span class="p">)</span>
         <span class="n">UnknownsDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">)</span></div></div>
 
 
@@ -526,13 +511,11 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -556,7 +539,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
   </body>
 </html>
