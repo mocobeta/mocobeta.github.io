@@ -1,18 +1,18 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Index &#8212; Janome API reference v0.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Janome API reference v0.4</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -26,7 +26,8 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Janome API reference v0.3</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Janome API reference v0.4</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Index</a></li> 
       </ul>
     </div>  
 
@@ -45,9 +46,7 @@
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
- | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
- | <a href="#I"><strong>I</strong></a>
  | <a href="#J"><strong>J</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
@@ -71,13 +70,13 @@
 </li>
         <li><a href="janome.html#janome.dic.CompiledUserDictionary.__init__">(janome.dic.CompiledUserDictionary method)</a>
 </li>
-        <li><a href="janome.html#janome.dic.Dictionary.__init__">(janome.dic.Dictionary method)</a>
-</li>
         <li><a href="janome.html#janome.dic.LoadingDictionaryError.__init__">(janome.dic.LoadingDictionaryError method)</a>
 </li>
         <li><a href="janome.html#janome.dic.MMapDictionary.__init__">(janome.dic.MMapDictionary method)</a>
 </li>
         <li><a href="janome.html#janome.dic.MMapSystemDictionary.__init__">(janome.dic.MMapSystemDictionary method)</a>
+</li>
+        <li><a href="janome.html#janome.dic.RAMDictionary.__init__">(janome.dic.RAMDictionary method)</a>
 </li>
         <li><a href="janome.html#janome.dic.SystemDictionary.__init__">(janome.dic.SystemDictionary method)</a>
 </li>
@@ -138,12 +137,10 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.tokenizer.Token.base_form">base_form (janome.tokenizer.Token attribute)</a>
+      <li><a href="janome.html#janome.dic.UserDictionary.buildipadic">buildipadic() (janome.dic.UserDictionary method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.dic.UserDictionary.buildipadic">buildipadic() (janome.dic.UserDictionary method)</a>
-</li>
       <li><a href="janome.html#janome.dic.UserDictionary.buildsimpledic">buildsimpledic() (janome.dic.UserDictionary method)</a>
 </li>
   </ul></td>
@@ -185,61 +182,62 @@
   </ul></td>
 </tr></table>
 
-<h2 id="F">F</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.charfilter.CharFilter.filter">filter() (janome.charfilter.CharFilter method)</a>
-
-      <ul>
-        <li><a href="janome.html#janome.tokenfilter.TokenFilter.filter">(janome.tokenfilter.TokenFilter method)</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.dic.UnknownsDictionary.get_char_categories">get_char_categories (janome.dic.UnknownsDictionary attribute)</a>
+      <li><a href="janome.html#janome.dic.UnknownsDictionary.get_char_categories">get_char_categories() (janome.dic.UnknownsDictionary method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.dic.Dictionary.get_trans_cost">get_trans_cost() (janome.dic.Dictionary method)</a>
 
       <ul>
         <li><a href="janome.html#janome.dic.MMapDictionary.get_trans_cost">(janome.dic.MMapDictionary method)</a>
 </li>
+        <li><a href="janome.html#janome.dic.RAMDictionary.get_trans_cost">(janome.dic.RAMDictionary method)</a>
+</li>
       </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="I">I</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.tokenizer.Token.infl_form">infl_form (janome.tokenizer.Token attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.tokenizer.Token.infl_type">infl_type (janome.tokenizer.Token attribute)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#module-janome.analyzer">janome.analyzer (module)</a>
+      <li>
+    janome.analyzer
+
+      <ul>
+        <li><a href="janome.html#module-janome.analyzer">module</a>
 </li>
-      <li><a href="janome.html#module-janome.charfilter">janome.charfilter (module)</a>
+      </ul></li>
+      <li>
+    janome.charfilter
+
+      <ul>
+        <li><a href="janome.html#module-janome.charfilter">module</a>
 </li>
+      </ul></li>
+      <li>
+    janome.dic
+
+      <ul>
+        <li><a href="janome.html#module-janome.dic">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#module-janome.dic">janome.dic (module)</a>
+      <li>
+    janome.tokenfilter
+
+      <ul>
+        <li><a href="janome.html#module-janome.tokenfilter">module</a>
 </li>
-      <li><a href="janome.html#module-janome.tokenfilter">janome.tokenfilter (module)</a>
+      </ul></li>
+      <li>
+    janome.tokenizer
+
+      <ul>
+        <li><a href="janome.html#module-janome.tokenizer">module</a>
 </li>
-      <li><a href="janome.html#module-janome.tokenizer">janome.tokenizer (module)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -255,6 +253,8 @@
       <ul>
         <li><a href="janome.html#janome.dic.MMapDictionary.lookup">(janome.dic.MMapDictionary method)</a>
 </li>
+        <li><a href="janome.html#janome.dic.RAMDictionary.lookup">(janome.dic.RAMDictionary method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -262,6 +262,8 @@
 
       <ul>
         <li><a href="janome.html#janome.dic.MMapDictionary.lookup_extra">(janome.dic.MMapDictionary method)</a>
+</li>
+        <li><a href="janome.html#janome.dic.RAMDictionary.lookup_extra">(janome.dic.RAMDictionary method)</a>
 </li>
       </ul></li>
       <li><a href="janome.html#janome.tokenfilter.LowerCaseFilter">LowerCaseFilter (class in janome.tokenfilter)</a>
@@ -274,26 +276,35 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE">MAX_CHUNK_SIZE (janome.tokenizer.Tokenizer attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="janome.html#janome.dic.MMapDictionary">MMapDictionary (class in janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.dic.MMapSystemDictionary">MMapSystemDictionary (class in janome.dic)</a>
 </li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="janome.html#module-janome.analyzer">janome.analyzer</a>
+</li>
+        <li><a href="janome.html#module-janome.charfilter">janome.charfilter</a>
+</li>
+        <li><a href="janome.html#module-janome.dic">janome.dic</a>
+</li>
+        <li><a href="janome.html#module-janome.tokenfilter">janome.tokenfilter</a>
+</li>
+        <li><a href="janome.html#module-janome.tokenizer">janome.tokenizer</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.tokenizer.Token.part_of_speech">part_of_speech (janome.tokenizer.Token attribute)</a>
-</li>
-      <li><a href="janome.html#janome.tokenizer.Token.phonetic">phonetic (janome.tokenizer.Token attribute)</a>
+      <li><a href="janome.html#janome.tokenfilter.POSKeepFilter">POSKeepFilter (class in janome.tokenfilter)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.tokenfilter.POSKeepFilter">POSKeepFilter (class in janome.tokenfilter)</a>
-</li>
       <li><a href="janome.html#janome.tokenfilter.POSStopFilter">POSStopFilter (class in janome.tokenfilter)</a>
 </li>
   </ul></td>
@@ -302,7 +313,7 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="janome.html#janome.tokenizer.Token.reading">reading (janome.tokenizer.Token attribute)</a>
+      <li><a href="janome.html#janome.dic.RAMDictionary">RAMDictionary (class in janome.dic)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -322,17 +333,15 @@
 </li>
       <li><a href="janome.html#janome.dic.save_entry">save_entry() (in module janome.dic)</a>
 </li>
-      <li><a href="janome.html#janome.dic.save_entry_buckets">save_entry_buckets() (in module janome.dic)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="janome.html#janome.dic.save_entry_buckets">save_entry_buckets() (in module janome.dic)</a>
+</li>
       <li><a href="janome.html#janome.dic.save_fstdata">save_fstdata() (in module janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.dic.save_unknowns">save_unknowns() (in module janome.dic)</a>
 </li>
       <li><a href="janome.html#janome.dic.start_save_entries">start_save_entries() (in module janome.dic)</a>
-</li>
-      <li><a href="janome.html#janome.tokenizer.Token.surface">surface (janome.tokenizer.Token attribute)</a>
 </li>
       <li><a href="janome.html#janome.dic.SystemDictionary">SystemDictionary (class in janome.dic)</a>
 </li>
@@ -389,6 +398,7 @@
 
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -403,7 +413,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -417,12 +427,13 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Janome API reference v0.3</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Janome API reference v0.4</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Index</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+        &#169; Copyright 2020, Tomoko Uchida.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
   </body>
 </html>

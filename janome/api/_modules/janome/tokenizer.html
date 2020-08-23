@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>janome.tokenizer &#8212; Janome API reference v0.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>janome.tokenizer &#8212; Janome API reference v0.4</title>
     <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -25,8 +26,9 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.3</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.4</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">janome.tokenizer</a></li> 
       </ul>
     </div>  
 
@@ -36,9 +38,7 @@
           <div class="body" role="main">
             
   <h1>Source code for janome.tokenizer</h1><div class="highlight"><pre>
-<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="c1"># Copyright 2015 moco_beta</span>
+<span></span><span class="c1"># Copyright 2015 moco_beta</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -53,7 +53,7 @@
 <span class="c1"># limitations under the License.</span>
 
 
-<span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">The tokenizer module supplies Token and Tokenizer classes.</span>
 
 <span class="sd">Usage:</span>
@@ -62,7 +62,7 @@
 <span class="sd">&gt;&gt;&gt; t = Tokenizer()</span>
 <span class="sd">&gt;&gt;&gt; for token in t.tokenize(u&#39;すもももももももものうち&#39;):</span>
 <span class="sd">...   print(token)</span>
-<span class="sd">... </span>
+<span class="sd">...</span>
 <span class="sd">すもも	名詞,一般,*,*,*,*,すもも,スモモ,スモモ</span>
 <span class="sd">も	助詞,係助詞,*,*,*,*,も,モ,モ</span>
 <span class="sd">もも	名詞,一般,*,*,*,*,もも,モモ,モモ</span>
@@ -90,15 +90,15 @@
 
 <span class="sd">.. code-block:: shell</span>
 
-<span class="sd">  $ cat examples/user_ipadic.csv </span>
+<span class="sd">  $ cat examples/user_ipadic.csv</span>
 <span class="sd">  東京スカイツリー,1288,1288,4569,名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー</span>
 <span class="sd">  東武スカイツリーライン,1288,1288,4700,名詞,固有名詞,一般,*,*,*,東武スカイツリーライン,トウブスカイツリーライン,トウブスカイツリーライン</span>
 <span class="sd">  とうきょうスカイツリー駅,1288,1288,4143,名詞,固有名詞,一般,*,*,*,とうきょうスカイツリー駅,トウキョウスカイツリーエキ,トウキョウスカイツリーエキ</span>
 
 <span class="sd">&gt;&gt;&gt; t = Tokenizer(&quot;user_ipadic.csv&quot;, udic_enc=&quot;utf8&quot;)</span>
 <span class="sd">&gt;&gt;&gt; for token in t.tokenize(u&#39;東京スカイツリーへのお越しは、東武スカイツリーライン「とうきょうスカイツリー駅」が便利です。&#39;):</span>
-<span class="sd">...  print(token)... </span>
-<span class="sd">... </span>
+<span class="sd">...  print(token)...</span>
+<span class="sd">...</span>
 <span class="sd">東京スカイツリー	名詞,固有名詞,一般,*,*,*,東京スカイツリー,トウキョウスカイツリー,トウキョウスカイツリー</span>
 <span class="sd">へ	助詞,格助詞,一般,*,*,*,へ,ヘ,エ</span>
 <span class="sd">の	助詞,連体化,*,*,*,*,の,ノ,ノ</span>
@@ -118,7 +118,7 @@
 
 <span class="sd">.. code-block:: shell</span>
 
-<span class="sd">  $ cat examples/user_simpledic.csv </span>
+<span class="sd">  $ cat examples/user_simpledic.csv</span>
 <span class="sd">  東京スカイツリー,カスタム名詞,トウキョウスカイツリー</span>
 <span class="sd">  東武スカイツリーライン,カスタム名詞,トウブスカイツリーライン</span>
 <span class="sd">  とうきょうスカイツリー駅,カスタム名詞,トウキョウスカイツリーエキ</span>
@@ -131,82 +131,94 @@
 
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">.lattice</span> <span class="k">import</span> <span class="n">Lattice</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">SurfaceNode</span><span class="p">,</span> <span class="n">BOS</span><span class="p">,</span> <span class="n">EOS</span><span class="p">,</span> <span class="n">NodeType</span>
-<span class="kn">from</span> <span class="nn">.dic</span> <span class="k">import</span> <span class="n">SystemDictionary</span><span class="p">,</span> <span class="n">MMapSystemDictionary</span><span class="p">,</span> <span class="n">UserDictionary</span><span class="p">,</span> <span class="n">CompiledUserDictionary</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">.lattice</span> <span class="kn">import</span> <span class="n">Lattice</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">SurfaceNode</span><span class="p">,</span> <span class="n">BOS</span><span class="p">,</span> <span class="n">EOS</span><span class="p">,</span> <span class="n">NodeType</span>  <span class="c1"># type: ignore</span>
+<span class="kn">from</span> <span class="nn">.dic</span> <span class="kn">import</span> <span class="n">SystemDictionary</span><span class="p">,</span> <span class="n">MMapSystemDictionary</span><span class="p">,</span> <span class="n">UserDictionary</span><span class="p">,</span> <span class="n">CompiledUserDictionary</span>  <span class="c1"># type: ignore</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">janome.sysdic</span> <span class="k">import</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>
+    <span class="kn">from</span> <span class="nn">janome.sysdic</span> <span class="kn">import</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>  <span class="c1"># type: ignore</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="c1"># hack for unit testing...</span>
     <span class="n">parent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">parent_dir</span><span class="p">)</span>
-    <span class="kn">from</span> <span class="nn">sysdic</span> <span class="k">import</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>
+    <span class="kn">from</span> <span class="nn">sysdic</span> <span class="kn">import</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>  <span class="c1"># type: ignore</span>
 
-<span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
 
-<div class="viewcode-block" id="Token"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token">[docs]</a><span class="k">class</span> <span class="nc">Token</span><span class="p">:</span>
-    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="n">DEFAULT_MMAP_MODE</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span>
+
+
+<div class="viewcode-block" id="Token"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token">[docs]</a><span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A Token object contains all information for a token.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Token.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">surface</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">surface</span>
-        <span class="sd">&quot;&quot;&quot;surface form (表層形)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">part_of_speech</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">part_of_speech</span>
-        <span class="sd">&quot;&quot;&quot;part of speech (品詞)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">infl_type</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">infl_type</span>
-        <span class="sd">&quot;&quot;&quot;terminal form (活用型)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">infl_form</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">infl_form</span>
-        <span class="sd">&quot;&quot;&quot;stem form (活用形)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">base_form</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">base_form</span>
-        <span class="sd">&quot;&quot;&quot;base form (基本形)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reading</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">reading</span>
-        <span class="sd">&quot;&quot;&quot;&quot;reading (読み)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">phonetic</span> <span class="o">=</span> <span class="n">extra</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="k">if</span> <span class="n">extra</span> <span class="k">else</span> <span class="n">node</span><span class="o">.</span><span class="n">phonetic</span>
-        <span class="sd">&quot;&quot;&quot;pronounce (発音)&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">node_type</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">node_type</span></div>
+<div class="viewcode-block" id="Token.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">extra</span><span class="p">:</span> <span class="n">Tuple</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="o">=</span> <span class="n">extra</span></div>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">PY3</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> \
-               <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">part_of_speech</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">infl_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">infl_form</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_form</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reading</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">phonetic</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;surface&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">surface</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;part_of_speech&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">part_of_speech</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;infl_type&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">infl_type</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;infl_form&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">infl_form</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;base_form&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">base_form</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;reading&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">reading</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;phonetic&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">phonetic</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;node_type&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">node_type</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="se">\t</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> \
-               <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">part_of_speech</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">infl_type</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">infl_form</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">base_form</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">reading</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">phonetic</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
+            <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">surface</span><span class="si">}</span><span class="se">\t</span><span class="s1">&#39;</span> \
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">part_of_speech</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">infl_type</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">infl_form</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base_form</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">reading</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">phonetic</span><span class="si">}</span><span class="s1">&#39;</span></div>
 
 
-<div class="viewcode-block" id="Tokenizer"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer">[docs]</a><span class="k">class</span> <span class="nc">Tokenizer</span><span class="p">:</span>
-    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Tokenizer"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer">[docs]</a><span class="k">class</span> <span class="nc">Tokenizer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A Tokenizer tokenizes Japanese texts with system and optional user defined dictionary.</span>
-<span class="sd">    It is strongly recommended to re-use a Tokenizer object because object initialization cost is high. </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">MAX_CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
     <span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">500</span>
 
-<div class="viewcode-block" id="Tokenizer.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">udic</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">udic_enc</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="n">udic_type</span><span class="o">=</span><span class="s1">&#39;ipadic&#39;</span><span class="p">,</span> <span class="n">max_unknown_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mmap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dotfile</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Tokenizer.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">udic</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">udic_enc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span>
+                 <span class="n">udic_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ipadic&#39;</span><span class="p">,</span>
+                 <span class="n">max_unknown_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span>
+                 <span class="n">wakati</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">mmap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">DEFAULT_MMAP_MODE</span><span class="p">,</span>
+                 <span class="n">dotfile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize Tokenizer object with optional arguments.</span>
 
 <span class="sd">        :param udic: (Optional) user dictionary file (CSV format) or directory path to compiled dictionary data</span>
 <span class="sd">        :param udic_enc: (Optional) character encoding for user dictionary. default is &#39;utf-8&#39;</span>
-<span class="sd">        :param udic_type: (Optional) user dictionray type. supported types are &#39;ipadic&#39; and &#39;simpledic&#39;. default is &#39;ipadic&#39;</span>
+<span class="sd">        :param udic_type: (Optional) user dictionray type. supported types are &#39;ipadic&#39; and &#39;simpledic&#39;.</span>
+<span class="sd">                          default is &#39;ipadic&#39;</span>
 <span class="sd">        :param max_unknows_length: (Optional) max unknown word length. default is 1024.</span>
 <span class="sd">        :param wakati: (Optional) if given True load minimum sysdic data for &#39;wakati&#39; mode.</span>
-<span class="sd">        :param mmap: (Optional) if given True use memory-mapped file for dictionary data.</span>
+<span class="sd">        :param mmap: (Optional) if given False, memory-mapped file mode is disabled.</span>
+<span class="sd">                     Set this option to False on any environments that do not support mmap.</span>
+<span class="sd">                     Default is True on 64bit architecture; otherwise False.</span>
 
-<span class="sd">        .. seealso:: See http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary for details for user dictionary.</span>
+<span class="sd">        .. seealso:: http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SystemDictionary</span><span class="p">,</span> <span class="n">MMapSystemDictionary</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">UserDictionary</span><span class="p">,</span> <span class="n">CompiledUserDictionary</span><span class="p">]]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wakati</span> <span class="o">=</span> <span class="n">wakati</span>
         <span class="k">if</span> <span class="n">mmap</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">MMapSystemDictionary</span><span class="p">(</span><span class="n">all_fstdata</span><span class="p">(),</span> <span class="n">mmap_entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">MMapSystemDictionary</span><span class="p">(</span><span class="n">all_fstdata</span><span class="p">(),</span> <span class="n">mmap_entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span>
+                                                <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">SystemDictionary</span><span class="p">(</span><span class="n">all_fstdata</span><span class="p">(),</span> <span class="n">entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span> <span class="o">=</span> <span class="n">SystemDictionary</span><span class="p">(</span><span class="n">all_fstdata</span><span class="p">(),</span> <span class="n">entries</span><span class="p">(</span><span class="n">wakati</span><span class="p">),</span> <span class="n">connections</span><span class="p">,</span>
+                                            <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">udic</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">udic</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
                 <span class="c1"># build user dictionary from CSV</span>
@@ -220,26 +232,26 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max_unknown_length</span> <span class="o">=</span> <span class="n">max_unknown_length</span></div>
 
-<div class="viewcode-block" id="Tokenizer.tokenize"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dotfile</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Tokenizer.tokenize"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">wakati</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dotfile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> \
+            <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Token</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Tokenize the input text.</span>
 
 <span class="sd">        :param text: unicode string to be tokenized</span>
-<span class="sd">        :param stream: (Optional) if given True use stream mode. default is False.</span>
 <span class="sd">        :param wakati: (Optinal) if given True returns surface forms only. default is False.</span>
 <span class="sd">        :param baseform_unk: (Optional) if given True sets base_form attribute for unknown tokens. default is True.</span>
-<span class="sd">        :param dotfile: (Optional) if specified, graphviz dot file is output to the path for later visualizing of the lattice graph. This option is ignored when the input length is larger than MAX_CHUNK_SIZE or running on stream mode.</span>
+<span class="sd">        :param dotfile: (Optional) if specified, graphviz dot file is output to the path for later visualizing</span>
+<span class="sd">                        of the lattice graph. This option is ignored when the input length is</span>
+<span class="sd">                        larger than MAX_CHUNK_SIZE.</span>
 
-<span class="sd">        :return: list of tokens (stream=False, wakati=False) or token generator (stream=True, wakati=False) or list of string (stream=False, wakati=True) or string generator (stream=True, wakati=True)</span>
+<span class="sd">        :return: generator yielding tokens (wakati=False) or generator yielding string (wakati=True)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">wakati</span><span class="p">:</span>
             <span class="n">wakati</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">if</span> <span class="n">stream</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">dotfile</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Tokenizer</span><span class="o">.</span><span class="n">MAX_CHUNK_SIZE</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">,</span> <span class="n">dotfile</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">dotfile</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Tokenizer</span><span class="o">.</span><span class="n">MAX_CHUNK_SIZE</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">,</span> <span class="n">dotfile</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span></div>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__tokenize_stream</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">__tokenize_stream</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">,</span> <span class="n">dotfile</span><span class="p">):</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -251,7 +263,6 @@
                 <span class="k">yield</span> <span class="n">token</span>
             <span class="n">processed</span> <span class="o">+=</span> <span class="n">pos</span>
 
-
     <span class="k">def</span> <span class="nf">__tokenize_partial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">wakati</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">,</span> <span class="n">dotfile</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">wakati</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">wakati</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">WakatiModeOnlyException</span>
@@ -260,7 +271,7 @@
         <span class="n">lattice</span> <span class="o">=</span> <span class="n">Lattice</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span><span class="p">)</span>
         <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__should_split</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
-            <span class="n">encoded_partial_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="o">+</span><span class="nb">min</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">-</span><span class="n">pos</span><span class="p">)]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+            <span class="n">encoded_partial_text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">chunk_size</span> <span class="o">-</span> <span class="n">pos</span><span class="p">)]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
             <span class="c1"># user dictionary</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span><span class="p">:</span>
                 <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_dic</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">encoded_partial_text</span><span class="p">)</span>
@@ -287,7 +298,7 @@
                     <span class="c1"># buffer for unknown word</span>
                     <span class="n">buf</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span>
                     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">,</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
-                        <span class="n">_cates</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span><span class="o">.</span><span class="n">get_char_categories</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+                        <span class="n">_cates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sys_dic</span><span class="o">.</span><span class="n">get_char_categories</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
                         <span class="k">if</span> <span class="n">cate</span> <span class="ow">in</span> <span class="n">_cates</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span><span class="n">cate</span> <span class="ow">in</span> <span class="n">_compat_cates</span> <span class="k">for</span> <span class="n">_compat_cates</span> <span class="ow">in</span> <span class="n">_cates</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
                             <span class="n">buf</span> <span class="o">+=</span> <span class="n">text</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
                         <span class="k">else</span><span class="p">:</span>
@@ -340,6 +351,7 @@
     <span class="k">pass</span></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -354,7 +366,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -368,13 +380,14 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.3</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.4</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">janome.tokenizer</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, Tomoko Uchida.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+        &#169; Copyright 2020, Tomoko Uchida.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
   </body>
 </html>
