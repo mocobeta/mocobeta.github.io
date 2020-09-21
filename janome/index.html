@@ -64,9 +64,9 @@
 <p>(v0.4.0 より Python 2.7 サポートは廃止されました。)</p>
 </div>
 <div class="section" id="id4">
-<h2>バージョン<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>最新バージョン<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>janome: 0.4.0</p></li>
+<li><p>0.4.1</p></li>
 </ul>
 </div>
 <div class="section" id="id5">
@@ -221,18 +221,24 @@
 <div class="section" id="id13">
 <h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ユーザー定義辞書は，巨大になるとバイナリコンパイルに時間がかかるため，あらかじめコンパイルしておき，コンパイル済みの辞書を使うことも可能です。</p>
-<p>現在のところ，コンパイルのためのツールはありませんが， <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">API</a> を使ってコンパイルが行えます。</p>
+<p>現在のところ，コンパイルのためのツールはありませんが， <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">API</a> を使ってコンパイルが行えます。 <code class="docutils literal notranslate"><span class="pre">progress_handler</span></code> オプションは v0.4.1 以上でサポートされます。</p>
 <p>辞書のコンパイル(MeCab IPADIC format)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.progress</span> <span class="kn">import</span> <span class="n">SimpleProgressIndicator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome</span> <span class="kn">import</span> <span class="n">sysdic</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">,</span> <span class="n">progress_handler</span><span class="o">=</span><span class="n">SimpleProgressIndicator</span><span class="p">(</span><span class="n">update_frequency</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+<span class="go">Reading user dictionary from CSV: 100.0% | 17149/17149</span>
+<span class="go">Running create_minimum_transducer: 100.0% | 17149/17149</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>辞書のコンパイル(simplified format)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.progress</span> <span class="kn">import</span> <span class="n">SimpleProgressIndicator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome</span> <span class="kn">import</span> <span class="n">sysdic</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">,</span> <span class="n">progress_handler</span><span class="o">=</span><span class="n">SimpleProgressIndicator</span><span class="p">(</span><span class="n">update_frequency</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+<span class="go">Reading user dictionary from CSV: 100.0% | 17149/17149</span>
+<span class="go">Running create_minimum_transducer: 100.0% | 17149/17149</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -271,7 +277,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <span class="gp">&gt;&gt;&gt; </span><span class="n">char_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">UnicodeNormalizeCharFilter</span><span class="p">(),</span> <span class="n">RegexReplaceCharFilter</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;蛇の目&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;janome&#39;</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">CompoundNounFilter</span><span class="p">(),</span> <span class="n">POSStopFilter</span><span class="p">([</span><span class="s1">&#39;記号&#39;</span><span class="p">,</span><span class="s1">&#39;助詞&#39;</span><span class="p">]),</span> <span class="n">LowerCaseFilter</span><span class="p">()]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">char_filters</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">token_filters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">char_filters</span><span class="o">=</span><span class="n">char_filters</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">token_filters</span><span class="o">=</span><span class="n">token_filters</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -436,6 +442,7 @@ Graph was successfully output to /tmp/a.gv.svg
 <div class="section" id="pyinstaller-v0-3-9">
 <h2>PyInstaller でアプリケーションにバンドルする (v0.3.9+)<a class="headerlink" href="#pyinstaller-v0-3-9" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://www.pyinstaller.org/">PyInstaller</a> で janome をアプリケーションにバンドルして，実行可能ファイルとして配布できます。</p>
+<p>Tokenizer 初期化時に <code class="docutils literal notranslate"><span class="pre">mmap=False</span></code> オプションをつけてください。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ janome --version
 janome 0.3.9
 (venv) $ pyinstaller -v
@@ -444,7 +451,7 @@ janome 0.3.9
 (venv) $ cat test.py
 # -*- utf-8
 from janome.tokenizer import Tokenizer
-t = Tokenizer()
+t = Tokenizer(mmap=False)
     for token in t.tokenize(&#39;令和元年&#39;):
     print(token)
 
@@ -552,6 +559,7 @@ test
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li><p>2020.09.21 janome Version 0.4.1 リリース</p></li>
 <li><p>2020.08.23 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-%E9%96%8B%E7%99%BA%E6%97%A5%E8%AA%8C-v0-4-0-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-%E3%83%A1%E3%83%A2%E3%83%AA%E4%BD%BF%E7%94%A8%E9%87%8F%E3%81%AE%E5%89%8A%E6%B8%9B%E3%82%84-python2-7-%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E5%81%9C%E6%AD%A2%E3%81%AA%E3%81%A9%E3%81%AA%E3%81%A9-d91ec3642d7">janome Version 0.4.0 リリース</a></p></li>
 <li><p>2019.11.03 janome Version 0.3.10 リリース</p></li>
 <li><p>2019.05.12 <a class="reference external" href="https://medium.com/&#64;mocobeta/janome-%E9%96%8B%E7%99%BA%E6%97%A5%E8%AA%8C-pyinstaller-%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%9F-janome-0-3-9-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F-c603b43fe288">janome Version 0.3.9 リリース</a></p></li>

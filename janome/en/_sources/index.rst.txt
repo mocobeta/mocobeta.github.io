@@ -53,7 +53,7 @@ Python 3.6+ interpreter
 Latest version
 --------------
 
-* janome: 0.4.0
+* 0.4.1
 
 Install
 -------
@@ -186,20 +186,26 @@ Pre-compiled user dictionary
 
 With large user dictionary, it can take much time to convert CSV file to the binary data structure. You can compile the user dictionary in advance and use that at runtime.
 
-For now, there is no tools for compiling user dictionary. Use `APIs <http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary>`_ as below.
+For now, there is no tools for compiling user dictionary. Use `APIs <http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary>`_ as below. ``progress_handler`` option is supported in v0.4.1 or above.
 
 How to compile user dictionary (MeCab IPADIC format): ::
 
   >>> from janome.dic import UserDictionary
-  >>> import sysdic
-  >>> user_dict = UserDictionary("userdic.csv", "utf8", "ipadic", sysdic.connections)
+  >>> from janome import sysdic
+  >>> from janome.progress import SimpleProgressIndicator
+  >>> user_dict = UserDictionary("userdic.csv", "utf8", "ipadic", sysdic.connections, progress_handler=SimpleProgressIndicator(update_frequency=0.01))
+  Reading user dictionary from CSV: 100.0% | 17149/17149
+  Running create_minimum_transducer: 100.0% | 17149/17149
   >>> user_dict.save("/tmp/userdic")
 
 How to compile user dictionary (simplified format): ::  
 
   >>> from janome.dic import UserDictionary
-  >>> import sysdic
-  >>> user_dict = UserDictionary("user_simpledic.csv", "utf8", "simpledic", sysdic.connections)
+  >>> from janome import sysdic
+  >>> from janome.progress import SimpleProgressIndicator
+  >>> user_dict = UserDictionary("user_simpledic.csv", "utf8", "simpledic", sysdic.connections, progress_handler=SimpleProgressIndicator(update_frequency=0.01))
+  Reading user dictionary from CSV: 100.0% | 17149/17149
+  Running create_minimum_transducer: 100.0% | 17149/17149
   >>> user_dict.save("/tmp/userdic")
 
 Once compiling has been successfully completed, the data is saved in ``/tmp/userdic`` directory. Pass the directory path to Tokenizer's constructor to use it.
@@ -232,7 +238,7 @@ Analyzser usage
   >>> char_filters = [UnicodeNormalizeCharFilter(), RegexReplaceCharFilter(u'蛇の目', u'janome')]
   >>> tokenizer = Tokenizer()
   >>> token_filters = [CompoundNounFilter(), POSStopFilter(['記号','助詞']), LowerCaseFilter()]
-  >>> a = Analyzer(char_filters, tokenizer, token_filters)
+  >>> a = Analyzer(char_filters=char_filters, tokenizer=tokenizer, token_filters=token_filters)
   >>> for token in a.analyze(text):
   ...     print(token)
   ... 
@@ -397,6 +403,8 @@ How to bundle janome with an application by PyInstaller (v0.3.9+)
 
 You can create (and distribute) stand-alone executables which bundle janome by `PyInstaller <https://www.pyinstaller.org/>`_.
 
+``mmap=False`` option is required when initializing Tokenizer.
+
 ::
 
     (venv) $ janome --version
@@ -407,7 +415,7 @@ You can create (and distribute) stand-alone executables which bundle janome by `
     (venv) $ cat test.py 
     # -*- utf-8
     from janome.tokenizer import Tokenizer
-    t = Tokenizer()
+    t = Tokenizer(mmap=False)
         for token in t.tokenize('令和元年'):
         print(token)
 
@@ -475,6 +483,7 @@ Copyright(C) 2020, Tomoko Uchida. All rights reserved.
 History
 ----------
 
+* 2020.09.21 janome Version 0.4.1 released
 * 2020.08.23 janome Version 0.4.0 released
 * 2019.11.03 janome Version 0.3.10 released
 * 2019.05.12 janome Version 0.3.9 released
@@ -503,13 +512,3 @@ Change details: `CHANGES <https://github.com/mocobeta/janome/blob/master/CHANGES
 .. image:: ../img/bronze-25C9.png
    :alt: Badge(FISHEYE)
    :target: http://www.unicode.org/consortium/adopt-a-character.html	 
-
-`About this badge <http://mocobeta-backup.tumblr.com/post/153598031477/u-25c9-sponsorship-en>`_
-
-.. Indices and tables
-.. ==================
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
-

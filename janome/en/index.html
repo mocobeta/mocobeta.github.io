@@ -65,7 +65,7 @@
 <div class="section" id="latest-version">
 <h2>Latest version<a class="headerlink" href="#latest-version" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>janome: 0.4.0</p></li>
+<li><p>0.4.1</p></li>
 </ul>
 </div>
 <div class="section" id="install">
@@ -182,18 +182,24 @@
 <div class="section" id="pre-compiled-user-dictionary">
 <h3>Pre-compiled user dictionary<a class="headerlink" href="#pre-compiled-user-dictionary" title="Permalink to this headline">¶</a></h3>
 <p>With large user dictionary, it can take much time to convert CSV file to the binary data structure. You can compile the user dictionary in advance and use that at runtime.</p>
-<p>For now, there is no tools for compiling user dictionary. Use <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">APIs</a> as below.</p>
+<p>For now, there is no tools for compiling user dictionary. Use <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">APIs</a> as below. <code class="docutils literal notranslate"><span class="pre">progress_handler</span></code> option is supported in v0.4.1 or above.</p>
 <p>How to compile user dictionary (MeCab IPADIC format):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysdic</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome</span> <span class="kn">import</span> <span class="n">sysdic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.progress</span> <span class="kn">import</span> <span class="n">SimpleProgressIndicator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;userdic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;ipadic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">,</span> <span class="n">progress_handler</span><span class="o">=</span><span class="n">SimpleProgressIndicator</span><span class="p">(</span><span class="n">update_frequency</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+<span class="go">Reading user dictionary from CSV: 100.0% | 17149/17149</span>
+<span class="go">Running create_minimum_transducer: 100.0% | 17149/17149</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>How to compile user dictionary (simplified format):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.dic</span> <span class="kn">import</span> <span class="n">UserDictionary</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysdic</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome</span> <span class="kn">import</span> <span class="n">sysdic</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.progress</span> <span class="kn">import</span> <span class="n">SimpleProgressIndicator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="p">(</span><span class="s2">&quot;user_simpledic.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="s2">&quot;simpledic&quot;</span><span class="p">,</span> <span class="n">sysdic</span><span class="o">.</span><span class="n">connections</span><span class="p">,</span> <span class="n">progress_handler</span><span class="o">=</span><span class="n">SimpleProgressIndicator</span><span class="p">(</span><span class="n">update_frequency</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+<span class="go">Reading user dictionary from CSV: 100.0% | 17149/17149</span>
+<span class="go">Running create_minimum_transducer: 100.0% | 17149/17149</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">user_dict</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;/tmp/userdic&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -225,7 +231,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">char_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">UnicodeNormalizeCharFilter</span><span class="p">(),</span> <span class="n">RegexReplaceCharFilter</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;蛇の目&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;janome&#39;</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">token_filters</span> <span class="o">=</span> <span class="p">[</span><span class="n">CompoundNounFilter</span><span class="p">(),</span> <span class="n">POSStopFilter</span><span class="p">([</span><span class="s1">&#39;記号&#39;</span><span class="p">,</span><span class="s1">&#39;助詞&#39;</span><span class="p">]),</span> <span class="n">LowerCaseFilter</span><span class="p">()]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">char_filters</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">token_filters</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Analyzer</span><span class="p">(</span><span class="n">char_filters</span><span class="o">=</span><span class="n">char_filters</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">token_filters</span><span class="o">=</span><span class="n">token_filters</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -366,6 +372,7 @@ Graph was successfully output to /tmp/a.gv.svg
 <div class="section" id="how-to-bundle-janome-with-an-application-by-pyinstaller-v0-3-9">
 <h2>How to bundle janome with an application by PyInstaller (v0.3.9+)<a class="headerlink" href="#how-to-bundle-janome-with-an-application-by-pyinstaller-v0-3-9" title="Permalink to this headline">¶</a></h2>
 <p>You can create (and distribute) stand-alone executables which bundle janome by <a class="reference external" href="https://www.pyinstaller.org/">PyInstaller</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mmap=False</span></code> option is required when initializing Tokenizer.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ janome --version
 janome 0.3.9
 (venv) $ pyinstaller -v
@@ -374,7 +381,7 @@ janome 0.3.9
 (venv) $ cat test.py
 # -*- utf-8
 from janome.tokenizer import Tokenizer
-t = Tokenizer()
+t = Tokenizer(mmap=False)
     for token in t.tokenize(&#39;令和元年&#39;):
     print(token)
 
@@ -446,6 +453,7 @@ test
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>2020.09.21 janome Version 0.4.1 released</p></li>
 <li><p>2020.08.23 janome Version 0.4.0 released</p></li>
 <li><p>2019.11.03 janome Version 0.3.10 released</p></li>
 <li><p>2019.05.12 janome Version 0.3.9 released</p></li>
@@ -471,7 +479,6 @@ test
 </ul>
 <p>Change details: <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/CHANGES.txt">CHANGES</a></p>
 <a class="reference external image-reference" href="http://www.unicode.org/consortium/adopt-a-character.html"><img alt="Badge(FISHEYE)" src="_images/bronze-25C9.png" /></a>
-<p><a class="reference external" href="http://mocobeta-backup.tumblr.com/post/153598031477/u-25c9-sponsorship-en">About this badge</a></p>
 </div>
 </div>
 
