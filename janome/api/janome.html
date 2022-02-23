@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>janome package &#8212; Janome API reference v0.4</title>
-    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -49,162 +48,157 @@
 <section id="module-janome.dic">
 <span id="janome-dic-module"></span><h2>janome.dic module<a class="headerlink" href="#module-janome.dic" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="janome.dic.CompiledUserDictionary">
-<em class="property">class </em><code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">CompiledUserDictionary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic_dir</span></em>, <em class="sig-param"><span class="n">connections</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.CompiledUserDictionary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">CompiledUserDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.dic.RAMDictionary" title="janome.dic.RAMDictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.dic.RAMDictionary</span></code></a></p>
 <p>User dictionary class (compiled)</p>
 <dl class="py method">
-<dt id="janome.dic.CompiledUserDictionary.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic_dir</span></em>, <em class="sig-param"><span class="n">connections</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="janome.dic.CompiledUserDictionary.load_dict">
-<em class="property">classmethod </em><code class="sig-name descname">load_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic_dir</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary.load_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary.load_dict" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.CompiledUserDictionary.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.CompiledUserDictionary.lookup">
-<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.CompiledUserDictionary.load_dict">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary.load_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary.load_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="janome.dic.CompiledUserDictionary.lookup">
+<span class="sig-name descname"><span class="pre">lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#CompiledUserDictionary.lookup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.CompiledUserDictionary.lookup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.dic.Dictionary">
-<em class="property">class </em><code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">Dictionary</code><a class="reference internal" href="_modules/janome/dic.html#Dictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.Dictionary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">Dictionary</span></span><a class="reference internal" href="_modules/janome/dic.html#Dictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.Dictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Base dictionary class</p>
 <dl class="py method">
-<dt id="janome.dic.Dictionary.get_trans_cost">
-<em class="property">abstract </em><code class="sig-name descname">get_trans_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id1</span></em>, <em class="sig-param"><span class="n">id2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.get_trans_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary.get_trans_cost" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.Dictionary.get_trans_cost">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_trans_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.get_trans_cost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.Dictionary.get_trans_cost" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.Dictionary.lookup">
-<em class="property">abstract </em><code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em>, <em class="sig-param"><span class="n">matcher</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.Dictionary.lookup">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matcher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.lookup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.Dictionary.lookup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.Dictionary.lookup_extra">
-<em class="property">abstract </em><code class="sig-name descname">lookup_extra</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.lookup_extra"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.Dictionary.lookup_extra" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.Dictionary.lookup_extra">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lookup_extra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#Dictionary.lookup_extra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.Dictionary.lookup_extra" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py exception">
-<dt id="janome.dic.LoadingDictionaryError">
-<em class="property">exception </em><code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">LoadingDictionaryError</code><a class="reference internal" href="_modules/janome/dic.html#LoadingDictionaryError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.LoadingDictionaryError" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.LoadingDictionaryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">LoadingDictionaryError</span></span><a class="reference internal" href="_modules/janome/dic.html#LoadingDictionaryError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.LoadingDictionaryError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <dl class="py method">
-<dt id="janome.dic.LoadingDictionaryError.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#LoadingDictionaryError.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.LoadingDictionaryError.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="janome.dic.LoadingDictionaryError.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#LoadingDictionaryError.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.LoadingDictionaryError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.dic.MMapDictionary">
-<em class="property">class </em><code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">MMapDictionary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entries_compact</span></em>, <em class="sig-param"><span class="n">entries_extra</span></em>, <em class="sig-param"><span class="n">open_files</span></em>, <em class="sig-param"><span class="n">connections</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.MMapDictionary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">MMapDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entries_compact</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entries_extra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">open_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.MMapDictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.dic.Dictionary" title="janome.dic.Dictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.dic.Dictionary</span></code></a></p>
 <p>MMap dictionary class</p>
 <dl class="py method">
-<dt id="janome.dic.MMapDictionary.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entries_compact</span></em>, <em class="sig-param"><span class="n">entries_extra</span></em>, <em class="sig-param"><span class="n">open_files</span></em>, <em class="sig-param"><span class="n">connections</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="janome.dic.MMapDictionary.get_trans_cost">
-<code class="sig-name descname">get_trans_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id1</span></em>, <em class="sig-param"><span class="n">id2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.get_trans_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary.get_trans_cost" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.MMapDictionary.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entries_compact</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entries_extra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">open_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.MMapDictionary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.MMapDictionary.lookup">
-<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em>, <em class="sig-param"><span class="n">matcher</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.MMapDictionary.get_trans_cost">
+<span class="sig-name descname"><span class="pre">get_trans_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.get_trans_cost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.MMapDictionary.get_trans_cost" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.MMapDictionary.lookup_extra">
-<code class="sig-name descname">lookup_extra</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idx</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.lookup_extra"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.MMapDictionary.lookup_extra" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.MMapDictionary.lookup">
+<span class="sig-name descname"><span class="pre">lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matcher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.lookup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.MMapDictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="janome.dic.MMapDictionary.lookup_extra">
+<span class="sig-name descname"><span class="pre">lookup_extra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#MMapDictionary.lookup_extra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.MMapDictionary.lookup_extra" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.dic.RAMDictionary">
-<em class="property">class </em><code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">RAMDictionary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entries</span></em>, <em class="sig-param"><span class="n">connections</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.RAMDictionary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.RAMDictionary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">RAMDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.RAMDictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.dic.Dictionary" title="janome.dic.Dictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.dic.Dictionary</span></code></a></p>
 <p>RAM dictionary class</p>
 <dl class="py method">
-<dt id="janome.dic.RAMDictionary.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entries</span></em>, <em class="sig-param"><span class="n">connections</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.RAMDictionary.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="janome.dic.RAMDictionary.get_trans_cost">
-<code class="sig-name descname">get_trans_cost</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id1</span></em>, <em class="sig-param"><span class="n">id2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary.get_trans_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.RAMDictionary.get_trans_cost" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.RAMDictionary.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.RAMDictionary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.RAMDictionary.lookup">
-<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em>, <em class="sig-param"><span class="n">matcher</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.RAMDictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.RAMDictionary.get_trans_cost">
+<span class="sig-name descname"><span class="pre">get_trans_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary.get_trans_cost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.RAMDictionary.get_trans_cost" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.RAMDictionary.lookup_extra">
-<code class="sig-name descname">lookup_extra</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary.lookup_extra"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.RAMDictionary.lookup_extra" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.RAMDictionary.lookup">
+<span class="sig-name descname"><span class="pre">lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matcher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary.lookup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.RAMDictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="janome.dic.RAMDictionary.lookup_extra">
+<span class="sig-name descname"><span class="pre">lookup_extra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#RAMDictionary.lookup_extra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.RAMDictionary.lookup_extra" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.dic.UnknownsDictionary">
-<em class="property">class </em><code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">UnknownsDictionary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chardefs</span></em>, <em class="sig-param"><span class="n">unknowns</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UnknownsDictionary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">UnknownsDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chardefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknowns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Dictionary class for handling unknown words</p>
 <dl class="py method">
-<dt id="janome.dic.UnknownsDictionary.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chardefs</span></em>, <em class="sig-param"><span class="n">unknowns</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="janome.dic.UnknownsDictionary.get_char_categories">
-<code class="sig-name descname">get_char_categories</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">c</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.get_char_categories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.get_char_categories" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UnknownsDictionary.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chardefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknowns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.UnknownsDictionary.unknown_grouping">
-<code class="sig-name descname">unknown_grouping</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cate</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_grouping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_grouping" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UnknownsDictionary.get_char_categories">
+<span class="sig-name descname"><span class="pre">get_char_categories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.get_char_categories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.get_char_categories" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.UnknownsDictionary.unknown_invoked_always">
-<code class="sig-name descname">unknown_invoked_always</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cate</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_invoked_always"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_invoked_always" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UnknownsDictionary.unknown_grouping">
+<span class="sig-name descname"><span class="pre">unknown_grouping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_grouping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_grouping" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.UnknownsDictionary.unknown_length">
-<code class="sig-name descname">unknown_length</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cate</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_length" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UnknownsDictionary.unknown_invoked_always">
+<span class="sig-name descname"><span class="pre">unknown_invoked_always</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_invoked_always"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_invoked_always" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="janome.dic.UnknownsDictionary.unknown_length">
+<span class="sig-name descname"><span class="pre">unknown_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UnknownsDictionary.unknown_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UnknownsDictionary.unknown_length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.dic.UserDictionary">
-<em class="property">class </em><code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">UserDictionary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_dict</span></em>, <em class="sig-param"><span class="n">enc</span></em>, <em class="sig-param"><span class="n">type</span></em>, <em class="sig-param"><span class="n">connections</span></em>, <em class="sig-param"><span class="n">progress_handler</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UserDictionary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">UserDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_handler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UserDictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.dic.RAMDictionary" title="janome.dic.RAMDictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.dic.RAMDictionary</span></code></a></p>
 <p>User dictionary class (on-the-fly)</p>
 <dl class="py method">
-<dt id="janome.dic.UserDictionary.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_dict</span></em>, <em class="sig-param"><span class="n">enc</span></em>, <em class="sig-param"><span class="n">type</span></em>, <em class="sig-param"><span class="n">connections</span></em>, <em class="sig-param"><span class="n">progress_handler</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UserDictionary.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_handler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UserDictionary.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize user defined dictionary object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>user_dict</strong> – user dictionary file (CSV format)</p></li>
 <li><p><strong>enc</strong> – character encoding</p></li>
@@ -217,40 +211,40 @@
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary">http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary</a></p>
-</aside>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.UserDictionary.build_dic">
-<em class="property">classmethod </em><code class="sig-name descname">build_dic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_dict</span></em>, <em class="sig-param"><span class="n">enc</span></em>, <em class="sig-param"><span class="n">dict_type</span></em>, <em class="sig-param"><span class="n">progress_handler</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.build_dic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.build_dic" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UserDictionary.build_dic">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_dic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_handler</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.build_dic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UserDictionary.build_dic" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.UserDictionary.line_to_entry_ipadic">
-<em class="property">classmethod </em><code class="sig-name descname">line_to_entry_ipadic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.line_to_entry_ipadic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.line_to_entry_ipadic" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UserDictionary.line_to_entry_ipadic">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">line_to_entry_ipadic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.line_to_entry_ipadic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UserDictionary.line_to_entry_ipadic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert IPADIC formatted string to an user dictionary entry</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.UserDictionary.line_to_entry_simpledic">
-<em class="property">classmethod </em><code class="sig-name descname">line_to_entry_simpledic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.line_to_entry_simpledic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.line_to_entry_simpledic" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UserDictionary.line_to_entry_simpledic">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">line_to_entry_simpledic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.line_to_entry_simpledic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UserDictionary.line_to_entry_simpledic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert simpledict formatted string to an user dictionary entry</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.UserDictionary.lookup">
-<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.lookup" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UserDictionary.lookup">
+<span class="sig-name descname"><span class="pre">lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.lookup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UserDictionary.lookup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.dic.UserDictionary.save">
-<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">to_dir</span></em>, <em class="sig-param"><span class="n">compressionlevel</span><span class="o">=</span><span class="default_value">9</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.UserDictionary.save" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.UserDictionary.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compressionlevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#UserDictionary.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.UserDictionary.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save compressed compiled dictionary data.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>to_dir</strong> – directory to save dictionary data</p>
 </dd>
-<dt class="field-even">Compressionlevel<span class="colon">:</span></dt>
+<dt class="field-even">Compressionlevel</dt>
 <dd class="field-even"><p>(Optional) gzip compression level. default is 9</p>
 </dd>
 </dl>
@@ -259,80 +253,78 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="janome.dic.end_save_entries">
-<code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">end_save_entries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dir</span></em>, <em class="sig-param"><span class="n">bucket_idx</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#end_save_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.end_save_entries" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.end_save_entries">
+<span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">end_save_entries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket_idx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#end_save_entries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.end_save_entries" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="janome.dic.save_chardefs">
-<code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">save_chardefs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">chardefs</span></em>, <em class="sig-param"><span class="n">dir</span><span class="o">=</span><span class="default_value">'.'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_chardefs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_chardefs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.save_chardefs">
+<span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">save_chardefs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chardefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_chardefs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.save_chardefs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="janome.dic.save_connections">
-<code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">save_connections</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">connections</span></em>, <em class="sig-param"><span class="n">dir</span><span class="o">=</span><span class="default_value">'.'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_connections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_connections" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.save_connections">
+<span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">save_connections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connections</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_connections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.save_connections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="janome.dic.save_entry">
-<code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">save_entry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dir</span></em>, <em class="sig-param"><span class="n">bucket_idx</span></em>, <em class="sig-param"><span class="n">morph_id</span></em>, <em class="sig-param"><span class="n">entry</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_entry" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.save_entry">
+<span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">save_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">morph_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.save_entry" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="janome.dic.save_entry_buckets">
-<code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">save_entry_buckets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dir</span></em>, <em class="sig-param"><span class="n">buckets</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_entry_buckets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_entry_buckets" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.save_entry_buckets">
+<span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">save_entry_buckets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buckets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_entry_buckets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.save_entry_buckets" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="janome.dic.save_fstdata">
-<code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">save_fstdata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">dir</span></em>, <em class="sig-param"><span class="n">part</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_fstdata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_fstdata" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.save_fstdata">
+<span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">save_fstdata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">part</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_fstdata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.save_fstdata" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="janome.dic.save_unknowns">
-<code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">save_unknowns</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unknowns</span></em>, <em class="sig-param"><span class="n">dir</span><span class="o">=</span><span class="default_value">'.'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_unknowns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.save_unknowns" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.save_unknowns">
+<span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">save_unknowns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unknowns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#save_unknowns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.save_unknowns" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="janome.dic.start_save_entries">
-<code class="sig-prename descclassname">janome.dic.</code><code class="sig-name descname">start_save_entries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dir</span></em>, <em class="sig-param"><span class="n">bucket_idx</span></em>, <em class="sig-param"><span class="n">morph_offset</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#start_save_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.dic.start_save_entries" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.dic.start_save_entries">
+<span class="sig-prename descclassname"><span class="pre">janome.dic.</span></span><span class="sig-name descname"><span class="pre">start_save_entries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bucket_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">morph_offset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/dic.html#start_save_entries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.dic.start_save_entries" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
 <section id="module-janome.system_dic">
 <span id="janome-system-dic-module"></span><h2>janome.system_dic module<a class="headerlink" href="#module-janome.system_dic" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="janome.system_dic.MMapSystemDictionary">
-<em class="property">class </em><code class="sig-prename descclassname">janome.system_dic.</code><code class="sig-name descname">MMapSystemDictionary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mmap_entries</span></em>, <em class="sig-param"><span class="n">connections</span></em>, <em class="sig-param"><span class="n">chardefs</span></em>, <em class="sig-param"><span class="n">unknowns</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#MMapSystemDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.system_dic.MMapSystemDictionary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.system_dic.MMapSystemDictionary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.system_dic.</span></span><span class="sig-name descname"><span class="pre">MMapSystemDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mmap_entries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chardefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknowns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#MMapSystemDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.system_dic.MMapSystemDictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.dic.MMapDictionary" title="janome.dic.MMapDictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.dic.MMapDictionary</span></code></a>, <a class="reference internal" href="#janome.dic.UnknownsDictionary" title="janome.dic.UnknownsDictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.dic.UnknownsDictionary</span></code></a></p>
 <p>MMap System dictionary class</p>
 <dl class="py method">
-<dt id="janome.system_dic.MMapSystemDictionary.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mmap_entries</span></em>, <em class="sig-param"><span class="n">connections</span></em>, <em class="sig-param"><span class="n">chardefs</span></em>, <em class="sig-param"><span class="n">unknowns</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#MMapSystemDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.system_dic.MMapSystemDictionary.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="janome.system_dic.MMapSystemDictionary.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mmap_entries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chardefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknowns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#MMapSystemDictionary.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.system_dic.MMapSystemDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.system_dic.MMapSystemDictionary.instance">
-<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#MMapSystemDictionary.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.system_dic.MMapSystemDictionary.instance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.system_dic.MMapSystemDictionary.instance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#MMapSystemDictionary.instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.system_dic.MMapSystemDictionary.instance" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.system_dic.SystemDictionary">
-<em class="property">class </em><code class="sig-prename descclassname">janome.system_dic.</code><code class="sig-name descname">SystemDictionary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entries</span></em>, <em class="sig-param"><span class="n">connections</span></em>, <em class="sig-param"><span class="n">chardefs</span></em>, <em class="sig-param"><span class="n">unknowns</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#SystemDictionary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.system_dic.SystemDictionary" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.system_dic.SystemDictionary">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.system_dic.</span></span><span class="sig-name descname"><span class="pre">SystemDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chardefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknowns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#SystemDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.system_dic.SystemDictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.dic.RAMDictionary" title="janome.dic.RAMDictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.dic.RAMDictionary</span></code></a>, <a class="reference internal" href="#janome.dic.UnknownsDictionary" title="janome.dic.UnknownsDictionary"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.dic.UnknownsDictionary</span></code></a></p>
 <p>System dictionary class</p>
 <dl class="py method">
-<dt id="janome.system_dic.SystemDictionary.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">entries</span></em>, <em class="sig-param"><span class="n">connections</span></em>, <em class="sig-param"><span class="n">chardefs</span></em>, <em class="sig-param"><span class="n">unknowns</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#SystemDictionary.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.system_dic.SystemDictionary.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="janome.system_dic.SystemDictionary.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connections</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chardefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknowns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#SystemDictionary.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.system_dic.SystemDictionary.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.system_dic.SystemDictionary.instance">
-<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#SystemDictionary.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.system_dic.SystemDictionary.instance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.system_dic.SystemDictionary.instance">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/system_dic.html#SystemDictionary.instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.system_dic.SystemDictionary.instance" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -411,39 +403,38 @@
 </pre></div>
 </div>
 <dl class="py class">
-<dt id="janome.tokenizer.Token">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenizer.</code><code class="sig-name descname">Token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span><span class="p">:</span> <span class="n">janome.lattice.Node</span></em>, <em class="sig-param"><span class="n">extra</span><span class="p">:</span> <span class="n">Tuple</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Token" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenizer.Token">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenizer.</span></span><span class="sig-name descname"><span class="pre">Token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">janome.lattice.Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenizer.Token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A Token object contains all information for a token.</p>
 <dl class="py method">
-<dt id="janome.tokenizer.Token.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span><span class="p">:</span> <span class="n">janome.lattice.Node</span></em>, <em class="sig-param"><span class="n">extra</span><span class="p">:</span> <span class="n">Tuple</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Token.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="janome.tokenizer.Token.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">janome.lattice.Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Token.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenizer.Token.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.tokenizer.Tokenizer">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenizer.</code><code class="sig-name descname">Tokenizer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">udic</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">udic_enc</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'utf8'</span></em>, <em class="sig-param"><span class="n">udic_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'ipadic'</span></em>, <em class="sig-param"><span class="n">max_unknown_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1024</span></em>, <em class="sig-param"><span class="n">wakati</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">mmap</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">dotfile</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenizer.Tokenizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenizer.</span></span><span class="sig-name descname"><span class="pre">Tokenizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">udic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">udic_enc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">udic_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ipadic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_unknown_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wakati</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dotfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A Tokenizer tokenizes Japanese texts with system and optional user defined dictionary.</p>
 <dl class="py attribute">
-<dt id="janome.tokenizer.Tokenizer.CHUNK_SIZE">
-<code class="sig-name descname">CHUNK_SIZE</code><em class="property"> = 500</em><a class="headerlink" href="#janome.tokenizer.Tokenizer.CHUNK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenizer.Tokenizer.CHUNK_SIZE">
+<span class="sig-name descname"><span class="pre">CHUNK_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">500</span></em><a class="headerlink" href="#janome.tokenizer.Tokenizer.CHUNK_SIZE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE">
-<code class="sig-name descname">MAX_CHUNK_SIZE</code><em class="property"> = 1024</em><a class="headerlink" href="#janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE">
+<span class="sig-name descname"><span class="pre">MAX_CHUNK_SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1024</span></em><a class="headerlink" href="#janome.tokenizer.Tokenizer.MAX_CHUNK_SIZE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="janome.tokenizer.Tokenizer.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">udic</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">udic_enc</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'utf8'</span></em>, <em class="sig-param"><span class="n">udic_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'ipadic'</span></em>, <em class="sig-param"><span class="n">max_unknown_length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1024</span></em>, <em class="sig-param"><span class="n">wakati</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">mmap</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">dotfile</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenizer.Tokenizer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">udic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">udic_enc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">udic_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ipadic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_unknown_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wakati</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dotfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize Tokenizer object with optional arguments.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>udic</strong> – (Optional) user dictionary file (CSV format) or directory path to compiled dictionary data</p></li>
 <li><p><strong>udic_enc</strong> – (Optional) character encoding for user dictionary. default is ‘utf-8’</p></li>
@@ -460,15 +451,15 @@ Default is True on 64bit architecture; otherwise False.</p></li>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary">http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary</a></p>
-</aside>
+</div>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.tokenizer.Tokenizer.tokenize">
-<code class="sig-name descname">tokenize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">wakati</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">baseform_unk</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">dotfile</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">''</span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span>Union<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">, </span>str<span class="p">]</span><span class="p">]</span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenizer.Tokenizer.tokenize">
+<span class="sig-name descname"><span class="pre">tokenize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wakati</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseform_unk</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dotfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenizer.html#Tokenizer.tokenize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenizer.Tokenizer.tokenize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tokenize the input text.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>text</strong> – unicode string to be tokenized</p></li>
 <li><p><strong>wakati</strong> – (Optinal) if given True returns surface forms only. default is False.</p></li>
@@ -478,7 +469,7 @@ of the lattice graph. This option is ignored when the input length is
 larger than MAX_CHUNK_SIZE.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>generator yielding tokens (wakati=False) or generator yielding string (wakati=True)</p>
 </dd>
 </dl>
@@ -487,8 +478,8 @@ larger than MAX_CHUNK_SIZE.</p></li>
 </dd></dl>
 
 <dl class="py exception">
-<dt id="janome.tokenizer.WakatiModeOnlyException">
-<em class="property">exception </em><code class="sig-prename descclassname">janome.tokenizer.</code><code class="sig-name descname">WakatiModeOnlyException</code><a class="reference internal" href="_modules/janome/tokenizer.html#WakatiModeOnlyException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenizer.WakatiModeOnlyException" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenizer.WakatiModeOnlyException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenizer.</span></span><span class="sig-name descname"><span class="pre">WakatiModeOnlyException</span></span><a class="reference internal" href="_modules/janome/tokenizer.html#WakatiModeOnlyException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenizer.WakatiModeOnlyException" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
@@ -535,18 +526,18 @@ larger than MAX_CHUNK_SIZE.</p></li>
 </pre></div>
 </div>
 <dl class="py class">
-<dt id="janome.analyzer.Analyzer">
-<em class="property">class </em><code class="sig-prename descclassname">janome.analyzer.</code><code class="sig-name descname">Analyzer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">char_filters</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#janome.charfilter.CharFilter" title="janome.charfilter.CharFilter">janome.charfilter.CharFilter</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">tokenizer</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Tokenizer" title="janome.tokenizer.Tokenizer">janome.tokenizer.Tokenizer</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token_filters</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter">janome.tokenfilter.TokenFilter</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/analyzer.html#Analyzer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.analyzer.Analyzer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.analyzer.Analyzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.analyzer.</span></span><span class="sig-name descname"><span class="pre">Analyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">char_filters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.charfilter.CharFilter" title="janome.charfilter.CharFilter"><span class="pre">janome.charfilter.CharFilter</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Tokenizer" title="janome.tokenizer.Tokenizer"><span class="pre">janome.tokenizer.Tokenizer</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_filters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><span class="pre">janome.tokenfilter.TokenFilter</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/analyzer.html#Analyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.analyzer.Analyzer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>An Analyzer analyzes Japanese texts with customized <a class="reference internal" href="#janome.charfilter.CharFilter" title="janome.charfilter.CharFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharFilter</span></code></a> chain,
 <a class="reference internal" href="#janome.tokenizer.Tokenizer" title="janome.tokenizer.Tokenizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tokenizer</span></code></a> and <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">TokenFilter</span></code></a> chain.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.analyzer.Analyzer.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">char_filters</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#janome.charfilter.CharFilter" title="janome.charfilter.CharFilter">janome.charfilter.CharFilter</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">tokenizer</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Tokenizer" title="janome.tokenizer.Tokenizer">janome.tokenizer.Tokenizer</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token_filters</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter">janome.tokenfilter.TokenFilter</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">[]</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/analyzer.html#Analyzer.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.analyzer.Analyzer.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.analyzer.Analyzer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">char_filters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.charfilter.CharFilter" title="janome.charfilter.CharFilter"><span class="pre">janome.charfilter.CharFilter</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tokenizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Tokenizer" title="janome.tokenizer.Tokenizer"><span class="pre">janome.tokenizer.Tokenizer</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_filters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><span class="pre">janome.tokenfilter.TokenFilter</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/analyzer.html#Analyzer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.analyzer.Analyzer.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize Analyzer object with CharFilters, a Tokenizer and TokenFilters.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>char_filters</strong> – (Optional) CharFilters list. CharFilters are applied to the input text
 in the list order. default is the empty list.</p></li>
@@ -561,14 +552,14 @@ output in the list order. default is the empty list.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.analyzer.Analyzer.analyze">
-<code class="sig-name descname">analyze</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span>Any<span class="p">]</span><a class="reference internal" href="_modules/janome/analyzer.html#Analyzer.analyze"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.analyzer.Analyzer.analyze" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.analyzer.Analyzer.analyze">
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/analyzer.html#Analyzer.analyze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.analyzer.Analyzer.analyze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Analyze the input text with custom CharFilters, Tokenizer and TokenFilters.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>text</strong> – unicode string to be tokenized</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>token generator. emitted element type depends on the output of the last TokenFilter.
 (e.g., ExtractAttributeFilter emits strings.)</p>
 </dd>
@@ -581,32 +572,32 @@ output in the list order. default is the empty list.</p></li>
 <section id="module-janome.charfilter">
 <span id="janome-charfilter-module"></span><h2>janome.charfilter module<a class="headerlink" href="#module-janome.charfilter" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="janome.charfilter.CharFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.charfilter.</code><code class="sig-name descname">CharFilter</code><a class="reference internal" href="_modules/janome/charfilter.html#CharFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.charfilter.CharFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.charfilter.CharFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.charfilter.</span></span><span class="sig-name descname"><span class="pre">CharFilter</span></span><a class="reference internal" href="_modules/janome/charfilter.html#CharFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.charfilter.CharFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Base CharFilter class.</p>
 <p>A CharFilter modifies or transforms the input text according to the rule described in apply() method.
 Subclasses must implement apply() method.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.charfilter.CharFilter.apply">
-<em class="property">abstract </em><code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/janome/charfilter.html#CharFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.charfilter.CharFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.charfilter.CharFilter.apply">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/janome/charfilter.html#CharFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.charfilter.CharFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.charfilter.RegexReplaceCharFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.charfilter.</code><code class="sig-name descname">RegexReplaceCharFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pat</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">repl</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/charfilter.html#RegexReplaceCharFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.charfilter.RegexReplaceCharFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.charfilter.RegexReplaceCharFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.charfilter.</span></span><span class="sig-name descname"><span class="pre">RegexReplaceCharFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/charfilter.html#RegexReplaceCharFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.charfilter.RegexReplaceCharFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.charfilter.CharFilter" title="janome.charfilter.CharFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.charfilter.CharFilter</span></code></a></p>
 <p>RegexReplaceCharFilter replaces string matched with a regular expression pattern to replacement string.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.charfilter.RegexReplaceCharFilter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pat</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">repl</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/charfilter.html#RegexReplaceCharFilter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.charfilter.RegexReplaceCharFilter.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.charfilter.RegexReplaceCharFilter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/charfilter.html#RegexReplaceCharFilter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.charfilter.RegexReplaceCharFilter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize RegexReplaceCharFilter with a regular expression pattern string and replacement.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pattern</strong> – regular expression string.</p></li>
 <li><p><strong>repl</strong> – replacement string.</p></li>
@@ -616,25 +607,25 @@ Subclasses must implement apply() method.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.charfilter.RegexReplaceCharFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/janome/charfilter.html#RegexReplaceCharFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.charfilter.RegexReplaceCharFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.charfilter.RegexReplaceCharFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/janome/charfilter.html#RegexReplaceCharFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.charfilter.RegexReplaceCharFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.charfilter.UnicodeNormalizeCharFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.charfilter.</code><code class="sig-name descname">UnicodeNormalizeCharFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'NFKC'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/charfilter.html#UnicodeNormalizeCharFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.charfilter.UnicodeNormalizeCharFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.charfilter.UnicodeNormalizeCharFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.charfilter.</span></span><span class="sig-name descname"><span class="pre">UnicodeNormalizeCharFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NFKC'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/charfilter.html#UnicodeNormalizeCharFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.charfilter.UnicodeNormalizeCharFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.charfilter.CharFilter" title="janome.charfilter.CharFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.charfilter.CharFilter</span></code></a></p>
 <p>UnicodeNormalizeCharFilter normalizes Unicode string.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.charfilter.UnicodeNormalizeCharFilter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'NFKC'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/charfilter.html#UnicodeNormalizeCharFilter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.charfilter.UnicodeNormalizeCharFilter.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.charfilter.UnicodeNormalizeCharFilter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NFKC'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/charfilter.html#UnicodeNormalizeCharFilter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.charfilter.UnicodeNormalizeCharFilter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize UnicodeNormalizeCharFilter with normalization form.</p>
 <p>See also <a class="reference external" href="https://docs.python.org/3.6/library/unicodedata.html#unicodedata.normalize">unicodedata.normalize</a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>form</strong> – (Optional) normalization form. valid values for <em>form</em> are ‘NFC’, ‘NFKC’, ‘NFD’, and ‘NFKD’.
 default is ‘NFKC’</p>
 </dd>
@@ -642,8 +633,8 @@ default is ‘NFKC’</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.charfilter.UnicodeNormalizeCharFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/janome/charfilter.html#UnicodeNormalizeCharFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.charfilter.UnicodeNormalizeCharFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.charfilter.UnicodeNormalizeCharFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/janome/charfilter.html#UnicodeNormalizeCharFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.charfilter.UnicodeNormalizeCharFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -652,8 +643,8 @@ default is ‘NFKC’</p>
 <section id="module-janome.tokenfilter">
 <span id="janome-tokenfilter-module"></span><h2>janome.tokenfilter module<a class="headerlink" href="#module-janome.tokenfilter" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="janome.tokenfilter.CompoundNounFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenfilter.</code><code class="sig-name descname">CompoundNounFilter</code><a class="reference internal" href="_modules/janome/tokenfilter.html#CompoundNounFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.CompoundNounFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.CompoundNounFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenfilter.</span></span><span class="sig-name descname"><span class="pre">CompoundNounFilter</span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#CompoundNounFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.CompoundNounFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
 <p>A CompoundNounFilter generates compound nouns.</p>
 <p>This Filter joins contiguous nouns.
@@ -661,25 +652,25 @@ For example, ‘形態素解析器’ is splitted three noun tokens ‘形態素
 Generated tokens are associated with the special part-of-speech tag ‘名詞,複合,*,*’</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.tokenfilter.CompoundNounFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span><a class="reference internal" href="_modules/janome/tokenfilter.html#CompoundNounFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.CompoundNounFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.CompoundNounFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#CompoundNounFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.CompoundNounFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.tokenfilter.ExtractAttributeFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenfilter.</code><code class="sig-name descname">ExtractAttributeFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">att</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#ExtractAttributeFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.ExtractAttributeFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.ExtractAttributeFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenfilter.</span></span><span class="sig-name descname"><span class="pre">ExtractAttributeFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#ExtractAttributeFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.ExtractAttributeFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
 <p>An ExtractAttributeFilter extracts a specified attribute of Token.</p>
 <p><strong>NOTES</strong> This filter must placed the last of token filter chain because return values are not tokens but strings.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.tokenfilter.ExtractAttributeFilter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">att</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#ExtractAttributeFilter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.ExtractAttributeFilter.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.ExtractAttributeFilter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#ExtractAttributeFilter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.ExtractAttributeFilter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize ExtractAttributeFilter object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>att</strong> – attribute name should be extraced from a token. valid values for <em>att</em> are ‘surface’,
 ‘part_of_speech’, ‘infl_type’, ‘infl_form’, ‘base_form’, ‘reading’ and ‘phonetic’.</p>
 </dd>
@@ -687,28 +678,28 @@ Generated tokens are associated with the special part-of-speech tag ‘名詞,�
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.tokenfilter.ExtractAttributeFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span>str<span class="p">]</span><a class="reference internal" href="_modules/janome/tokenfilter.html#ExtractAttributeFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.ExtractAttributeFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.ExtractAttributeFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#ExtractAttributeFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.ExtractAttributeFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.tokenfilter.LowerCaseFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenfilter.</code><code class="sig-name descname">LowerCaseFilter</code><a class="reference internal" href="_modules/janome/tokenfilter.html#LowerCaseFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.LowerCaseFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.LowerCaseFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenfilter.</span></span><span class="sig-name descname"><span class="pre">LowerCaseFilter</span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#LowerCaseFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.LowerCaseFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
 <p>A LowerCaseFilter converts the surface and base_form of tokens to lowercase.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.tokenfilter.LowerCaseFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span><a class="reference internal" href="_modules/janome/tokenfilter.html#LowerCaseFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.LowerCaseFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.LowerCaseFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#LowerCaseFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.LowerCaseFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.tokenfilter.POSKeepFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenfilter.</code><code class="sig-name descname">POSKeepFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pos_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSKeepFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.POSKeepFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.POSKeepFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenfilter.</span></span><span class="sig-name descname"><span class="pre">POSKeepFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSKeepFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.POSKeepFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
 <p>A POSKeepFilter keeps tokens associated with part-of-speech tags
 listed in the keep tags list and removes other tokens.</p>
@@ -716,26 +707,26 @@ listed in the keep tags list and removes other tokens.</p>
 ‘動詞,自立,*,*’ and ‘動詞,非自立,*,*’ (or so) are kept.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.tokenfilter.POSKeepFilter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pos_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSKeepFilter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.POSKeepFilter.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.POSKeepFilter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSKeepFilter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.POSKeepFilter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize POSKeepFilter object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pos_list</strong> – keep part-of-speech tags list.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.tokenfilter.POSKeepFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSKeepFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.POSKeepFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.POSKeepFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSKeepFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.POSKeepFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.tokenfilter.POSStopFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenfilter.</code><code class="sig-name descname">POSStopFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pos_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSStopFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.POSStopFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.POSStopFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenfilter.</span></span><span class="sig-name descname"><span class="pre">POSStopFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSStopFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.POSStopFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
 <p>A POSStopFilter removes tokens associated with part-of-speech tags
 listed in the stop tags list and keeps other tokens.</p>
@@ -743,26 +734,26 @@ listed in the stop tags list and keeps other tokens.</p>
 ‘動詞,自立,*,*’ and ‘動詞,非自立,*,*’ (or so) are removed.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.tokenfilter.POSStopFilter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pos_list</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSStopFilter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.POSStopFilter.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.POSStopFilter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSStopFilter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.POSStopFilter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize POSStopFilter object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>pos_list</strong> – stop part-of-speech tags list.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.tokenfilter.POSStopFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSStopFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.POSStopFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.POSStopFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#POSStopFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.POSStopFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.tokenfilter.TokenCountFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenfilter.</code><code class="sig-name descname">TokenCountFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">att</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'surface'</span></em>, <em class="sig-param"><span class="n">sorted</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.TokenCountFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenfilter.</span></span><span class="sig-name descname"><span class="pre">TokenCountFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'surface'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sorted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
 <p>An TokenCountFilter counts word frequencies in the input text. Here, ‘word’ means an attribute of Token.</p>
 <p>This filter generates word-frequency pairs.
@@ -771,11 +762,11 @@ When <cite>sorted</cite> option is set to True, pairs are sorted in descending o
 but string-integer tuples.</p>
 <p>Added in <em>version 0.3.5</em></p>
 <dl class="py method">
-<dt id="janome.tokenfilter.TokenCountFilter.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">att</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'surface'</span></em>, <em class="sig-param"><span class="n">sorted</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter.__init__" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.TokenCountFilter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">att</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'surface'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sorted</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize TokenCountFilter object.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>att</strong> – attribute name should be extraced from a token. valid values for <em>att</em> are ‘surface’,
 ‘part_of_speech’, ‘infl_type’, ‘infl_form’, ‘base_form’, ‘reading’ and ‘phonetic’.</p></li>
@@ -786,36 +777,36 @@ but string-integer tuples.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="janome.tokenfilter.TokenCountFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span>Tuple<span class="p">[</span>str<span class="p">, </span>int<span class="p">]</span><span class="p">]</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.TokenCountFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenCountFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.TokenCountFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.tokenfilter.TokenFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenfilter.</code><code class="sig-name descname">TokenFilter</code><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.TokenFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.TokenFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenfilter.</span></span><span class="sig-name descname"><span class="pre">TokenFilter</span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.TokenFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Base TokenFilter class.</p>
 <p>A TokenFilter modifies or transforms the input token sequence according to the rule described in apply() method.
 Subclasses must implement apply() method.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.tokenfilter.TokenFilter.apply">
-<em class="property">abstract </em><code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span>Any<span class="p">]</span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.TokenFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.TokenFilter.apply">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#TokenFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.TokenFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="janome.tokenfilter.UpperCaseFilter">
-<em class="property">class </em><code class="sig-prename descclassname">janome.tokenfilter.</code><code class="sig-name descname">UpperCaseFilter</code><a class="reference internal" href="_modules/janome/tokenfilter.html#UpperCaseFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.UpperCaseFilter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.UpperCaseFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">janome.tokenfilter.</span></span><span class="sig-name descname"><span class="pre">UpperCaseFilter</span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#UpperCaseFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.UpperCaseFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#janome.tokenfilter.TokenFilter" title="janome.tokenfilter.TokenFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">janome.tokenfilter.TokenFilter</span></code></a></p>
 <p>An UpperCaseFilter converts the surface and base_form of tokens to uppercase.</p>
 <p>Added in <em>version 0.3.4</em></p>
 <dl class="py method">
-<dt id="janome.tokenfilter.UpperCaseFilter.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokens</span><span class="p">:</span> <span class="n">Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token">janome.tokenizer.Token</a><span class="p">]</span><a class="reference internal" href="_modules/janome/tokenfilter.html#UpperCaseFilter.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#janome.tokenfilter.UpperCaseFilter.apply" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="janome.tokenfilter.UpperCaseFilter.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#janome.tokenizer.Token" title="janome.tokenizer.Token"><span class="pre">janome.tokenizer.Token</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/janome/tokenfilter.html#UpperCaseFilter.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#janome.tokenfilter.UpperCaseFilter.apply" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -830,8 +821,9 @@ Subclasses must implement apply() method.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">janome package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-janome.dic">janome.dic module</a></li>
@@ -844,9 +836,12 @@ Subclasses must implement apply() method.</p>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Janome API reference</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Janome API reference</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -858,7 +853,7 @@ Subclasses must implement apply() method.</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -886,7 +881,7 @@ Subclasses must implement apply() method.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Tomoko Uchida.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
   </body>
 </html>
