@@ -66,11 +66,11 @@
 <span class="sd">&gt;&gt;&gt; from janome.analyzer import Analyzer</span>
 <span class="sd">&gt;&gt;&gt; from janome.charfilter import *</span>
 <span class="sd">&gt;&gt;&gt; from janome.tokenfilter import *</span>
-<span class="sd">&gt;&gt;&gt; text = u&#39;蛇の目はPure Ｐｙｔｈｏｎな形態素解析器です。&#39;</span>
-<span class="sd">&gt;&gt;&gt; char_filters = [UnicodeNormalizeCharFilter(), RegexReplaceCharFilter(u&#39;蛇の目&#39;, u&#39;janome&#39;)]</span>
+<span class="sd">&gt;&gt;&gt; text = &#39;蛇の目はPure Ｐｙｔｈｏｎな形態素解析器です。&#39;</span>
+<span class="sd">&gt;&gt;&gt; char_filters = [UnicodeNormalizeCharFilter(), RegexReplaceCharFilter(&#39;蛇の目&#39;, &#39;janome&#39;)]</span>
 <span class="sd">&gt;&gt;&gt; tokenizer = Tokenizer()</span>
 <span class="sd">&gt;&gt;&gt; token_filters = [CompoundNounFilter(), POSStopFilter([&#39;記号&#39;,&#39;助詞&#39;]), LowerCaseFilter()]</span>
-<span class="sd">&gt;&gt;&gt; a = Analyzer(char_filters, tokenizer, token_filters)</span>
+<span class="sd">&gt;&gt;&gt; a = Analyzer(char_filters=char_filters, tokenizer=tokenizer, token_filters=token_filters)</span>
 <span class="sd">&gt;&gt;&gt; for token in a.analyze(text):</span>
 <span class="sd">...     print(token)</span>
 <span class="sd">...</span>
@@ -86,7 +86,7 @@
 <span class="sd">&gt;&gt;&gt; from janome.tokenizer import Tokenizer</span>
 <span class="sd">&gt;&gt;&gt; from janome.analyzer import Analyzer</span>
 <span class="sd">&gt;&gt;&gt; from janome.tokenfilter import *</span>
-<span class="sd">&gt;&gt;&gt; text = u&#39;すもももももももものうち&#39;</span>
+<span class="sd">&gt;&gt;&gt; text = &#39;すもももももももものうち&#39;</span>
 <span class="sd">&gt;&gt;&gt; token_filters = [POSKeepFilter([&#39;名詞&#39;]), TokenCountFilter()]</span>
 <span class="sd">&gt;&gt;&gt; a = Analyzer(token_filters=token_filters)</span>
 <span class="sd">&gt;&gt;&gt; for k, v in a.analyze(text):</span>
@@ -187,7 +187,7 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Tomoko Uchida.
+        &#169; Copyright 2022, Tomoko Uchida.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
   </body>

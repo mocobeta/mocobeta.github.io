@@ -227,7 +227,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Dictionary.lookup"><a class="viewcode-back" href="../../janome.html#janome.dic.Dictionary.lookup">[docs]</a>    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">matcher</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
 <div class="viewcode-block" id="Dictionary.lookup_extra"><a class="viewcode-back" href="../../janome.html#janome.dic.Dictionary.lookup_extra">[docs]</a>    <span class="nd">@abstractmethod</span>
@@ -244,14 +244,12 @@
 <span class="sd">    RAM dictionary class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="RAMDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.RAMDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">compiledFST</span> <span class="o">=</span> <span class="n">compiledFST</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">compiledFST</span><span class="p">)</span>
+<div class="viewcode-block" id="RAMDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.RAMDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">entries</span> <span class="o">=</span> <span class="n">entries</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connections</span> <span class="o">=</span> <span class="n">connections</span></div>
 
-<div class="viewcode-block" id="RAMDictionary.lookup"><a class="viewcode-back" href="../../janome.html#janome.dic.RAMDictionary.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="p">(</span><span class="n">matched</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="viewcode-block" id="RAMDictionary.lookup"><a class="viewcode-back" href="../../janome.html#janome.dic.RAMDictionary.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">matcher</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">matched</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span> <span class="o">=</span> <span class="n">matcher</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">matched</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span>
         <span class="k">try</span><span class="p">:</span>
@@ -284,17 +282,15 @@
 <span class="sd">    MMap dictionary class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="MMapDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.MMapDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries_compact</span><span class="p">,</span> <span class="n">entries_extra</span><span class="p">,</span> <span class="n">open_files</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">compiledFST</span> <span class="o">=</span> <span class="n">compiledFST</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">compiledFST</span><span class="p">)</span>
+<div class="viewcode-block" id="MMapDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.MMapDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries_compact</span><span class="p">,</span> <span class="n">entries_extra</span><span class="p">,</span> <span class="n">open_files</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">entries_compact</span> <span class="o">=</span> <span class="n">entries_compact</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bucket_ranges</span> <span class="o">=</span> <span class="n">entries_compact</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">entries_extra</span> <span class="o">=</span> <span class="n">entries_extra</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">open_files</span> <span class="o">=</span> <span class="n">open_files</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connections</span> <span class="o">=</span> <span class="n">connections</span></div>
 
-<div class="viewcode-block" id="MMapDictionary.lookup"><a class="viewcode-back" href="../../janome.html#janome.dic.MMapDictionary.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="p">(</span><span class="n">matched</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<div class="viewcode-block" id="MMapDictionary.lookup"><a class="viewcode-back" href="../../janome.html#janome.dic.MMapDictionary.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">matcher</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">matched</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span> <span class="o">=</span> <span class="n">matcher</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">matched</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[]</span>
         <span class="k">try</span><span class="p">:</span>
@@ -411,26 +407,6 @@
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div></div>
 
 
-<div class="viewcode-block" id="SystemDictionary"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary">[docs]</a><span class="k">class</span> <span class="nc">SystemDictionary</span><span class="p">(</span><span class="n">RAMDictionary</span><span class="p">,</span> <span class="n">UnknownsDictionary</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    System dictionary class</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="SystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.SystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
-        <span class="n">RAMDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
-        <span class="n">UnknownsDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">)</span></div></div>
-
-
-<div class="viewcode-block" id="MMapSystemDictionary"><a class="viewcode-back" href="../../janome.html#janome.dic.MMapSystemDictionary">[docs]</a><span class="k">class</span> <span class="nc">MMapSystemDictionary</span><span class="p">(</span><span class="n">MMapDictionary</span><span class="p">,</span> <span class="n">UnknownsDictionary</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    MMap System dictionary class</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="MMapSystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.MMapSystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
-        <span class="n">MMapDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_fstdata</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">connections</span><span class="p">)</span>
-        <span class="n">UnknownsDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">)</span></div></div>
-
-
 <div class="viewcode-block" id="UserDictionary"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary">[docs]</a><span class="k">class</span> <span class="nc">UserDictionary</span><span class="p">(</span><span class="n">RAMDictionary</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    User dictionary class (on-the-fly)</span>
@@ -448,9 +424,13 @@
 
 <span class="sd">        .. seealso:: http://mocobeta.github.io/janome/en/#use-with-user-defined-dictionary</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">line_to_entry</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;line_to_entry_&#39;</span> <span class="o">+</span> <span class="nb">type</span><span class="p">)</span>
-        <span class="n">compiledFST</span><span class="p">,</span> <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dic</span><span class="p">(</span><span class="n">user_dict</span><span class="p">,</span> <span class="n">enc</span><span class="p">,</span> <span class="n">progress_handler</span><span class="p">,</span> <span class="n">line_to_entry</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([</span><span class="n">compiledFST</span><span class="p">],</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span></div>
+        <span class="n">fst_data</span><span class="p">,</span> <span class="n">entries</span> <span class="o">=</span> <span class="n">UserDictionary</span><span class="o">.</span><span class="n">build_dic</span><span class="p">(</span><span class="n">user_dict</span><span class="p">,</span> <span class="n">enc</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">progress_handler</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compiledFST</span> <span class="o">=</span> <span class="p">[</span><span class="n">fst_data</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">([</span><span class="n">fst_data</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="UserDictionary.lookup"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="UserDictionary.line_to_entry_ipadic"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary.line_to_entry_ipadic">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">line_to_entry_ipadic</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">line</span><span class="p">):</span>
@@ -469,10 +449,12 @@
         <span class="n">part_of_speech</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">pos_major</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">])</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100000</span><span class="p">,</span> <span class="n">part_of_speech</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="n">reading</span><span class="p">,</span> <span class="n">reading</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UserDictionary.build_dic"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary.build_dic">[docs]</a>    <span class="k">def</span> <span class="nf">build_dic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_dict</span><span class="p">,</span> <span class="n">enc</span><span class="p">,</span> <span class="n">progress_handler</span><span class="p">,</span> <span class="n">line_to_entry</span><span class="p">):</span>
+<div class="viewcode-block" id="UserDictionary.build_dic"><a class="viewcode-back" href="../../janome.html#janome.dic.UserDictionary.build_dic">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">build_dic</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">user_dict</span><span class="p">,</span> <span class="n">enc</span><span class="p">,</span> <span class="n">dict_type</span><span class="p">,</span> <span class="n">progress_handler</span><span class="p">):</span>
         <span class="n">surfaces</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">entries</span> <span class="o">=</span> <span class="p">{}</span>
 
+        <span class="n">line_to_entry</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s1">&#39;line_to_entry_&#39;</span> <span class="o">+</span> <span class="n">dict_type</span><span class="p">)</span>
         <span class="c1"># init progress for reading CSV</span>
         <span class="k">if</span> <span class="n">progress_handler</span><span class="p">:</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">user_dict</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">enc</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -539,10 +521,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="CompiledUserDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.dic.CompiledUserDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic_dir</span><span class="p">,</span> <span class="n">connections</span><span class="p">):</span>
-        <span class="n">data</span><span class="p">,</span> <span class="n">entries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([</span><span class="n">data</span><span class="p">],</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span></div>
+        <span class="n">fst_data</span><span class="p">,</span> <span class="n">entries</span> <span class="o">=</span> <span class="n">CompiledUserDictionary</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">([</span><span class="n">fst_data</span><span class="p">])</span></div>
 
-<div class="viewcode-block" id="CompiledUserDictionary.load_dict"><a class="viewcode-back" href="../../janome.html#janome.dic.CompiledUserDictionary.load_dict">[docs]</a>    <span class="k">def</span> <span class="nf">load_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dic_dir</span><span class="p">):</span>
+<div class="viewcode-block" id="CompiledUserDictionary.lookup"><a class="viewcode-back" href="../../janome.html#janome.dic.CompiledUserDictionary.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CompiledUserDictionary.load_dict"><a class="viewcode-back" href="../../janome.html#janome.dic.CompiledUserDictionary.load_dict">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">load_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dic_dir</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No such directory : </span><span class="si">{</span><span class="n">dic_dir</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">_load</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dic_dir</span><span class="p">,</span> <span class="n">FILE_USER_FST_DATA</span><span class="p">))</span>
@@ -590,7 +577,7 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Tomoko Uchida.
+        &#169; Copyright 2022, Tomoko Uchida.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
     </div>
   </body>

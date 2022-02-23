@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>janome.system_dic &#8212; Janome API reference v0.4</title>
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.4</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">janome.system_dic</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for janome.system_dic</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2022 moco_beta</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="kn">from</span> <span class="nn">.sysdic</span> <span class="kn">import</span> <span class="n">entries</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="p">,</span> <span class="n">unknowns</span>  <span class="c1"># type: ignore</span>
+<span class="kn">from</span> <span class="nn">.dic</span> <span class="kn">import</span> <span class="n">RAMDictionary</span><span class="p">,</span> <span class="n">MMapDictionary</span><span class="p">,</span> <span class="n">UnknownsDictionary</span>
+
+
+<div class="viewcode-block" id="SystemDictionary"><a class="viewcode-back" href="../../janome.html#janome.system_dic.SystemDictionary">[docs]</a><span class="k">class</span> <span class="nc">SystemDictionary</span><span class="p">(</span><span class="n">RAMDictionary</span><span class="p">,</span> <span class="n">UnknownsDictionary</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    System dictionary class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">__INSTANCE</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">__lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SystemDictionary.instance"><a class="viewcode-back" href="../../janome.html#janome.system_dic.SystemDictionary.instance">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__INSTANCE</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__lock</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__INSTANCE</span><span class="p">:</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">__INSTANCE</span> <span class="o">=</span> <span class="n">SystemDictionary</span><span class="p">(</span><span class="n">entries</span><span class="p">(),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__INSTANCE</span></div>
+
+<div class="viewcode-block" id="SystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.system_dic.SystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
+        <span class="n">RAMDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
+        <span class="n">UnknownsDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="MMapSystemDictionary"><a class="viewcode-back" href="../../janome.html#janome.system_dic.MMapSystemDictionary">[docs]</a><span class="k">class</span> <span class="nc">MMapSystemDictionary</span><span class="p">(</span><span class="n">MMapDictionary</span><span class="p">,</span> <span class="n">UnknownsDictionary</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    MMap System dictionary class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">__INSTANCE</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">__lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+<div class="viewcode-block" id="MMapSystemDictionary.instance"><a class="viewcode-back" href="../../janome.html#janome.system_dic.MMapSystemDictionary.instance">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__INSTANCE</span><span class="p">:</span>
+            <span class="k">with</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__lock</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__INSTANCE</span><span class="p">:</span>
+                    <span class="bp">cls</span><span class="o">.</span><span class="n">__INSTANCE</span> <span class="o">=</span> <span class="n">MMapSystemDictionary</span><span class="p">(</span><span class="n">mmap_entries</span><span class="p">(),</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardef</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span> <span class="n">unknowns</span><span class="o">.</span><span class="n">DATA</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__INSTANCE</span></div>
+
+<div class="viewcode-block" id="MMapSystemDictionary.__init__"><a class="viewcode-back" href="../../janome.html#janome.system_dic.MMapSystemDictionary.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">):</span>
+        <span class="n">MMapDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mmap_entries</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">connections</span><span class="p">)</span>
+        <span class="n">UnknownsDictionary</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chardefs</span><span class="p">,</span> <span class="n">unknowns</span><span class="p">)</span></div></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Janome API reference v0.4</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">janome.system_dic</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Tomoko Uchida.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
