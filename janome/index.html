@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="Janome (蛇の目; ◉) は，Pure Python で書かれた，辞書内包の形態素解析器です。依存ライブラリなしで簡単にインストールでき，アプリケーションに組み込みやすいシンプルな API を備える形態素解析ライブラリを目指しています。" name="description" />
 <meta content="python, janome, 形態素解析" name="keywords" />
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
@@ -14,11 +13,10 @@
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/translations.js"></script>
-    <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
+    <link rel="icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" /> 
   </head><body>
@@ -37,40 +35,40 @@
         
         
   <a href="https://github.com/mocobeta/janome"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><section id="welcome-to-janome-s-documentation-japanese">
-<h1>Welcome to janome's documentation! (Japanese)<a class="headerlink" href="#welcome-to-janome-s-documentation-japanese" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>Welcome to janome's documentation! (Japanese)<a class="headerlink" href="#welcome-to-janome-s-documentation-japanese" title="この見出しへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/en/">English</a></p>
 <section id="janome">
-<h2>Janome とは<a class="headerlink" href="#janome" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Janome とは<a class="headerlink" href="#janome" title="この見出しへのパーマリンク">¶</a></h2>
 <a class="reference internal image-reference" href="_images/janome_small.jpg"><img alt="_images/janome_small.jpg" class="align-right" src="_images/janome_small.jpg" style="width: 289.40000000000003px; height: 407.8px;" /></a>
 <p>Janome (蛇の目; ◉) は，Pure Python で書かれた，辞書内包の形態素解析器です。</p>
 <p>依存ライブラリなしで簡単にインストールでき，アプリケーションに組み込みやすいシンプルな API を備える形態素解析ライブラリを目指しています。</p>
 <p>内包辞書として mecab-ipadic-2.7.0-20070801 を使っています。なお，v0.3.8+ では新元号「令和」がシステム辞書に追加されています。</p>
 </section>
 <section id="id1">
-<h2>ソースコードリポジトリ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ソースコードリポジトリ<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mocobeta/janome">https://github.com/mocobeta/janome</a></p>
 <p>気に入ったらリポジトリにも★つけていってください！ :)</p>
 </section>
 <section id="api">
-<h2>API リファレンス<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>API リファレンス<a class="headerlink" href="#api" title="この見出しへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/api/">https://mocobeta.github.io/janome/api/</a></p>
 </section>
 <section id="id2">
-<h2>動作に必要なソフトウェア<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>動作に必要なソフトウェア<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Python 3.7+ インタプリタ</p>
 </section>
 <section id="id3">
-<h2>最新バージョン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>最新バージョン<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>0.4.2</p></li>
+<li><p>0.5.0</p></li>
 </ul>
 </section>
 <section id="id4">
-<h2>インストール<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>インストール<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">¶</a></h2>
 <section id="pypi">
-<h3>PyPI<a class="headerlink" href="#pypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>PyPI<a class="headerlink" href="#pypi" title="この見出しへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install janome
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>janome
 </pre></div>
 </div>
 <div class="admonition note">
@@ -80,7 +78,7 @@
 </section>
 </section>
 <section id="id5">
-<h2>チュートリアル<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>チュートリアル<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">¶</a></h2>
 <p>初心者向けチュートリアル＆ハンズオン教材「Janome ではじめるテキストマイニング」を公開しました。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/mocobeta/janome-tutorial">GitHub リポジトリ</a></p></li>
@@ -89,7 +87,7 @@
 <p>ハンズオンには Google Colab を使っており Web ブラウザがあれば実行できます。janome CLI / API の基本的な使い方，ユーザー辞書・ワードカウント・Analyzer など janome の少しだけ高度な使い方，日本語 WordCloud といった内容について，手を動かしながら身につけられます。</p>
 </section>
 <section id="id6">
-<h2>使い方<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>使い方<a class="headerlink" href="#id6" title="この見出しへのパーマリンク">¶</a></h2>
 <p>janome.tokenizer パッケージの Tokenizer オブジェクトを作り，tokenize() メソッドに解析したい文字列を渡します。</p>
 <p>戻り値は Token オブジェクトのイテレータ (generator) です。Token は表層形や品詞といった形態素情報を含みます。詳しくは <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenizer.Token">リファレンス</a> を参照してください。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
@@ -107,7 +105,7 @@
 </pre></div>
 </div>
 <section id="for-windows-users">
-<h3>for Windows users<a class="headerlink" href="#for-windows-users" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>for Windows users<a class="headerlink" href="#for-windows-users" title="この見出しへのパーマリンク">¶</a></h3>
 <p>文字化けする場合は <code class="docutils literal notranslate"><span class="pre">decode('utf8')</span></code> をかけてください。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
@@ -118,9 +116,9 @@
 </section>
 </section>
 <section id="id8">
-<h2>ユーザー定義辞書を使う<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ユーザー定義辞書を使う<a class="headerlink" href="#id8" title="この見出しへのパーマリンク">¶</a></h2>
 <section id="mecab-ipadic">
-<h3>MeCab IPADIC フォーマット<a class="headerlink" href="#mecab-ipadic" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>MeCab IPADIC フォーマット<a class="headerlink" href="#mecab-ipadic" title="この見出しへのパーマリンク">¶</a></h3>
 <p>デフォルトユーザー定義辞書のフォーマットは，MeCab 辞書と同じです。たとえば以下のような CSV ファイルを作成し，Tokenizer クラスの初期化時にファイルパスとエンコーディングを指定します。</p>
 <p>辞書フォーマットは MeCab の <a class="reference external" href="http://taku910.github.io/mecab/dic.html">ドキュメント</a> をご参照ください。</p>
 <p>userdic.csv</p>
@@ -162,7 +160,7 @@
 </ul>
 </section>
 <section id="v0-2-7">
-<h3>簡略辞書フォーマット (v0.2.7 以上)<a class="headerlink" href="#v0-2-7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>簡略辞書フォーマット (v0.2.7 以上)<a class="headerlink" href="#v0-2-7" title="この見出しへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="https://www.atilika.com/ja/kuromoji/">Kuromoji</a> のユーザー辞書に似た，簡略化された辞書フォーマットです（ただし Janome には search mode がないため，search mode 用の項目はありません）。表層形，品詞，読みのみを記述し，詳細品詞やスコアは指定できません。</p>
 <p>簡略辞書フォーマットを使うには，以下のような「<em>&lt;表層形&gt;,&lt;品詞&gt;,&lt;読み&gt;</em>」を並べた CSV ファイルを用意し，Tokenizer 初期化時にファイルパスと辞書タイプ（<code class="docutils literal notranslate"><span class="pre">udic_type='simpledic'</span></code>）を指定してください。</p>
 <p>user_simpledic.csv</p>
@@ -194,7 +192,7 @@
 </div>
 </section>
 <section id="id11">
-<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>コンパイル済みのユーザー辞書を使う<a class="headerlink" href="#id11" title="この見出しへのパーマリンク">¶</a></h3>
 <p>ユーザー定義辞書は，巨大になるとバイナリコンパイルに時間がかかるため，あらかじめコンパイルしておき，コンパイル済みの辞書を使うことも可能です。</p>
 <p>現在のところ，コンパイルのためのツールはありませんが， <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">API</a> を使ってコンパイルが行えます。 <code class="docutils literal notranslate"><span class="pre">progress_handler</span></code> オプションは v0.4.1 以上でサポートされます。</p>
 <p>辞書のコンパイル(MeCab IPADIC format)</p>
@@ -228,7 +226,7 @@
 </section>
 </section>
 <section id="analyzer-v0-3-4">
-<h2>Analyzer フレームワーク (v0.3.4 以上)<a class="headerlink" href="#analyzer-v0-3-4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Analyzer フレームワーク (v0.3.4 以上)<a class="headerlink" href="#analyzer-v0-3-4" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Analyzer は，形態素解析の前処理・後処理をテンプレ化するためのフレームワークです。Analyzer フレームワークは下記のクラスを含みます。</p>
 <ul class="simple">
 <li><p>文字の正規化などの前処理を行う <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> クラス</p></li>
@@ -236,7 +234,7 @@
 <li><p>CharFilter, Tokenizer, TokenFilter を組み合わせてカスタム解析フローを組み立てる <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> クラス</p></li>
 </ul>
 <section id="id13">
-<h3>Analyzer の使い方<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Analyzer の使い方<a class="headerlink" href="#id13" title="この見出しへのパーマリンク">¶</a></h3>
 <p>Analyzer 初期化時に，CharFilter のリスト，初期化済み Tokenizer オブジェクト，TokenFilter のリストを指定します。0 個以上，任意の数の CharFilter や TokenFilter を指定できます。
 Analyzer を初期化したら，analyze() メソッドに解析したい文字列を渡します。戻り値はトークンの generator です（最後に指定した TokenFilter の出力により，generator の返す要素の型が決まります）。</p>
 <p>以下の実行例では，前処理としてユニコード正規化と正規表現による文字列置換を行い，形態素解析を実行後に，名詞の連続のまとめあげ（複合名詞化），品詞によるフィルタリング，表層形の小文字化という後処理を行っています。</p>
@@ -266,7 +264,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 </section>
 <section id="analyzer-v0-3-5">
-<h3>Analyzer の利用例: ワードカウント (v0.3.5 以上)<a class="headerlink" href="#analyzer-v0-3-5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Analyzer の利用例: ワードカウント (v0.3.5 以上)<a class="headerlink" href="#analyzer-v0-3-5" title="この見出しへのパーマリンク">¶</a></h3>
 <p>TokenCountFilter を使うと，入力文字列中の単語出現頻度を数えることができます。以下は，文字列中の名詞の出現回数を数える例です（POSKeepFilterで名詞のみフィルタしています）。戻り値の各要素は，単語（表層形）とその出現回数のタプルになります。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="kn">import</span> <span class="n">Analyzer</span>
@@ -299,7 +297,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </section>
 </section>
 <section id="v0-3-1-v0-3-10">
-<h2>ストリーミングモード (v0.3.1 以上 v0.3.10 まで)<a class="headerlink" href="#v0-3-1-v0-3-10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>ストリーミングモード (v0.3.1 以上 v0.3.10 まで)<a class="headerlink" href="#v0-3-1-v0-3-10" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>v0.4.0 から，ストリーミングモードのみサポートしており， <code class="docutils literal notranslate"><span class="pre">stream</span></code> オプションは廃止されました。</p>
@@ -315,7 +313,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 </section>
 <section id="v0-3-1">
-<h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#v0-3-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>分かち書きモード (v0.3.1 以上)<a class="headerlink" href="#v0-3-1" title="この見出しへのパーマリンク">¶</a></h2>
 <p>tokenize() メソッドに <code class="docutils literal notranslate"><span class="pre">wakati</span> <span class="pre">=</span> <span class="pre">True</span></code> オプションを与えると，分かち書きモード（表層形のみを返すモード）で動作します。分かち書きモードで解析した場合の戻り値は，Token オブジェクトのリストではなく文字列 (str) のリストになります。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -336,7 +334,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 </section>
 <section id="experimental-neologd-v0-3-3">
-<h2>(experimental) NEologd 辞書を使う (v0.3.3 以上)<a class="headerlink" href="#experimental-neologd-v0-3-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>(experimental) NEologd 辞書を使う (v0.3.3 以上)<a class="headerlink" href="#experimental-neologd-v0-3-3" title="この見出しへのパーマリンク">¶</a></h2>
 <p>NEologd 辞書を内包した janome パッケージを作成する手順を以下で公開しています。実験的なものなので，諸々了解のうえお試しください :)</p>
 <p><a class="reference external" href="https://github.com/mocobeta/janome/wiki/(very-experimental)-NEologd-%E8%BE%9E%E6%9B%B8%E3%82%92%E5%86%85%E5%8C%85%E3%81%97%E3%81%9F-janome-%E3%82%92%E3%83%93%E3%83%AB%E3%83%89%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">NEologd 辞書を内包した janome をビルドする方法</a></p>
 <p>v0.3.7 より，janome コマンド (後述) が NEologd 辞書内包版にも対応しました。NEologd 内包版は mmap モード (後述) のみで動作するため， <code class="docutils literal notranslate"><span class="pre">-m</span></code> オプションをつけて実行してください。</p>
@@ -345,7 +343,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 </section>
 <section id="memory-mapped-file-v0-3-3">
-<h2>Memory-mapped file サポート (v0.3.3 以上)<a class="headerlink" href="#memory-mapped-file-v0-3-3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Memory-mapped file サポート (v0.3.3 以上)<a class="headerlink" href="#memory-mapped-file-v0-3-3" title="この見出しへのパーマリンク">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>v0.4.0 以上では， 64bit アーキテクチャにおいて <code class="docutils literal notranslate"><span class="pre">mmap=True</span></code> がデフォルトになりました（32bit アーキテクチャでのデフォルトは <code class="docutils literal notranslate"><span class="pre">False</span></code>）。</p>
@@ -354,17 +352,17 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 <p>Tokenizer の初期化時，プロセス空間に辞書エントリをロードしないため，初期化が高速になります。</p>
 </section>
 <section id="graphviz-dot-v0-3-7">
-<h2>Graphviz ファイル (DOT ファイル) 出力 (v0.3.7 以上)<a class="headerlink" href="#graphviz-dot-v0-3-7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Graphviz ファイル (DOT ファイル) 出力 (v0.3.7 以上)<a class="headerlink" href="#graphviz-dot-v0-3-7" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Tokenizer.tokenize() メソッドに <code class="docutils literal notranslate"><span class="pre">dotfile=&lt;dotfile</span> <span class="pre">output</span> <span class="pre">path&gt;</span></code> オプションを与えると，解析時のラティスグラフを <a class="reference external" href="https://graphviz.gitlab.io/">Graphviz</a> の DOT ファイルに変換して指定のパスに出力します。パフォーマンス上の理由により，ストリーミングモードで実行時，またはとても長いテキストを与えた場合は，このオプションは無視されます。</p>
 <p>この機能は，janome コマンド（後述）から利用するのが便利です。</p>
 </section>
 <section id="linux-mac-v0-2-6-windows-v0-3-7">
-<h2>コマンドラインから使う (Linux/Mac v0.2.6 以上，Windows v0.3.7 以上)<a class="headerlink" href="#linux-mac-v0-2-6-windows-v0-3-7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>コマンドラインから使う (Linux/Mac v0.2.6 以上，Windows v0.3.7 以上)<a class="headerlink" href="#linux-mac-v0-2-6-windows-v0-3-7" title="この見出しへのパーマリンク">¶</a></h2>
 <p>コマンドラインから実行可能なスクリプト <code class="docutils literal notranslate"><span class="pre">janome</span></code> がついています。</p>
 <p>簡単に動作を確認したいときにお使いください。</p>
 <p>標準入力から文字列を受け取り，形態素解析を実行します。指定できるオプションを見るには &quot;janome -h&quot; とタイプしてください。また，&quot;janome --version&quot; でインストールされているバージョンが確認できます(v0.3.7 以上)。</p>
 <section id="linux-mac">
-<h3>Linux/Mac<a class="headerlink" href="#linux-mac" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Linux/Mac<a class="headerlink" href="#linux-mac" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
 猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
@@ -377,7 +375,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 </section>
 <section id="windows">
-<h3>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windows<a class="headerlink" href="#windows" title="この見出しへのパーマリンク">¶</a></h3>
 <p>文字化けする場合， <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">sjis</span></code> オプションをつけるといいでしょう。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">janome</span> <span class="o">-</span><span class="n">e</span> <span class="n">sjis</span>
 <span class="n">ウィンドウズでも簡単インストール</span>
@@ -391,7 +389,7 @@ Analyzer を初期化したら，analyze() メソッドに解析したい文字�
 </div>
 </section>
 <section id="id14">
-<h3>ラティス可視化<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>ラティス可視化<a class="headerlink" href="#id14" title="この見出しへのパーマリンク">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>この機能を実行するには，Graphviz が必要です。 <a class="reference external" href="https://graphviz.gitlab.io/download/">こちら</a> の手順で事前にインストールしてください。</p>
@@ -415,7 +413,7 @@ Graph was successfully output to /tmp/a.gv.svg
 </section>
 </section>
 <section id="pyinstaller-v0-3-9">
-<h2>PyInstaller でアプリケーションにバンドルする (v0.3.9+)<a class="headerlink" href="#pyinstaller-v0-3-9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>PyInstaller でアプリケーションにバンドルする (v0.3.9+)<a class="headerlink" href="#pyinstaller-v0-3-9" title="この見出しへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://www.pyinstaller.org/">PyInstaller</a> で janome をアプリケーションにバンドルして，実行可能ファイルとして配布できます。</p>
 <p>Tokenizer 初期化時に <code class="docutils literal notranslate"><span class="pre">mmap=False</span></code> オプションをつけてください。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ janome --version
@@ -444,7 +442,7 @@ test
 </div>
 </section>
 <section id="id17">
-<h2>よくある（かもしれない）質問<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>よくある（かもしれない）質問<a class="headerlink" href="#id17" title="この見出しへのパーマリンク">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li><p>Tokenizer の初期化が遅いんだけど。</p></li>
 </ol>
@@ -505,25 +503,26 @@ test
 </ol>
 </section>
 <section id="for-contributors">
-<h2>For Contributors<a class="headerlink" href="#for-contributors" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>For Contributors<a class="headerlink" href="#for-contributors" title="この見出しへのパーマリンク">¶</a></h2>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/CONTRIBUTING.md">https://github.com/mocobeta/janome/blob/master/CONTRIBUTING.md</a></p>
 </section>
 <section id="id21">
-<h2>作者について<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>作者について<a class="headerlink" href="#id21" title="この見出しへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mocobeta/mocobeta/blob/main/profile.md">プロフィール</a></p>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>License<a class="headerlink" href="#license" title="この見出しへのパーマリンク">¶</a></h2>
 <p>Licensed under Apache License 2.0 and uses the MeCab-IPADIC dictionary/statistical model.</p>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/LICENSE.txt">LICENSE.txt</a> and <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/NOTICE.txt">NOTICE.txt</a> for license details.</p>
 </section>
 <section id="copyright">
-<h2>Copyright<a class="headerlink" href="#copyright" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Copyright(C) 2022, Tomoko Uchida. All rights reserved.</p>
+<h2>Copyright<a class="headerlink" href="#copyright" title="この見出しへのパーマリンク">¶</a></h2>
+<p>Copyright(C) 2015-2023, Tomoko Uchida. All rights reserved.</p>
 </section>
 <section id="history">
-<h2>History<a class="headerlink" href="#history" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>History<a class="headerlink" href="#history" title="この見出しへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li><p>2023.07.01 janome Version 0.5.0 released <a href="#id23"><span class="problematic" id="id24">`[Release Note] &lt;https://github.com/mocobeta/janome/releases/tag/0.5.0`_</span></a></p></li>
 <li><p>2022.02.23 janome Version 0.4.2 released <a class="reference external" href="https://github.com/mocobeta/janome/releases/tag/0.4.2">[Release Note]</a></p></li>
 <li><p>2020.09.21 janome Version 0.4.1 released</p></li>
 <li><p>2020.08.23 janome Version 0.4.0 released</p></li>
@@ -566,7 +565,7 @@ test
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Tomoko Uchida.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

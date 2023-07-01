@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -9,10 +8,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/nature.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="icon" href="../../_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
   </head><body>
@@ -103,7 +101,7 @@
 
 
 <div class="viewcode-block" id="Analyzer"><a class="viewcode-back" href="../../janome.html#janome.analyzer.Analyzer">[docs]</a><span class="k">class</span> <span class="nc">Analyzer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An Analyzer analyzes Japanese texts with customized :class:`.CharFilter` chain,</span>
 <span class="sd">    :class:`.Tokenizer` and :class:`.TokenFilter` chain.</span>
 
@@ -114,7 +112,7 @@
                  <span class="n">char_filters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">CharFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
                  <span class="n">tokenizer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tokenizer</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">token_filters</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TokenFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize Analyzer object with CharFilters, a Tokenizer and TokenFilters.</span>
 
 <span class="sd">        :param char_filters: (Optional) CharFilters list. CharFilters are applied to the input text</span>
@@ -135,7 +133,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">token_filters</span> <span class="o">=</span> <span class="n">token_filters</span></div>
 
 <div class="viewcode-block" id="Analyzer.analyze"><a class="viewcode-back" href="../../janome.html#janome.analyzer.Analyzer.analyze">[docs]</a>    <span class="k">def</span> <span class="nf">analyze</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Analyze the input text with custom CharFilters, Tokenizer and TokenFilters.</span>
 
 <span class="sd">        :param text: unicode string to be tokenized</span>
@@ -166,7 +164,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -187,7 +185,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Tomoko Uchida.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

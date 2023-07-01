@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="Janome (蛇の目; ◉) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model. We aim to build a library which is easy to install and provides concise, well-designed APIs for various python applications." name="description" />
 <meta content="python, janome, pos tagger, tokenizer, morphological analysis, japanese" name="keywords" />
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
@@ -14,10 +13,9 @@
     <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <link rel="shortcut icon" href="_static/bronze-25C9.png"/>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="icon" href="_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
   </head><body>
@@ -36,40 +34,40 @@
         
         
   <a href="https://github.com/mocobeta/janome"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><section id="welcome-to-janome-s-documentation-english">
-<h1>Welcome to janome’s documentation! (English)<a class="headerlink" href="#welcome-to-janome-s-documentation-english" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to janome’s documentation! (English)<a class="headerlink" href="#welcome-to-janome-s-documentation-english" title="Permalink to this heading">¶</a></h1>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/">日本語</a></p>
 <section id="what-s-janome">
-<h2>What’s Janome?<a class="headerlink" href="#what-s-janome" title="Permalink to this headline">¶</a></h2>
+<h2>What’s Janome?<a class="headerlink" href="#what-s-janome" title="Permalink to this heading">¶</a></h2>
 <a class="reference internal image-reference" href="_images/janome_small.jpg"><img alt="_images/janome_small.jpg" class="align-right" src="_images/janome_small.jpg" style="width: 289.40000000000003px; height: 407.8px;" /></a>
 <p>Janome (蛇の目; ◉) is a Japanese morphological analysis engine (or tokenizer, pos-tagger) written in pure Python including the built-in dictionary and the language model.</p>
 <p>We aim to build a library which is easy to install and provides concise, well-designed APIs for various python applications.</p>
 <p>Janome uses mecab-ipadic-2.7.0-20070801 as the built-in dictionary. Also Japanese new era “令和” (Reiwa) has been added to the dictionary since v0.3.8.</p>
 </section>
 <section id="source-code">
-<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mocobeta/janome">https://github.com/mocobeta/janome</a></p>
 <p>If you like janome, please star the repository! :)</p>
 </section>
 <section id="api-reference">
-<h2>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<h2>API reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="http://mocobeta.github.io/janome/api/">https://mocobeta.github.io/janome/api/</a></p>
 </section>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">¶</a></h2>
 <p>Python 3.7+ interpreter</p>
 </section>
 <section id="latest-version">
-<h2>Latest version<a class="headerlink" href="#latest-version" title="Permalink to this headline">¶</a></h2>
+<h2>Latest version<a class="headerlink" href="#latest-version" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>0.4.2</p></li>
+<li><p>0.5.0</p></li>
 </ul>
 </section>
 <section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h2>
 <section id="pypi">
-<h3>PyPI<a class="headerlink" href="#pypi" title="Permalink to this headline">¶</a></h3>
+<h3>PyPI<a class="headerlink" href="#pypi" title="Permalink to this heading">¶</a></h3>
 <p><a class="reference external" href="https://pypi.python.org/pypi/Janome">https://pypi.python.org/pypi/Janome</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install janome
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>janome
 </pre></div>
 </div>
 <div class="admonition note">
@@ -79,7 +77,7 @@
 </section>
 </section>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
 <p>Create janome.tokenizer.Tokenizer object and call tokenize() method with the sentences you want to analyze.</p>
 <p>The return value is a gnerator of Token objects. Token includes morphologic information such as surface form, part-of-speech. See <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.tokenizer.Token">reference</a> for more details.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
@@ -97,7 +95,7 @@
 </pre></div>
 </div>
 <section id="for-windows-users">
-<h3>for Windows users<a class="headerlink" href="#for-windows-users" title="Permalink to this headline">¶</a></h3>
+<h3>for Windows users<a class="headerlink" href="#for-windows-users" title="Permalink to this heading">¶</a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">decode('utf8')</span></code> if the output is garbled.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
@@ -108,9 +106,9 @@
 </section>
 </section>
 <section id="how-to-use-with-user-defined-dictionary">
-<h2>How to use with user defined dictionary<a class="headerlink" href="#how-to-use-with-user-defined-dictionary" title="Permalink to this headline">¶</a></h2>
+<h2>How to use with user defined dictionary<a class="headerlink" href="#how-to-use-with-user-defined-dictionary" title="Permalink to this heading">¶</a></h2>
 <section id="mecab-ipadic-format">
-<h3>MeCab IPADIC format<a class="headerlink" href="#mecab-ipadic-format" title="Permalink to this headline">¶</a></h3>
+<h3>MeCab IPADIC format<a class="headerlink" href="#mecab-ipadic-format" title="Permalink to this heading">¶</a></h3>
 <p>You can add custom entries besides the built-in dictionary at runtime by using user defined dictionary.</p>
 <p>Default dictionary format is equal to MeCab IPADIC format. Create a CSV file as below and pass the file path and the character encoding to Tokenizer’s constructor.</p>
 <p>See the <a class="reference external" href="http://taku910.github.io/mecab/dic.html">MeCab document</a> for more details.</p>
@@ -144,7 +142,7 @@
 </div>
 </section>
 <section id="simplified-dictionary-format-v0-2-7">
-<h3>Simplified dictionary format (v0.2.7+)<a class="headerlink" href="#simplified-dictionary-format-v0-2-7" title="Permalink to this headline">¶</a></h3>
+<h3>Simplified dictionary format (v0.2.7+)<a class="headerlink" href="#simplified-dictionary-format-v0-2-7" title="Permalink to this heading">¶</a></h3>
 <p>Janome provides alternative simplified dictionary format similar to <a class="reference external" href="https://www.atilika.com/en/kuromoji/">Kuromoji</a> user dictionary. This format supports surface form, part-of-speech and reading only.</p>
 <p>To use simplified dictionary format, create a CSV file that includes “&lt;surface form&gt;,&lt;part-of-speech&gt;,&lt;reading&gt;” in each line (see the example below) and pass the file path and the dictionary type <code class="docutils literal notranslate"><span class="pre">(udic_type='simpledic')</span></code> to Tokenizer’s constructor.</p>
 <p>user_simpledic.csv</p>
@@ -176,7 +174,7 @@
 </div>
 </section>
 <section id="pre-compiled-user-dictionary">
-<h3>Pre-compiled user dictionary<a class="headerlink" href="#pre-compiled-user-dictionary" title="Permalink to this headline">¶</a></h3>
+<h3>Pre-compiled user dictionary<a class="headerlink" href="#pre-compiled-user-dictionary" title="Permalink to this heading">¶</a></h3>
 <p>With large user dictionary, it can take much time to convert CSV file to the binary data structure. You can compile the user dictionary in advance and use that at runtime.</p>
 <p>For now, there is no tools for compiling user dictionary. Use <a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary">APIs</a> as below. <code class="docutils literal notranslate"><span class="pre">progress_handler</span></code> option is supported in v0.4.1 or above.</p>
 <p>How to compile user dictionary (MeCab IPADIC format):</p>
@@ -210,7 +208,7 @@
 </section>
 </section>
 <section id="experimental-analyzer-framework-v0-3-4">
-<h2>(experimental) Analyzer framework (v0.3.4+)<a class="headerlink" href="#experimental-analyzer-framework-v0-3-4" title="Permalink to this headline">¶</a></h2>
+<h2>(experimental) Analyzer framework (v0.3.4+)<a class="headerlink" href="#experimental-analyzer-framework-v0-3-4" title="Permalink to this heading">¶</a></h2>
 <p>Analyzer framework is for pre- and post- processing. Analyzer framework includes following classes.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter">CharFilter</a> class performs pre-processing such as character normalization.</p></li>
@@ -218,7 +216,7 @@
 <li><p><a class="reference external" href="http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer">Analyzer</a> class combines CharFilters, a Tokenizer and TokenFilters to assemble custom analysis chain.</p></li>
 </ul>
 <section id="analyzser-usage">
-<h3>Analyzser usage<a class="headerlink" href="#analyzser-usage" title="Permalink to this headline">¶</a></h3>
+<h3>Analyzser usage<a class="headerlink" href="#analyzser-usage" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="kn">import</span> <span class="n">Analyzer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.charfilter</span> <span class="kn">import</span> <span class="o">*</span>
@@ -241,7 +239,7 @@
 </div>
 </section>
 <section id="analyzer-usage-for-word-count-v0-3-5">
-<h3>Analyzer usage for word count (v0.3.5+)<a class="headerlink" href="#analyzer-usage-for-word-count-v0-3-5" title="Permalink to this headline">¶</a></h3>
+<h3>Analyzer usage for word count (v0.3.5+)<a class="headerlink" href="#analyzer-usage-for-word-count-v0-3-5" title="Permalink to this heading">¶</a></h3>
 <p>You can count word frequencies in the input text by using TokenCountFilter.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">janome.analyzer</span> <span class="kn">import</span> <span class="n">Analyzer</span>
@@ -261,7 +259,7 @@
 </section>
 </section>
 <section id="streaming-mode-v0-3-1-v0-3-10">
-<h2>Streaming mode (v0.3.1 - v0.3.10)<a class="headerlink" href="#streaming-mode-v0-3-1-v0-3-10" title="Permalink to this headline">¶</a></h2>
+<h2>Streaming mode (v0.3.1 - v0.3.10)<a class="headerlink" href="#streaming-mode-v0-3-1-v0-3-10" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As of v0.4.0, janome supports streaming mode only; <code class="docutils literal notranslate"><span class="pre">stream</span></code> option was removed.</p>
@@ -277,7 +275,7 @@
 </div>
 </section>
 <section id="wakati-gaki-mode-v0-3-1">
-<h2>‘wakati-gaki’ mode (v0.3.1+)<a class="headerlink" href="#wakati-gaki-mode-v0-3-1" title="Permalink to this headline">¶</a></h2>
+<h2>‘wakati-gaki’ mode (v0.3.1+)<a class="headerlink" href="#wakati-gaki-mode-v0-3-1" title="Permalink to this heading">¶</a></h2>
 <p>When ‘wakati = True’ option is given to tokenize() method, it runs on ‘wakati-gaki’ (‘分かち書き’) mode. On wakati-gaki mode, tokenize() method returns sufrace forms only. Return type is a list of string, not list of Token.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s1">&#39;分かち書きモードがつきました！&#39;</span><span class="p">,</span> <span class="n">wakati</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -298,7 +296,7 @@
 </div>
 </section>
 <section id="memory-mapped-file-support-v0-3-3">
-<h2>Memory-mapped file support (v0.3.3+)<a class="headerlink" href="#memory-mapped-file-support-v0-3-3" title="Permalink to this headline">¶</a></h2>
+<h2>Memory-mapped file support (v0.3.3+)<a class="headerlink" href="#memory-mapped-file-support-v0-3-3" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Since v0.4.0 release, the default value of <code class="docutils literal notranslate"><span class="pre">mmap</span></code> option is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> on 64bit architecture. On 32bit architecture, the default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
@@ -306,16 +304,16 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">mmap=True</span></code> option is given to Tokenizer.__init__(), dictionary entries are not loaded to process space but searched through memory-mapped file.</p>
 </section>
 <section id="graphviz-file-dot-file-support-v0-3-7">
-<h2>Graphviz file (DOT file) support (v0.3.7+)<a class="headerlink" href="#graphviz-file-dot-file-support-v0-3-7" title="Permalink to this headline">¶</a></h2>
+<h2>Graphviz file (DOT file) support (v0.3.7+)<a class="headerlink" href="#graphviz-file-dot-file-support-v0-3-7" title="Permalink to this heading">¶</a></h2>
 <p>When <code class="docutils literal notranslate"><span class="pre">dotfile=&lt;dotfile</span> <span class="pre">output</span> <span class="pre">path&gt;</span></code> option is given, Tokenizer.tokenize() method converts the lattice graph to <a class="reference external" href="https://graphviz.gitlab.io/">Graphviz</a> DOT file. For performance reasons, this option is ignored when running on streaming mode or analyzing very long text.</p>
 <p><code class="docutils literal notranslate"><span class="pre">janome</span></code> command (the details are mentioned later) has options to visualize the lattice graph easily.</p>
 </section>
 <section id="command-line-interface-linux-mac-v0-2-6-windows-v0-3-7">
-<h2>Command-line interface (Linux/Mac v0.2.6+, Windows v0.3.7+)<a class="headerlink" href="#command-line-interface-linux-mac-v0-2-6-windows-v0-3-7" title="Permalink to this headline">¶</a></h2>
+<h2>Command-line interface (Linux/Mac v0.2.6+, Windows v0.3.7+)<a class="headerlink" href="#command-line-interface-linux-mac-v0-2-6-windows-v0-3-7" title="Permalink to this heading">¶</a></h2>
 <p>Janome has executable built-in script “janome” for command-line usage.</p>
 <p>It reads a sentence at a time from standard input and outputs the analyzed results. To see supported options, type “janome -h”.</p>
 <section id="linux-mac">
-<h3>Linux/Mac<a class="headerlink" href="#linux-mac" title="Permalink to this headline">¶</a></h3>
+<h3>Linux/Mac<a class="headerlink" href="#linux-mac" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(env)$ janome
 猫は液体である
 猫    名詞,一般,*,*,*,*,猫,ネコ,ネコ
@@ -328,7 +326,7 @@
 </div>
 </section>
 <section id="windows">
-<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">¶</a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">sjis</span></code> option if the output is garbled.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">janome</span> <span class="o">-</span><span class="n">e</span> <span class="n">sjis</span>
 <span class="n">ウィンドウズでも簡単インストール</span>
@@ -342,7 +340,7 @@
 </div>
 </section>
 <section id="visualizing-lattice-graph">
-<h3>Visualizing lattice graph<a class="headerlink" href="#visualizing-lattice-graph" title="Permalink to this headline">¶</a></h3>
+<h3>Visualizing lattice graph<a class="headerlink" href="#visualizing-lattice-graph" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You need Graphviz to use this functionality. Please install Graphviz from <a class="reference external" href="https://graphviz.gitlab.io/download/">here</a>.</p>
@@ -366,7 +364,7 @@ Graph was successfully output to /tmp/a.gv.svg
 </section>
 </section>
 <section id="how-to-bundle-janome-with-an-application-by-pyinstaller-v0-3-9">
-<h2>How to bundle janome with an application by PyInstaller (v0.3.9+)<a class="headerlink" href="#how-to-bundle-janome-with-an-application-by-pyinstaller-v0-3-9" title="Permalink to this headline">¶</a></h2>
+<h2>How to bundle janome with an application by PyInstaller (v0.3.9+)<a class="headerlink" href="#how-to-bundle-janome-with-an-application-by-pyinstaller-v0-3-9" title="Permalink to this heading">¶</a></h2>
 <p>You can create (and distribute) stand-alone executables which bundle janome by <a class="reference external" href="https://www.pyinstaller.org/">PyInstaller</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mmap=False</span></code> option is required when initializing Tokenizer.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(venv) $ janome --version
@@ -395,7 +393,7 @@ test
 </div>
 </section>
 <section id="faq">
-<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading">¶</a></h2>
 <ol class="upperalpha simple" start="17">
 <li><p>How is the accuracy of analysis?</p></li>
 </ol>
@@ -422,25 +420,26 @@ test
 </ol>
 </section>
 <section id="for-contributors">
-<h2>For Contributors<a class="headerlink" href="#for-contributors" title="Permalink to this headline">¶</a></h2>
+<h2>For Contributors<a class="headerlink" href="#for-contributors" title="Permalink to this heading">¶</a></h2>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/CONTRIBUTING.md">https://github.com/mocobeta/janome/blob/master/CONTRIBUTING.md</a></p>
 </section>
 <section id="author">
-<h2>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
+<h2>Author<a class="headerlink" href="#author" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://github.com/mocobeta/mocobeta/blob/main/profile.md">Profile</a></p>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading">¶</a></h2>
 <p>Licensed under Apache License 2.0 and uses the MeCab-IPADIC dictionary/statistical model.</p>
 <p>See <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/LICENSE.txt">LICENSE.txt</a> and <a class="reference external" href="https://github.com/mocobeta/janome/blob/master/NOTICE.txt">NOTICE.txt</a> for license details.</p>
 </section>
 <section id="copyright">
-<h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h2>
-<p>Copyright(C) 2022, Tomoko Uchida. All rights reserved.</p>
+<h2>Copyright<a class="headerlink" href="#copyright" title="Permalink to this heading">¶</a></h2>
+<p>Copyright(C) 2015-2023, Tomoko Uchida. All rights reserved.</p>
 </section>
 <section id="history">
-<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<h2>History<a class="headerlink" href="#history" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
+<li><p>2023.07.01 janome Version 0.5.0 released <a href="#id3"><span class="problematic" id="id4">`[Release Note] &lt;https://github.com/mocobeta/janome/releases/tag/0.5.0`_</span></a></p></li>
 <li><p>2022.02.23 janome Version 0.4.2 released <a class="reference external" href="https://github.com/mocobeta/janome/releases/tag/0.4.2">[Release Note]</a></p></li>
 <li><p>2020.09.21 janome Version 0.4.1 released</p></li>
 <li><p>2020.08.23 janome Version 0.4.0 released</p></li>
@@ -483,7 +482,7 @@ test
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Tomoko Uchida.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>

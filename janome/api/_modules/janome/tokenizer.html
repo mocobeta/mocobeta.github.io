@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -9,10 +8,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/nature.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <link rel="shortcut icon" href="../../_static/bronze-25C9.png"/>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <link rel="icon" href="../../_static/bronze-25C9.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
   </head><body>
@@ -149,11 +147,11 @@
 
 
 <div class="viewcode-block" id="Token"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token">[docs]</a><span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A Token object contains all information for a token.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Token.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">extra</span><span class="p">:</span> <span class="n">Tuple</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Token.__init__"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Token.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">Node</span><span class="p">,</span> <span class="n">extra</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="n">node</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="o">=</span> <span class="n">extra</span></div>
 
@@ -187,7 +185,7 @@
 
 
 <div class="viewcode-block" id="Tokenizer"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer">[docs]</a><span class="k">class</span> <span class="nc">Tokenizer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A Tokenizer tokenizes Japanese texts with system and optional user defined dictionary.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">MAX_CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
@@ -200,7 +198,7 @@
                  <span class="n">wakati</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                  <span class="n">mmap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">DEFAULT_MMAP_MODE</span><span class="p">,</span>
                  <span class="n">dotfile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize Tokenizer object with optional arguments.</span>
 
 <span class="sd">        :param udic: (Optional) user dictionary file (CSV format) or directory path to compiled dictionary data</span>
@@ -238,7 +236,7 @@
 
 <div class="viewcode-block" id="Tokenizer.tokenize"><a class="viewcode-back" href="../../janome.html#janome.tokenizer.Tokenizer.tokenize">[docs]</a>    <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">wakati</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">baseform_unk</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dotfile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> \
             <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Token</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Tokenize the input text.</span>
 
 <span class="sd">        :param text: unicode string to be tokenized</span>
@@ -370,7 +368,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -391,7 +389,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Tomoko Uchida.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
     </div>
   </body>
 </html>
