@@ -1,5 +1,5 @@
 ---
 layout: forward
 target: https://janome.mocobeta.dev/en/
-time: 5
+time: 3
 ---
