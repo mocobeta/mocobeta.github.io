@@ -14,7 +14,7 @@
 Welcome to janome's documentation! (English)
 =============================================
 
-`日本語 <http://mocobeta.github.io/janome/>`_
+`日本語 <http://janome.mocobeta.dev/ja/>`_
 
 What's Janome?
 --------------
@@ -39,12 +39,12 @@ If you like janome, please star the repository! :)
 API reference
 -------------
 
-`https://mocobeta.github.io/janome/api/ <http://mocobeta.github.io/janome/api/>`_
+`https://janome.mocobeta.dev/reference/ <http://janome.mocobeta.dev/reference/>`_
 
 Requirements
 ------------
 
-Python 3.7+ interpreter
+Python 3.10+ interpreter
 
 Latest version
 --------------
@@ -70,7 +70,7 @@ Usage
 
 Create janome.tokenizer.Tokenizer object and call tokenize() method with the sentences you want to analyze.
 
-The return value is a gnerator of Token objects. Token includes morphologic information such as surface form, part-of-speech. See `reference <http://mocobeta.github.io/janome/api/janome.html#janome.tokenizer.Token>`_ for more details.
+The return value is a gnerator of Token objects. Token includes morphologic information such as surface form, part-of-speech. See `reference <http://janome.mocobeta.dev/reference/janome.html#janome.tokenizer.Token>`_ for more details.
 
 ::
 
@@ -182,7 +182,7 @@ Pre-compiled user dictionary
 
 With large user dictionary, it can take much time to convert CSV file to the binary data structure. You can compile the user dictionary in advance and use that at runtime.
 
-For now, there is no tools for compiling user dictionary. Use `APIs <http://mocobeta.github.io/janome/api/janome.html#janome.dic.UserDictionary>`_ as below. ``progress_handler`` option is supported in v0.4.1 or above.
+For now, there is no tools for compiling user dictionary. Use `APIs <http://janome.mocobeta.dev/reference/janome.html#janome.dic.UserDictionary>`_ as below. ``progress_handler`` option is supported in v0.4.1 or above.
 
 How to compile user dictionary (MeCab IPADIC format): ::
 
@@ -194,7 +194,7 @@ How to compile user dictionary (MeCab IPADIC format): ::
   Running create_minimum_transducer: 100.0% | 17149/17149
   >>> user_dict.save("/tmp/userdic")
 
-How to compile user dictionary (simplified format): ::  
+How to compile user dictionary (simplified format): ::
 
   >>> from janome.dic import UserDictionary
   >>> from janome import sysdic
@@ -217,9 +217,9 @@ Once compiling has been successfully completed, the data is saved in ``/tmp/user
 
 Analyzer framework is for pre- and post- processing. Analyzer framework includes following classes.
 
-* `CharFilter <http://mocobeta.github.io/janome/api/janome.html#janome.charfilter.CharFilter>`_ class performs pre-processing such as character normalization.
-* `TokenFilter <http://mocobeta.github.io/janome/api/janome.html#janome.tokenfilter.TokenFilter>`_ class performs post-processing such as lowercase/uppercase conversion, token filtering by POS tags.
-* `Analyzer <http://mocobeta.github.io/janome/api/janome.html#janome.analyzer.Analyzer>`_ class combines CharFilters, a Tokenizer and TokenFilters to assemble custom analysis chain.
+* `CharFilter <http://janome.mocobeta.dev/reference/janome.html#janome.charfilter.CharFilter>`_ class performs pre-processing such as character normalization.
+* `TokenFilter <http://janome.mocobeta.dev/reference/janome.html#janome.tokenfilter.TokenFilter>`_ class performs post-processing such as lowercase/uppercase conversion, token filtering by POS tags.
+* `Analyzer <http://janome.mocobeta.dev/reference/janome.html#janome.analyzer.Analyzer>`_ class combines CharFilters, a Tokenizer and TokenFilters to assemble custom analysis chain.
 
 Analyzser usage
 ^^^^^^^^^^^^^^^^^^^^
@@ -237,7 +237,7 @@ Analyzser usage
   >>> a = Analyzer(char_filters=char_filters, tokenizer=tokenizer, token_filters=token_filters)
   >>> for token in a.analyze(text):
   ...     print(token)
-  ... 
+  ...
   janome  名詞,固有名詞,組織,*,*,*,*,*,*
   pure    名詞,固有名詞,組織,*,*,*,*,*,*
   python  名詞,一般,*,*,*,*,*,*,*
@@ -368,14 +368,14 @@ Use ``-e sjis`` option if the output is garbled.
 Visualizing lattice graph
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note:: 
+.. note::
 
   You need Graphviz to use this functionality. Please install Graphviz from `here <https://graphviz.gitlab.io/download/>`_.
 
 
 If given ``-g`` option, janome command outputs the visualized lattice image to the current directory after analyzing the text. Default output format is PNG.
 
-:: 
+::
 
     $ echo "カレーは飲み物" | janome -g
     カレー	名詞,一般,*,*,*,*,カレー,カレー,カレー
@@ -390,7 +390,7 @@ lattice.gv.png (Click to show the full size image.)
 
 You can change the output file location by using ``--gv-out`` option. Also you can specify the output file format by ``--gv-format`` option. See `Graphviz documentation <https://graphviz.gitlab.io/_pages/doc/info/output.html>`_ for all supported output formats.
 
-:: 
+::
 
     $ echo "カレーは飲み物" | janome -g --gv-out /tmp/a.gv --gv-format svg
     ...
@@ -411,21 +411,21 @@ You can create (and distribute) stand-alone executables which bundle janome by `
     (venv) $ pyinstaller -v
     3.4
 
-    (venv) $ cat test.py 
+    (venv) $ cat test.py
     # -*- utf-8
     from janome.tokenizer import Tokenizer
     t = Tokenizer(mmap=False)
         for token in t.tokenize('令和元年'):
         print(token)
 
-    (venv) $ pyinstaller --onefile test.py 
+    (venv) $ pyinstaller --onefile test.py
     44 INFO: PyInstaller: 3.4
     44 INFO: Python: 3.6.6
     ...
 
     (venv) $ ls dist/
     test
-    (venv) $ ./dist/test 
+    (venv) $ ./dist/test
     令和	名詞,固有名詞,一般,*,*,*,令和,レイワ,レイワ
     元年	名詞,一般,*,*,*,*,元年,ガンネン,ガンネン
 
@@ -456,7 +456,7 @@ See `https://github.com/mocobeta/janome/blob/master/CONTRIBUTING.md <https://git
 Author
 ---------
 
-`Profile <https://github.com/mocobeta/mocobeta/blob/main/profile.md>`_
+`Profile <https://blog.mocobeta.dev/about/>`_
 
 License
 ------------
@@ -469,7 +469,7 @@ See `LICENSE.txt <https://github.com/mocobeta/janome/blob/master/LICENSE.txt>`_ 
 Copyright
 -----------
 
-Copyright(C) 2015-2023, Tomoko Uchida. All rights reserved.
+Copyright(C) 2015-2025, Tomoko Uchida. All rights reserved.
 
 History
 ----------
@@ -486,7 +486,7 @@ History
 * 2017.08.06 janome Version 0.3.5 released
 * 2017.07.29 janome Version 0.3.4 released
 * 2017.07.23 janome Version 0.3.3 released
-* 2017.07.05 janome Version 0.3.2 released 
+* 2017.07.05 janome Version 0.3.2 released
 * 2017.07.02 janome Version 0.3.1 released
 * 2017.06.30 janome Version 0.3.0 released
 * 2016.05.07 janome Version 0.2.8 released
